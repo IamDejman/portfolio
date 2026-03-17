@@ -21,7 +21,7 @@ export const navLinks = [
 ];
 
 export const stats = [
-  { value: "3+", label: "Years in Product" },
+  { value: "3.5+", label: "Years in Product" },
   { value: "8+", label: "Products Shipped" },
   { value: "5+", label: "Industries" },
   { value: "3", label: "Countries Worked Across" },

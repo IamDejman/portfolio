@@ -29,10 +29,10 @@ export const stats = [
 
 export const currentRoles = [
   { title: "Product Lead, Strategy & Operations", org: "Skilladder AI" },
+  { title: "Product Manager", org: "Tellerpoint" },
 ];
 
 export const pastRoles = [
-  { title: "Product Manager", org: "Tellerpoint", period: "May 2024 – Aug 2025" },
   { title: "Product Manager", org: "Devlabs Africa Limited", period: "May 2024 – May 2025" },
   { title: "Product Manager", org: "Switch Recycling", period: "Sep 2022 – May 2024" },
   { title: "Associate Product Manager", org: "Treford", period: "May 2022 – Jul 2022" },

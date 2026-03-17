@@ -1,10 +1,12 @@
 export const siteConfig = {
   name: "Ayodeji",
-  title: "Ayodeji — Product Lead & Product Manager",
+  fullName: "Ayodeji Eluwande",
+  title: "Ayodeji Eluwande — Product Lead & Product Manager",
   description:
-    "Product manager with 3.5+ years building fintech, EdTech, and SaaS platforms across Africa. Based in Berlin.",
+    "Product Manager with experience in product strategy and user experiences across startups and companies. Based in Berlin, Germany.",
   url: "https://ayodeji.dev",
-  email: "hello@ayodeji.dev",
+  email: "ayodejieluwande@gmail.com",
+  phone: "+2348089932753",
   linkedin: "https://linkedin.com/in/ayodeji",
   twitter: "https://twitter.com/ayodeji",
   github: "https://github.com/ayodeji",
@@ -19,112 +21,131 @@ export const navLinks = [
 ];
 
 export const stats = [
-  { value: "3.5+", label: "Years in Product" },
-  { value: "6+", label: "Products Shipped" },
-  { value: "100+", label: "Assessments Built" },
-  { value: "4", label: "Industries" },
+  { value: "3+", label: "Years in Product" },
+  { value: "8+", label: "Products Shipped" },
+  { value: "5+", label: "Industries" },
+  { value: "3", label: "Countries Worked Across" },
 ];
 
 export const currentRoles = [
-  { title: "Product Lead", org: "Skilladder AI" },
-  { title: "Product Manager", org: "Tellerpoint (Branchless Innovation Limited)" },
-  { title: "Advisory HOD", org: "Harvesters Global" },
+  { title: "Product Lead, Strategy & Operations", org: "Skilladder AI" },
+];
+
+export const pastRoles = [
+  { title: "Product Manager", org: "Tellerpoint", period: "May 2024 – Aug 2025" },
+  { title: "Product Manager", org: "Devlabs Africa Limited", period: "May 2024 – May 2025" },
+  { title: "Product Manager", org: "Switch Recycling", period: "Sep 2022 – May 2024" },
+  { title: "Associate Product Manager", org: "Treford", period: "May 2022 – Jul 2022" },
 ];
 
 export const projects = [
   {
-    title: "UnionDirect Agency Banking Platform",
-    client: "Union Bank of Nigeria",
-    role: "Lead Product Manager",
-    description:
-      "End-to-end agency banking platform enabling branchless financial services. Led architecture design, VAPT security remediation across 16+ findings, PCI DSS compliance, and Azure cloud deployment strategy.",
-    tags: ["Fintech", "Agency Banking", "Security", "Azure"],
-    highlight: "16+ security findings remediated",
-  },
-  {
     title: "Skilladder AI",
-    client: "Skilladder Ltd",
-    role: "Product Lead",
+    client: "Skilladder AI",
+    role: "Product Lead, Strategy & Operations",
     description:
-      "Multi-tenant AI-powered skills assessment platform targeting African talent markets. Built 100+ assessment questions across 6+ roles, migrated from Google Sheets to PostgreSQL/Prisma, and developed employer dashboards.",
-    tags: ["EdTech", "AI", "Assessment", "Next.js"],
-    highlight: "100+ assessment questions, 6+ roles",
+      "Building the future of skills-based hiring across Africa through AI-powered talent workflows and verified skills assessments. Leads product strategy from planning to retrospective, leveraging AI tools including Cursor and Claude Code for product demos, validation and stakeholder alignment.",
+    tags: ["EdTech", "AI", "Assessment", "Hiring"],
+    highlight: "AI-powered talent workflows",
   },
   {
-    title: "MoMo PSB Agency Banking",
-    client: "MoMo Payment Service Bank",
+    title: "Tellerpoint Collections & Mini",
+    client: "Tellerpoint",
     role: "Product Manager",
     description:
-      "Negotiated and scoped a 5-use-case proof-of-concept for agent network deployment. Managed NDA negotiations and produced full implementation plans with commercial protections.",
-    tags: ["Fintech", "PSB", "Agent Networks", "Strategy"],
-    highlight: "5 use cases, full POC delivery",
+      "Led product strategy and development lifecycle of Collection's Mobile and Web App, plus the Tellerpoint Mini. Conducted extensive user interviews that improved product features and implemented agile practices through weekly syncs and scrum rituals.",
+    tags: ["Fintech", "Agency Banking", "Mobile", "Agile"],
+    highlight: "End-to-end product lifecycle",
   },
   {
-    title: "3MTT Programme Integration",
-    client: "Skilladder / Federal Govt",
-    role: "Technical Product Lead",
-    description:
-      "Processed large participant datasets for Nigeria's Three Million Technical Talent programme. Built pathway diagnostic assessments and structured data pipelines for talent classification.",
-    tags: ["GovTech", "Data", "Talent", "Scale"],
-    highlight: "Large-scale talent classification",
-  },
-  {
-    title: "TaxNG",
-    client: "Internal Product",
+    title: "Carbin Africa",
+    client: "Devlabs Africa",
     role: "Product Manager",
     description:
-      "Nigerian tax compliance platform simplifying FIRS and state tax obligations for individuals and SMEs. Designed workflows for tax computation, filing reminders, and compliance tracking.",
-    tags: ["RegTech", "Tax", "Compliance", "Nigeria"],
-    highlight: "End-to-end tax compliance",
+      "Drove product strategy and roadmap for Carbin Africa, an automotive marketplace platform. Optimised dealer inventory management and increased platform adoption, helping achieve #1 on Tech Cabal's \"25 Startups to Watch in 2025\".",
+    tags: ["Automotive", "Marketplace", "Strategy", "Growth"],
+    highlight: "#1 on Tech Cabal's 25 to Watch",
   },
   {
-    title: "Relayboxx",
-    client: "Internal Product",
+    title: "GPS Delivery Platform",
+    client: "Devlabs Africa",
     role: "Product Manager",
     description:
-      "IoT payment confirmation device for Nigerian merchants — an audible, visual confirmation box that eliminates fake transfer screenshots and speeds up point-of-sale verification.",
-    tags: ["IoT", "Payments", "Hardware", "Merchants"],
-    highlight: "Hardware + software integration",
+      "Delivered GPS's integrated delivery ecosystem through real-time tracking and automated dispatch features, creating a seamless logistics experience.",
+    tags: ["Logistics", "Delivery", "Real-time", "Automation"],
+    highlight: "Real-time tracking & dispatch",
+  },
+  {
+    title: "Switch Recycling",
+    client: "Switch Recycling",
+    role: "Product Manager",
+    description:
+      "Boosted user engagement by 15% through UX enhancements to the Request feature. Partnered with cross-functional teams to deliver a waste management app through analysed user data and market trends. Created training materials that improved adoption and reduced support queries.",
+    tags: ["WasteTech", "Mobile App", "UX", "Fintech"],
+    highlight: "15% user engagement boost",
+  },
+  {
+    title: "BetaCare",
+    client: "Treford",
+    role: "Associate Product Manager",
+    description:
+      "Pitched and developed BetaCare, an electronic health record product selected as the top solution for its scalability and viability in reducing administrative overhead for healthcare providers. Developed comprehensive product strategy including user personas, business models, and product roadmap.",
+    tags: ["HealthTech", "EHR", "Strategy", "Prototyping"],
+    highlight: "Selected as top solution",
   },
 ];
 
 export const skills = {
   "Product Management": [
     "Product Strategy & Roadmapping",
-    "PRD & Spec Writing",
-    "Sprint Planning & Agile",
+    "Product Vision & Planning",
+    "Agile Methodologies",
     "Stakeholder Management",
-    "User Research & Discovery",
-    "Go-to-Market Strategy",
+    "UX Research & Discovery",
+    "Product Lifecycle Management",
   ],
   Technical: [
-    "SQL & Database Design",
-    "Next.js / React",
-    "PostgreSQL / Prisma",
-    "API Design",
-    "Azure Cloud",
-    "Prototyping (Replit)",
+    "API Testing",
+    "Data-driven Decision Making",
+    "AI Tools & Demo Development",
+    "Automation & Operations",
+    "Prototyping (Cursor, Replit)",
+    "Cross-functional Collaboration",
   ],
   Domain: [
-    "Agency Banking & Fintech",
-    "Payment Systems (POS/USSD)",
+    "Fintech & Agency Banking",
     "EdTech & Assessments",
-    "PCI DSS / VAPT Compliance",
-    "Nigerian Regulatory Landscape",
-    "Multi-tenant SaaS",
+    "Waste Management & CleanTech",
+    "HealthTech",
+    "Logistics & Delivery",
+    "Automotive Marketplaces",
   ],
   Commercial: [
-    "SLA & Contract Drafting",
-    "NDA Negotiations",
-    "Proposal Writing",
+    "Prioritisation",
+    "Project Management",
+    "Go-to-Market Strategy",
     "Client Engagement",
-    "Pricing Strategy",
-    "Vendor Management",
+    "Training & Enablement",
+    "Content Strategy",
   ],
 };
 
+export const certifications = [
+  { name: "Product Academy Series 2023", org: "McKinsey Academy", year: "2023" },
+  { name: "Product Led Growth Micro-Certification (PLGC)", org: "Product School", year: "2022" },
+  { name: "Product Management Certification", org: "Treford", year: "2022" },
+  { name: "Technical Product Management Certification", org: "LinkedIn Learning", year: "2022" },
+  { name: "Building a Product Roadmap Certification", org: "LinkedIn Learning", year: "2022" },
+];
+
+export const education = {
+  degree: "Bachelor of Laws",
+  school: "Lagos State University",
+  period: "Dec 2013 – Sep 2018",
+};
+
 export const howIWork =
-  "I use AI tools pragmatically in daily work — not as a replacement for thinking, but as an accelerator for execution. I prototype in Replit, query data in SQL, draft contracts by hand, and lead sprints in Jira. I'm the PM who can sit with engineers and also hold the room with execs.";
+  "I use AI tools pragmatically in daily work — not as a replacement for thinking, but as an accelerator for execution. I build product demos with Cursor and Claude Code, run sprints in Jira, conduct user research, and lead cross-functional teams. I'm the PM who can sit with engineers and also hold the room with execs.";
 
 export const blogPosts = [
   {
@@ -156,7 +177,7 @@ export const blogPosts = [
 export const openTo = [
   "Full-time PM roles (Berlin / remote)",
   "Consulting & fractional PM engagements",
-  "Agency banking & fintech partnerships",
+  "Fintech & agency banking partnerships",
   "EdTech / assessment collaborations",
   "Speaking & mentoring",
 ];

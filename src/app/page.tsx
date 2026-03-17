@@ -22,9 +22,9 @@ export default function Home() {
 
         <ScrollReveal delay={200}>
           <p className="mt-8 text-muted text-base md:text-lg max-w-2xl leading-relaxed">
-            Product manager with 3.5+ years building fintech, EdTech, and SaaS
-            platforms across Africa. Based in Berlin, I take complex, high-stakes
-            problems and turn them into shipped products.
+            Product Manager with experience in product strategy and user
+            experiences across startups and companies. Based in Berlin, I take
+            complex problems and turn them into shipped products.
           </p>
         </ScrollReveal>
 
@@ -63,13 +63,12 @@ export default function Home() {
         <ScrollReveal>
           <p className="section-label mb-4">About</p>
           <h2 className="font-serif text-3xl md:text-4xl leading-tight max-w-3xl">
-            The PM who also writes the SQL, drafts the SLA, and ships the
-            sprint.
+            Product strategy meets execution — that&apos;s where I operate.
           </h2>
           <p className="mt-6 text-muted max-w-2xl">
-            I work across fintech, EdTech, and enterprise SaaS, leading products
-            from zero-to-one and scaling them through messy, real-world
-            constraints.
+            Skilled in product lifecycle management, research, agile
+            methodologies, and cross-functional collaboration across fintech,
+            EdTech, logistics, and more.
           </p>
           <Link
             href="/about"

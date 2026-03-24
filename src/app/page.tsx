@@ -9,22 +9,22 @@ export default function Home() {
       <section className="pt-32 md:pt-44 pb-20">
         <ScrollReveal>
           <p className="section-label mb-6">
-            Product Lead &amp; Product Manager — Berlin, Germany
+            Product Manager &amp; Builder — Berlin, Germany
           </p>
         </ScrollReveal>
 
         <ScrollReveal delay={100}>
           <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl leading-[1.05] tracking-tight max-w-4xl">
-            I translate chaos into{" "}
-            <span className="italic">structure.</span>
+            I manage products.{" "}
+            <span className="italic">I build them too.</span>
           </h1>
         </ScrollReveal>
 
         <ScrollReveal delay={200}>
           <p className="mt-8 text-muted text-base md:text-lg max-w-2xl leading-relaxed">
-            Product Manager with experience in product strategy and user
-            experiences across startups and companies. Based in Berlin, I take
-            complex problems and turn them into shipped products.
+            Product manager with 5+ years shipping across fintech, EdTech, and
+            SaaS. I also build — I&apos;ve shipped production websites and platforms
+            using Next.js, React, and AI-assisted development. Based in Berlin.
           </p>
         </ScrollReveal>
 
@@ -63,12 +63,12 @@ export default function Home() {
         <ScrollReveal>
           <p className="section-label mb-4">About</p>
           <h2 className="font-serif text-3xl md:text-4xl leading-tight max-w-3xl">
-            Product strategy meets execution — that&apos;s where I operate.
+            The PM who writes the PRD <span className="italic">and</span> ships the code.
           </h2>
           <p className="mt-6 text-muted max-w-2xl">
-            Skilled in product lifecycle management, research, agile
-            methodologies, and cross-functional collaboration across fintech,
-            EdTech, logistics, and more.
+            5+ years managing products across fintech, EdTech, and SaaS — plus
+            hands-on engineering with Next.js, React, and AI-assisted development.
+            I bridge the gap between strategy and execution.
           </p>
           <Link
             href="/about"

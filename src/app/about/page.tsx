@@ -6,7 +6,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Product Manager based in Berlin with experience in product strategy across startups and companies in fintech, EdTech, and more.",
+    "Product Manager and builder based in Berlin. I manage products and build them too — shipping across fintech, EdTech, and SaaS.",
 };
 
 export default function AboutPage() {
@@ -14,7 +14,7 @@ export default function AboutPage() {
     <div className="max-w-[1120px] mx-auto px-6 pb-20">
       <PageHeader
         label="About"
-        heading="Product strategy meets execution — that's where I operate."
+        heading="The PM who writes the PRD and ships the code."
       />
 
       <div className="mt-16 grid grid-cols-1 md:grid-cols-[1fr_0.6fr] gap-16">
@@ -22,30 +22,29 @@ export default function AboutPage() {
         <ScrollReveal>
           <div className="space-y-6 text-[15px] leading-relaxed">
             <p>
-              I&apos;m Ayodeji Eluwande — a Product Manager based in Berlin,
-              Germany with roots in Lagos, Nigeria. I have experience in product
-              strategy and user experiences across startups and companies, with a
-              proven track record of delivering measurable results.
+              I&apos;m Ayodeji Eluwande — a product manager and builder based in
+              Berlin, Germany with roots in Lagos, Nigeria. I have 5+ years of
+              experience shipping products across fintech, EdTech, and SaaS, with
+              a proven track record of delivering measurable results.
             </p>
             <p>
-              I&apos;m skilled in product lifecycle management, research, agile
-              methodologies, automation tools and cross-functional collaboration.
-              I&apos;ve shipped products across fintech, EdTech, waste
-              management, logistics, automotive, and healthtech — always focused
-              on turning user needs into working software.
+              What sets me apart: I don&apos;t just manage products — I build
+              them. I&apos;ve shipped production websites and platforms using
+              Next.js, React, Tailwind CSS, and PostgreSQL, leveraging AI tools
+              like Cursor and Claude Code as force multipliers. I write PRDs and
+              push code in the same week.
             </p>
             <p>
-              Currently, I&apos;m Product Lead at Skilladder AI, building the
-              future of skills-based hiring across Africa through AI-powered
-              talent workflows and verified skills assessments. Previously,
-              I&apos;ve led products at Tellerpoint, Devlabs Africa, and Switch
-              Recycling.
+              Currently, I&apos;m Product Lead at Skilladder AI, where I built
+              the assessment platform (assessments.skilladder.com) and lead
+              product strategy. I&apos;m also Product Manager at Tellerpoint,
+              shipping agency banking products for financial institutions.
             </p>
             <p>
-              I leverage AI tools pragmatically — including Cursor and Claude
-              Code — for product demos, validation, and stakeholder alignment.
-              Not as a replacement for thinking, but as an accelerator for
-              execution.
+              On the side, I&apos;ve built and shipped live platforms for clients
+              including vrenalaw.com, grwtee.com, and banyanclaims.com — plus
+              a church attendance system for my community at Harvesters
+              International Christian Centre.
             </p>
           </div>
         </ScrollReveal>

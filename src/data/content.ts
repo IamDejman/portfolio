@@ -1,9 +1,9 @@
 export const siteConfig = {
   name: "Ayodeji",
   fullName: "Ayodeji Eluwande",
-  title: "Ayodeji Eluwande — Product Lead & Product Manager",
+  title: "Ayodeji Eluwande — Product Manager & Builder",
   description:
-    "Product Manager with experience in product strategy and user experiences across startups and companies. Based in Berlin, Germany.",
+    "Product Manager and builder with 5+ years shipping products across fintech, EdTech, and SaaS. I manage products and build them too. Based in Berlin, Germany.",
   url: "https://ayodeji.dev",
   email: "ayodejieluwande@gmail.com",
   phone: "+2348089932753",
@@ -22,9 +22,9 @@ export const navLinks = [
 
 export const stats = [
   { value: "5+", label: "Years in Product" },
-  { value: "8+", label: "Products Shipped" },
+  { value: "8+", label: "Products Managed" },
+  { value: "6+", label: "Sites & Apps Built" },
   { value: "5+", label: "Industries" },
-  { value: "3", label: "Countries Worked Across" },
 ];
 
 export const currentRoles = [
@@ -95,6 +95,49 @@ export const projects = [
   },
 ];
 
+export const builtProjects = [
+  {
+    title: "Skilladder Assessment Platform",
+    url: "https://assessments.skilladder.com",
+    description:
+      "AI-powered skills assessment platform with a creator studio for building and managing assessments across 6+ roles. Multi-tenant architecture serving employers and candidates.",
+    tech: ["Next.js", "PostgreSQL", "Prisma", "AI", "Vercel"],
+    highlight: "100+ assessments, 6+ roles",
+  },
+  {
+    title: "Vrena Law",
+    url: "https://vrenalaw.com",
+    description:
+      "Professional legal services website for a Nigerian law firm. Modern design with animated sections, service showcases, and consultation booking interface.",
+    tech: ["Next.js", "Tailwind CSS", "Vercel"],
+    highlight: "Live client project",
+  },
+  {
+    title: "GRWTEE",
+    url: "https://grwtee.com",
+    description:
+      "Luxury personal styling service platform with booking functionality, service catalog, and portfolio gallery. Built with a refined, editorial aesthetic.",
+    tech: ["Next.js", "Tailwind CSS", "Vercel"],
+    highlight: "End-to-end styling platform",
+  },
+  {
+    title: "Banyan Claims",
+    url: "https://banyanclaims.com",
+    description:
+      "Claims management platform built for streamlined processing and client engagement.",
+    tech: ["Next.js", "Tailwind CSS", "Vercel"],
+    highlight: "Client platform",
+  },
+  {
+    title: "HICC Gbagada Attendance",
+    url: "https://attendance.hiccgbagada.com",
+    description:
+      "Church attendance tracking web application for Harvesters International Christian Centre, Gbagada. Digital check-in system replacing manual processes.",
+    tech: ["React", "JavaScript", "Web App"],
+    highlight: "Community tool in active use",
+  },
+];
+
 export const skills = {
   "Product Management": [
     "Product Strategy & Roadmapping",
@@ -104,13 +147,13 @@ export const skills = {
     "UX Research & Discovery",
     "Product Lifecycle Management",
   ],
-  Technical: [
-    "API Testing",
-    "Data-driven Decision Making",
-    "AI Tools & Demo Development",
-    "Automation & Operations",
-    "Prototyping (Cursor, Replit)",
-    "Cross-functional Collaboration",
+  "Building & Engineering": [
+    "Next.js / React",
+    "Tailwind CSS",
+    "PostgreSQL / Prisma",
+    "AI-Assisted Development (Cursor, Claude Code)",
+    "Vercel Deployment",
+    "Prompt Engineering & Prototyping",
   ],
   Domain: [
     "Fintech & Agency Banking",
@@ -121,12 +164,12 @@ export const skills = {
     "Automotive Marketplaces",
   ],
   Commercial: [
-    "Prioritisation",
-    "Project Management",
     "Go-to-Market Strategy",
     "Client Engagement",
+    "Project Management",
     "Training & Enablement",
-    "Content Strategy",
+    "Data-driven Decision Making",
+    "Prioritisation",
   ],
 };
 
@@ -145,7 +188,7 @@ export const education = {
 };
 
 export const howIWork =
-  "I use AI tools pragmatically in daily work — not as a replacement for thinking, but as an accelerator for execution. I build product demos with Cursor and Claude Code, run sprints in Jira, conduct user research, and lead cross-functional teams. I'm the PM who can sit with engineers and also hold the room with execs.";
+  "I don't just manage products — I build them. I've shipped production websites and platforms using Next.js, React, and Tailwind CSS, leveraging AI tools like Cursor and Claude Code as force multipliers. I write PRDs in the morning and push code in the afternoon. I run sprints in Jira, conduct user research, and lead cross-functional teams. I'm the PM who can sit with engineers, hold the room with execs, and ship the MVP myself if needed.";
 
 export const blogPosts = [
   {
@@ -175,7 +218,8 @@ export const blogPosts = [
 ];
 
 export const openTo = [
-  "Full-time PM roles (Berlin / remote)",
+  "Full-time PM or engineering roles (Berlin / remote)",
+  "Freelance web development projects",
   "Consulting & fractional PM engagements",
   "Fintech & agency banking partnerships",
   "EdTech / assessment collaborations",

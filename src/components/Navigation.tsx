@@ -61,7 +61,7 @@ export default function Navigation() {
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden flex flex-col gap-[5px] p-2"
+            className="md:hidden flex flex-col gap-[5px] p-3"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
           >

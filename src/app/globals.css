@@ -3,8 +3,8 @@
 @theme inline {
   --color-bg: #FAFAF8;
   --color-text: #1A1A18;
-  --color-muted: #888888;
-  --color-muted-light: #999999;
+  --color-muted: #6B6B6B;
+  --color-muted-light: #888888;
   --color-card: #F0F0EC;
   --color-border: #E8E8E4;
   --color-dark: #1A1A18;
@@ -74,4 +74,12 @@ body {
   height: 1.5px;
   background: var(--color-text);
   border-radius: 1px;
+}
+
+/* Focus styles for keyboard navigation (WCAG 2.4.7) */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 2px;
+  border-radius: 2px;
 }

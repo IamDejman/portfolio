@@ -50,9 +50,27 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: siteConfig.fullName,
+    url: siteConfig.url,
+    jobTitle: "Product Manager & Builder",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Berlin",
+      addressCountry: "DE",
+    },
+    sameAs: [siteConfig.linkedin, siteConfig.twitter, siteConfig.github],
+  };
+
   return (
     <html lang="en" className={`${dmSans.variable} ${instrumentSerif.variable}`}>
       <body className="antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <Navigation />
         <main className="min-h-screen">{children}</main>
         <Footer />

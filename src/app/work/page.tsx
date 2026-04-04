@@ -6,7 +6,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 export const metadata: Metadata = {
   title: "Work",
   description:
-    "Products I've managed and platforms I've built — fintech, EdTech, SaaS, and more.",
+    "Products I've managed and platforms I've built - fintech, EdTech, SaaS, and more.",
 };
 
 export default function WorkPage() {

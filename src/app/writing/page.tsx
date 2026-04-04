@@ -5,7 +5,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "Writing",
-  description: "Thinking out loud — articles on product, fintech, and building.",
+  description: "Thinking out loud - articles on product, fintech, and building.",
 };
 
 export default function WritingPage() {

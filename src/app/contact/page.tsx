@@ -4,7 +4,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Get in touch — open to PM roles, consulting, and partnerships.",
+  description: "Get in touch - open to PM roles, consulting, and partnerships.",
 };
 
 export default function ContactPage() {
@@ -24,7 +24,7 @@ export default function ContactPage() {
             </h1>
             <p className="mt-6 text-muted text-[15px] leading-relaxed max-w-lg">
               Whether you need a product manager for your solution or product
-              or just want to talk shop — I&apos;m always open to good conversations.
+              or just want to talk shop - I&apos;m always open to good conversations.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <a

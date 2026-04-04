@@ -9,7 +9,7 @@ export default function Home() {
       <section className="pt-32 md:pt-44 pb-20">
         <ScrollReveal>
           <p className="section-label mb-6">
-            Product Manager &amp; Builder — Berlin, Germany
+            Product Manager &amp; Builder - Berlin, Germany
           </p>
         </ScrollReveal>
 
@@ -23,7 +23,7 @@ export default function Home() {
         <ScrollReveal delay={200}>
           <p className="mt-8 text-muted text-base md:text-lg max-w-2xl leading-relaxed">
             Product manager with 5+ years shipping across fintech, EdTech, and
-            SaaS. I also build — I&apos;ve shipped production websites and platforms
+            SaaS. I also build - I&apos;ve shipped production websites and platforms
             using Next.js, React, and AI-assisted development. Based in Berlin.
           </p>
         </ScrollReveal>
@@ -66,7 +66,7 @@ export default function Home() {
             The PM who writes the PRD <span className="italic">and</span> ships the code.
           </h2>
           <p className="mt-6 text-muted max-w-2xl">
-            5+ years managing products across fintech, EdTech, and SaaS — plus
+            5+ years managing products across fintech, EdTech, and SaaS - plus
             hands-on engineering with Next.js, React, and AI-assisted development.
             I bridge the gap between strategy and execution.
           </p>
@@ -87,7 +87,7 @@ export default function Home() {
           </h2>
           <p className="mt-4 text-muted max-w-xl">
             Whether you need a product manager for your solution or product or
-            just want to talk shop — I&apos;m always open to good conversations.
+            just want to talk shop - I&apos;m always open to good conversations.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <a

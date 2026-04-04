@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "Ayodeji",
   fullName: "Ayodeji Eluwande",
-  title: "Ayodeji Eluwande — Product Manager & Builder",
+  title: "Ayodeji Eluwande - Product Manager & Builder",
   description:
     "Product Manager and builder with 5+ years shipping products across fintech, EdTech, and SaaS. I manage products and build them too. Based in Berlin, Germany.",
   url: "https://ayodeji.dev",
@@ -188,14 +188,14 @@ export const education = {
 };
 
 export const howIWork =
-  "I don't just manage products — I build them. I've shipped production websites and platforms using Next.js, React, and Tailwind CSS, leveraging AI tools like Cursor and Claude Code as force multipliers. I write PRDs in the morning and push code in the afternoon. I run sprints in Linear, conduct user research, and lead cross-functional teams. I'm the PM who can sit with engineers, hold the room with execs, and ship the MVP myself if needed.";
+  "I don't just manage products - I build them. I've shipped production websites and platforms using Next.js, React, and Tailwind CSS, leveraging AI tools like Cursor and Claude Code as force multipliers. I write PRDs in the morning and push code in the afternoon. I run sprints in Linear, conduct user research, and lead cross-functional teams. I'm the PM who can sit with engineers, hold the room with execs, and ship the MVP myself if needed.";
 
 export const blogPosts = [
   {
     title: "Translating Chaos Into Structure",
     tag: "Product Thinking",
     excerpt:
-      "How I approach complex, high-stakes product situations — and why the first draft of clarity is always messy.",
+      "How I approach complex, high-stakes product situations - and why the first draft of clarity is always messy.",
     status: "Coming Soon",
     slug: "translating-chaos-into-structure",
   },
@@ -211,7 +211,7 @@ export const blogPosts = [
     title: "Why I Built an Assessment Engine from Scratch",
     tag: "Building",
     excerpt:
-      "The Skilladder story — from Google Sheets to a multi-tenant AI platform, and what I learned along the way.",
+      "The Skilladder story - from Google Sheets to a multi-tenant AI platform, and what I learned along the way.",
     status: "Coming Soon",
     slug: "assessment-engine-from-scratch",
   },

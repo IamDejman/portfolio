@@ -5,7 +5,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 export default function Home() {
   return (
     <div className="max-w-[1120px] mx-auto px-6">
-      {/* Hero */}
+      {/* Hero Section */}
       <section className="pt-32 md:pt-44 pb-20">
         <ScrollReveal>
           <p className="section-label mb-6">

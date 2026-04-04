@@ -86,7 +86,7 @@ export default function Home() {
             Let&apos;s build something together.
           </h2>
           <p className="mt-4 text-muted max-w-xl">
-            Whether you need a product manager for your next fintech build or
+            Whether you need a product manager for your solution or product or
             just want to talk shop — I&apos;m always open to good conversations.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">

@@ -37,9 +37,9 @@ export default function Navigation() {
         <div className="max-w-[1120px] mx-auto px-6 flex items-center justify-between h-16">
           <Link
             href="/"
-            className="font-serif text-xl tracking-tight text-text"
+            className="font-serif text-2xl tracking-tight text-text"
           >
-            {siteConfig.name}.
+            {siteConfig.fullName}
           </Link>
 
           {/* Desktop nav */}

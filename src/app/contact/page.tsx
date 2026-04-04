@@ -23,9 +23,8 @@ export default function ContactPage() {
               Let&apos;s build something together.
             </h1>
             <p className="mt-6 text-muted text-[15px] leading-relaxed max-w-lg">
-              Whether you need a product manager for your next fintech build,
-              want to partner on talent assessment, or just want to talk shop —
-              I&apos;m always open to good conversations.
+              Whether you need a product manager for your solution or product
+              or just want to talk shop — I&apos;m always open to good conversations.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <a
@@ -41,6 +40,13 @@ export default function ContactPage() {
                 className="inline-flex items-center px-6 py-3 rounded-full border border-text text-text text-sm font-medium hover:bg-text hover:text-white transition-colors"
               >
                 LinkedIn
+              </a>
+              <a
+                href={siteConfig.cv}
+                download
+                className="inline-flex items-center px-6 py-3 rounded-full border border-text text-text text-sm font-medium hover:bg-text hover:text-white transition-colors"
+              >
+                Download CV &darr;
               </a>
             </div>
           </div>

@@ -24,7 +24,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="text-sm text-muted hover:text-text transition-colors"
           >
-            Twitter
+            X
           </Link>
           <Link
             href={siteConfig.github}

@@ -7,16 +7,17 @@ export const siteConfig = {
   url: "https://ayodeji.dev",
   email: "ayodejieluwande@gmail.com",
   phone: "+2348089932753",
-  linkedin: "https://linkedin.com/in/ayodeji",
-  twitter: "https://twitter.com/ayodeji",
-  github: "https://github.com/ayodeji",
+  linkedin: "https://linkedin.com/in/ayodejieluwande",
+  twitter: "https://x.com/aeluwande",
+  github: "https://github.com/IamDejman",
+  cv: "/Ayodeji_Eluwande_CV.pdf",
 };
 
 export const navLinks = [
   { label: "About", href: "/about" },
   { label: "Work", href: "/work" },
   { label: "Skills", href: "/skills" },
-  { label: "Writing", href: "/writing" },
+  // { label: "Writing", href: "/writing" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -29,7 +30,6 @@ export const stats = [
 
 export const currentRoles = [
   { title: "Product Lead, Strategy & Operations", org: "Skilladder AI" },
-  { title: "Product Manager", org: "Tellerpoint" },
 ];
 
 export const pastRoles = [
@@ -98,10 +98,10 @@ export const projects = [
 export const builtProjects = [
   {
     title: "Skilladder Assessment Platform",
-    url: "https://assessments.skilladder.com",
+    url: "https://assessments.skilladder.ai",
     description:
       "AI-powered skills assessment platform with a creator studio for building and managing assessments across 6+ roles. Multi-tenant architecture serving employers and candidates.",
-    tech: ["Next.js", "PostgreSQL", "Prisma", "AI", "Vercel"],
+    tech: ["React", "Vite", "Tailwind CSS", "Supabase", "Railway"],
     highlight: "100+ assessments, 6+ roles",
   },
   {
@@ -188,7 +188,7 @@ export const education = {
 };
 
 export const howIWork =
-  "I don't just manage products — I build them. I've shipped production websites and platforms using Next.js, React, and Tailwind CSS, leveraging AI tools like Cursor and Claude Code as force multipliers. I write PRDs in the morning and push code in the afternoon. I run sprints in Jira, conduct user research, and lead cross-functional teams. I'm the PM who can sit with engineers, hold the room with execs, and ship the MVP myself if needed.";
+  "I don't just manage products — I build them. I've shipped production websites and platforms using Next.js, React, and Tailwind CSS, leveraging AI tools like Cursor and Claude Code as force multipliers. I write PRDs in the morning and push code in the afternoon. I run sprints in Linear, conduct user research, and lead cross-functional teams. I'm the PM who can sit with engineers, hold the room with execs, and ship the MVP myself if needed.";
 
 export const blogPosts = [
   {
@@ -218,10 +218,8 @@ export const blogPosts = [
 ];
 
 export const openTo = [
-  "Full-time PM or engineering roles (Berlin / remote)",
-  "Freelance web development projects",
+  "Full-time PM or prompt engineering roles",
+  "Freelance projects",
   "Consulting & fractional PM engagements",
-  "Fintech & agency banking partnerships",
-  "EdTech / assessment collaborations",
   "Speaking & mentoring",
 ];

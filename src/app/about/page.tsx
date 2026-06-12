@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { currentRoles, education, certifications } from "@/data/content";
 import PageHeader from "@/components/PageHeader";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -6,7 +7,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Product Manager and builder based in Berlin. I manage products and build them too - shipping across fintech, EdTech, and SaaS.",
+    "Product Manager and builder based in Berlin. I manage products and build them too - shipping across FinTech, HRTech, EdTech, and marketplace platforms.",
 };
 
 export default function AboutPage() {
@@ -22,29 +23,43 @@ export default function AboutPage() {
         <ScrollReveal>
           <div className="space-y-6 text-[15px] leading-relaxed">
             <p>
-              I&apos;m Ayodeji Eluwande - a product manager and builder based in
-              Berlin, Germany with roots in Lagos, Nigeria. I have 5+ years of
-              experience shipping products across fintech, EdTech, and SaaS, with
-              a proven track record of delivering measurable results.
+              I&apos;m Ayodeji Eluwande, a product manager who builds. Berlin is
+              home now, Lagos is where I&apos;m from. For the past five years
+              I&apos;ve shipped products in FinTech, HRTech, EdTech, and
+              marketplace platforms.
             </p>
             <p>
-              What sets me apart: I don&apos;t just manage products - I build
-              them. I&apos;ve shipped production websites and platforms using
-              Next.js, React, Tailwind CSS, and PostgreSQL, leveraging AI tools
-              like Cursor and Claude Code as force multipliers. I write PRDs and
-              push code in the same week.
+              My day job has always been the unglamorous middle of product
+              work. User interviews, roadmaps, sprint planning, and getting a
+              room of stakeholders to agree on what ships next. At Tellerpoint I
+              owned the full product role with no code involved, shipping
+              technology for financial institutions including UnionDirect, the
+              agency banking platform for Union Bank of Nigeria.
             </p>
             <p>
-              Currently, I&apos;m Product Lead at Skilladder AI, where I built
-              the <a href="https://assessments.skilladder.ai" target="_blank" rel="noopener noreferrer" className="underline hover:text-muted transition-colors">assessment platform</a> and lead
-              product strategy. I&apos;m also Product Manager at Tellerpoint,
-              shipping agency banking products for financial institutions.
+              What makes me unusual is that I also build. I&apos;ve shipped
+              production platforms with Next.js, React, Tailwind CSS, and
+              PostgreSQL, working alongside AI tools like Cursor, Claude Code,
+              Lovable, and Replit. The PRD and the pull request often land in
+              the same week, both written by me.
             </p>
             <p>
-              On the side, I&apos;ve built and shipped live platforms for clients
-              including <a href="https://vrenalaw.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-muted transition-colors">Vrena Law</a>, <a href="https://grwtee.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-muted transition-colors">GRWTEE</a>, and <a href="https://banyanclaims.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-muted transition-colors">Banyan Claims</a> - plus
-              a <a href="https://attendance.hiccgbagada.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-muted transition-colors">church attendance system</a> for my community at Harvesters
-              International Christian Centre.
+              Right now I lead product at Skilladder AI, where I own strategy
+              and OKRs across the product organisation. I built
+              the <a href="https://assessments.skilladder.ai" target="_blank" rel="noopener noreferrer" className="underline hover:text-muted transition-colors">assessment platform</a> from
+              zero and grew it to 6 recurring enterprise clients, serving a
+              national talent cohort of 85,000+ candidates along the way.
+            </p>
+            <p>
+              The building doesn&apos;t stop at work. I&apos;ve shipped 13 sites
+              and apps so far, from WhatsApp-native commerce tools for vehicle
+              paper renewals and electricity vending to a cohort-based LMS, a
+              logistics platform, and client sites
+              for <a href="https://vrenalaw.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-muted transition-colors">Vrena Law</a>, <a href="https://grwtee.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-muted transition-colors">GRWTEE</a>, and <a href="https://banyanclaims.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-muted transition-colors">Banyan Claims</a>.
+              My church community at Harvesters International Christian Centre
+              takes attendance
+              with <a href="https://attendance.hiccgbagada.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-muted transition-colors">a system I built</a>.
+              The full list lives on the <Link href="/work" className="underline hover:text-muted transition-colors">work page</Link>.
             </p>
           </div>
         </ScrollReveal>

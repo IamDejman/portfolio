@@ -3,22 +3,25 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { navLinks, siteConfig } from "@/data/content";
+import { navLinks } from "@/data/content";
+import Logo from "@/components/Logo";
 
 export default function Navigation() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const [prevPathname, setPrevPathname] = useState(pathname);
+
+  if (prevPathname !== pathname) {
+    setPrevPathname(pathname);
+    setMenuOpen(false);
+  }
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  useEffect(() => {
-    setMenuOpen(false);
-  }, [pathname]);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
@@ -35,12 +38,7 @@ export default function Navigation() {
         }`}
       >
         <div className="max-w-[1120px] mx-auto px-6 flex items-center justify-between h-16">
-          <Link
-            href="/"
-            className="font-serif text-2xl tracking-tight text-text"
-          >
-            {siteConfig.fullName}
-          </Link>
+          <Logo />
 
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-8">

@@ -1,4 +1,4 @@
-# Ayodeji — Portfolio
+# Ayodeji Portfolio
 
 Personal portfolio website built with Next.js 16, React 19, and Tailwind CSS 4.
 
@@ -43,4 +43,4 @@ Push to GitHub and connect to [Vercel](https://vercel.com). Zero config needed.
 
 ## Customization
 
-All content lives in `src/data/content.ts` — update your info there.
+All content lives in `src/data/content.ts`. Update your info there.

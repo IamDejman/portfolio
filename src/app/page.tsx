@@ -22,9 +22,10 @@ export default function Home() {
 
         <ScrollReveal delay={200}>
           <p className="mt-8 text-muted text-base md:text-lg max-w-2xl leading-relaxed">
-            Product manager with 5+ years shipping across fintech, EdTech, and
-            SaaS. I also build - I&apos;ve shipped production websites and platforms
-            using Next.js, React, and AI-assisted development. Based in Berlin.
+            Product manager with 5+ years in FinTech, HRTech, EdTech, and
+            marketplace platforms. I don&apos;t just spec products, I ship
+            them. Production platforms
+            built with Next.js, React, and AI tooling. Based in Berlin.
           </p>
         </ScrollReveal>
 
@@ -47,7 +48,7 @@ export default function Home() {
 
         {/* Stats */}
         <ScrollReveal delay={400}>
-          <div className="mt-16 pt-8 border-t border-border grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="mt-16 pt-8 border-t border-border grid grid-cols-2 md:grid-cols-3 gap-8">
             {stats.map((stat) => (
               <div key={stat.label}>
                 <p className="font-serif text-3xl md:text-4xl">{stat.value}</p>
@@ -66,7 +67,8 @@ export default function Home() {
             The PM who writes the PRD <span className="italic">and</span> ships the code.
           </h2>
           <p className="mt-6 text-muted max-w-2xl">
-            5+ years managing products across fintech, EdTech, and SaaS - plus
+            5+ years managing products across FinTech, HRTech, EdTech, and
+            marketplace platforms - plus
             hands-on engineering with Next.js, React, and AI-assisted development.
             I bridge the gap between strategy and execution.
           </p>

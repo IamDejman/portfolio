@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { projects, builtProjects } from "@/data/content";
 import PageHeader from "@/components/PageHeader";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -6,7 +7,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 export const metadata: Metadata = {
   title: "Work",
   description:
-    "Products I've managed and platforms I've built - fintech, EdTech, SaaS, and more.",
+    "Products I've managed and platforms I've built - FinTech, HRTech, EdTech, marketplaces, and more.",
 };
 
 export default function WorkPage() {
@@ -21,26 +22,25 @@ export default function WorkPage() {
       <ScrollReveal>
         <p className="mt-4 text-[15px] text-muted max-w-2xl leading-relaxed">
           Live websites and applications I&apos;ve built using Next.js, React, and
-          AI-assisted development tools like Cursor and Claude Code.
+          AI tools like Cursor, Claude Code, Lovable, and Replit.
         </p>
       </ScrollReveal>
 
       <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
-        {builtProjects.map((project, i) => (
-          <ScrollReveal key={project.title} delay={i * 80}>
-            <a
-              href={project.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group block bg-card rounded-2xl p-8 border border-border hover:border-text/20 transition-all duration-300"
-            >
+        {builtProjects.map((project, i) => {
+          const cardClass =
+            "group block bg-card rounded-2xl p-8 border border-border hover:border-text/20 transition-all duration-300";
+          const inner = (
+            <>
               <div className="flex items-start justify-between gap-4 mb-3">
                 <h2 className="font-serif text-xl md:text-2xl group-hover:text-muted transition-colors">
                   {project.title}
                 </h2>
-                <span className="shrink-0 text-xs opacity-0 group-hover:opacity-100 transition-opacity text-muted">
-                  Visit &rarr;
-                </span>
+                {project.url && (
+                  <span className="shrink-0 text-xs opacity-0 group-hover:opacity-100 transition-opacity text-muted">
+                    Visit &rarr;
+                  </span>
+                )}
               </div>
 
               <p className="text-[15px] text-muted leading-relaxed mb-4">
@@ -62,9 +62,26 @@ export default function WorkPage() {
                   {project.highlight}
                 </span>
               </div>
-            </a>
-          </ScrollReveal>
-        ))}
+            </>
+          );
+
+          return (
+            <ScrollReveal key={project.title} delay={i * 80}>
+              {project.url ? (
+                <a
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cardClass}
+                >
+                  {inner}
+                </a>
+              ) : (
+                <div className={cardClass}>{inner}</div>
+              )}
+            </ScrollReveal>
+          );
+        })}
       </div>
 
       {/* Product Management Work */}
@@ -110,6 +127,15 @@ export default function WorkPage() {
                     </span>
                   ))}
                 </div>
+
+                {project.caseStudy && (
+                  <Link
+                    href={`/work/${project.caseStudy}`}
+                    className="mt-5 inline-flex items-center text-sm font-medium underline hover:text-muted transition-colors"
+                  >
+                    Read the case study &rarr;
+                  </Link>
+                )}
               </article>
             </ScrollReveal>
           ))}

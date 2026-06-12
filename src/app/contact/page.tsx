@@ -42,6 +42,14 @@ export default function ContactPage() {
                 LinkedIn
               </a>
               <a
+                href={siteConfig.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-6 py-3 rounded-full border border-text text-text text-sm font-medium hover:bg-text hover:text-white transition-colors"
+              >
+                GitHub
+              </a>
+              <a
                 href={siteConfig.cv}
                 download
                 className="inline-flex items-center px-6 py-3 rounded-full border border-text text-text text-sm font-medium hover:bg-text hover:text-white transition-colors"

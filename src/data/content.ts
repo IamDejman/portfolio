@@ -3,8 +3,8 @@ export const siteConfig = {
   fullName: "Ayodeji Eluwande",
   title: "Ayodeji Eluwande - Product Manager & Builder",
   description:
-    "Product Manager and builder with 5+ years shipping products across fintech, EdTech, and SaaS. I manage products and build them too. Based in Berlin, Germany.",
-  url: "https://ayodeji.dev",
+    "Product Manager and builder with 5+ years shipping products across FinTech, HRTech, EdTech, and marketplace platforms. I manage products and build them too. Based in Berlin, Germany.",
+  url: "https://ayodejieluwande.vercel.app",
   email: "ayodejieluwande@gmail.com",
   phone: "+2348089932753",
   linkedin: "https://linkedin.com/in/ayodejieluwande",
@@ -14,6 +14,7 @@ export const siteConfig = {
 };
 
 export const navLinks = [
+  { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Work", href: "/work" },
   { label: "Skills", href: "/skills" },
@@ -23,9 +24,8 @@ export const navLinks = [
 
 export const stats = [
   { value: "5+", label: "Years in Product" },
-  { value: "8+", label: "Products Managed" },
-  { value: "6+", label: "Sites & Apps Built" },
-  { value: "5+", label: "Industries" },
+  { value: "8", label: "Products Managed" },
+  { value: "13", label: "Sites & Apps Built" },
 ];
 
 export const currentRoles = [
@@ -33,20 +33,32 @@ export const currentRoles = [
 ];
 
 export const pastRoles = [
+  { title: "Product Manager", org: "Tellerpoint", period: "May 2024 – Feb 2026" },
   { title: "Product Manager", org: "Devlabs Africa Limited", period: "May 2024 – May 2025" },
   { title: "Product Manager", org: "Switch Recycling", period: "Sep 2022 – May 2024" },
   { title: "Associate Product Manager", org: "Treford", period: "May 2022 – Jul 2022" },
 ];
 
-export const projects = [
+type Project = {
+  title: string;
+  client: string;
+  role: string;
+  description: string;
+  tags: string[];
+  highlight: string;
+  caseStudy?: string;
+};
+
+export const projects: Project[] = [
   {
     title: "Skilladder AI",
     client: "Skilladder AI",
     role: "Product Lead, Strategy & Operations",
     description:
-      "Building the future of skills-based hiring across Africa through AI-powered talent workflows and verified skills assessments. Leads product strategy from planning to retrospective, leveraging AI tools including Cursor and Claude Code for product demos, validation and stakeholder alignment.",
-    tags: ["EdTech", "AI", "Assessment", "Hiring"],
-    highlight: "AI-powered talent workflows",
+      "Building the future of skills-based hiring across Africa through AI-powered talent workflows and verified skills assessments. Took the assessment platform from prototype to primary product, cutting deployment time by 85%, while leading product strategy from planning to retrospective with AI tools including Cursor and Claude Code.",
+    tags: ["HRTech", "AI", "Assessment", "Hiring"],
+    highlight: "Cut deployment time by 85%",
+    caseStudy: "skilladder",
   },
   {
     title: "Tellerpoint Collections & Mini",
@@ -95,14 +107,79 @@ export const projects = [
   },
 ];
 
-export const builtProjects = [
+type BuiltProject = {
+  title: string;
+  url?: string;
+  description: string;
+  tech: string[];
+  highlight: string;
+};
+
+export const builtProjects: BuiltProject[] = [
   {
     title: "Skilladder Assessment Platform",
     url: "https://assessments.skilladder.ai",
     description:
-      "AI-powered skills assessment platform with a creator studio for building and managing assessments across 6+ roles. Multi-tenant architecture serving employers and candidates.",
-    tech: ["React", "Vite", "Tailwind CSS", "Supabase", "Railway"],
-    highlight: "100+ assessments, 6+ roles",
+      "Multi-tenant skills assessment platform with a creator studio, proctoring and anti-fraud telemetry, a job board, and employer talent matching. Built a durable email pipeline and a 60+ endpoint client API, deployed for a national talent cohort of 85,000+ candidates.",
+    tech: ["React", "Vite", "Supabase", "Railway"],
+    highlight: "85,000+ candidate cohort",
+  },
+  {
+    title: "Autopapers NG",
+    description:
+      "WhatsApp-native vehicle paper renewal. Drivers check document status by plate number, pay, and get renewals processed, with automated reminders and thermal-printer work orders for operators. Built on a shared WhatsApp Flow commerce engine.",
+    tech: ["Kotlin", "Spring Boot", "WhatsApp Flow API", "Paystack"],
+    highlight: "Live on WhatsApp",
+  },
+  {
+    title: "Vendflow",
+    description:
+      "WhatsApp-native electricity vending. Customers buy prepaid power and settle postpaid bills directly in chat through integrated bill-pay rails, with instant token delivery. Shares the WhatsApp Flow engine behind Autopapers.",
+    tech: ["Kotlin", "Spring Boot", "WhatsApp Flow API", "Paystack"],
+    highlight: "Live bill payments",
+  },
+  {
+    title: "Order Food (WhatsApp Flow)",
+    description:
+      "Conversational food ordering and table booking over WhatsApp. Menu browsing, item customization, checkout, and kitchen receipt printing, all inside a single WhatsApp Flow with a Next.js operator dashboard.",
+    tech: ["Kotlin", "Spring Boot", "Next.js", "WhatsApp Flow API"],
+    highlight: "Order & book in chat",
+  },
+  {
+    title: "CVERSE",
+    url: "https://demirti.com",
+    description:
+      "Cohort-based learning management platform with automated weekly content unlocking, assignment submission and grading, class recordings, and progress analytics for course delivery.",
+    tech: ["Next.js", "PostgreSQL", "Vercel"],
+    highlight: "Cohort-based LMS",
+  },
+  {
+    title: "Harvesters Workers System",
+    description:
+      "Church workforce administration platform with multi-tier role-based access, department and team management, bulk email campaigns with delivery tracking, attendance history, and Excel/CSV import-export.",
+    tech: ["React", "Supabase", "AWS Amplify"],
+    highlight: "Multi-role admin platform",
+  },
+  {
+    title: "Workers Meeting",
+    description:
+      "Offline-first PWA for tracking church meeting attendance in the field. Real-time entry by team, directorate-level summaries, and admin reporting, built to keep working without a connection.",
+    tech: ["React", "TypeScript", "Vite", "Supabase"],
+    highlight: "Offline-first PWA",
+  },
+  {
+    title: "Message Logistics",
+    description:
+      "Last-mile logistics platform coordinating deliveries across origin, recipient, and destination-hub stages with real-time routing and dispatch tracking.",
+    tech: ["React", "TypeScript", "Railway"],
+    highlight: "In beta testing",
+  },
+  {
+    title: "Free CV Review",
+    description:
+      "Tool that gives job seekers structured, automated feedback on their CVs, surfacing gaps and improvements to strengthen applications.",
+    tech: ["Next.js", "TypeScript", "AI"],
+    highlight: "In development",
   },
   {
     title: "Vrena Law",
@@ -138,6 +215,59 @@ export const builtProjects = [
   },
 ];
 
+export type CaseStudy = {
+  slug: string;
+  title: string;
+  org: string;
+  role: string;
+  period: string;
+  summary: string;
+  url?: string;
+  metrics: { value: string; label: string }[];
+  sections: { heading: string; paragraphs: string[] }[];
+};
+
+export const caseStudies: CaseStudy[] = [
+  {
+    slug: "skilladder",
+    title: "Skilladder Assessment Platform",
+    org: "Skilladder AI",
+    role: "Product Lead, Strategy & Operations",
+    period: "May 2025 – Present",
+    summary:
+      "From a spreadsheet workflow to a multi-tenant assessment platform serving a national talent cohort of 85,000+ candidates.",
+    url: "https://assessments.skilladder.ai",
+    metrics: [
+      { value: "85,000+", label: "Candidates assessed" },
+      { value: "6", label: "Recurring enterprise clients" },
+      { value: "85%", label: "Faster deployment" },
+      { value: "60+", label: "Client API endpoints" },
+    ],
+    sections: [
+      {
+        heading: "The starting point",
+        paragraphs: [
+          "Skilladder runs skills assessments for hiring across Africa. When I joined, the assessment workflow lived in spreadsheets and manual coordination. Every engagement needed hands-on setup, results took real effort to compile, and nothing about the process could absorb a national cohort.",
+        ],
+      },
+      {
+        heading: "What I built",
+        paragraphs: [
+          "A multi-tenant assessment platform with a creator studio for authoring assessments, AI scoring, proctoring with anti-fraud telemetry, and participant management. Around the core sit a job board, employer talent matching, a durable email pipeline, and a client API with more than 60 endpoints.",
+          "I owned the full lifecycle. Research, requirements, and design, then hands-on development with Cursor and Claude Code, followed by continuous iteration with clients in production.",
+        ],
+      },
+      {
+        heading: "The outcome",
+        paragraphs: [
+          "The platform became the company's primary product. Deployment time dropped by 85% against the prototype process, and the platform now serves 6 recurring enterprise clients. Its largest single engagement was a national talent programme that assessed a cohort of more than 85,000 candidates.",
+          "Beyond the product itself, I manage OKR setting across the product organisation, aligning a cross-functional team around measurable quarterly outcomes.",
+        ],
+      },
+    ],
+  },
+];
+
 export const skills = {
   "Product Management": [
     "Product Strategy & Roadmapping",
@@ -151,7 +281,7 @@ export const skills = {
     "Next.js / React",
     "Tailwind CSS",
     "PostgreSQL / Prisma",
-    "AI-Assisted Development (Cursor, Claude Code)",
+    "AI-Assisted Development (Cursor, Claude Code, Lovable, Replit)",
     "Vercel Deployment",
     "Prompt Engineering & Prototyping",
   ],
@@ -188,7 +318,7 @@ export const education = {
 };
 
 export const howIWork =
-  "I don't just manage products - I build them. I've shipped production websites and platforms using Next.js, React, and Tailwind CSS, leveraging AI tools like Cursor and Claude Code as force multipliers. I write PRDs in the morning and push code in the afternoon. I run sprints in Linear, conduct user research, and lead cross-functional teams. I'm the PM who can sit with engineers, hold the room with execs, and ship the MVP myself if needed.";
+  "My week splits between product work and building. I run sprints in Linear, conduct user research, and keep stakeholders aligned on what ships next. When something needs to exist quickly, I build it myself with Next.js, React, and Tailwind CSS, working alongside AI tools like Cursor, Claude Code, Lovable, and Replit. I'm the PM who can sit with engineers, hold the room with execs, and ship the MVP myself if needed.";
 
 export const blogPosts = [
   {

@@ -71,7 +71,11 @@ export const toolGroups = [
   },
   {
     label: "AI build",
-    tools: ["Cursor", "Claude Code", "Gemini", "Next.js", "Supabase", "Vercel"],
+    tools: ["Cursor", "Claude Code", "Codex", "Gemini"],
+  },
+  {
+    label: "Ship & run",
+    tools: ["Next.js", "Supabase", "Vercel", "Railway", "AWS"],
   },
 ];
 
@@ -111,6 +115,7 @@ export const projects: Project[] = [
       "Led product strategy and development lifecycle of Collection's Mobile and Web App, plus the Tellerpoint Mini. Conducted extensive user interviews that improved product features and implemented agile practices through weekly syncs and scrum rituals.",
     tags: ["Fintech", "Agency Banking", "Mobile", "Agile"],
     highlight: "End-to-end product lifecycle",
+    caseStudy: "tellerpoint",
   },
   {
     title: "Carbin Africa",
@@ -120,6 +125,7 @@ export const projects: Project[] = [
       "Drove product strategy and roadmap for Carbin Africa, an automotive marketplace platform. Optimised dealer inventory management and increased platform adoption, helping achieve #1 on Tech Cabal's \"25 Startups to Watch in 2025\".",
     tags: ["Automotive", "Marketplace", "Strategy", "Growth"],
     highlight: "#1 on Tech Cabal's 25 to Watch",
+    caseStudy: "carbin",
   },
   {
     title: "GPS Delivery Platform",
@@ -153,6 +159,8 @@ export const projects: Project[] = [
 type BuiltProject = {
   title: string;
   url?: string;
+  image?: string;
+  flagship?: boolean;
   description: string;
   tech: string[];
   highlight: string;
@@ -161,6 +169,8 @@ type BuiltProject = {
 export const builtProjects: BuiltProject[] = [
   {
     title: "Skilladder Assessment Platform",
+    image: "/work/skilladder.png",
+    flagship: true,
     url: "https://assessments.skilladder.ai",
     description:
       "Multi-tenant skills assessment platform with a creator studio, proctoring and anti-fraud telemetry, a job board, and employer talent matching. Built a durable email pipeline and a 60+ endpoint client API, deployed for a national talent cohort of 85,000+ candidates.",
@@ -183,6 +193,8 @@ export const builtProjects: BuiltProject[] = [
   },
   {
     title: "Orderflow",
+    image: "/work/orderflow.png",
+    flagship: true,
     url: "https://app.tryorderflow.com",
     description:
       "Conversational food ordering and table booking over WhatsApp. Menu browsing, item customization, checkout, and kitchen receipt printing, all inside a single WhatsApp Flow with a Next.js operator dashboard.",
@@ -191,6 +203,7 @@ export const builtProjects: BuiltProject[] = [
   },
   {
     title: "CVERSE",
+    image: "/work/cverse.png",
     url: "https://demirti.com",
     description:
       "Cohort-based learning management platform with automated weekly content unlocking, assignment submission and grading, class recordings, and progress analytics for course delivery.",
@@ -227,6 +240,7 @@ export const builtProjects: BuiltProject[] = [
   },
   {
     title: "Vrena Law",
+    image: "/work/vrena-law.png",
     url: "https://vrenalaw.com",
     description:
       "Professional legal services website for a Nigerian law firm. Modern design with animated sections, service showcases, and consultation booking interface.",
@@ -235,6 +249,8 @@ export const builtProjects: BuiltProject[] = [
   },
   {
     title: "GRWTEE",
+    image: "/work/grwtee.png",
+    flagship: true,
     url: "https://grwtee.com",
     description:
       "Luxury personal styling service platform with booking functionality, service catalog, and portfolio gallery. Built with a refined, editorial aesthetic.",
@@ -243,6 +259,7 @@ export const builtProjects: BuiltProject[] = [
   },
   {
     title: "Banyan Claims",
+    image: "/work/banyan-claims.png",
     url: "https://banyanclaims.com",
     description:
       "Claims management platform built for streamlined processing and client engagement.",
@@ -251,6 +268,7 @@ export const builtProjects: BuiltProject[] = [
   },
   {
     title: "HICC Gbagada Attendance",
+    image: "/work/hicc-attendance.png",
     url: "https://attendance.hiccgbagada.com",
     description:
       "Church attendance tracking web application for Harvesters International Christian Centre, Gbagada. Digital check-in system replacing manual processes.",
@@ -306,6 +324,72 @@ export const caseStudies: CaseStudy[] = [
         paragraphs: [
           "The platform became the company's primary product. Deployment time dropped by 85% against the prototype process, and the platform now serves 6 recurring enterprise clients. Its largest single engagement was a national talent programme that assessed a cohort of more than 85,000 candidates.",
           "Beyond the product itself, I manage OKR setting across the product organisation, aligning a cross-functional team around measurable quarterly outcomes.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "carbin",
+    title: "Carbin Africa",
+    org: "Devlabs Africa",
+    role: "Product Manager",
+    period: "May 2024 – May 2025",
+    summary:
+      "Product strategy and roadmap for an automotive marketplace, from dealer inventory pain to #1 on Tech Cabal's 25 Startups to Watch in 2025.",
+    metrics: [
+      { value: "#1", label: "Tech Cabal's 25 Startups to Watch 2025" },
+      { value: "2-sided", label: "Dealer and buyer marketplace" },
+    ],
+    sections: [
+      {
+        heading: "The starting point",
+        paragraphs: [
+          "Carbin Africa is an automotive marketplace connecting car dealers with buyers. The core problem was supply-side: dealer inventory was fragmented and stale, which eroded buyer trust and repeat usage. As the consultancy PM, I owned product strategy and the roadmap.",
+        ],
+      },
+      {
+        heading: "Key decisions",
+        paragraphs: [
+          "We prioritised dealer inventory management before demand-side growth: a marketplace with unreliable listings loses both sides. I drove the inventory workflow redesign so dealers could keep listings accurate with minimal effort, and sequenced adoption work around that foundation.",
+        ],
+      },
+      {
+        heading: "The outcome",
+        paragraphs: [
+          "Platform adoption grew on both sides of the marketplace, and Carbin Africa was named #1 on Tech Cabal's 25 Startups to Watch in 2025.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "tellerpoint",
+    title: "Tellerpoint Collections & Mini",
+    org: "Tellerpoint",
+    role: "Product Manager",
+    period: "May 2024 – Feb 2026",
+    summary:
+      "Full product lifecycle for agency banking tools that let financial institutions serve underserved communities.",
+    metrics: [
+      { value: "2", label: "Products shipped end to end" },
+      { value: "Weekly", label: "Sprint and research cadence" },
+    ],
+    sections: [
+      {
+        heading: "The starting point",
+        paragraphs: [
+          "Tellerpoint is an agency banking platform: it gives financial institutions the rails to deliver services in communities banks do not reach. I owned the Collections Mobile and Web Apps and later delivered Tellerpoint Mini end to end.",
+        ],
+      },
+      {
+        heading: "How I worked",
+        paragraphs: [
+          "I ran the full lifecycle: strategy, roadmap, and delivery through agile sprints with weekly syncs. Extensive user interviews with agents and institutions fed directly into prioritised feature work, and cross-functional coordination kept engineering, operations, and partner institutions aligned.",
+        ],
+      },
+      {
+        heading: "The outcome",
+        paragraphs: [
+          "Collections shipped as both mobile and web apps, Tellerpoint Mini went from concept to delivery under my ownership, and the interview-driven roadmap measurably improved feature adoption across the agent network.",
         ],
       },
     ],

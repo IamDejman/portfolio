@@ -212,6 +212,8 @@ export const builtProjects: BuiltProject[] = [
   },
   {
     title: "Harvesters Workers System",
+    url: "https://attendance.hiccgbagada.com",
+    image: "/work/hicc-attendance.png",
     description:
       "Church workforce administration platform with multi-tier role-based access, department and team management, bulk email campaigns with delivery tracking, attendance history, and Excel/CSV import-export.",
     tech: ["React", "Supabase", "AWS Amplify"],
@@ -268,8 +270,6 @@ export const builtProjects: BuiltProject[] = [
   },
   {
     title: "HICC Gbagada Attendance",
-    image: "/work/hicc-attendance.png",
-    url: "https://attendance.hiccgbagada.com",
     description:
       "Church attendance tracking web application for Harvesters International Christian Centre, Gbagada. Digital check-in system replacing manual processes.",
     tech: ["React", "JavaScript", "Web App"],

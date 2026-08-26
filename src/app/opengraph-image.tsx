@@ -1,12 +1,12 @@
 import { ImageResponse } from "next/og";
 import { siteConfig } from "@/data/content";
 
-export const alt = "Ayodeji Eluwande, Product Manager & Builder";
+export const alt = "Ayodeji Eluwande, AI Product Manager";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 const TEXT =
-  "AEAyodeji Eluwande I manage products. I build them too. Product Manager & Builder · Berlin, Germany ayodejieluwande.vercel.app";
+  "AEAyodeji Eluwande I write the PRD. I ship the code. AI Product Manager · Berlin, Germany ayodejieluwande.vercel.app";
 
 async function loadInstrumentSerif() {
   const css = await (
@@ -57,7 +57,7 @@ export default async function Image() {
               marginTop: 16,
             }}
           >
-            I manage products. I build them too.
+            I write the PRD. I ship the code.
           </div>
         </div>
 
@@ -73,7 +73,7 @@ export default async function Image() {
           }}
         >
           <div style={{ display: "flex" }}>
-            Product Manager &amp; Builder · Berlin, Germany
+            AI Product Manager · Berlin, Germany
           </div>
           <div style={{ display: "flex" }}>
             {siteConfig.url.replace("https://", "")}

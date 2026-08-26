@@ -41,15 +41,15 @@ export default function Navigation() {
           <Logo />
 
           {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-1 rounded-full border border-border bg-card/70 backdrop-blur-md p-1.5">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`nav-link text-sm transition-colors hover:text-text ${
+                className={`rounded-full px-4 py-1.5 text-sm transition-colors ${
                   pathname === link.href
-                    ? "active text-text"
-                    : "text-muted"
+                    ? "bg-dark text-bg"
+                    : "text-muted hover:text-text"
                 }`}
               >
                 {link.label}

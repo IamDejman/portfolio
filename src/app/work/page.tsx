@@ -29,7 +29,7 @@ export default function WorkPage() {
       <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
         {builtProjects.map((project, i) => {
           const cardClass =
-            "group block bg-card rounded-2xl p-8 border border-border hover:border-text/20 transition-all duration-300";
+            "card-lift group block bg-card rounded-2xl p-8 border border-border";
           const inner = (
             <>
               <div className="flex items-start justify-between gap-4 mb-3">
@@ -52,13 +52,13 @@ export default function WorkPage() {
                   {project.tech.map((t) => (
                     <span
                       key={t}
-                      className="text-[11px] font-medium text-muted bg-bg px-2 py-0.5 rounded-full"
+                      className="meta text-[11px] text-muted bg-bg px-2 py-0.5 rounded-full border border-border"
                     >
                       {t}
                     </span>
                   ))}
                 </div>
-                <span className="text-[11px] font-medium text-text bg-bg px-2.5 py-1 rounded-full border border-border">
+                <span className="meta text-[11px] text-accent bg-accent-soft px-2.5 py-1 rounded-full border border-accent/30">
                   {project.highlight}
                 </span>
               </div>
@@ -108,7 +108,7 @@ export default function WorkPage() {
                       {project.client} · {project.role}
                     </p>
                   </div>
-                  <span className="shrink-0 text-xs font-medium bg-card text-text px-3 py-1.5 rounded-full border border-border">
+                  <span className="meta shrink-0 text-xs bg-card text-text px-3 py-1.5 rounded-full border border-border">
                     {project.highlight}
                   </span>
                 </div>
@@ -121,7 +121,7 @@ export default function WorkPage() {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-xs text-muted px-2.5 py-1 rounded-full border border-border"
+                      className="meta text-xs text-muted px-2.5 py-1 rounded-full border border-border"
                     >
                       {tag}
                     </span>

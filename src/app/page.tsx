@@ -12,8 +12,8 @@ export default function Home() {
             <p className="section-label">
               AI Product Manager - Berlin, Germany
             </p>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1 text-[11px] uppercase tracking-[0.15em] text-muted">
-              <span className="h-1.5 w-1.5 rounded-full bg-green-700" aria-hidden />
+            <span className="meta inline-flex items-center gap-1.5 rounded-full border border-accent/40 bg-accent-soft px-3 py-1 text-[11px] uppercase tracking-[0.15em] text-accent">
+              <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden />
               {siteConfig.availability}
             </span>
           </div>
@@ -45,7 +45,7 @@ export default function Home() {
                 {group.tools.map((tool) => (
                   <span
                     key={tool}
-                    className="rounded-full border border-border bg-card px-3 py-1 text-xs text-text"
+                    className="meta rounded-full border border-border bg-card px-3 py-1 text-text"
                   >
                     {tool}
                   </span>
@@ -59,13 +59,13 @@ export default function Home() {
           <div className="mt-10 flex flex-wrap gap-4">
             <Link
               href="/work"
-              className="inline-flex items-center px-6 py-3 rounded-full bg-dark text-white text-sm font-medium hover:bg-dark/85 transition-colors"
+              className="inline-flex items-center px-6 py-3 rounded-full bg-dark text-bg text-sm font-medium hover:bg-dark/85 transition-colors"
             >
               View my work &darr;
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center px-6 py-3 rounded-full border border-text text-text text-sm font-medium hover:bg-text hover:text-white transition-colors"
+              className="inline-flex items-center px-6 py-3 rounded-full border border-text text-text text-sm font-medium hover:bg-text hover:text-bg transition-colors"
             >
               Get in touch
             </Link>
@@ -120,7 +120,7 @@ export default function Home() {
           <div className="mt-8 flex flex-wrap gap-4">
             <a
               href={`mailto:${siteConfig.email}`}
-              className="inline-flex items-center px-6 py-3 rounded-full bg-dark text-white text-sm font-medium hover:bg-dark/85 transition-colors"
+              className="inline-flex items-center px-6 py-3 rounded-full bg-dark text-bg text-sm font-medium hover:bg-dark/85 transition-colors"
             >
               Send an email &rarr;
             </a>
@@ -128,7 +128,7 @@ export default function Home() {
               href={siteConfig.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-6 py-3 rounded-full border border-text text-text text-sm font-medium hover:bg-text hover:text-white transition-colors"
+              className="inline-flex items-center px-6 py-3 rounded-full border border-text text-text text-sm font-medium hover:bg-text hover:text-bg transition-colors"
             >
               LinkedIn
             </Link>

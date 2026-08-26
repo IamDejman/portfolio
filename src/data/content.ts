@@ -151,7 +151,8 @@ export const builtProjects: BuiltProject[] = [
     highlight: "Live bill payments",
   },
   {
-    title: "Order Food (WhatsApp Flow)",
+    title: "Orderflow",
+    url: "https://app.tryorderflow.com",
     description:
       "Conversational food ordering and table booking over WhatsApp. Menu browsing, item customization, checkout, and kitchen receipt printing, all inside a single WhatsApp Flow with a Next.js operator dashboard.",
     tech: ["Kotlin", "Spring Boot", "Next.js", "WhatsApp Flow API"],

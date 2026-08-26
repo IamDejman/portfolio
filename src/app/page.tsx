@@ -1,5 +1,12 @@
 import Link from "next/link";
-import { siteConfig, stats, toolGroups } from "@/data/content";
+import {
+  siteConfig,
+  stats,
+  toolGroups,
+  proofCards,
+  currentRoles,
+  pastRoles,
+} from "@/data/content";
 import ScrollReveal from "@/components/ScrollReveal";
 
 export default function Home() {
@@ -85,24 +92,56 @@ export default function Home() {
         </ScrollReveal>
       </section>
 
-      {/* Brief about teaser */}
+      {/* Proof cards */}
       <section className="py-20 border-t border-border">
         <ScrollReveal>
-          <p className="section-label mb-4">About</p>
-          <h2 className="font-serif text-3xl md:text-4xl leading-tight max-w-3xl">
-            The PM who writes the PRD <span className="italic">and</span> ships the code.
-          </h2>
-          <p className="mt-6 text-muted max-w-2xl">
-            5+ years managing products across FinTech, HRTech, EdTech, and
-            marketplace platforms - plus
-            hands-on engineering with Next.js, React, and AI-assisted development.
-            I bridge the gap between strategy and execution.
-          </p>
+          <p className="section-label mb-8">The receipts</p>
+        </ScrollReveal>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {proofCards.map((card, i) => (
+            <ScrollReveal key={card.title} delay={i * 100}>
+              <Link
+                href={card.href}
+                className="card-lift group flex h-full flex-col rounded-2xl border border-border bg-card p-8"
+              >
+                <p className="font-serif text-5xl md:text-6xl">{card.metric}</p>
+                <h2 className="mt-3 text-base font-medium">{card.title}</h2>
+                <p className="mt-3 flex-1 text-sm text-muted leading-relaxed">
+                  {card.description}
+                </p>
+                <span className="meta mt-6 inline-flex items-center gap-1 text-accent">
+                  {card.cta} <span aria-hidden>&rarr;</span>
+                </span>
+              </Link>
+            </ScrollReveal>
+          ))}
+        </div>
+      </section>
+
+      {/* Experience timeline */}
+      <section className="py-20 border-t border-border">
+        <ScrollReveal>
+          <p className="section-label mb-8">Experience</p>
+        </ScrollReveal>
+        <div>
+          {[...currentRoles, ...pastRoles].map((role, i) => (
+            <ScrollReveal key={`${role.org}-${role.title}`} delay={i * 60}>
+              <div className="flex flex-col gap-1 border-b border-border py-5 md:flex-row md:items-baseline md:justify-between md:gap-6">
+                <div className="flex flex-col md:flex-row md:items-baseline md:gap-3">
+                  <h2 className="font-serif text-xl md:text-2xl">{role.org}</h2>
+                  <p className="text-sm text-muted">{role.title}</p>
+                </div>
+                <span className="meta shrink-0 text-muted">{role.period}</span>
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
+        <ScrollReveal>
           <Link
             href="/about"
-            className="inline-flex items-center mt-6 text-sm font-medium text-text hover:text-muted transition-colors"
+            className="mt-8 inline-flex items-center text-sm font-medium text-text hover:text-muted transition-colors"
           >
-            Read more about me &rarr;
+            Full background &rarr;
           </Link>
         </ScrollReveal>
       </section>

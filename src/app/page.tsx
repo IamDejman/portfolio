@@ -15,15 +15,9 @@ export default function Home() {
       {/* Hero Section */}
       <section className="pt-32 md:pt-44 pb-20">
         <ScrollReveal>
-          <div className="mb-6 flex flex-wrap items-center gap-3">
-            <p className="section-label">
-              AI Product Manager - Berlin, Germany
-            </p>
-            <span className="meta inline-flex items-center gap-1.5 rounded-full border border-accent/40 bg-accent-soft px-3 py-1 text-[11px] uppercase tracking-[0.15em] text-accent">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden />
-              {siteConfig.availability}
-            </span>
-          </div>
+          <p className="section-label mb-6">
+            AI Product Manager - Berlin, Germany
+          </p>
         </ScrollReveal>
 
         <ScrollReveal delay={100}>

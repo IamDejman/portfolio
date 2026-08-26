@@ -243,6 +243,15 @@ export const builtProjects: BuiltProject[] = [
     highlight: "Live client project",
   },
   {
+    title: "Banyan Claims",
+    image: "/work/banyan-claims.jpg",
+    url: "https://banyanclaims.com",
+    description:
+      "Claims management platform built for streamlined processing and client engagement.",
+    tech: ["Next.js", "Tailwind CSS", "Vercel"],
+    highlight: "Client platform",
+  },
+  {
     title: "GRWTEE",
     image: "/work/grwtee.jpg",
     flagship: true,
@@ -251,15 +260,6 @@ export const builtProjects: BuiltProject[] = [
       "Luxury personal styling service platform with booking functionality, service catalog, and portfolio gallery. Built with a refined, editorial aesthetic.",
     tech: ["Next.js", "Tailwind CSS", "Vercel"],
     highlight: "End-to-end styling platform",
-  },
-  {
-    title: "Banyan Claims",
-    image: "/work/banyan-claims.jpg",
-    url: "https://banyanclaims.com",
-    description:
-      "Claims management platform built for streamlined processing and client engagement.",
-    tech: ["Next.js", "Tailwind CSS", "Vercel"],
-    highlight: "Client platform",
   },
 ];
 

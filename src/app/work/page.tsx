@@ -73,6 +73,27 @@ export default function WorkPage() {
                   {project.highlight}
                 </span>
               </div>
+
+              {project.caseStudy && (
+                <div className="mt-5 flex flex-wrap gap-5">
+                  <Link
+                    href={`/work/${project.caseStudy}`}
+                    className="inline-flex items-center text-sm font-medium underline hover:text-muted transition-colors"
+                  >
+                    Read the case study &rarr;
+                  </Link>
+                  {project.url && (
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center text-sm font-medium underline hover:text-muted transition-colors"
+                    >
+                      Visit the app &rarr;
+                    </a>
+                  )}
+                </div>
+              )}
             </>
           );
 
@@ -82,7 +103,7 @@ export default function WorkPage() {
               delay={i * 80}
               className={project.flagship ? "md:col-span-2" : ""}
             >
-              {project.url ? (
+              {project.url && !project.caseStudy ? (
                 <a
                   href={project.url}
                   target="_blank"

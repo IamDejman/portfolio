@@ -3,7 +3,7 @@ export const siteConfig = {
   fullName: "Ayodeji Eluwande",
   title: "Ayodeji Eluwande - AI Product Manager",
   description:
-    "AI Product Manager who ships. 5+ years across FinTech, HRTech, EdTech, and marketplaces. I write the PRD and the production code: 11 live products built with Next.js, React, and AI tooling. Based in Berlin, Germany.",
+    "AI Product Manager who ships. 5+ years across FinTech, HRTech, EdTech, and marketplaces. I write the PRD and the production code: 12 live products built with Next.js, React, and AI tooling. Based in Berlin, Germany.",
   url: "https://ayodejieluwande.vercel.app",
   email: "ayodejieluwande@gmail.com",
   phone: "+491791556146",
@@ -26,7 +26,7 @@ export const navLinks = [
 export const stats = [
   { value: "5+", label: "Years in Product" },
   { value: "8", label: "Products Managed" },
-  { value: "11", label: "Sites & Apps Built" },
+  { value: "12", label: "Sites & Apps Built" },
 ];
 
 export const currentRoles = [
@@ -47,7 +47,7 @@ export const proofCards = [
     cta: "Read the case study",
   },
   {
-    metric: "11",
+    metric: "12",
     title: "Live products, built end to end",
     description:
       "Platforms, WhatsApp commerce, PWAs, and client sites. PRD to production code with Next.js, React, Kotlin, and AI-assisted development.",
@@ -159,6 +159,7 @@ export const projects: Project[] = [
 type BuiltProject = {
   title: string;
   url?: string;
+  caseStudy?: string;
   image?: string;
   flagship?: boolean;
   description: string;
@@ -195,6 +196,7 @@ export const builtProjects: BuiltProject[] = [
     title: "Orderflow",
     image: "/work/orderflow.jpg",
     flagship: true,
+    caseStudy: "orderflow",
     url: "https://app.tryorderflow.com",
     description:
       "Conversational food ordering and table booking over WhatsApp. Menu browsing, item customization, checkout, and kitchen receipt printing, all inside a single WhatsApp Flow with a Next.js operator dashboard.",
@@ -215,8 +217,8 @@ export const builtProjects: BuiltProject[] = [
     url: "https://attendance.hiccgbagada.com",
     image: "/work/hicc-attendance.jpg",
     description:
-      "Church workforce administration platform with multi-tier role-based access, department and team management, bulk email campaigns with delivery tracking, attendance history, and Excel/CSV import-export.",
-    tech: ["React", "Supabase", "AWS Amplify"],
+      "Workforce platform for a large church organization: profiles, departments, RBAC with Row Level Security, a bulk SMS/email engine with dual gateways and cost estimation, training with automated certificates, and event registration at scale. 650+ commits over 20 months.",
+    tech: ["React", "Supabase", "TanStack Query", "SendGrid"],
     highlight: "Multi-role admin platform",
   },
   {
@@ -247,7 +249,7 @@ export const builtProjects: BuiltProject[] = [
     image: "/work/banyan-claims.jpg",
     url: "https://banyanclaims.com",
     description:
-      "Claims management platform built for streamlined processing and client engagement.",
+      "Public website and customer claims portal for a claims-support consultancy, built end to end: typed API contract, strict Content-Security-Policy hardening, accessibility fixes, and a full V2 design revision.",
     tech: ["Next.js", "Tailwind CSS", "Vercel"],
     highlight: "Client platform",
   },
@@ -257,9 +259,16 @@ export const builtProjects: BuiltProject[] = [
     flagship: true,
     url: "https://grwtee.com",
     description:
-      "Luxury personal styling service platform with booking functionality, service catalog, and portfolio gallery. Built with a refined, editorial aesthetic.",
-    tech: ["Next.js", "Tailwind CSS", "Vercel"],
-    highlight: "End-to-end styling platform",
+      "AI-powered personal styling iOS app: digital wardrobe, two-stage AI virtual try-on, lookbooks, and an outfit calendar. Expo/React Native client, Next.js API on Vercel, Supabase auth and storage with row-level security, shipped through TestFlight with client feedback rounds.",
+    tech: ["React Native", "Expo", "Next.js", "Supabase"],
+    highlight: "AI styling app on iOS",
+  },
+  {
+    title: "Football Ladder",
+    description:
+      "Football career-simulation game with a procedurally generated world: 12 nations with women's top-flight leagues, an LLM classifier that interprets free-text player decisions, and a custom Postgres REST API after a full off-Supabase migration. CI plays an entire generated game world on every pull request.",
+    tech: ["TypeScript", "PostgreSQL", "Node.js", "Vercel"],
+    highlight: "100+ solo PRs",
   },
 ];
 
@@ -287,9 +296,9 @@ export const caseStudies: CaseStudy[] = [
     url: "https://assessments.skilladder.ai",
     metrics: [
       { value: "85,000+", label: "Candidates assessed" },
-      { value: "6", label: "Recurring enterprise clients" },
+      { value: "128", label: "Backend services built & monitored" },
       { value: "85%", label: "Faster deployment" },
-      { value: "60+", label: "Client API endpoints" },
+      { value: "700+", label: "Database migrations authored" },
     ],
     sections: [
       {
@@ -301,15 +310,54 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: "What I built",
         paragraphs: [
-          "A multi-tenant assessment platform with a creator studio for authoring assessments, AI scoring, proctoring with anti-fraud telemetry, and participant management. Around the core sit a job board, employer talent matching, a durable email pipeline, and a client API with more than 60 endpoints.",
-          "I owned the full lifecycle. Research, requirements, and design, then hands-on development with Cursor, Claude Code, and Codex, followed by continuous iteration with clients in production.",
+          "A multi-tenant assessment platform with a creator studio, AI scoring, proctoring with anti-fraud telemetry, and participant management. Around the core sit a job board, employer talent matching, and a client API with more than 60 endpoints. For the 3MTT x NJFP government program I built the full delivery pipeline: test-taking flow, proctoring, three synchronized grading engines, and job matching at national scale.",
+          "Reliability work came with it. I replaced fragile per-message email sending with durable database-backed queues and workers, designed an in-house monitoring stack wrapping all 128 backend services with automatic error classification and an admin triage dashboard, and moved the platform behind Cloudflare without disrupting email deliverability.",
+          "Fairness shipped as a feature: read-aloud assessments with Nigerian-accent voices, server-enforced extended-time accommodations, and a mobile fix that restored fair retakes for 1,300+ affected candidates.",
+          "I owned the full lifecycle: research, requirements, and design, then hands-on development with Cursor, Claude Code, and Codex, across 5,000+ commits and 700+ database migrations, iterating with clients in production.",
         ],
       },
       {
         heading: "The outcome",
         paragraphs: [
-          "The platform became the company's primary product. Deployment time dropped by 85% against the prototype process, and the platform now serves 6 recurring enterprise clients. Its largest single engagement was a national talent programme that assessed a cohort of more than 85,000 candidates.",
+          "The platform became the company's primary product. Deployment time dropped by 85% against the prototype process, and the platform now serves 6 recurring enterprise clients, including banks and multinationals with byte-exact legacy report parity requirements. Its largest single engagement was a national talent programme that assessed a cohort of more than 85,000 candidates. New assessment product lines (Route and Skill Index) shipped under my lead, from scoring bands and retake sittings to the pricing model behind them.",
           "Beyond the product itself, I manage OKR setting across the product organisation, aligning a cross-functional team around measurable quarterly outcomes.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "orderflow",
+    title: "Orderflow",
+    org: "Independent build",
+    role: "Founder-engineer",
+    period: "Apr 2026 – Present",
+    summary:
+      "A production multi-vertical commerce platform on WhatsApp: payments, settlement, hardware fleet, dashboard, and infrastructure. Solo, from first commit to daily production traffic in under five months.",
+    url: "https://app.tryorderflow.com",
+    metrics: [
+      { value: "3", label: "Business verticals in production" },
+      { value: "4", label: "Payment providers integrated" },
+      { value: "2,800+", label: "Commits since Apr 2026" },
+      { value: "196+", label: "Zero-downtime DB migrations" },
+    ],
+    sections: [
+      {
+        heading: "The platform",
+        paragraphs: [
+          "Orderflow is conversational commerce on the Meta Cloud API and WhatsApp Flows, running three verticals in production: food and retail ordering with catalogues synced to Meta, in-chat checkout, loyalty tiers, and a tax engine; event ticketing with pass images and QR door check-in on hardware scanners with signed, audited codes; and prepaid electricity vending plus vehicle-papers renewal with NIN/BVN identity verification.",
+        ],
+      },
+      {
+        heading: "Payments and money",
+        paragraphs: [
+          "A pluggable payment layer behind clean provider interfaces runs real money in production: four Nigerian providers (Rubies, Squad, Tellerpoint, Paga) with dedicated virtual accounts and instant bank-transfer reconciliation, plus a ledger-derived settlement engine with day-cycle grouping, audit trails, and a capped processing-fee model. Live incidents, including a Flyway out-of-order migration outage, ended in post-mortems and permanent guardrails.",
+        ],
+      },
+      {
+        heading: "Hardware and operations",
+        paragraphs: [
+          "A production fleet of thermal receipt printers and QR scanners runs over MQTT with HTTP fallback: station-based routing, stale-job resweeps, and custom receipt rendering to thermal bitmaps. Merchants operate through a Next.js dashboard with a 12-step guided onboarding, fail-closed RBAC shared between frontend and backend, and TOTP device challenges for admin access.",
+          "Security is default: tenant-scoped queries everywhere, signature verification on every webhook, amount gates on vending, and secrets that never appear in API responses. Develop auto-deploys staging, main auto-deploys production, every change verified before it moves.",
         ],
       },
     ],

@@ -39,7 +39,7 @@ export default function Home() {
             and marketplaces. At Skilladder I took an AI assessment platform
             from prototype to primary product: deployment cut from weeks to 24
             hours, 6 recurring enterprise clients, an 85,000+ candidate
-            national cohort. Alongside, 11 live products built end to end with
+            national cohort. Alongside, 12 live products built end to end with
             Next.js, React, and AI tooling.
           </p>
         </ScrollReveal>

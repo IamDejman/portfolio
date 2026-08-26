@@ -217,7 +217,7 @@ export const builtProjects: BuiltProject[] = [
     url: "https://attendance.hiccgbagada.com",
     image: "/work/hicc-attendance.jpg",
     description:
-      "Workforce platform for a large church organization: profiles, departments, RBAC with Row Level Security, a bulk SMS/email engine with dual gateways and cost estimation, training with automated certificates, and event registration at scale. 650+ commits over 20 months.",
+      "Workforce platform for a large church organization: profiles, departments, RBAC with Row Level Security, a bulk SMS/email engine with dual gateways and cost estimation, training with automated certificates, and event registration at scale.",
     tech: ["React", "Supabase", "TanStack Query", "SendGrid"],
     highlight: "Multi-role admin platform",
   },
@@ -268,7 +268,7 @@ export const builtProjects: BuiltProject[] = [
     description:
       "Football career-simulation game with a procedurally generated world: 12 nations with women's top-flight leagues, an LLM classifier that interprets free-text player decisions, and a custom Postgres REST API after a full off-Supabase migration. CI plays an entire generated game world on every pull request.",
     tech: ["TypeScript", "PostgreSQL", "Node.js", "Vercel"],
-    highlight: "100+ solo PRs",
+    highlight: "LLM-driven game world",
   },
 ];
 
@@ -337,8 +337,8 @@ export const caseStudies: CaseStudy[] = [
     metrics: [
       { value: "3", label: "Business verticals in production" },
       { value: "4", label: "Payment providers integrated" },
-      { value: "2,800+", label: "Commits since Apr 2026" },
-      { value: "196+", label: "Zero-downtime DB migrations" },
+      { value: "<5 mo", label: "First commit to production traffic" },
+      { value: "1", label: "Engineer, end to end" },
     ],
     sections: [
       {

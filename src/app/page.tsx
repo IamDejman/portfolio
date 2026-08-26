@@ -37,10 +37,10 @@ export default function Home() {
           <p className="mt-8 text-muted text-base md:text-lg max-w-2xl leading-relaxed">
             AI Product Manager with 5+ years across FinTech, HRTech, EdTech,
             and marketplaces. At Skilladder I took an AI assessment platform
-            from prototype to primary product: deployment cut from weeks to 24
-            hours, 6 recurring enterprise clients, an 85,000+ candidate
-            national cohort. Alongside, 12 live products built end to end with
-            Next.js, React, and AI tooling.
+            from prototype to primary product. Deployment went from weeks to
+            24 hours, with 6 recurring enterprise clients and an 85,000+
+            candidate national cohort. Alongside, 12 live products built end
+            to end with Next.js, React, and AI tooling.
           </p>
         </ScrollReveal>
 

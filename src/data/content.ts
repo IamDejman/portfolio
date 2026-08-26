@@ -3,7 +3,7 @@ export const siteConfig = {
   fullName: "Ayodeji Eluwande",
   title: "Ayodeji Eluwande - AI Product Manager",
   description:
-    "AI Product Manager who ships. 5+ years across FinTech, HRTech, EdTech, and marketplaces. I write the PRD and the production code: 12 live products built with Next.js, React, and AI tooling. Based in Berlin, Germany.",
+    "AI Product Manager who ships. 5+ years across FinTech, HRTech, EdTech, and marketplaces. I write the PRD and the production code: 11 live products built with Next.js, React, and AI tooling. Based in Berlin, Germany.",
   url: "https://ayodejieluwande.vercel.app",
   email: "ayodejieluwande@gmail.com",
   phone: "+491791556146",
@@ -26,7 +26,7 @@ export const navLinks = [
 export const stats = [
   { value: "5+", label: "Years in Product" },
   { value: "8", label: "Products Managed" },
-  { value: "12", label: "Sites & Apps Built" },
+  { value: "11", label: "Sites & Apps Built" },
 ];
 
 export const currentRoles = [
@@ -47,7 +47,7 @@ export const proofCards = [
     cta: "Read the case study",
   },
   {
-    metric: "12",
+    metric: "11",
     title: "Live products, built end to end",
     description:
       "Platforms, WhatsApp commerce, PWAs, and client sites. PRD to production code with Next.js, React, Kotlin, and AI-assisted development.",
@@ -218,13 +218,6 @@ export const builtProjects: BuiltProject[] = [
       "Church workforce administration platform with multi-tier role-based access, department and team management, bulk email campaigns with delivery tracking, attendance history, and Excel/CSV import-export.",
     tech: ["React", "Supabase", "AWS Amplify"],
     highlight: "Multi-role admin platform",
-  },
-  {
-    title: "Workers Meeting",
-    description:
-      "Offline-first PWA for tracking church meeting attendance in the field. Real-time entry by team, directorate-level summaries, and admin reporting, built to keep working without a connection.",
-    tech: ["React", "TypeScript", "Vite", "Supabase"],
-    highlight: "Offline-first PWA",
   },
   {
     title: "Message Logistics",

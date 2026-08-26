@@ -3,7 +3,7 @@ export const siteConfig = {
   fullName: "Ayodeji Eluwande",
   title: "Ayodeji Eluwande - AI Product Manager",
   description:
-    "AI Product Manager who ships. 5+ years across FinTech, HRTech, EdTech, and marketplaces. I write the PRD and the production code: 12 live products built with Next.js, React, and AI tooling. Based in Berlin, Germany.",
+    "AI Product Manager who ships. 5+ years across FinTech, HRTech, EdTech, and marketplaces. I write the PRD and the production code. 12 live products built with Next.js, React, and AI tooling. Based in Berlin, Germany.",
   url: "https://ayodejieluwande.vercel.app",
   email: "ayodejieluwande@gmail.com",
   phone: "+491791556146",
@@ -33,7 +33,7 @@ export const currentRoles = [
   {
     title: "Lead AI Product Manager - Operations",
     org: "Skilladder AI",
-    period: "May 2025 – Present",
+    period: "May 2025 - Present",
   },
 ];
 
@@ -42,7 +42,7 @@ export const proofCards = [
     metric: "85%",
     title: "Faster assessment deployment",
     description:
-      "Took Skilladder's AI assessment platform from prototype to primary product: weeks to 24 hours, 6 enterprise clients, an 85,000+ candidate national cohort.",
+      "Took Skilladder's AI assessment platform from prototype to primary product. Deployment went from weeks to 24 hours, with 6 enterprise clients and an 85,000+ candidate national cohort.",
     href: "/work/skilladder",
     cta: "Read the case study",
   },
@@ -50,7 +50,7 @@ export const proofCards = [
     metric: "12",
     title: "Live products, built end to end",
     description:
-      "Platforms, WhatsApp commerce, PWAs, and client sites. PRD to production code with Next.js, React, Kotlin, and AI-assisted development.",
+      "Platforms, WhatsApp commerce, and client sites, taken from PRD to production code with Next.js, React, Kotlin, and AI-assisted development.",
     href: "/work",
     cta: "See the builds",
   },
@@ -58,7 +58,7 @@ export const proofCards = [
     metric: "#1",
     title: "Tech Cabal's 25 Startups to Watch",
     description:
-      "Drove product strategy for Carbin Africa, an automotive marketplace, to the top of Tech Cabal's 2025 list through inventory and adoption wins.",
+      "Drove product strategy for Carbin Africa, an automotive marketplace that reached the top of Tech Cabal's 2025 list.",
     href: "/work",
     cta: "See managed products",
   },
@@ -80,10 +80,10 @@ export const toolGroups = [
 ];
 
 export const pastRoles = [
-  { title: "Product Manager", org: "Tellerpoint", period: "May 2024 – Feb 2026" },
-  { title: "Product Manager", org: "Devlabs Africa Limited", period: "May 2024 – May 2025" },
-  { title: "Product Manager", org: "Switch Recycling", period: "Sep 2022 – May 2024" },
-  { title: "Associate Product Manager", org: "Treford", period: "May 2022 – Jul 2022" },
+  { title: "Product Manager", org: "Tellerpoint", period: "May 2024 - Feb 2026" },
+  { title: "Product Manager", org: "Devlabs Africa Limited", period: "May 2024 - May 2025" },
+  { title: "Product Manager", org: "Switch Recycling", period: "Sep 2022 - May 2024" },
+  { title: "Associate Product Manager", org: "Treford", period: "May 2022 - Jul 2022" },
 ];
 
 type Project = {
@@ -102,7 +102,7 @@ export const projects: Project[] = [
     client: "Skilladder AI",
     role: "Lead AI Product Manager - Operations",
     description:
-      "Building the future of skills-based hiring across Africa through AI-powered talent workflows and verified skills assessments. Took the assessment platform from prototype to primary product, cutting deployment time by 85%, while leading product strategy from planning to retrospective with AI tools including Cursor, Claude Code, and Codex.",
+      "Skilladder runs verified skills assessments for hiring across Africa. I took the assessment platform from prototype to primary product, cutting deployment time by 85%, while leading product strategy from planning to retrospective with AI tools including Cursor, Claude Code, and Codex.",
     tags: ["HRTech", "AI", "Assessment", "Hiring"],
     highlight: "Cut deployment time by 85%",
     caseStudy: "skilladder",
@@ -132,7 +132,7 @@ export const projects: Project[] = [
     client: "Devlabs Africa",
     role: "Product Manager",
     description:
-      "Delivered GPS's integrated delivery ecosystem through real-time tracking and automated dispatch features, creating a seamless logistics experience.",
+      "Delivered GPS's integrated delivery ecosystem with real-time tracking and automated dispatch features.",
     tags: ["Logistics", "Delivery", "Real-time", "Automation"],
     highlight: "Real-time tracking & dispatch",
   },
@@ -217,7 +217,7 @@ export const builtProjects: BuiltProject[] = [
     url: "https://attendance.hiccgbagada.com",
     image: "/work/hicc-attendance.jpg",
     description:
-      "Workforce platform for a large church organization: profiles, departments, RBAC with Row Level Security, a bulk SMS/email engine with dual gateways and cost estimation, training with automated certificates, and event registration at scale.",
+      "Workforce platform for a large church organization. Profiles, departments, role-based access with Row Level Security, a bulk SMS and email engine with dual gateways and cost estimation, training with automated certificates, and event registration at scale.",
     tech: ["React", "Supabase", "TanStack Query", "SendGrid"],
     highlight: "Multi-role admin platform",
   },
@@ -249,7 +249,7 @@ export const builtProjects: BuiltProject[] = [
     image: "/work/banyan-claims.jpg",
     url: "https://banyanclaims.com",
     description:
-      "Public website and customer claims portal for a claims-support consultancy, built end to end: typed API contract, strict Content-Security-Policy hardening, accessibility fixes, and a full V2 design revision.",
+      "Public website and customer claims portal for a claims support consultancy, built end to end. Typed API contract, strict Content Security Policy, accessibility fixes, and a full V2 design revision.",
     tech: ["Next.js", "Tailwind CSS", "Vercel"],
     highlight: "Client platform",
   },
@@ -259,14 +259,14 @@ export const builtProjects: BuiltProject[] = [
     flagship: true,
     url: "https://grwtee.com",
     description:
-      "AI-powered personal styling iOS app: digital wardrobe, two-stage AI virtual try-on, lookbooks, and an outfit calendar. Expo/React Native client, Next.js API on Vercel, Supabase auth and storage with row-level security, shipped through TestFlight with client feedback rounds.",
+      "Personal styling iOS app with a digital wardrobe, AI virtual try-on, lookbooks, and an outfit calendar. Expo and React Native client, Next.js API on Vercel, Supabase auth and storage with row level security, shipped through TestFlight.",
     tech: ["React Native", "Expo", "Next.js", "Supabase"],
     highlight: "AI styling app on iOS",
   },
   {
     title: "Football Ladder",
     description:
-      "Football career-simulation game with a procedurally generated world: 12 nations with women's top-flight leagues, an LLM classifier that interprets free-text player decisions, and a custom Postgres REST API after a full off-Supabase migration. CI plays an entire generated game world on every pull request.",
+      "Football career simulation game with a procedurally generated world of 12 nations with women's top flight leagues, an LLM classifier that interprets free text player decisions, and a custom Postgres REST API after moving off Supabase. CI plays a full generated game world on every pull request.",
     tech: ["TypeScript", "PostgreSQL", "Node.js", "Vercel"],
     highlight: "LLM-driven game world",
   },
@@ -290,7 +290,7 @@ export const caseStudies: CaseStudy[] = [
     title: "Skilladder Assessment Platform",
     org: "Skilladder AI",
     role: "Lead AI Product Manager - Operations",
-    period: "May 2025 – Present",
+    period: "May 2025 - Present",
     summary:
       "From a spreadsheet workflow to a multi-tenant assessment platform serving a national talent cohort of 85,000+ candidates.",
     url: "https://assessments.skilladder.ai",
@@ -310,10 +310,10 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: "What I built",
         paragraphs: [
-          "A multi-tenant assessment platform with a creator studio, AI scoring, proctoring with anti-fraud telemetry, and participant management. Around the core sit a job board, employer talent matching, and a client API with more than 60 endpoints. For the 3MTT x NJFP government program I built the full delivery pipeline: test-taking flow, proctoring, three synchronized grading engines, and job matching at national scale.",
-          "Reliability work came with it. I replaced fragile per-message email sending with durable database-backed queues and workers, designed an in-house monitoring stack wrapping all 128 backend services with automatic error classification and an admin triage dashboard, and moved the platform behind Cloudflare without disrupting email deliverability.",
-          "Fairness shipped as a feature: read-aloud assessments with Nigerian-accent voices, server-enforced extended-time accommodations, and a mobile fix that restored fair retakes for 1,300+ affected candidates.",
-          "I owned the full lifecycle: research, requirements, and design, then hands-on development with Cursor, Claude Code, and Codex, iterating with clients in production.",
+          "A multi-tenant assessment platform with a creator studio, AI scoring, proctoring with anti-fraud telemetry, and participant management. Around the core sit a job board, employer talent matching, and a client API with more than 60 endpoints. For the 3MTT x NJFP government program I built the full delivery pipeline, covering the test taking flow, proctoring, three synchronized grading engines, and job matching at national scale.",
+          "Reliability work came with it. I replaced fragile per message email sending with durable database-backed queues and workers, designed an in-house monitoring stack wrapping all 128 backend services with automatic error classification and an admin triage dashboard, and moved the platform behind Cloudflare without disrupting email deliverability.",
+          "Fairness shipped as a feature. Read aloud assessments with Nigerian accent voices, server enforced extended time accommodations, and a mobile fix that restored fair retakes for 1,300+ affected candidates.",
+          "I owned the full lifecycle. Research, requirements, and design, then hands on development with Cursor, Claude Code, and Codex, iterating with clients in production.",
         ],
       },
       {
@@ -330,9 +330,9 @@ export const caseStudies: CaseStudy[] = [
     title: "Orderflow",
     org: "Independent build",
     role: "Founder-engineer",
-    period: "Apr 2026 – Present",
+    period: "Apr 2026 - Present",
     summary:
-      "A production multi-vertical commerce platform on WhatsApp: payments, settlement, hardware fleet, dashboard, and infrastructure. Solo, from first commit to daily production traffic in under five months.",
+      "A production commerce platform on WhatsApp covering payments, settlement, a hardware fleet, a merchant dashboard, and infrastructure. Built solo, from first commit to daily production traffic in under five months.",
     url: "https://app.tryorderflow.com",
     metrics: [
       { value: "3", label: "Business verticals in production" },
@@ -344,20 +344,20 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: "The platform",
         paragraphs: [
-          "Orderflow is conversational commerce on the Meta Cloud API and WhatsApp Flows, running three verticals in production: food and retail ordering with catalogues synced to Meta, in-chat checkout, loyalty tiers, and a tax engine; event ticketing with pass images and QR door check-in on hardware scanners with signed, audited codes; and prepaid electricity vending plus vehicle-papers renewal with NIN/BVN identity verification.",
+          "Orderflow is conversational commerce on the Meta Cloud API and WhatsApp Flows, running three verticals in production. Food and retail ordering with catalogues synced to Meta, in chat checkout, loyalty tiers, and a tax engine. Event ticketing with pass images and QR door check in on hardware scanners with signed, audited codes. Prepaid electricity vending and vehicle papers renewal with NIN and BVN identity verification.",
         ],
       },
       {
         heading: "Payments and money",
         paragraphs: [
-          "A pluggable payment layer behind clean provider interfaces runs real money in production: four Nigerian providers (Rubies, Squad, Tellerpoint, Paga) with dedicated virtual accounts and instant bank-transfer reconciliation, plus a ledger-derived settlement engine with day-cycle grouping, audit trails, and a capped processing-fee model. Live incidents, including a Flyway out-of-order migration outage, ended in post-mortems and permanent guardrails.",
+          "A pluggable payment layer behind clean provider interfaces runs real money in production. Four Nigerian providers (Rubies, Squad, Tellerpoint, Paga) with dedicated virtual accounts and instant bank transfer reconciliation, plus a ledger derived settlement engine with day cycle grouping, audit trails, and a capped processing fee model. Live incidents, including a Flyway out of order migration outage, ended in post mortems and permanent guardrails.",
         ],
       },
       {
         heading: "Hardware and operations",
         paragraphs: [
-          "A production fleet of thermal receipt printers and QR scanners runs over MQTT with HTTP fallback: station-based routing, stale-job resweeps, and custom receipt rendering to thermal bitmaps. Merchants operate through a Next.js dashboard with a 12-step guided onboarding, fail-closed RBAC shared between frontend and backend, and TOTP device challenges for admin access.",
-          "Security is default: tenant-scoped queries everywhere, signature verification on every webhook, amount gates on vending, and secrets that never appear in API responses. Develop auto-deploys staging, main auto-deploys production, every change verified before it moves.",
+          "A production fleet of thermal receipt printers and QR scanners runs over MQTT with HTTP fallback. Station based routing, stale job resweeps, and custom receipt rendering to thermal bitmaps. Merchants operate through a Next.js dashboard with a 12 step guided onboarding, fail closed RBAC shared between frontend and backend, and TOTP device challenges for admin access.",
+          "Security is the default. Tenant scoped queries everywhere, signature verification on every webhook, amount gates on vending, and secrets that never appear in API responses. Develop auto deploys staging, main auto deploys production, and every change is verified before it moves.",
         ],
       },
     ],
@@ -367,7 +367,7 @@ export const caseStudies: CaseStudy[] = [
     title: "Carbin Africa",
     org: "Devlabs Africa",
     role: "Product Manager",
-    period: "May 2024 – May 2025",
+    period: "May 2024 - May 2025",
     summary:
       "Product strategy and roadmap for an automotive marketplace, from dealer inventory pain to #1 on Tech Cabal's 25 Startups to Watch in 2025.",
     metrics: [
@@ -378,13 +378,13 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: "The starting point",
         paragraphs: [
-          "Carbin Africa is an automotive marketplace connecting car dealers with buyers. The core problem was supply-side: dealer inventory was fragmented and stale, which eroded buyer trust and repeat usage. As the consultancy PM, I owned product strategy and the roadmap.",
+          "Carbin Africa is an automotive marketplace connecting car dealers with buyers. The core problem was on the supply side. Dealer inventory was fragmented and stale, which eroded buyer trust and repeat usage. As the consultancy PM, I owned product strategy and the roadmap.",
         ],
       },
       {
         heading: "Key decisions",
         paragraphs: [
-          "We prioritised dealer inventory management before demand-side growth: a marketplace with unreliable listings loses both sides. I drove the inventory workflow redesign so dealers could keep listings accurate with minimal effort, and sequenced adoption work around that foundation.",
+          "We prioritised dealer inventory management before demand side growth, because a marketplace with unreliable listings loses both sides. I drove the inventory workflow redesign so dealers could keep listings accurate with minimal effort, and sequenced adoption work around that foundation.",
         ],
       },
       {
@@ -400,7 +400,7 @@ export const caseStudies: CaseStudy[] = [
     title: "Tellerpoint Collections & Mini",
     org: "Tellerpoint",
     role: "Product Manager",
-    period: "May 2024 – Feb 2026",
+    period: "May 2024 - Feb 2026",
     summary:
       "Full product lifecycle for agency banking tools that let financial institutions serve underserved communities.",
     metrics: [
@@ -411,13 +411,13 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: "The starting point",
         paragraphs: [
-          "Tellerpoint is an agency banking platform: it gives financial institutions the rails to deliver services in communities banks do not reach. I owned the Collections Mobile and Web Apps and later delivered Tellerpoint Mini end to end.",
+          "Tellerpoint is an agency banking platform. It gives financial institutions the rails to deliver services in communities banks do not reach. I owned the Collections Mobile and Web Apps and later delivered Tellerpoint Mini end to end.",
         ],
       },
       {
         heading: "How I worked",
         paragraphs: [
-          "I ran the full lifecycle: strategy, roadmap, and delivery through agile sprints with weekly syncs. Extensive user interviews with agents and institutions fed directly into prioritised feature work, and cross-functional coordination kept engineering, operations, and partner institutions aligned.",
+          "I ran the full lifecycle. Strategy, roadmap, and delivery through agile sprints with weekly syncs. Extensive user interviews with agents and institutions fed directly into prioritised feature work, and cross-functional coordination kept engineering, operations, and partner institutions aligned.",
         ],
       },
       {
@@ -476,7 +476,7 @@ export const certifications = [
 export const education = {
   degree: "Bachelor of Laws",
   school: "Lagos State University",
-  period: "Dec 2013 – Sep 2018",
+  period: "Dec 2013 - Sep 2018",
 };
 
 export const howIWork =

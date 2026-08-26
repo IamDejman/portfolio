@@ -30,7 +30,38 @@ export const stats = [
 ];
 
 export const currentRoles = [
-  { title: "Lead AI Product Manager - Operations", org: "Skilladder AI" },
+  {
+    title: "Lead AI Product Manager - Operations",
+    org: "Skilladder AI",
+    period: "May 2025 – Present",
+  },
+];
+
+export const proofCards = [
+  {
+    metric: "85%",
+    title: "Faster assessment deployment",
+    description:
+      "Took Skilladder's AI assessment platform from prototype to primary product: weeks to 24 hours, 6 enterprise clients, an 85,000+ candidate national cohort.",
+    href: "/work/skilladder",
+    cta: "Read the case study",
+  },
+  {
+    metric: "13",
+    title: "Live products, built end to end",
+    description:
+      "Platforms, WhatsApp commerce, PWAs, and client sites. PRD to production code with Next.js, React, Kotlin, and AI-assisted development.",
+    href: "/work",
+    cta: "See the builds",
+  },
+  {
+    metric: "#1",
+    title: "Tech Cabal's 25 Startups to Watch",
+    description:
+      "Drove product strategy for Carbin Africa, an automotive marketplace, to the top of Tech Cabal's 2025 list through inventory and adoption wins.",
+    href: "/work",
+    cta: "See managed products",
+  },
 ];
 
 export const toolGroups = [

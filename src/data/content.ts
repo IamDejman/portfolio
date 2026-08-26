@@ -298,7 +298,7 @@ export const caseStudies: CaseStudy[] = [
       { value: "85,000+", label: "Candidates assessed" },
       { value: "128", label: "Backend services built & monitored" },
       { value: "85%", label: "Faster deployment" },
-      { value: "700+", label: "Database migrations authored" },
+      { value: "6", label: "Recurring enterprise clients" },
     ],
     sections: [
       {
@@ -313,7 +313,7 @@ export const caseStudies: CaseStudy[] = [
           "A multi-tenant assessment platform with a creator studio, AI scoring, proctoring with anti-fraud telemetry, and participant management. Around the core sit a job board, employer talent matching, and a client API with more than 60 endpoints. For the 3MTT x NJFP government program I built the full delivery pipeline: test-taking flow, proctoring, three synchronized grading engines, and job matching at national scale.",
           "Reliability work came with it. I replaced fragile per-message email sending with durable database-backed queues and workers, designed an in-house monitoring stack wrapping all 128 backend services with automatic error classification and an admin triage dashboard, and moved the platform behind Cloudflare without disrupting email deliverability.",
           "Fairness shipped as a feature: read-aloud assessments with Nigerian-accent voices, server-enforced extended-time accommodations, and a mobile fix that restored fair retakes for 1,300+ affected candidates.",
-          "I owned the full lifecycle: research, requirements, and design, then hands-on development with Cursor, Claude Code, and Codex, across 5,000+ commits and 700+ database migrations, iterating with clients in production.",
+          "I owned the full lifecycle: research, requirements, and design, then hands-on development with Cursor, Claude Code, and Codex, across 5,000+ commits, iterating with clients in production.",
         ],
       },
       {

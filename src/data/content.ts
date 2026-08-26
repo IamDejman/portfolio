@@ -102,7 +102,7 @@ export const projects: Project[] = [
     client: "Skilladder AI",
     role: "Lead AI Product Manager - Operations",
     description:
-      "Building the future of skills-based hiring across Africa through AI-powered talent workflows and verified skills assessments. Took the assessment platform from prototype to primary product, cutting deployment time by 85%, while leading product strategy from planning to retrospective with AI tools including Cursor and Claude Code.",
+      "Building the future of skills-based hiring across Africa through AI-powered talent workflows and verified skills assessments. Took the assessment platform from prototype to primary product, cutting deployment time by 85%, while leading product strategy from planning to retrospective with AI tools including Cursor, Claude Code, and Codex.",
     tags: ["HRTech", "AI", "Assessment", "Hiring"],
     highlight: "Cut deployment time by 85%",
     caseStudy: "skilladder",
@@ -169,7 +169,7 @@ type BuiltProject = {
 export const builtProjects: BuiltProject[] = [
   {
     title: "Skilladder Assessment Platform",
-    image: "/work/skilladder.png",
+    image: "/work/skilladder.jpg",
     flagship: true,
     url: "https://assessments.skilladder.ai",
     description:
@@ -193,7 +193,7 @@ export const builtProjects: BuiltProject[] = [
   },
   {
     title: "Orderflow",
-    image: "/work/orderflow.png",
+    image: "/work/orderflow.jpg",
     flagship: true,
     url: "https://app.tryorderflow.com",
     description:
@@ -203,7 +203,7 @@ export const builtProjects: BuiltProject[] = [
   },
   {
     title: "CVERSE",
-    image: "/work/cverse.png",
+    image: "/work/cverse.jpg",
     url: "https://demirti.com",
     description:
       "Cohort-based learning management platform with automated weekly content unlocking, assignment submission and grading, class recordings, and progress analytics for course delivery.",
@@ -213,7 +213,7 @@ export const builtProjects: BuiltProject[] = [
   {
     title: "Harvesters Workers System",
     url: "https://attendance.hiccgbagada.com",
-    image: "/work/hicc-attendance.png",
+    image: "/work/hicc-attendance.jpg",
     description:
       "Church workforce administration platform with multi-tier role-based access, department and team management, bulk email campaigns with delivery tracking, attendance history, and Excel/CSV import-export.",
     tech: ["React", "Supabase", "AWS Amplify"],
@@ -242,7 +242,7 @@ export const builtProjects: BuiltProject[] = [
   },
   {
     title: "Vrena Law",
-    image: "/work/vrena-law.png",
+    image: "/work/vrena-law.jpg",
     url: "https://vrenalaw.com",
     description:
       "Professional legal services website for a Nigerian law firm. Modern design with animated sections, service showcases, and consultation booking interface.",
@@ -251,7 +251,7 @@ export const builtProjects: BuiltProject[] = [
   },
   {
     title: "GRWTEE",
-    image: "/work/grwtee.png",
+    image: "/work/grwtee.jpg",
     flagship: true,
     url: "https://grwtee.com",
     description:
@@ -261,7 +261,7 @@ export const builtProjects: BuiltProject[] = [
   },
   {
     title: "Banyan Claims",
-    image: "/work/banyan-claims.png",
+    image: "/work/banyan-claims.jpg",
     url: "https://banyanclaims.com",
     description:
       "Claims management platform built for streamlined processing and client engagement.",
@@ -309,7 +309,7 @@ export const caseStudies: CaseStudy[] = [
         heading: "What I built",
         paragraphs: [
           "A multi-tenant assessment platform with a creator studio for authoring assessments, AI scoring, proctoring with anti-fraud telemetry, and participant management. Around the core sit a job board, employer talent matching, a durable email pipeline, and a client API with more than 60 endpoints.",
-          "I owned the full lifecycle. Research, requirements, and design, then hands-on development with Cursor and Claude Code, followed by continuous iteration with clients in production.",
+          "I owned the full lifecycle. Research, requirements, and design, then hands-on development with Cursor, Claude Code, and Codex, followed by continuous iteration with clients in production.",
         ],
       },
       {
@@ -402,7 +402,7 @@ export const skills = {
     "Next.js / React",
     "Tailwind CSS",
     "PostgreSQL / Prisma",
-    "AI-Assisted Development (Cursor, Claude Code, Lovable, Replit)",
+    "AI-Assisted Development (Cursor, Claude Code, Codex, Gemini)",
     "Vercel Deployment",
     "Prompt Engineering & Prototyping",
   ],
@@ -439,7 +439,7 @@ export const education = {
 };
 
 export const howIWork =
-  "My week splits between product work and building. I run sprints in Linear, conduct user research, and keep stakeholders aligned on what ships next. When something needs to exist quickly, I build it myself with Next.js, React, and Tailwind CSS, working alongside AI tools like Cursor, Claude Code, Lovable, and Replit. I'm the PM who can sit with engineers, hold the room with execs, and ship the MVP myself if needed.";
+  "My week splits between product work and building. I run sprints in Linear, conduct user research, and keep stakeholders aligned on what ships next. When something needs to exist quickly, I build it myself with Next.js, React, and Tailwind CSS, working alongside AI tools like Cursor, Claude Code, Codex, and Gemini. I'm the PM who can sit with engineers, hold the room with execs, and ship the MVP myself if needed.";
 
 export const blogPosts = [
   {

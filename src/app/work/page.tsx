@@ -22,7 +22,7 @@ export default function WorkPage() {
       <ScrollReveal>
         <p className="mt-4 text-[15px] text-muted max-w-2xl leading-relaxed">
           Live websites and applications I&apos;ve built using Next.js, React, and
-          AI tools like Cursor, Claude Code, Lovable, and Replit.
+          AI tools like Cursor, Claude Code, Codex, and Gemini.
         </p>
       </ScrollReveal>
 

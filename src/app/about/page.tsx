@@ -40,7 +40,7 @@ export default function AboutPage() {
               What makes me unusual is that I also build. I&apos;ve shipped
               production platforms with Next.js, React, Tailwind CSS, and
               PostgreSQL, working alongside AI tools like Cursor, Claude Code,
-              Lovable, and Replit. The PRD and the pull request often land in
+              Codex, and Gemini. The PRD and the pull request often land in
               the same week, both written by me.
             </p>
             <p>

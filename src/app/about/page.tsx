@@ -7,7 +7,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Product Manager and builder based in Berlin. I manage products and build them too - shipping across FinTech, HRTech, EdTech, and marketplace platforms.",
+    "AI Product Manager based in Berlin. I write the PRD and ship the code - 5+ years across FinTech, HRTech, EdTech, and marketplace platforms.",
 };
 
 export default function AboutPage() {

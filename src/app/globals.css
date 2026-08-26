@@ -1,15 +1,49 @@
 @import "tailwindcss";
 
+/* Semantic palette: light is the base, dark overrides via media query.
+   Utilities must reference these vars (see @theme inline below) so both
+   schemes work without per-class dark: variants. */
+:root {
+  --bg: #fafaf8;
+  --text: #1b1b18;
+  --muted: #6b6960;
+  --muted-light: #8a8880;
+  --card: #f1f1ec;
+  --border: #e4e3db;
+  --dark: #1b1b18;
+  --accent: #17604a;
+  --accent-soft: #e6efe9;
+  --dot: rgba(27, 27, 24, 0.07);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #151513;
+    --text: #eceae2;
+    --muted: #9c9a8f;
+    --muted-light: #7e7c72;
+    --card: #1e1e1a;
+    --border: #2e2e28;
+    --dark: #eceae2;
+    --accent: #5fb893;
+    --accent-soft: #1c2b24;
+    --dot: rgba(236, 234, 226, 0.05);
+  }
+}
+
 @theme inline {
-  --color-bg: #FAFAF8;
-  --color-text: #1A1A18;
-  --color-muted: #6B6B6B;
-  --color-muted-light: #888888;
-  --color-card: #F0F0EC;
-  --color-border: #E8E8E4;
-  --color-dark: #1A1A18;
+  --color-bg: var(--bg);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-muted-light: var(--muted-light);
+  --color-card: var(--card);
+  --color-border: var(--border);
+  --color-dark: var(--dark);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
   --font-sans: var(--font-dm-sans);
   --font-serif: var(--font-instrument-serif);
+  --font-mono: var(--font-jetbrains-mono);
 }
 
 html {
@@ -17,21 +51,30 @@ html {
 }
 
 body {
-  background: var(--color-bg);
-  color: var(--color-text);
-  font-family: var(--font-sans), system-ui, sans-serif;
+  background-color: var(--bg);
+  background-image: radial-gradient(var(--dot) 1px, transparent 1px);
+  background-size: 22px 22px;
+  color: var(--text);
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
   font-size: 15px;
   line-height: 1.7;
 }
 
-/* Section label style */
+/* Section label style: mono microtype voice */
 .section-label {
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  color: var(--color-muted);
-  font-family: var(--font-sans), system-ui, sans-serif;
+  color: var(--muted);
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
   font-weight: 500;
+}
+
+/* Mono meta text (dates, tags, stats labels) */
+.meta {
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: 0.02em;
 }
 
 /* Scroll animation */
@@ -44,6 +87,17 @@ body {
 .animate-on-scroll.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-on-scroll {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 /* Project hover dimming */
@@ -60,6 +114,26 @@ body {
   transition: opacity 0.3s ease;
 }
 
+/* Card hover lift */
+.card-lift {
+  transition: transform 0.25s ease, border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.card-lift:hover {
+  transform: translateY(-3px);
+  border-color: var(--muted-light);
+  box-shadow: 0 6px 24px rgba(27, 27, 24, 0.06);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-lift,
+  .card-lift:hover {
+    transform: none;
+    transition: none;
+  }
+}
+
 /* Active nav indicator */
 .nav-link {
   position: relative;
@@ -72,14 +146,14 @@ body {
   left: 0;
   right: 0;
   height: 1.5px;
-  background: var(--color-text);
+  background: var(--text);
   border-radius: 1px;
 }
 
 /* Focus styles for keyboard navigation (WCAG 2.4.7) */
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid var(--color-text);
+  outline: 2px solid var(--text);
   outline-offset: 2px;
   border-radius: 2px;
 }

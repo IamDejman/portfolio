@@ -29,7 +29,7 @@ export default function ContactPage() {
             <div className="mt-10 flex flex-wrap gap-4">
               <a
                 href={`mailto:${siteConfig.email}`}
-                className="inline-flex items-center px-6 py-3 rounded-full bg-dark text-white text-sm font-medium hover:bg-dark/85 transition-colors"
+                className="inline-flex items-center px-6 py-3 rounded-full bg-dark text-bg text-sm font-medium hover:bg-dark/85 transition-colors"
               >
                 Send an email &rarr;
               </a>
@@ -37,7 +37,7 @@ export default function ContactPage() {
                 href={siteConfig.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-6 py-3 rounded-full border border-text text-text text-sm font-medium hover:bg-text hover:text-white transition-colors"
+                className="inline-flex items-center px-6 py-3 rounded-full border border-text text-text text-sm font-medium hover:bg-text hover:text-bg transition-colors"
               >
                 LinkedIn
               </a>
@@ -45,14 +45,14 @@ export default function ContactPage() {
                 href={siteConfig.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-6 py-3 rounded-full border border-text text-text text-sm font-medium hover:bg-text hover:text-white transition-colors"
+                className="inline-flex items-center px-6 py-3 rounded-full border border-text text-text text-sm font-medium hover:bg-text hover:text-bg transition-colors"
               >
                 GitHub
               </a>
               <a
                 href={siteConfig.cv}
                 download
-                className="inline-flex items-center px-6 py-3 rounded-full border border-text text-text text-sm font-medium hover:bg-text hover:text-white transition-colors"
+                className="inline-flex items-center px-6 py-3 rounded-full border border-text text-text text-sm font-medium hover:bg-text hover:text-bg transition-colors"
               >
                 Download CV &darr;
               </a>
@@ -61,15 +61,15 @@ export default function ContactPage() {
         </ScrollReveal>
 
         <ScrollReveal delay={150}>
-          <div className="bg-dark text-white rounded-2xl p-8 md:p-10">
-            <p className="text-xs uppercase tracking-widest text-white/50 mb-6">
+          <div className="bg-dark text-bg rounded-2xl p-8 md:p-10">
+            <p className="text-xs uppercase tracking-widest text-bg/50 mb-6">
               Open to
             </p>
             <ul className="space-y-4">
               {openTo.map((item) => (
                 <li
                   key={item}
-                  className="text-[15px] leading-snug text-white/85 flex items-start gap-3"
+                  className="text-[15px] leading-snug text-bg/85 flex items-start gap-3"
                 >
                   <span className="mt-1.5 block w-1.5 h-1.5 rounded-full bg-white/40 shrink-0" />
                   {item}

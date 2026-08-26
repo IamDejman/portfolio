@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { DM_Sans, Instrument_Serif } from "next/font/google";
+import { DM_Sans, Instrument_Serif, JetBrains_Mono } from "next/font/google";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { siteConfig } from "@/data/content";
@@ -18,6 +18,13 @@ const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
   weight: "400",
   style: ["normal", "italic"],
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
+  subsets: ["latin"],
+  weight: ["400", "500"],
   display: "swap",
 });
 
@@ -57,7 +64,7 @@ export default function RootLayout({
     "@type": "Person",
     name: siteConfig.fullName,
     url: siteConfig.url,
-    jobTitle: "Product Manager & Builder",
+    jobTitle: "AI Product Manager",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Berlin",
@@ -67,7 +74,10 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`${dmSans.variable} ${instrumentSerif.variable}`}>
+    <html
+      lang="en"
+      className={`${dmSans.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable}`}
+    >
       <body className="antialiased">
         <script
           type="application/ld+json"

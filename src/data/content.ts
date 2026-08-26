@@ -1,12 +1,13 @@
 export const siteConfig = {
   name: "Ayodeji",
   fullName: "Ayodeji Eluwande",
-  title: "Ayodeji Eluwande - Product Manager & Builder",
+  title: "Ayodeji Eluwande - AI Product Manager",
   description:
-    "Product Manager and builder with 5+ years shipping products across FinTech, HRTech, EdTech, and marketplace platforms. I manage products and build them too. Based in Berlin, Germany.",
+    "AI Product Manager who ships. 5+ years across FinTech, HRTech, EdTech, and marketplaces. I write the PRD and the production code: 13 live products built with Next.js, React, and AI tooling. Based in Berlin, Germany.",
   url: "https://ayodejieluwande.vercel.app",
   email: "ayodejieluwande@gmail.com",
-  phone: "+2348089932753",
+  phone: "+491791556146",
+  availability: "Open to roles · 2026",
   linkedin: "https://linkedin.com/in/ayodejieluwande",
   twitter: "https://x.com/aeluwande",
   github: "https://github.com/IamDejman",
@@ -29,7 +30,18 @@ export const stats = [
 ];
 
 export const currentRoles = [
-  { title: "Product Lead, Strategy & Operations", org: "Skilladder AI" },
+  { title: "Lead AI Product Manager - Operations", org: "Skilladder AI" },
+];
+
+export const toolGroups = [
+  {
+    label: "Product ops",
+    tools: ["Linear", "Figma", "Miro", "Postman", "SQL"],
+  },
+  {
+    label: "AI build",
+    tools: ["Cursor", "Claude Code", "Gemini", "Next.js", "Supabase", "Vercel"],
+  },
 ];
 
 export const pastRoles = [
@@ -53,7 +65,7 @@ export const projects: Project[] = [
   {
     title: "Skilladder AI",
     client: "Skilladder AI",
-    role: "Product Lead, Strategy & Operations",
+    role: "Lead AI Product Manager - Operations",
     description:
       "Building the future of skills-based hiring across Africa through AI-powered talent workflows and verified skills assessments. Took the assessment platform from prototype to primary product, cutting deployment time by 85%, while leading product strategy from planning to retrospective with AI tools including Cursor and Claude Code.",
     tags: ["HRTech", "AI", "Assessment", "Hiring"],
@@ -139,7 +151,8 @@ export const builtProjects: BuiltProject[] = [
     highlight: "Live bill payments",
   },
   {
-    title: "Order Food (WhatsApp Flow)",
+    title: "Orderflow",
+    url: "https://app.tryorderflow.com",
     description:
       "Conversational food ordering and table booking over WhatsApp. Menu browsing, item customization, checkout, and kitchen receipt printing, all inside a single WhatsApp Flow with a Next.js operator dashboard.",
     tech: ["Kotlin", "Spring Boot", "Next.js", "WhatsApp Flow API"],
@@ -232,7 +245,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "skilladder",
     title: "Skilladder Assessment Platform",
     org: "Skilladder AI",
-    role: "Product Lead, Strategy & Operations",
+    role: "Lead AI Product Manager - Operations",
     period: "May 2025 – Present",
     summary:
       "From a spreadsheet workflow to a multi-tenant assessment platform serving a national talent cohort of 85,000+ candidates.",

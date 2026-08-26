@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { siteConfig, stats } from "@/data/content";
+import { siteConfig, stats, toolGroups } from "@/data/content";
 import ScrollReveal from "@/components/ScrollReveal";
 
 export default function Home() {
@@ -8,38 +8,64 @@ export default function Home() {
       {/* Hero Section */}
       <section className="pt-32 md:pt-44 pb-20">
         <ScrollReveal>
-          <p className="section-label mb-6">
-            Product Manager &amp; Builder - Berlin, Germany
-          </p>
+          <div className="mb-6 flex flex-wrap items-center gap-3">
+            <p className="section-label">
+              AI Product Manager - Berlin, Germany
+            </p>
+            <span className="meta inline-flex items-center gap-1.5 rounded-full border border-accent/40 bg-accent-soft px-3 py-1 text-[11px] uppercase tracking-[0.15em] text-accent">
+              <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden />
+              {siteConfig.availability}
+            </span>
+          </div>
         </ScrollReveal>
 
         <ScrollReveal delay={100}>
           <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl leading-[1.05] tracking-tight max-w-4xl">
-            I manage products.{" "}
-            <span className="italic">I build them too.</span>
+            I write the PRD.{" "}
+            <span className="italic">I ship the code.</span>
           </h1>
         </ScrollReveal>
 
         <ScrollReveal delay={200}>
           <p className="mt-8 text-muted text-base md:text-lg max-w-2xl leading-relaxed">
-            Product manager with 5+ years in FinTech, HRTech, EdTech, and
-            marketplace platforms. I don&apos;t just spec products, I ship
-            them. Production platforms
-            built with Next.js, React, and AI tooling. Based in Berlin.
+            AI Product Manager with 5+ years across FinTech, HRTech, EdTech,
+            and marketplaces. At Skilladder I took an AI assessment platform
+            from prototype to primary product: deployment cut from weeks to 24
+            hours, 6 recurring enterprise clients, an 85,000+ candidate
+            national cohort. Alongside, 13 live products built end to end with
+            Next.js, React, and AI tooling.
           </p>
+        </ScrollReveal>
+
+        <ScrollReveal delay={250}>
+          <div className="mt-8 flex flex-col gap-3">
+            {toolGroups.map((group) => (
+              <div key={group.label} className="flex flex-wrap items-center gap-2">
+                <span className="section-label w-24 shrink-0">{group.label}</span>
+                {group.tools.map((tool) => (
+                  <span
+                    key={tool}
+                    className="meta rounded-full border border-border bg-card px-3 py-1 text-text"
+                  >
+                    {tool}
+                  </span>
+                ))}
+              </div>
+            ))}
+          </div>
         </ScrollReveal>
 
         <ScrollReveal delay={300}>
           <div className="mt-10 flex flex-wrap gap-4">
             <Link
               href="/work"
-              className="inline-flex items-center px-6 py-3 rounded-full bg-dark text-white text-sm font-medium hover:bg-dark/85 transition-colors"
+              className="inline-flex items-center px-6 py-3 rounded-full bg-dark text-bg text-sm font-medium hover:bg-dark/85 transition-colors"
             >
               View my work &darr;
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center px-6 py-3 rounded-full border border-text text-text text-sm font-medium hover:bg-text hover:text-white transition-colors"
+              className="inline-flex items-center px-6 py-3 rounded-full border border-text text-text text-sm font-medium hover:bg-text hover:text-bg transition-colors"
             >
               Get in touch
             </Link>
@@ -94,7 +120,7 @@ export default function Home() {
           <div className="mt-8 flex flex-wrap gap-4">
             <a
               href={`mailto:${siteConfig.email}`}
-              className="inline-flex items-center px-6 py-3 rounded-full bg-dark text-white text-sm font-medium hover:bg-dark/85 transition-colors"
+              className="inline-flex items-center px-6 py-3 rounded-full bg-dark text-bg text-sm font-medium hover:bg-dark/85 transition-colors"
             >
               Send an email &rarr;
             </a>
@@ -102,7 +128,7 @@ export default function Home() {
               href={siteConfig.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-6 py-3 rounded-full border border-text text-text text-sm font-medium hover:bg-text hover:text-white transition-colors"
+              className="inline-flex items-center px-6 py-3 rounded-full border border-text text-text text-sm font-medium hover:bg-text hover:text-bg transition-colors"
             >
               LinkedIn
             </Link>

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { projects, builtProjects } from "@/data/content";
+import { projects, builtProjects, howIWork, toolGroups } from "@/data/content";
 import PageHeader from "@/components/PageHeader";
 import ScrollReveal from "@/components/ScrollReveal";
 
@@ -29,9 +29,20 @@ export default function WorkPage() {
       <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
         {builtProjects.map((project, i) => {
           const cardClass =
-            "card-lift group block bg-card rounded-2xl p-8 border border-border";
+            "card-lift group block h-full bg-card rounded-2xl p-8 border border-border";
           const inner = (
             <>
+              {project.image && (
+                <div className="mb-6 -mt-2 overflow-hidden rounded-xl border border-border">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={project.image}
+                    alt={`Screenshot of ${project.title}`}
+                    loading="lazy"
+                    className="aspect-video w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+                  />
+                </div>
+              )}
               <div className="flex items-start justify-between gap-4 mb-3">
                 <h2 className="font-serif text-xl md:text-2xl group-hover:text-muted transition-colors">
                   {project.title}
@@ -66,7 +77,11 @@ export default function WorkPage() {
           );
 
           return (
-            <ScrollReveal key={project.title} delay={i * 80}>
+            <ScrollReveal
+              key={project.title}
+              delay={i * 80}
+              className={project.flagship ? "md:col-span-2" : ""}
+            >
               {project.url ? (
                 <a
                   href={project.url}
@@ -140,6 +155,32 @@ export default function WorkPage() {
             </ScrollReveal>
           ))}
         </div>
+      </div>
+
+      {/* How I build */}
+      <div className="mt-24">
+        <ScrollReveal>
+          <p className="section-label mb-4">How I build</p>
+          <h2 className="font-serif text-3xl md:text-4xl leading-tight">
+            PRD to production, one person.
+          </h2>
+          <p className="mt-6 text-muted max-w-3xl leading-relaxed">{howIWork}</p>
+          <div className="mt-8 flex flex-col gap-3">
+            {toolGroups.map((group) => (
+              <div key={group.label} className="flex flex-wrap items-center gap-2">
+                <span className="section-label w-24 shrink-0">{group.label}</span>
+                {group.tools.map((tool) => (
+                  <span
+                    key={tool}
+                    className="meta rounded-full border border-border bg-card px-3 py-1 text-text"
+                  >
+                    {tool}
+                  </span>
+                ))}
+              </div>
+            ))}
+          </div>
+        </ScrollReveal>
       </div>
     </div>
   );

@@ -3,7 +3,7 @@ export const siteConfig = {
   fullName: "Ayodeji Eluwande",
   title: "Ayodeji Eluwande - AI Product Manager",
   description:
-    "AI Product Manager who ships. 5+ years across FinTech, HRTech, EdTech, and marketplaces. I write the PRD and the production code: 13 live products built with Next.js, React, and AI tooling. Based in Berlin, Germany.",
+    "AI Product Manager who ships. 5+ years across FinTech, HRTech, EdTech, and marketplaces. I write the PRD and the production code: 12 live products built with Next.js, React, and AI tooling. Based in Berlin, Germany.",
   url: "https://ayodejieluwande.vercel.app",
   email: "ayodejieluwande@gmail.com",
   phone: "+491791556146",
@@ -26,7 +26,7 @@ export const navLinks = [
 export const stats = [
   { value: "5+", label: "Years in Product" },
   { value: "8", label: "Products Managed" },
-  { value: "13", label: "Sites & Apps Built" },
+  { value: "12", label: "Sites & Apps Built" },
 ];
 
 export const currentRoles = [
@@ -47,7 +47,7 @@ export const proofCards = [
     cta: "Read the case study",
   },
   {
-    metric: "13",
+    metric: "12",
     title: "Live products, built end to end",
     description:
       "Platforms, WhatsApp commerce, PWAs, and client sites. PRD to production code with Next.js, React, Kotlin, and AI-assisted development.",
@@ -267,13 +267,6 @@ export const builtProjects: BuiltProject[] = [
       "Claims management platform built for streamlined processing and client engagement.",
     tech: ["Next.js", "Tailwind CSS", "Vercel"],
     highlight: "Client platform",
-  },
-  {
-    title: "HICC Gbagada Attendance",
-    description:
-      "Church attendance tracking web application for Harvesters International Christian Centre, Gbagada. Digital check-in system replacing manual processes.",
-    tech: ["React", "JavaScript", "Web App"],
-    highlight: "Community tool in active use",
   },
 ];
 

@@ -86,7 +86,7 @@ export const pastRoles = [
   { title: "Associate Product Manager", org: "Treford", period: "May 2022 - Jul 2022" },
 ];
 
-type Project = {
+export type Project = {
   title: string;
   client: string;
   role: string;
@@ -156,7 +156,7 @@ export const projects: Project[] = [
   },
 ];
 
-type BuiltProject = {
+export type BuiltProject = {
   title: string;
   url?: string;
   caseStudy?: string;
@@ -172,6 +172,7 @@ export const builtProjects: BuiltProject[] = [
     title: "Skilladder Assessment Platform",
     image: "/work/skilladder.jpg",
     flagship: true,
+    caseStudy: "skilladder",
     url: "https://assessments.skilladder.ai",
     description:
       "Multi-tenant skills assessment platform with a creator studio, proctoring and anti-fraud telemetry, a job board, and employer talent matching. Built a durable email pipeline and a 60+ endpoint client API, deployed for a national talent cohort of 85,000+ candidates.",

@@ -6,167 +6,275 @@ import {
   proofCards,
   currentRoles,
   pastRoles,
+  builtProjects,
 } from "@/data/content";
-import ScrollReveal from "@/components/ScrollReveal";
+import Reveal from "@/components/Reveal";
+import RailHead from "@/components/RailHead";
+import WorkCard from "@/components/WorkCard";
+import { ArrowRight } from "@/components/icons";
+
+const heroFacts = [
+  {
+    label: "Currently",
+    line: currentRoles[0].title,
+    meta: `${currentRoles[0].org} · ${currentRoles[0].period}`,
+  },
+  { label: "Based", line: "Berlin, Germany", meta: "From Lagos, Nigeria" },
+  {
+    label: "Open to",
+    line: "PM roles, consulting, fractional",
+    meta: "",
+  },
+];
 
 export default function Home() {
+  const featured = builtProjects.filter((p) => p.image).slice(0, 3);
+
   return (
-    <div className="max-w-[1120px] mx-auto px-6">
-      {/* Hero Section */}
-      <section className="pt-32 md:pt-44 pb-20">
-        <ScrollReveal>
-          <p className="section-label mb-6">
-            AI Product Manager - Berlin, Germany
-          </p>
-        </ScrollReveal>
+    <div>
+      {/* Hero: content left, dossier right */}
+      <section className="dots border-b border-line">
+        <div className="mx-auto grid max-w-[1280px] grid-cols-1 gap-12 px-5 pt-16 pb-16 md:grid-cols-12 md:gap-6 md:px-12 md:pt-24 md:pb-24">
+          <div className="flex flex-col gap-8 md:col-span-8">
+            <div className="flex items-center gap-3.5">
+              <span className="label">AI Product Manager</span>
+              <span className="h-px w-9 bg-line-2" />
+              <span className="label">Berlin, Germany</span>
+            </div>
+            <h1 className="font-serif text-5xl leading-[1.0] tracking-[-0.02em] md:text-7xl md:leading-[0.96] lg:text-[100px] lg:tracking-[-0.028em]">
+              I write the PRD.
+              <br />
+              <span className="italic">I ship the code.</span>
+            </h1>
+            <p className="max-w-[600px] text-lg leading-relaxed text-ink-2 md:text-xl">
+              Five years of product across FinTech, HRTech, EdTech, and
+              marketplaces. At Skilladder I took an AI assessment platform from
+              prototype to primary product. Alongside it, twelve live products
+              built end to end.
+            </p>
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-3.5">
+              <Link href="/work" className="btn btn-primary">
+                See the work <ArrowRight />
+              </Link>
+              <Link href="/contact" className="btn btn-ghost">
+                Get in touch
+              </Link>
+              <a
+                href={siteConfig.cv}
+                download
+                className="text-sm text-accent hover:text-accent-dk sm:ml-2"
+              >
+                Download CV, PDF
+              </a>
+            </div>
+          </div>
 
-        <ScrollReveal delay={100}>
-          <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl leading-[1.05] tracking-tight max-w-4xl">
-            I write the PRD.{" "}
-            <span className="italic">I ship the code.</span>
-          </h1>
-        </ScrollReveal>
-
-        <ScrollReveal delay={200}>
-          <p className="mt-8 text-muted text-base md:text-lg max-w-2xl leading-relaxed">
-            AI Product Manager with 5+ years across FinTech, HRTech, EdTech,
-            and marketplaces. At Skilladder I took an AI assessment platform
-            from prototype to primary product. Deployment went from weeks to
-            24 hours, with 6 recurring enterprise clients and an 85,000+
-            candidate national cohort. Alongside, 12 live products built end
-            to end with Next.js, React, and AI tooling.
-          </p>
-        </ScrollReveal>
-
-        <ScrollReveal delay={250}>
-          <div className="mt-8 flex flex-col gap-3">
-            {toolGroups.map((group) => (
-              <div key={group.label} className="flex flex-wrap items-center gap-2">
-                <span className="section-label w-24 shrink-0">{group.label}</span>
-                {group.tools.map((tool) => (
-                  <span
-                    key={tool}
-                    className="meta rounded-full border border-border bg-card px-3 py-1 text-text"
-                  >
-                    {tool}
-                  </span>
-                ))}
+          <div className="md:col-span-3 md:col-start-10">
+            <div className="border-t-2 border-ink pt-4">
+              {heroFacts.map((f) => (
+                <div
+                  key={f.label}
+                  className="flex flex-col gap-1.5 border-b border-line py-4"
+                >
+                  <span className="label">{f.label}</span>
+                  <p className="text-[15px] leading-snug">{f.line}</p>
+                  {f.meta && <p className="meta">{f.meta}</p>}
+                </div>
+              ))}
+              <div className="flex flex-col gap-2.5 py-4">
+                <span className="label">Working with</span>
+                <div className="flex flex-wrap gap-1.5">
+                  {["Next.js", "React", "Supabase", "Kotlin", "Cursor", "Claude Code"].map(
+                    (t) => (
+                      <span key={t} className="chip">
+                        {t}
+                      </span>
+                    )
+                  )}
+                </div>
               </div>
-            ))}
+            </div>
           </div>
-        </ScrollReveal>
-
-        <ScrollReveal delay={300}>
-          <div className="mt-10 flex flex-wrap gap-4">
-            <Link
-              href="/work"
-              className="inline-flex items-center px-6 py-3 rounded-full bg-dark text-bg text-sm font-medium hover:bg-dark/85 transition-colors"
-            >
-              View my work &darr;
-            </Link>
-            <Link
-              href="/contact"
-              className="inline-flex items-center px-6 py-3 rounded-full border border-text text-text text-sm font-medium hover:bg-text hover:text-bg transition-colors"
-            >
-              Get in touch
-            </Link>
-          </div>
-        </ScrollReveal>
-
-        {/* Stats */}
-        <ScrollReveal delay={400}>
-          <div className="mt-16 pt-8 border-t border-border grid grid-cols-2 md:grid-cols-3 gap-8">
-            {stats.map((stat) => (
-              <div key={stat.label}>
-                <p className="font-serif text-3xl md:text-4xl">{stat.value}</p>
-                <p className="text-sm text-muted mt-1">{stat.label}</p>
-              </div>
-            ))}
-          </div>
-        </ScrollReveal>
+        </div>
       </section>
 
-      {/* Proof cards */}
-      <section className="py-20 border-t border-border">
-        <ScrollReveal>
-          <p className="section-label mb-8">The receipts</p>
-        </ScrollReveal>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {/* Stat band */}
+      <section className="border-b border-line bg-surface">
+        <div className="mx-auto grid max-w-[1280px] grid-cols-3 px-5 md:px-12">
+          {stats.map((stat, i) => (
+            <div
+              key={stat.label}
+              className={`flex flex-col gap-1.5 py-7 md:py-11 ${
+                i > 0 ? "border-l border-line pl-5 md:pl-11" : ""
+              } ${i < 2 ? "pr-5 md:pr-11" : ""}`}
+            >
+              <span className="font-serif text-4xl md:text-7xl">{stat.value}</span>
+              <span className="label text-[9.5px] leading-normal md:text-[11px]">
+                {stat.label}
+              </span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* The receipts */}
+      <section>
+        <div className="mx-auto grid max-w-[1280px] grid-cols-1 gap-4 px-5 pt-14 pb-8 md:grid-cols-12 md:items-end md:gap-6 md:px-12 md:pt-24">
+          <RailHead index="01" label="The receipts" />
+          <h2 className="font-serif text-3xl leading-tight md:col-span-7 md:text-[46px]">
+            Numbers I can point at.
+          </h2>
+        </div>
+        <div className="mx-auto grid max-w-[1280px] grid-cols-1 gap-10 px-5 pb-14 md:grid-cols-12 md:items-stretch md:gap-6 md:px-12 md:pb-24">
           {proofCards.map((card, i) => (
-            <ScrollReveal key={card.title} delay={i * 100}>
+            <Reveal
+              key={card.title}
+              delay={i * 90}
+              className={i === 0 ? "md:col-span-5" : i === 1 ? "md:col-span-4" : "md:col-span-3"}
+            >
               <Link
                 href={card.href}
-                className="card-lift group flex h-full flex-col rounded-2xl border border-border bg-card p-8"
+                className="flex h-full flex-col gap-3.5 border-t-2 border-ink pt-5"
               >
-                <p className="font-serif text-5xl md:text-6xl">{card.metric}</p>
-                <h2 className="mt-3 text-base font-medium">{card.title}</h2>
-                <p className="mt-3 flex-1 text-sm text-muted leading-relaxed">
+                <span
+                  className={`font-serif ${
+                    i === 0 ? "text-6xl md:text-8xl" : i === 1 ? "text-5xl md:text-7xl" : "text-4xl md:text-5xl"
+                  }`}
+                >
+                  {card.metric}
+                </span>
+                <h3 className="text-[17px] font-medium leading-snug">
+                  {card.title}
+                </h3>
+                <p className="flex-1 text-sm leading-relaxed text-ink-3">
                   {card.description}
                 </p>
-                <span className="meta mt-6 inline-flex items-center gap-1 text-accent">
-                  {card.cta} <span aria-hidden>&rarr;</span>
+                <span className="meta mt-2 flex items-center gap-1.5 text-accent">
+                  {card.cta} <ArrowRight size={13} />
                 </span>
               </Link>
-            </ScrollReveal>
+            </Reveal>
           ))}
         </div>
       </section>
 
-      {/* Experience timeline */}
-      <section className="py-20 border-t border-border">
-        <ScrollReveal>
-          <p className="section-label mb-8">Experience</p>
-        </ScrollReveal>
-        <div>
-          {[...currentRoles, ...pastRoles].map((role, i) => (
-            <ScrollReveal key={`${role.org}-${role.title}`} delay={i * 60}>
-              <div className="flex flex-col gap-1 border-b border-border py-5 md:flex-row md:items-baseline md:justify-between md:gap-6">
-                <div className="flex flex-col md:flex-row md:items-baseline md:gap-3">
-                  <h2 className="font-serif text-xl md:text-2xl">{role.org}</h2>
-                  <p className="text-sm text-muted">{role.title}</p>
-                </div>
-                <span className="meta shrink-0 text-muted">{role.period}</span>
-              </div>
-            </ScrollReveal>
+      {/* Selected builds */}
+      <section className="border-y border-line bg-surface">
+        <div className="mx-auto grid max-w-[1280px] grid-cols-1 gap-4 px-5 pt-12 pb-8 md:grid-cols-12 md:items-end md:gap-6 md:px-12 md:pt-20">
+          <RailHead index="02" label="Selected builds" />
+          <h2 className="font-serif text-3xl leading-tight md:col-span-6 md:text-[46px]">
+            Shipped, not planned.
+          </h2>
+          <Link
+            href="/work"
+            className="meta flex items-center gap-1.5 text-accent md:col-span-2 md:col-start-11 md:justify-end"
+          >
+            All 18 projects <ArrowRight size={13} />
+          </Link>
+        </div>
+        <div className="mx-auto grid max-w-[1280px] grid-cols-1 gap-6 px-5 pb-12 md:grid-cols-3 md:px-12 md:pb-20">
+          {featured.map((p, i) => (
+            <Reveal key={p.title} delay={i * 90} className="h-full">
+              <WorkCard project={p} />
+            </Reveal>
           ))}
         </div>
-        <ScrollReveal>
+      </section>
+
+      {/* Experience ledger */}
+      <section>
+        <div className="mx-auto grid max-w-[1280px] grid-cols-1 gap-4 px-5 pt-14 pb-5 md:grid-cols-12 md:items-end md:gap-6 md:px-12 md:pt-24">
+          <RailHead index="03" label="Experience" />
+          <h2 className="font-serif text-3xl leading-tight md:col-span-6 md:text-[46px]">
+            Five years, five teams.
+          </h2>
           <Link
             href="/about"
-            className="mt-8 inline-flex items-center text-sm font-medium text-text hover:text-muted transition-colors"
+            className="meta flex items-center gap-1.5 text-accent md:col-span-2 md:col-start-11 md:justify-end"
           >
-            Full background &rarr;
+            Full background <ArrowRight size={13} />
           </Link>
-        </ScrollReveal>
+        </div>
+        <div className="mx-auto max-w-[1280px] px-5 pb-10 md:px-12">
+          <div className="h-px bg-line-2" />
+          {[...currentRoles, ...pastRoles].map((role, i) => (
+            <div
+              key={`${role.org}-${role.title}`}
+              className="grid grid-cols-1 gap-1 border-b border-line py-5 md:grid-cols-12 md:items-baseline md:gap-6 md:py-6"
+            >
+              <span className="idx hidden md:block">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h3 className="font-serif text-2xl md:col-span-4 md:col-start-2 md:text-[28px]">
+                {role.org}
+              </h3>
+              <p className="text-[15px] text-ink-2 md:col-span-4 md:col-start-6">
+                {role.title}
+              </p>
+              <span
+                className={`meta md:col-span-2 md:col-start-11 md:text-right ${
+                  i === 0 ? "text-accent" : ""
+                }`}
+              >
+                {role.period}
+              </span>
+            </div>
+          ))}
+        </div>
+        <div className="mx-auto grid max-w-[1280px] grid-cols-1 gap-4 px-5 pb-16 md:grid-cols-12 md:items-start md:gap-6 md:px-12 md:pb-24">
+          <RailHead index="04" label="How I build" top />
+          <div className="flex flex-col gap-2.5 md:col-span-9 md:col-start-3 md:pt-3.5">
+            {toolGroups.map((group) => (
+              <div
+                key={group.label}
+                className="flex flex-col gap-2 md:flex-row md:items-center md:gap-3.5"
+              >
+                <span className="label md:w-24 md:shrink-0">{group.label}</span>
+                <div className="flex flex-wrap gap-1.5">
+                  {group.tools.map((tool) => (
+                    <span key={tool} className="chip">
+                      {tool}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* CTA */}
-      <section className="py-20 border-t border-border">
-        <ScrollReveal>
-          <h2 className="font-serif text-3xl md:text-5xl leading-tight">
-            Let&apos;s build something together.
-          </h2>
-          <p className="mt-4 text-muted max-w-xl">
-            Whether you need a product manager for your solution or product or
-            just want to talk shop - I&apos;m always open to good conversations.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-4">
-            <a
-              href={`mailto:${siteConfig.email}`}
-              className="inline-flex items-center px-6 py-3 rounded-full bg-dark text-bg text-sm font-medium hover:bg-dark/85 transition-colors"
-            >
-              Send an email &rarr;
-            </a>
-            <Link
-              href={siteConfig.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center px-6 py-3 rounded-full border border-text text-text text-sm font-medium hover:bg-text hover:text-bg transition-colors"
-            >
-              LinkedIn
-            </Link>
+      <section className="bg-sink">
+        <div className="mx-auto grid max-w-[1280px] grid-cols-1 gap-10 px-5 py-16 md:grid-cols-12 md:items-end md:gap-6 md:px-12 md:py-24">
+          <div className="flex flex-col gap-5 md:col-span-7">
+            <span className="label text-sink-ink-3">Next</span>
+            <h2 className="font-serif text-4xl leading-tight text-sink-ink md:text-6xl">
+              Let&apos;s build something together.
+            </h2>
+            <p className="max-w-[460px] text-lg leading-relaxed text-sink-ink-2">
+              Whether you need a product manager for your platform or just want
+              to talk shop, I am always open to a good conversation.
+            </p>
           </div>
-        </ScrollReveal>
+          <div className="flex flex-col items-start gap-4 md:col-span-4 md:col-start-9">
+            <a href={`mailto:${siteConfig.email}`} className="btn btn-inv">
+              Send an email <ArrowRight />
+            </a>
+            <span className="meta text-sink-ink-3">{siteConfig.email}</span>
+            <div className="my-2 h-px w-full bg-sink-line" />
+            <div className="flex gap-5">
+              <a href={siteConfig.linkedin} target="_blank" rel="noopener noreferrer" className="text-sm text-sink-ink-2 hover:text-sink-ink transition-colors">
+                LinkedIn
+              </a>
+              <a href={siteConfig.github} target="_blank" rel="noopener noreferrer" className="text-sm text-sink-ink-2 hover:text-sink-ink transition-colors">
+                GitHub
+              </a>
+              <a href={siteConfig.twitter} target="_blank" rel="noopener noreferrer" className="text-sm text-sink-ink-2 hover:text-sink-ink transition-colors">
+                X
+              </a>
+            </div>
+          </div>
+        </div>
       </section>
     </div>
   );

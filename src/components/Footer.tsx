@@ -77,7 +77,8 @@ export default function Footer() {
       <div className="border-t border-line">
         <div className="mx-auto flex max-w-[1280px] flex-col gap-2 px-5 py-5 sm:flex-row sm:items-center sm:justify-between md:px-12">
           <span className="meta">
-            &copy; {new Date().getFullYear()} {siteConfig.fullName}
+            &copy; {new Date().getFullYear()} {siteConfig.fullName}. Built with
+            intention.
           </span>
           <span className="meta">Berlin, DE · {siteConfig.email}</span>
         </div>

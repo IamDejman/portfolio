@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { currentRoles, pastRoles, education, certifications } from "@/data/content";
 import Reveal from "@/components/Reveal";
 import RailHead from "@/components/RailHead";
@@ -95,6 +96,15 @@ export default function AboutPage() {
 
         {/* Dossier column */}
         <Reveal delay={120} className="md:col-span-4 md:col-start-9">
+          <div className="relative mb-7 aspect-[4/5] overflow-hidden rounded-2xl border border-line bg-surface">
+            <Image
+              src="/ayodeji.jpg"
+              alt="Portrait of Ayodeji Eluwande"
+              fill
+              sizes="(max-width: 768px) 100vw, 400px"
+              className="object-cover"
+            />
+          </div>
           <div className="border-t-2 border-ink">
             <div className="flex flex-col gap-1 border-b border-line py-4">
               <span className="label">Based in</span>

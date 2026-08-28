@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   siteConfig,
   stats,
@@ -65,6 +66,16 @@ export default function Home() {
           </div>
 
           <div className="md:col-span-3 md:col-start-10">
+            <div className="relative mb-6 aspect-[4/5] overflow-hidden rounded-2xl border border-line bg-surface">
+              <Image
+                src="/ayodeji.jpg"
+                alt="Portrait of Ayodeji Eluwande"
+                fill
+                sizes="(max-width: 768px) 100vw, 300px"
+                className="object-cover"
+                priority
+              />
+            </div>
             <div className="border-t-2 border-ink pt-4">
               {heroFacts.map((f) => (
                 <div

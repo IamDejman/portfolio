@@ -13,6 +13,7 @@ import Reveal from "@/components/Reveal";
 import RailHead from "@/components/RailHead";
 import WorkCard from "@/components/WorkCard";
 import { ArrowRight } from "@/components/icons";
+import RoleRotator from "@/components/RoleRotator";
 
 const heroFacts = [
   {
@@ -20,7 +21,6 @@ const heroFacts = [
     line: currentRoles[0].title,
     meta: `${currentRoles[0].org} · ${currentRoles[0].period}`,
   },
-  { label: "Based", line: "Berlin, Germany", meta: "" },
   {
     label: "Open to",
     line: "Product Management, AI Operations, Forward Deployed & AI Engineering, Product Engineer",
@@ -37,11 +37,21 @@ export default function Home() {
       <section className="dots border-b border-line">
         <div className="mx-auto grid max-w-[1280px] grid-cols-1 gap-12 px-5 pt-16 pb-16 md:grid-cols-12 md:gap-6 md:px-12 md:pt-24 md:pb-24">
           <div className="flex flex-col gap-8 md:col-span-8">
-            <h1 className="font-serif text-5xl leading-[1.0] tracking-[-0.02em] md:text-7xl md:leading-[0.96] lg:text-[100px] lg:tracking-[-0.028em]">
-              Everything on this site
-              <br />
-              is <span className="italic">running in production.</span>
-            </h1>
+            <div className="flex flex-col gap-5">
+              <h1 className="font-serif text-4xl leading-[1.08] tracking-[-0.018em] md:text-6xl lg:text-[72px]">
+                Hello, I am Ayodeji Eluwande,
+                <br />
+                <RoleRotator
+                  roles={[
+                    "AI Product Manager.",
+                    "Technical Product Manager.",
+                    "Founding Product Manager.",
+                    "AI Operations Manager.",
+                  ]}
+                />
+              </h1>
+              <p className="font-serif text-2xl text-ink-2 md:text-3xl">Based in Neuk&ouml;lln, Berlin</p>
+            </div>
             <p className="max-w-[600px] text-lg leading-relaxed text-ink-2 md:text-xl">
               Five years of product across FinTech, HRTech, EdTech, and
               marketplaces. At Skilladder I took an AI assessment platform from

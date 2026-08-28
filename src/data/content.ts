@@ -3,7 +3,7 @@ export const siteConfig = {
   fullName: "Ayodeji Eluwande",
   title: "Ayodeji Eluwande - AI Product Manager",
   description:
-    "AI Product Manager in Berlin. Everything on the site is running in production. 5+ years across FinTech, HRTech, EdTech, and marketplaces, with 12 live products built with Next.js, React, and AI tooling.",
+    "AI Product Manager in Berlin. A product manager who builds. 5+ years across FinTech, HRTech, EdTech, and marketplaces, with 12 live products built with Next.js, React, and AI tooling.",
   url: "https://ayodejieluwande.vercel.app",
   email: "ayodejieluwande@gmail.com",
   phone: "+491791556146",

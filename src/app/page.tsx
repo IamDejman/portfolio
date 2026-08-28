@@ -46,11 +46,11 @@ export default function Home() {
                     "AI Product Manager.",
                     "Technical Product Manager.",
                     "Founding Product Manager.",
-                    "AI Operations.",
+                    "AI Operations Manager.",
                   ]}
                 />
               </h1>
-              <p className="label">Based in Neuk&ouml;lln, Berlin</p>
+              <p className="font-serif text-2xl text-ink-2 md:text-3xl">Based in Neuk&ouml;lln, Berlin</p>
             </div>
             <p className="max-w-[600px] text-lg leading-relaxed text-ink-2 md:text-xl">
               Five years of product across FinTech, HRTech, EdTech, and

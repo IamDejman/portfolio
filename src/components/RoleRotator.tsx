@@ -22,7 +22,7 @@ export default function RoleRotator({ roles }: { roles: string[] }) {
 
   return (
     <span
-      className="italic transition-opacity duration-300"
+      className="italic text-accent transition-opacity duration-300"
       style={{ opacity: visible ? 1 : 0 }}
       aria-live="polite"
     >

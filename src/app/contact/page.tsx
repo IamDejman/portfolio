@@ -31,7 +31,7 @@ const routes = [
   {
     label: "X",
     value: "x.com/aeluwande",
-    note: "Short posts",
+    note: "Socials",
     href: siteConfig.twitter,
   },
   {

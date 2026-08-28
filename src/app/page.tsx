@@ -23,7 +23,7 @@ const heroFacts = [
   { label: "Based", line: "Berlin, Germany", meta: "" },
   {
     label: "Open to",
-    line: "Full-time PM roles, freelance, and consulting",
+    line: "PM, AI PM, Forward Deployed, AI Engineer",
     meta: "",
   },
 ];

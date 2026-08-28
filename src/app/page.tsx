@@ -23,7 +23,7 @@ const heroFacts = [
   { label: "Based", line: "Berlin, Germany", meta: "" },
   {
     label: "Open to",
-    line: "Product Management, AI Operations, Forward Deployed & AI Engineering",
+    line: "Product Management, AI Operations, Forward Deployed & AI Engineering, Product Engineer",
     meta: "",
   },
 ];

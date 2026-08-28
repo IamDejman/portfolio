@@ -19,7 +19,7 @@ const heroFacts = [
     line: currentRoles[0].title,
     meta: `${currentRoles[0].org} · ${currentRoles[0].period}`,
   },
-  { label: "Based", line: "Berlin, Germany", meta: "From Lagos, Nigeria" },
+  { label: "Based", line: "Berlin, Germany", meta: "" },
   {
     label: "Open to",
     line: "PM roles, consulting, fractional",

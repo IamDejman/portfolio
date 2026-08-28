@@ -99,7 +99,6 @@ export default function AboutPage() {
             <div className="flex flex-col gap-1 border-b border-line py-4">
               <span className="label">Based in</span>
               <p className="text-[15px]">Berlin, Germany</p>
-              <p className="meta">From Lagos, Nigeria</p>
             </div>
             <div className="flex flex-col gap-1 border-b border-line py-4">
               <span className="label">Education</span>

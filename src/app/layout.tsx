@@ -28,6 +28,13 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
+export const viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#fafaf8" },
+    { media: "(prefers-color-scheme: dark)", color: "#131311" },
+  ],
+};
+
 export const metadata: Metadata = {
   title: {
     default: siteConfig.title,

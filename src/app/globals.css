@@ -5,6 +5,7 @@
    Every muted tone passes WCAG AA (ratios measured against --bg):
    ink 17.5:1, ink-2 7.25:1, ink-3 5.52:1, accent 7.15:1. */
 :root {
+  color-scheme: light;
   --bg: #fafaf8;
   --surface: #f2f1ec;
   --wash: #e8efe9;
@@ -28,6 +29,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
+    color-scheme: dark;
     --bg: #131311;
     --surface: #1c1c18;
     --wash: #1a2b23;
@@ -46,6 +48,7 @@
 }
 
 :root[data-theme="dark"] {
+  color-scheme: dark;
   --bg: #131311;
   --surface: #1c1c18;
   --wash: #1a2b23;

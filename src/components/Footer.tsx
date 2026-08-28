@@ -39,7 +39,7 @@ export default function Footer() {
         <div className="flex flex-col gap-3">
           <Logo />
           <p className="max-w-[240px] text-sm leading-relaxed text-ink-3">
-            AI Product Manager in Berlin. I write the PRD and ship the code.
+            AI Product Manager in Berlin.
           </p>
         </div>
         <div className="flex flex-col gap-3">

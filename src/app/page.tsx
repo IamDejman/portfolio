@@ -36,11 +36,6 @@ export default function Home() {
       <section className="dots border-b border-line">
         <div className="mx-auto grid max-w-[1280px] grid-cols-1 gap-12 px-5 pt-16 pb-16 md:grid-cols-12 md:gap-6 md:px-12 md:pt-24 md:pb-24">
           <div className="flex flex-col gap-8 md:col-span-8">
-            <div className="flex items-center gap-3.5">
-              <span className="label">AI Product Manager</span>
-              <span className="h-px w-9 bg-line-2" />
-              <span className="label">Berlin, Germany</span>
-            </div>
             <h1 className="font-serif text-5xl leading-[1.0] tracking-[-0.02em] md:text-7xl md:leading-[0.96] lg:text-[100px] lg:tracking-[-0.028em]">
               I write the PRD.
               <br />

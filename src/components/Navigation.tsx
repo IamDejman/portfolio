@@ -66,7 +66,7 @@ export default function Navigation() {
           <div className="flex items-center gap-4">
             <Logo />
             <span className="hidden h-5 w-px bg-line-2 md:block" />
-            <span className="label hidden md:block">{siteConfig.fullName}</span>
+            <span className="meta hidden md:block">{siteConfig.fullName}</span>
           </div>
 
           {/* Desktop nav */}

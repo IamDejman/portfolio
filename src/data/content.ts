@@ -511,7 +511,7 @@ export const blogPosts = [
 ];
 
 export const openTo = [
-  "Full-time Product Management, AI Operations, Forward Deployed, or AI Engineer roles",
+  "Full-time Product Management, AI Operations, Forward Deployed & AI Engineering roles",
   "Freelance projects",
   "Consulting & fractional PM engagements",
   "Speaking & mentoring",

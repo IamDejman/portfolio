@@ -37,9 +37,9 @@ export default function Home() {
         <div className="mx-auto grid max-w-[1280px] grid-cols-1 gap-12 px-5 pt-16 pb-16 md:grid-cols-12 md:gap-6 md:px-12 md:pt-24 md:pb-24">
           <div className="flex flex-col gap-8 md:col-span-8">
             <h1 className="font-serif text-5xl leading-[1.0] tracking-[-0.02em] md:text-7xl md:leading-[0.96] lg:text-[100px] lg:tracking-[-0.028em]">
-              I write the PRD.
+              Everything on this site
               <br />
-              <span className="italic">I ship the code.</span>
+              is <span className="italic">running in production.</span>
             </h1>
             <p className="max-w-[600px] text-lg leading-relaxed text-ink-2 md:text-xl">
               Five years of product across FinTech, HRTech, EdTech, and

@@ -80,7 +80,6 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} {siteConfig.fullName}. Built with
             intention.
           </span>
-          <span className="meta">Berlin, DE · {siteConfig.email}</span>
         </div>
       </div>
     </footer>

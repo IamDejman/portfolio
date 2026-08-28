@@ -23,7 +23,7 @@ const heroFacts = [
   { label: "Based", line: "Berlin, Germany", meta: "" },
   {
     label: "Open to",
-    line: "PM roles, consulting, fractional",
+    line: "Full-time PM roles, freelance, and consulting",
     meta: "",
   },
 ];
@@ -55,13 +55,6 @@ export default function Home() {
               <Link href="/contact" className="btn btn-ghost">
                 Get in touch
               </Link>
-              <a
-                href={siteConfig.cv}
-                download
-                className="text-sm text-accent hover:text-accent-dk sm:ml-2"
-              >
-                Download CV, PDF
-              </a>
             </div>
           </div>
 

@@ -259,19 +259,6 @@ export default function Home() {
             <a href={`mailto:${siteConfig.email}`} className="btn btn-inv">
               Send an email <ArrowRight />
             </a>
-            <span className="meta text-sink-ink-3">{siteConfig.email}</span>
-            <div className="my-2 h-px w-full bg-sink-line" />
-            <div className="flex gap-5">
-              <a href={siteConfig.linkedin} target="_blank" rel="noopener noreferrer" className="text-sm text-sink-ink-2 hover:text-sink-ink transition-colors">
-                LinkedIn
-              </a>
-              <a href={siteConfig.github} target="_blank" rel="noopener noreferrer" className="text-sm text-sink-ink-2 hover:text-sink-ink transition-colors">
-                GitHub
-              </a>
-              <a href={siteConfig.twitter} target="_blank" rel="noopener noreferrer" className="text-sm text-sink-ink-2 hover:text-sink-ink transition-colors">
-                X
-              </a>
-            </div>
           </div>
         </div>
       </section>

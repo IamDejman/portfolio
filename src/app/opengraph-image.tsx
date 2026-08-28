@@ -6,7 +6,7 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 const TEXT =
-  "AEAyodeji Eluwande I write the PRD. I ship the code. AI Product Manager · Berlin, Germany ayodejieluwande.vercel.app";
+  "AEAyodeji Eluwande Everything on this site is running in production. AI Product Manager · Berlin, Germany ayodejieluwande.vercel.app";
 
 async function loadInstrumentSerif() {
   const css = await (
@@ -57,7 +57,7 @@ export default async function Image() {
               marginTop: 16,
             }}
           >
-            I write the PRD. I ship the code.
+            Everything on this site is running in production.
           </div>
         </div>
 

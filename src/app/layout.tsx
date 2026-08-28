@@ -28,6 +28,13 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
+export const viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#fafaf8" },
+    { media: "(prefers-color-scheme: dark)", color: "#131311" },
+  ],
+};
+
 export const metadata: Metadata = {
   title: {
     default: siteConfig.title,
@@ -54,6 +61,10 @@ export const metadata: Metadata = {
   },
 };
 
+/* Applies a stored theme choice before first paint so the toggle never
+   flashes the wrong scheme. No stored choice means prefers-color-scheme. */
+const themeInit = `try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -77,14 +88,18 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${dmSans.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable}`}
+      suppressHydrationWarning
     >
       <body className="antialiased">
+        <script dangerouslySetInnerHTML={{ __html: themeInit }} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <Navigation />
-        <main className="min-h-screen">{children}</main>
+        <main id="main" className="min-h-screen">
+          {children}
+        </main>
         <Footer />
         <Analytics />
         <SpeedInsights />

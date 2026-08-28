@@ -7,19 +7,16 @@ export default function Error({
   reset: () => void;
 }) {
   return (
-    <section className="pt-32 pb-20 px-6">
-      <div className="max-w-[1120px] mx-auto text-center">
-        <p className="section-label mb-4">Error</p>
-        <h1 className="font-serif text-5xl md:text-6xl text-text mb-6">
+    <section className="px-5 pt-28 pb-20">
+      <div className="mx-auto max-w-[1280px] text-center">
+        <p className="label mb-4">Error</p>
+        <h1 className="mb-6 font-serif text-5xl md:text-6xl">
           Something went wrong.
         </h1>
-        <p className="text-muted max-w-md mx-auto mb-10">
+        <p className="mx-auto mb-10 max-w-md text-ink-2">
           An unexpected error occurred. Please try again.
         </p>
-        <button
-          onClick={reset}
-          className="inline-flex items-center gap-2 bg-dark text-bg px-6 py-3 rounded-full text-sm font-medium hover:opacity-90 transition-opacity"
-        >
+        <button onClick={reset} className="btn btn-primary">
           Try again
         </button>
       </div>

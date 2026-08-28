@@ -1,27 +1,37 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { currentRoles, education, certifications } from "@/data/content";
-import PageHeader from "@/components/PageHeader";
-import ScrollReveal from "@/components/ScrollReveal";
+import Image from "next/image";
+import { currentRoles, pastRoles, education, certifications } from "@/data/content";
+import Reveal from "@/components/Reveal";
+import RailHead from "@/components/RailHead";
+import { ArrowRight } from "@/components/icons";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "AI Product Manager based in Berlin. I write the PRD and ship the code - 5+ years across FinTech, HRTech, EdTech, and marketplace platforms.",
+    "AI Product Manager based in Berlin. I write the PRD and ship the code. 5+ years across FinTech, HRTech, EdTech, and marketplace platforms.",
 };
+
+const ext =
+  "underline underline-offset-2 hover:text-ink transition-colors";
 
 export default function AboutPage() {
   return (
-    <div className="max-w-[1120px] mx-auto px-6 pb-20">
-      <PageHeader
-        label="About"
-        heading="The PM who writes the PRD and ships the code."
-      />
+    <div>
+      <section className="border-b border-line">
+        <div className="mx-auto grid max-w-[1280px] grid-cols-1 gap-5 px-5 pt-14 pb-10 md:grid-cols-12 md:items-start md:gap-6 md:px-12 md:pt-24 md:pb-14">
+          <RailHead index="01" label="About" top />
+          <h1 className="font-serif text-4xl leading-[1.06] tracking-[-0.018em] md:col-span-8 md:col-start-3 md:text-6xl">
+            The PM who writes the PRD
+            <br className="hidden md:block" /> and ships the code.
+          </h1>
+        </div>
+      </section>
 
-      <div className="mt-16 grid grid-cols-1 md:grid-cols-[1fr_0.6fr] gap-16">
+      <section className="mx-auto grid max-w-[1280px] grid-cols-1 gap-12 px-5 pt-12 pb-16 md:grid-cols-12 md:items-start md:gap-6 md:px-12 md:pt-18 md:pb-22">
         {/* Bio */}
-        <ScrollReveal>
-          <div className="space-y-6 text-[15px] leading-relaxed">
+        <Reveal className="md:col-span-5 md:col-start-3">
+          <div className="flex flex-col gap-5 text-[17px] leading-[1.75] text-ink-2">
             <p>
               I&apos;m Ayodeji Eluwande, a product manager who builds. Berlin is
               home now, Lagos is where I&apos;m from. For the past five years
@@ -40,78 +50,123 @@ export default function AboutPage() {
               What makes me unusual is that I also build. I&apos;ve shipped
               production platforms with Next.js, React, Tailwind CSS, and
               PostgreSQL, working alongside AI tools like Cursor, Claude Code,
-              Codex, and Gemini. The PRD and the pull request often land in
-              the same week, both written by me.
+              Codex, and Gemini. The PRD and the pull request often land in the
+              same week, both written by me.
             </p>
             <p>
               Right now I lead product at Skilladder AI, where I own strategy
-              and OKRs across the product organisation. I built
-              the <a href="https://assessments.skilladder.ai" target="_blank" rel="noopener noreferrer" className="underline hover:text-muted transition-colors">assessment platform</a> from
-              zero and grew it to 6 recurring enterprise clients, serving a
+              and OKRs across the product organisation. I built the{" "}
+              <a href="https://assessments.skilladder.ai" target="_blank" rel="noopener noreferrer" className={ext}>
+                assessment platform
+              </a>{" "}
+              from zero and grew it to 6 recurring enterprise clients, serving a
               national talent cohort of 85,000+ candidates along the way.
             </p>
             <p>
               The building doesn&apos;t stop at work. I&apos;ve shipped 13 sites
               and apps so far, from WhatsApp-native commerce tools for vehicle
               paper renewals and electricity vending to a cohort-based LMS, a
-              logistics platform, and client sites
-              for <a href="https://vrenalaw.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-muted transition-colors">Vrena Law</a>, <a href="https://grwtee.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-muted transition-colors">GRWTEE</a>, and <a href="https://banyanclaims.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-muted transition-colors">Banyan Claims</a>.
-              My church community at Harvesters International Christian Centre
-              takes attendance
-              with <a href="https://attendance.hiccgbagada.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-muted transition-colors">a system I built</a>.
-              The full list lives on the <Link href="/work" className="underline hover:text-muted transition-colors">work page</Link>.
+              logistics platform, and client sites for{" "}
+              <a href="https://vrenalaw.com" target="_blank" rel="noopener noreferrer" className={ext}>
+                Vrena Law
+              </a>
+              ,{" "}
+              <a href="https://grwtee.com" target="_blank" rel="noopener noreferrer" className={ext}>
+                GRWTEE
+              </a>
+              , and{" "}
+              <a href="https://banyanclaims.com" target="_blank" rel="noopener noreferrer" className={ext}>
+                Banyan Claims
+              </a>
+              . My church community at Harvesters International Christian Centre
+              takes attendance with{" "}
+              <a href="https://attendance.hiccgbagada.com" target="_blank" rel="noopener noreferrer" className={ext}>
+                a system I built
+              </a>
+              .
             </p>
+            <Link
+              href="/work"
+              className="meta mt-1 flex items-center gap-1.5 text-accent"
+            >
+              See the full list of builds <ArrowRight size={13} />
+            </Link>
           </div>
-        </ScrollReveal>
+        </Reveal>
 
-        {/* Sidebar */}
-        <div className="space-y-6">
-          <ScrollReveal delay={150}>
-            <div className="bg-card rounded-2xl p-8 space-y-8">
-              <div>
-                <p className="section-label mb-4">Currently</p>
-                <div className="space-y-4">
-                  {currentRoles.map((role) => (
-                    <div key={role.org}>
-                      <p className="text-sm font-medium">{role.title}</p>
-                      <p className="text-sm text-muted">{role.org}</p>
-                    </div>
-                  ))}
+        {/* Dossier column */}
+        <Reveal delay={120} className="md:col-span-4 md:col-start-9">
+          <div className="relative mb-7 aspect-[4/5] overflow-hidden rounded-2xl border border-line bg-surface">
+            <Image
+              src="/ayodeji.jpg"
+              alt="Portrait of Ayodeji Eluwande"
+              fill
+              sizes="(max-width: 768px) 100vw, 420px"
+              className="object-cover"
+            />
+          </div>
+          <div className="border-t-2 border-ink">
+            <div className="flex flex-col gap-1 border-b border-line py-4">
+              <span className="label">Based in</span>
+              <p className="text-[15px]">Berlin, Germany</p>
+            </div>
+            <div className="flex flex-col gap-1 border-b border-line py-4">
+              <span className="label">Education</span>
+              <p className="text-[15px]">{education.degree}</p>
+              <p className="meta">
+                {education.school} · {education.period}
+              </p>
+            </div>
+            <div className="flex flex-col gap-3 py-4">
+              <span className="label">Certifications</span>
+              {certifications.map((cert) => (
+                <div key={cert.name} className="flex flex-col gap-0.5">
+                  <p className="text-sm leading-snug">{cert.name}</p>
+                  <p className="meta">
+                    {cert.org} · {cert.year}
+                  </p>
                 </div>
-              </div>
-
-              <div className="border-t border-border pt-6">
-                <p className="section-label mb-3">Based in</p>
-                <p className="text-sm">Berlin, Germany 🇩🇪</p>
-                <p className="text-sm text-muted">From Lagos 🇳🇬</p>
-              </div>
-
-              <div className="border-t border-border pt-6">
-                <p className="section-label mb-3">Education</p>
-                <p className="text-sm font-medium">{education.degree}</p>
-                <p className="text-sm text-muted">{education.school}</p>
-                <p className="text-xs text-muted mt-1">{education.period}</p>
-              </div>
+              ))}
             </div>
-          </ScrollReveal>
+          </div>
+        </Reveal>
+      </section>
 
-          <ScrollReveal delay={250}>
-            <div className="bg-card rounded-2xl p-8">
-              <p className="section-label mb-4">Certifications</p>
-              <div className="space-y-3">
-                {certifications.map((cert) => (
-                  <div key={cert.name}>
-                    <p className="text-sm font-medium">{cert.name}</p>
-                    <p className="text-xs text-muted">
-                      {cert.org} · {cert.year}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </ScrollReveal>
+      {/* Track record */}
+      <section className="border-t border-line bg-surface">
+        <div className="mx-auto grid max-w-[1280px] grid-cols-1 gap-4 px-5 pt-12 pb-6 md:grid-cols-12 md:items-end md:gap-6 md:px-12 md:pt-18">
+          <RailHead index="02" label="Track record" />
+          <h2 className="font-serif text-3xl leading-tight md:col-span-6 md:text-[46px]">
+            Where the work happened.
+          </h2>
         </div>
-      </div>
+        <div className="mx-auto max-w-[1280px] px-5 pb-16 md:px-12 md:pb-20">
+          <div className="h-px bg-line-2" />
+          {[...currentRoles, ...pastRoles].map((role, i) => (
+            <div
+              key={`${role.org}-${role.title}`}
+              className="grid grid-cols-1 gap-1 border-b border-line py-5 md:grid-cols-12 md:items-baseline md:gap-6 md:py-6"
+            >
+              <span className="idx hidden md:block">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h3 className="font-serif text-2xl md:col-span-4 md:col-start-2 md:text-[28px]">
+                {role.org}
+              </h3>
+              <p className="text-[15px] text-ink-2 md:col-span-4 md:col-start-6">
+                {role.title}
+              </p>
+              <span
+                className={`meta md:col-span-2 md:col-start-11 md:text-right ${
+                  i === 0 ? "text-accent" : ""
+                }`}
+              >
+                {role.period}
+              </span>
+            </div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

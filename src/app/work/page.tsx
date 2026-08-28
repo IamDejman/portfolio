@@ -1,208 +1,112 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { projects, builtProjects, howIWork, toolGroups } from "@/data/content";
-import PageHeader from "@/components/PageHeader";
-import ScrollReveal from "@/components/ScrollReveal";
+import { projects, builtProjects } from "@/data/content";
+import Reveal from "@/components/Reveal";
+import RailHead from "@/components/RailHead";
+import WorkCard from "@/components/WorkCard";
+import { ArrowRight } from "@/components/icons";
 
 export const metadata: Metadata = {
   title: "Work",
   description:
-    "Products I've managed and platforms I've built - FinTech, HRTech, EdTech, marketplaces, and more.",
+    "Products I've managed and platforms I've built. FinTech, HRTech, EdTech, marketplaces, and more.",
 };
 
 export default function WorkPage() {
   return (
-    <div className="max-w-[1120px] mx-auto px-6 pb-20">
-      {/* Built Projects */}
-      <PageHeader
-        label="Built by Me"
-        heading="Platforms I've shipped."
-      />
+    <div>
+      {/* Page head */}
+      <section className="border-b border-line">
+        <div className="mx-auto grid max-w-[1280px] grid-cols-1 gap-5 px-5 pt-14 pb-10 md:grid-cols-12 md:items-start md:gap-6 md:px-12 md:pt-24 md:pb-14">
+          <RailHead index="01" label="Work" top />
+          <div className="flex flex-col gap-5 md:col-span-7 md:col-start-3">
+            <h1 className="font-serif text-4xl leading-[1.04] tracking-[-0.018em] md:text-7xl">
+              Everything I&apos;ve shipped.
+            </h1>
+            <p className="max-w-[560px] text-lg leading-relaxed text-ink-2 md:text-xl">
+              Twelve products I built end to end and six I managed. Platforms,
+              WhatsApp commerce, client sites, and the assessment engine behind
+              a national talent cohort.
+            </p>
+          </div>
+        </div>
+      </section>
 
-      <ScrollReveal>
-        <p className="mt-4 text-[15px] text-muted max-w-2xl leading-relaxed">
-          Live websites and applications I&apos;ve built using Next.js, React, and
-          AI tools like Cursor, Claude Code, Codex, and Gemini.
-        </p>
-      </ScrollReveal>
-
-      <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
-        {builtProjects.map((project, i) => {
-          const cardClass =
-            "card-lift group block h-full bg-card rounded-2xl p-8 border border-border";
-          const inner = (
-            <>
-              {project.image && (
-                <div className="mb-6 -mt-2 overflow-hidden rounded-xl border border-border">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={project.image}
-                    alt={`Screenshot of ${project.title}`}
-                    loading="lazy"
-                    className="aspect-video w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
-                  />
-                </div>
-              )}
-              <div className="flex items-start justify-between gap-4 mb-3">
-                <h2 className="font-serif text-xl md:text-2xl group-hover:text-muted transition-colors">
-                  {project.title}
-                </h2>
-                {project.url && (
-                  <span className="shrink-0 text-xs opacity-0 group-hover:opacity-100 transition-opacity text-muted">
-                    Visit &rarr;
-                  </span>
-                )}
-              </div>
-
-              <p className="text-[15px] text-muted leading-relaxed mb-4">
-                {project.description}
-              </p>
-
-              <div className="flex items-center justify-between">
-                <div className="flex flex-wrap gap-1.5">
-                  {project.tech.map((t) => (
-                    <span
-                      key={t}
-                      className="meta text-[11px] text-muted bg-bg px-2 py-0.5 rounded-full border border-border"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-                <span className="meta text-[11px] text-accent bg-accent-soft px-2.5 py-1 rounded-full border border-accent/30">
-                  {project.highlight}
-                </span>
-              </div>
-
-              {project.caseStudy && (
-                <div className="mt-5 flex flex-wrap gap-5">
-                  <Link
-                    href={`/work/${project.caseStudy}`}
-                    className="inline-flex items-center text-sm font-medium underline hover:text-muted transition-colors"
-                  >
-                    Read the case study &rarr;
-                  </Link>
-                  {project.url && (
-                    <a
-                      href={project.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center text-sm font-medium underline hover:text-muted transition-colors"
-                    >
-                      Visit the app &rarr;
-                    </a>
-                  )}
-                </div>
-              )}
-            </>
-          );
-
-          return (
-            <ScrollReveal
-              key={project.title}
-              delay={i * 80}
-              className={project.flagship ? "md:col-span-2" : ""}
-            >
-              {project.url && !project.caseStudy ? (
-                <a
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={cardClass}
-                >
-                  {inner}
-                </a>
-              ) : (
-                <div className={cardClass}>{inner}</div>
-              )}
-            </ScrollReveal>
-          );
-        })}
-      </div>
-
-      {/* Product Management Work */}
-      <div className="mt-24">
-        <ScrollReveal>
-          <p className="section-label mb-4">Product Management</p>
-          <h2 className="font-serif text-3xl md:text-4xl leading-tight">
-            Products I&apos;ve managed.
+      {/* Built grid */}
+      <section>
+        <div className="mx-auto grid max-w-[1280px] grid-cols-1 gap-4 px-5 pt-12 pb-7 md:grid-cols-12 md:items-end md:gap-6 md:px-12 md:pt-18">
+          <RailHead index="02" label="Built by me" />
+          <h2 className="font-serif text-3xl leading-tight md:col-span-6 md:text-[46px]">
+            Platforms, apps, and client work.
           </h2>
-        </ScrollReveal>
-
-        <div className="mt-12 project-list">
-          {projects.map((project, i) => (
-            <ScrollReveal key={project.title} delay={i * 80}>
-              <article className="project-item py-10 border-b border-border">
-                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-1">
-                      <h2 className="font-serif text-2xl md:text-3xl">
-                        {project.title}
-                      </h2>
-                    </div>
-                    <p className="text-sm text-muted">
-                      {project.client} · {project.role}
-                    </p>
-                  </div>
-                  <span className="meta shrink-0 text-xs bg-card text-text px-3 py-1.5 rounded-full border border-border">
-                    {project.highlight}
-                  </span>
-                </div>
-
-                <p className="mt-4 text-[15px] text-muted-light leading-relaxed max-w-3xl">
-                  {project.description}
-                </p>
-
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="meta text-xs text-muted px-2.5 py-1 rounded-full border border-border"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                {project.caseStudy && (
-                  <Link
-                    href={`/work/${project.caseStudy}`}
-                    className="mt-5 inline-flex items-center text-sm font-medium underline hover:text-muted transition-colors"
-                  >
-                    Read the case study &rarr;
-                  </Link>
-                )}
-              </article>
-            </ScrollReveal>
+          <span className="meta md:col-span-2 md:col-start-11 md:text-right">
+            12 projects
+          </span>
+        </div>
+        <div className="mx-auto grid max-w-[1280px] grid-cols-1 gap-6 gap-y-8 px-5 pb-16 md:grid-cols-3 md:px-12 md:pb-22">
+          {builtProjects.map((p, i) => (
+            <Reveal key={p.title} delay={(i % 3) * 90} className="h-full">
+              <WorkCard project={p} />
+            </Reveal>
           ))}
         </div>
-      </div>
+      </section>
 
-      {/* How I build */}
-      <div className="mt-24">
-        <ScrollReveal>
-          <p className="section-label mb-4">How I build</p>
-          <h2 className="font-serif text-3xl md:text-4xl leading-tight">
-            PRD to production, one person.
+      {/* Managed ledger */}
+      <section className="border-t border-line bg-surface">
+        <div className="mx-auto grid max-w-[1280px] grid-cols-1 gap-4 px-5 pt-12 pb-7 md:grid-cols-12 md:items-end md:gap-6 md:px-12 md:pt-20">
+          <RailHead index="03" label="Product management" />
+          <h2 className="font-serif text-3xl leading-tight md:col-span-6 md:text-[46px]">
+            Products I&apos;ve managed.
           </h2>
-          <p className="mt-6 text-muted max-w-3xl leading-relaxed">{howIWork}</p>
-          <div className="mt-8 flex flex-col gap-3">
-            {toolGroups.map((group) => (
-              <div key={group.label} className="flex flex-wrap items-center gap-2">
-                <span className="section-label w-24 shrink-0">{group.label}</span>
-                {group.tools.map((tool) => (
-                  <span
-                    key={tool}
-                    className="meta rounded-full border border-border bg-card px-3 py-1 text-text"
-                  >
-                    {tool}
+          <span className="meta md:col-span-2 md:col-start-11 md:text-right">
+            6 products
+          </span>
+        </div>
+        <div className="mx-auto max-w-[1280px] px-5 pb-16 md:px-12 md:pb-22">
+          <div className="h-px bg-line-2" />
+          {projects.map((project, i) => (
+            <Reveal key={project.title}>
+              <article className="grid grid-cols-1 gap-4 border-b border-line py-7 md:grid-cols-12 md:items-start md:gap-6">
+                <span className="idx hidden pt-2 md:block">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <div className="flex flex-col gap-1.5 md:col-span-4 md:col-start-2">
+                  <h3 className="font-serif text-2xl md:text-[28px]">
+                    {project.title}
+                  </h3>
+                  <p className="meta">
+                    {project.client} · {project.role}
+                  </p>
+                  <div className="mt-2 flex flex-wrap gap-1.5">
+                    {project.tags.map((tag) => (
+                      <span key={tag} className="chip">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <p className="text-sm leading-relaxed text-ink-3 md:col-span-4 md:col-start-6">
+                  {project.description}
+                </p>
+                <div className="flex flex-row items-center gap-3 md:col-span-3 md:col-start-10 md:flex-col md:items-end md:text-right">
+                  <span className="chip chip-acc chip-wrap">
+                    {project.highlight}
                   </span>
-                ))}
-              </div>
-            ))}
-          </div>
-        </ScrollReveal>
-      </div>
+                  {project.caseStudy && (
+                    <Link
+                      href={`/work/${project.caseStudy}`}
+                      className="meta flex items-center gap-1.5 text-accent"
+                    >
+                      Case study <ArrowRight size={13} />
+                    </Link>
+                  )}
+                </div>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

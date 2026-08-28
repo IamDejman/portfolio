@@ -4,6 +4,11 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: __dirname,
   },
+  images: {
+    // The dev optimizer generates sizes on demand and aborted requests can
+    // leave broken images; serve originals in dev, optimize in production.
+    unoptimized: process.env.NODE_ENV === "development",
+  },
   async headers() {
     return [
       {

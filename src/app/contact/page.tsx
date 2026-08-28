@@ -1,84 +1,131 @@
 import type { Metadata } from "next";
 import { siteConfig, openTo } from "@/data/content";
-import ScrollReveal from "@/components/ScrollReveal";
+import Reveal from "@/components/Reveal";
+import RailHead from "@/components/RailHead";
+import { ArrowRight, ArrowDown } from "@/components/icons";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Get in touch - open to PM roles, consulting, and partnerships.",
+  description: "Get in touch. Open to PM roles, consulting, and partnerships.",
 };
+
+const routes = [
+  {
+    label: "Email",
+    value: "ayodejieluwande@gmail.com",
+    note: "Direct",
+    href: `mailto:${siteConfig.email}`,
+  },
+  {
+    label: "LinkedIn",
+    value: "linkedin.com/in/ayodejieluwande",
+    note: "Profile and network",
+    href: siteConfig.linkedin,
+  },
+  {
+    label: "GitHub",
+    value: "github.com/IamDejman",
+    note: "Repositories and side projects",
+    href: siteConfig.github,
+  },
+  {
+    label: "X",
+    value: "x.com/aeluwande",
+    note: "Socials",
+    href: siteConfig.twitter,
+  },
+  {
+    label: "Curriculum vitae",
+    value: "Ayodeji_Eluwande_CV.pdf",
+    note: "PDF",
+    href: siteConfig.cv,
+    download: true,
+  },
+];
 
 export default function ContactPage() {
   return (
-    <div className="max-w-[1120px] mx-auto px-6 pb-20">
-      <ScrollReveal>
-        <div className="pt-32 pb-16">
-          <p className="section-label mb-4">Contact</p>
-        </div>
-      </ScrollReveal>
-
-      <div className="grid grid-cols-1 md:grid-cols-[1fr_0.8fr] gap-12 md:gap-16">
-        <ScrollReveal>
-          <div>
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tight">
-              Let&apos;s build something together.
+    <div>
+      <section className="border-b border-line">
+        <div className="mx-auto grid max-w-[1280px] grid-cols-1 gap-10 px-5 pt-14 pb-14 md:grid-cols-12 md:items-start md:gap-6 md:px-12 md:pt-24 md:pb-20">
+          <RailHead index="01" label="Contact" top />
+          <div className="flex flex-col gap-7 md:col-span-6 md:col-start-3">
+            <h1 className="font-serif text-5xl leading-[1.0] tracking-[-0.02em] md:text-[88px] md:leading-[0.98]">
+              Let&apos;s build
+              <br />
+              something
+              <br />
+              <span className="italic">together.</span>
             </h1>
-            <p className="mt-6 text-muted text-[15px] leading-relaxed max-w-lg">
-              Whether you need a product manager for your solution or product
-              or just want to talk shop - I&apos;m always open to good conversations.
+            <p className="max-w-[480px] text-lg leading-relaxed text-ink-2 md:text-xl">
+              Whether you need a product manager for your platform or just want
+              to talk shop, I am always open to a good conversation.
             </p>
-            <div className="mt-10 flex flex-wrap gap-4">
-              <a
-                href={`mailto:${siteConfig.email}`}
-                className="inline-flex items-center px-6 py-3 rounded-full bg-dark text-bg text-sm font-medium hover:bg-dark/85 transition-colors"
-              >
-                Send an email &rarr;
-              </a>
-              <a
-                href={siteConfig.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-6 py-3 rounded-full border border-text text-text text-sm font-medium hover:bg-text hover:text-bg transition-colors"
-              >
-                LinkedIn
-              </a>
-              <a
-                href={siteConfig.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-6 py-3 rounded-full border border-text text-text text-sm font-medium hover:bg-text hover:text-bg transition-colors"
-              >
-                GitHub
-              </a>
-              <a
-                href={siteConfig.cv}
-                download
-                className="inline-flex items-center px-6 py-3 rounded-full border border-text text-text text-sm font-medium hover:bg-text hover:text-bg transition-colors"
-              >
-                Download CV &darr;
-              </a>
-            </div>
           </div>
-        </ScrollReveal>
 
-        <ScrollReveal delay={150}>
-          <div className="bg-dark text-bg rounded-2xl p-8 md:p-10">
-            <p className="text-xs uppercase tracking-widest text-bg/50 mb-6">
-              Open to
-            </p>
-            <ul className="space-y-4">
-              {openTo.map((item) => (
-                <li
-                  key={item}
-                  className="text-[15px] leading-snug text-bg/85 flex items-start gap-3"
-                >
-                  <span className="mt-1.5 block w-1.5 h-1.5 rounded-full bg-white/40 shrink-0" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </ScrollReveal>
-      </div>
+          <Reveal delay={120} className="md:col-span-3 md:col-start-10">
+            <div className="flex flex-col gap-5 rounded-2xl bg-sink p-7">
+              <span className="label text-sink-ink-3">Open to</span>
+              <div className="flex flex-col">
+                {openTo.map((item, i) => (
+                  <div
+                    key={item}
+                    className={`flex gap-3.5 py-3.5 ${
+                      i < openTo.length - 1 ? "border-b border-sink-line" : ""
+                    }`}
+                  >
+                    <span className="idx text-sink-ink-3">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className="text-[15px] leading-snug text-sink-ink">
+                      {item}
+                    </span>
+                  </div>
+                ))}
+              </div>
+              <div className="flex flex-col gap-1 pt-1">
+                <span className="label text-sink-ink-3">Based in</span>
+                <span className="meta text-sink-ink-2">
+                  Berlin, Germany. CET.
+                </span>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Routes ledger */}
+      <section className="mx-auto grid max-w-[1280px] grid-cols-1 gap-6 px-5 pt-12 pb-16 md:grid-cols-12 md:items-start md:gap-6 md:px-12 md:pt-18 md:pb-24">
+        <RailHead index="02" label="Reach me" top />
+        <div className="md:col-span-10 md:col-start-3">
+          <div className="h-px bg-line-2" />
+          {routes.map((r) => (
+            <a
+              key={r.label}
+              href={r.href}
+              {...(r.download
+                ? { download: true }
+                : r.href.startsWith("http")
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
+              className="group flex flex-col gap-1 border-b border-line py-5 md:flex-row md:items-baseline md:gap-8 md:py-6"
+            >
+              <h2 className="font-serif text-2xl md:w-56 md:shrink-0 md:text-[28px]">
+                {r.label}
+              </h2>
+              <span className="meta flex-1 text-[13px] text-ink-2">
+                {r.value}
+              </span>
+              <span className="hidden text-sm text-ink-3 md:block md:w-56">
+                {r.note}
+              </span>
+              <span className="hidden text-accent md:block">
+                {r.download ? <ArrowDown /> : <ArrowRight />}
+              </span>
+            </a>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

@@ -101,7 +101,7 @@ export default function AboutPage() {
               src="/ayodeji.jpg"
               alt="Portrait of Ayodeji Eluwande"
               fill
-              sizes="(max-width: 768px) 100vw, 400px"
+              sizes="(max-width: 768px) 100vw, 420px"
               className="object-cover"
             />
           </div>

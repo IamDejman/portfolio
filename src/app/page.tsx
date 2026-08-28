@@ -71,7 +71,7 @@ export default function Home() {
                 src="/ayodeji.jpg"
                 alt="Portrait of Ayodeji Eluwande"
                 fill
-                sizes="(max-width: 768px) 100vw, 300px"
+                sizes="(max-width: 768px) 100vw, 320px"
                 className="object-cover"
                 priority
               />

@@ -3,7 +3,7 @@ export const siteConfig = {
   fullName: "Ayodeji Eluwande",
   title: "Ayodeji Eluwande - AI Product Manager",
   description:
-    "AI Product Manager in Berlin. A product manager who builds. 5+ years across FinTech, HRTech, EdTech, and marketplaces, with 12 live products built with Next.js, React, and AI tooling.",
+    "AI product manager and builder in Berlin. Explore assessment systems, agent workflows and commerce platforms, from product decisions to working software.",
   url: "https://ayodejieluwande.vercel.app",
   email: "ayodejieluwande@gmail.com",
   phone: "+491791556146",
@@ -42,7 +42,7 @@ export const proofCards = [
     metric: "85%",
     title: "Faster assessment deployment",
     description:
-      "Took Skilladder's AI assessment platform from prototype to primary product. Deployment went from weeks to 24 hours, with 6 enterprise clients and an 85,000+ candidate national cohort.",
+      "Took Skilladder's AI assessment platform from prototype to primary product. Deployment went from weeks to 24 hours, with 32 total enterprise clients, including 6 recurring, and an 85,000+ candidate national cohort.",
     href: "/work/skilladder",
     cta: "Read the case study",
   },
@@ -80,10 +80,26 @@ export const toolGroups = [
 ];
 
 export const pastRoles = [
-  { title: "Product Manager", org: "Tellerpoint", period: "May 2024 - Feb 2026" },
-  { title: "Product Manager", org: "Devlabs Africa Limited", period: "May 2024 - May 2025" },
-  { title: "Product Manager", org: "Switch Recycling", period: "Sep 2022 - May 2024" },
-  { title: "Associate Product Manager", org: "Treford", period: "May 2022 - Jul 2022" },
+  {
+    title: "Product Manager",
+    org: "Tellerpoint",
+    period: "May 2024 - Apr 2026",
+  },
+  {
+    title: "Product Manager",
+    org: "Devlabs Africa Limited",
+    period: "May 2024 - May 2025",
+  },
+  {
+    title: "Product Manager",
+    org: "Switch Recycling",
+    period: "Sep 2022 - May 2024",
+  },
+  {
+    title: "Associate Product Manager",
+    org: "Treford",
+    period: "May 2022 - Jul 2022",
+  },
 ];
 
 export type Project = {
@@ -122,7 +138,7 @@ export const projects: Project[] = [
     client: "Devlabs Africa",
     role: "Product Manager",
     description:
-      "Drove product strategy and roadmap for Carbin Africa, an automotive marketplace platform. Optimised dealer inventory management and increased platform adoption, helping achieve #1 on Tech Cabal's \"25 Startups to Watch in 2025\".",
+      'Drove product strategy and roadmap for Carbin Africa, an automotive marketplace platform. Optimised dealer inventory management and increased platform adoption, helping achieve #1 on Tech Cabal\'s "25 Startups to Watch in 2025".',
     tags: ["Automotive", "Marketplace", "Strategy", "Growth"],
     highlight: "#1 on Tech Cabal's 25 to Watch",
     caseStudy: "carbin",
@@ -168,6 +184,22 @@ export type BuiltProject = {
 };
 
 export const builtProjects: BuiltProject[] = [
+  {
+    title: "Hotel California",
+    url: "https://github.com/IamDejman/hotel-california",
+    description:
+      "A browser-agent experiment with a bounded Claude tool loop, pattern logging, scoring and replay infrastructure. The source is available; a completed recorded run is not presented here.",
+    tech: ["TypeScript", "Claude", "Browser automation"],
+    highlight: "Prototype · source available",
+  },
+  {
+    title: "Osun Decides",
+    url: "https://osundecides.vercel.app",
+    description:
+      "Election-information tooling that connects source records, arithmetic validation, uncertainty flags and append-only corrections. A project about making evidence and its limitations visible.",
+    tech: ["Python", "Data validation", "Web publishing"],
+    highlight: "Evidence engineering",
+  },
   {
     title: "Skilladder Assessment Platform",
     image: "/work/skilladder.jpg",
@@ -266,10 +298,11 @@ export const builtProjects: BuiltProject[] = [
   },
   {
     title: "Football Ladder",
+    url: "https://footballadder.com/",
     description:
-      "Football career simulation game with a procedurally generated world of 12 nations with women's top flight leagues, an LLM classifier that interprets free text player decisions, and a custom Postgres REST API after moving off Supabase. CI plays a full generated game world on every pull request.",
-    tech: ["TypeScript", "PostgreSQL", "Node.js", "Vercel"],
-    highlight: "LLM-driven game world",
+      "Football career simulation with a generated world, club finances and deterministic actors. Run a club from the boardroom and build a career through the wider football system. The AWS-hosted public site offers early access.",
+    tech: ["TypeScript", "PostgreSQL", "Node.js", "AWS"],
+    highlight: "Football career simulation",
   },
 ];
 
@@ -286,6 +319,41 @@ export type CaseStudy = {
 };
 
 export const caseStudies: CaseStudy[] = [
+  {
+    slug: "onboarding-engine",
+    title: "Onboarding Engine",
+    org: "Independent build",
+    role: "Product design and development",
+    period: "Prototype",
+    summary:
+      "An inspectable agent workflow that turns source material into an onboarding guide, with retrieval, intermediate artifacts and sensitivity filtering.",
+    metrics: [
+      { value: "3", label: "Agent stages" },
+      { value: "Hybrid", label: "Keyword and embedding retrieval" },
+    ],
+    sections: [
+      {
+        heading: "The problem",
+        paragraphs: [
+          "An onboarding guide needs to connect scattered knowledge into a useful path for a new teammate. Generating a polished document is only part of the task: the workflow should also make it possible to inspect what was found and how the guide took shape.",
+        ],
+      },
+      {
+        heading: "The mechanism",
+        paragraphs: [
+          "The Explorer, Synthesizer and Writer stages divide discovery, structure and document creation. Intermediate artifacts include a scratchpad, an outline and a final document, so the process can be inspected before treating the output as complete.",
+          "Retrieval combines BM25 keyword matching with embeddings. Sensitivity filtering helps control what material enters the workflow. The included synthetic corpus supports demonstrations without exposing private workplace documents.",
+        ],
+      },
+      {
+        heading: "What this demonstrates",
+        paragraphs: [
+          "The project is an example of agent orchestration around a defined job, including the intermediate state that makes a multi-stage workflow easier to understand and debug.",
+          "Direct Slack, Notion and GitHub connectors remain planned work. The existing workflow uses imported material; this case study does not present those future connectors as completed integrations.",
+        ],
+      },
+    ],
+  },
   {
     slug: "skilladder",
     title: "Skilladder Assessment Platform",
@@ -320,7 +388,7 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: "The outcome",
         paragraphs: [
-          "The platform became the company's primary product. Deployment time dropped by 85% against the prototype process, and the platform now serves 6 recurring enterprise clients, including banks and multinationals with byte-exact legacy report parity requirements. Its largest single engagement was a national talent programme that assessed a cohort of more than 85,000 candidates. New assessment product lines (Route and Skill Index) shipped under my lead, from scoring bands and retake sittings to the pricing model behind them.",
+          "The platform became the company's primary product. Deployment time dropped by 85% against the prototype process. It has served 32 enterprise clients in total, including 6 recurring clients, with banks and multinationals requiring byte-exact legacy report parity. Its largest single engagement was a national talent programme that assessed a cohort of more than 85,000 candidates. New assessment product lines (Route and Skill Index) shipped under my lead, from scoring bands and retake sittings to the pricing model behind them.",
           "Beyond the product itself, I manage OKR setting across the product organisation, aligning a cross-functional team around measurable quarterly outcomes.",
         ],
       },
@@ -401,7 +469,7 @@ export const caseStudies: CaseStudy[] = [
     title: "Tellerpoint Collections & Mini",
     org: "Tellerpoint",
     role: "Product Manager",
-    period: "May 2024 - Feb 2026",
+    period: "May 2024 - Apr 2026",
     summary:
       "Full product lifecycle for agency banking tools that let financial institutions serve underserved communities.",
     metrics: [
@@ -467,11 +535,27 @@ export const skills = {
 };
 
 export const certifications = [
-  { name: "Product Academy Series 2023", org: "McKinsey Academy", year: "2023" },
-  { name: "Product Led Growth Micro-Certification (PLGC)", org: "Product School", year: "2022" },
+  {
+    name: "Product Academy Series 2023",
+    org: "McKinsey Academy",
+    year: "2023",
+  },
+  {
+    name: "Product Led Growth Micro-Certification (PLGC)",
+    org: "Product School",
+    year: "2022",
+  },
   { name: "Product Management Certification", org: "Treford", year: "2022" },
-  { name: "Technical Product Management Certification", org: "LinkedIn Learning", year: "2022" },
-  { name: "Building a Product Roadmap Certification", org: "LinkedIn Learning", year: "2022" },
+  {
+    name: "Technical Product Management Certification",
+    org: "LinkedIn Learning",
+    year: "2022",
+  },
+  {
+    name: "Building a Product Roadmap Certification",
+    org: "LinkedIn Learning",
+    year: "2022",
+  },
 ];
 
 export const education = {

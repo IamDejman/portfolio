@@ -4,7 +4,7 @@ export default function NotFound() {
   return (
     <section className="px-5 pt-28 pb-20">
       <div className="mx-auto max-w-[1280px] text-center">
-        <p className="label mb-4">404</p>
+
         <h1 className="mb-6 font-serif text-5xl md:text-6xl">
           Page not found.
         </h1>

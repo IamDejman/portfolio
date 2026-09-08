@@ -1,23 +1,32 @@
 # Ayodeji Eluwande
 
-> Product manager and builder with 5+ years shipping products across FinTech, HRTech, EdTech, and marketplace platforms. Based in Berlin, Germany, from Lagos, Nigeria. Manages products and builds them too, shipping production platforms with Next.js, React, and AI tooling.
+> AI product manager and builder in Berlin, originally from Lagos. Connects product discovery, agent workflows, technical implementation and operational delivery.
 
 Key facts:
 
-- Product Lead, Strategy and Operations at Skilladder AI. Built the assessment platform from zero, grew it to 6 recurring enterprise clients, served a national talent cohort of 85,000+ candidates, and cut deployment time by 85%.
-- Previously Product Manager at Tellerpoint (agency banking, including UnionDirect for Union Bank of Nigeria), Devlabs Africa, and Switch Recycling.
-- Has built and shipped 13 sites and apps, including WhatsApp-native commerce tools, a cohort-based LMS, a logistics platform, and client sites.
-- Stack: Next.js, React, Tailwind CSS, PostgreSQL, Supabase. AI tools: Cursor, Claude Code, Lovable, Replit.
-- Education: Bachelor of Laws (LL.B), Lagos State University.
+- Lead AI Product Manager - Operations at Skilladder AI, since May 2025. The assessment platform has served 32 enterprise clients in total, including six recurring clients (confirmed by Ayodeji, September 2026).
+- Previously Product Manager at Tellerpoint (May 2024 - April 2026), Devlabs Africa and Switch Recycling.
+- Work spans assessment systems, WhatsApp commerce, agent orchestration, client platforms and independent experiments. Product leadership contributions are distinguished from hands-on builds.
+- AI development tools include Cursor, Claude Code, Codex and Gemini.
+- Education: Bachelor of Laws, Lagos State University.
+
+## Selected work
+
+- [Skilladder](https://ayodejieluwande.vercel.app/work/skilladder): Assessment design, rubric-based grading, review and delivery. Includes a labelled synthetic walkthrough.
+- [Orderflow](https://ayodejieluwande.vercel.app/work/orderflow): Shared commerce infrastructure across business workflows. Includes an illustrative payment-state diagram; no live payment is made.
+- [Onboarding Engine](https://ayodejieluwande.vercel.app/work/onboarding-engine): Explorer, Synthesizer and Writer stages, with inspectable synthetic artifacts. Direct Slack, Notion and GitHub connectors remain planned.
+- [Football Ladder](https://footballadder.com/): AWS-hosted early-access website for a football career simulation.
+- [Hotel California](https://github.com/IamDejman/hotel-california): Browser-agent prototype source. The portfolio does not present a completed recorded run or a leaderboard score.
 
 ## Pages
 
-- [Home](https://ayodejieluwande.vercel.app/): Overview, stats, and introduction
-- [About](https://ayodejieluwande.vercel.app/about): Full bio, current role, education, and certifications
-- [Work](https://ayodejieluwande.vercel.app/work): Products managed and platforms built
-- [Skills](https://ayodejieluwande.vercel.app/skills): Product management, engineering, domain, and commercial skills
-- [Contact](https://ayodejieluwande.vercel.app/contact): Email and social links
-- [CV](https://ayodejieluwande.vercel.app/Ayodeji_Eluwande_CV.pdf): Full CV as PDF
+- [Home](https://ayodejieluwande.vercel.app/): Interactive project discovery and selected work
+- [About](https://ayodejieluwande.vercel.app/about): Background, experience, education and certifications
+- [Work](https://ayodejieluwande.vercel.app/work): Builds and product leadership contributions
+- [Skills](https://ayodejieluwande.vercel.app/skills): Capabilities linked to project evidence
+- [Contact](https://ayodejieluwande.vercel.app/contact): Email, social links and CV
+- [Privacy](https://ayodejieluwande.vercel.app/privacy): Privacy policy
+- [CV](https://ayodejieluwande.vercel.app/Ayodeji_Eluwande_CV.pdf): Curriculum vitae
 
 ## Contact
 

@@ -1,12 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#1A1A18" />
-  <text
-    x="33"
-    y="45"
-    text-anchor="middle"
-    font-family="Georgia, 'Times New Roman', serif"
-    font-size="34"
-    letter-spacing="-3.5"
-    fill="#FAFAF8"
-  >AE</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="8" fill="#101211"/><ellipse cx="32" cy="32" rx="12" ry="25" transform="rotate(35 32 32)" fill="none" stroke="#def749" stroke-width="5"/><ellipse cx="32" cy="32" rx="12" ry="25" transform="rotate(-40 32 32)" fill="none" stroke="#6379ff" stroke-width="5"/><path d="m32 25 7 7-7 7-7-7Z" fill="#eef0e7"/></svg>

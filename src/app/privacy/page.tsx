@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import RailHead from "@/components/RailHead";
 
 export const metadata: Metadata = {
   title: "Privacy",
@@ -12,7 +11,6 @@ export default function PrivacyPage() {
     <div>
       <section className="border-b border-line">
         <div className="mx-auto grid max-w-[1280px] grid-cols-1 gap-5 px-5 pt-14 pb-10 md:grid-cols-12 md:items-start md:gap-6 md:px-12 md:pt-24 md:pb-14">
-          <RailHead index="01" label="Privacy" top />
           <h1 className="font-serif text-4xl leading-[1.06] tracking-[-0.018em] md:col-span-8 md:col-start-3 md:text-6xl">
             Privacy policy.
           </h1>

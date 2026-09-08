@@ -1,8 +1,16 @@
 import type { MetadataRoute } from "next";
-import { siteConfig } from "@/data/content";
+import { siteConfig, caseStudies } from "@/data/content";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = ["", "/about", "/work", "/skills", "/contact", "/privacy"];
+  const routes = [
+    "",
+    "/about",
+    "/work",
+    "/skills",
+    "/contact",
+    "/privacy",
+    ...caseStudies.map((study) => `/work/${study.slug}`),
+  ];
 
   return routes.map((route) => ({
     url: `${siteConfig.url}${route}`,

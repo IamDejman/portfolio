@@ -1,93 +1,94 @@
 import type { Metadata } from "next";
-import { skills, howIWork, toolGroups } from "@/data/content";
-import Reveal from "@/components/Reveal";
-import RailHead from "@/components/RailHead";
-
+import Link from "next/link";
+import { skills, toolGroups, howIWork } from "@/data/content";
+import { ArrowRight } from "@/components/icons";
 export const metadata: Metadata = {
   title: "Skills",
   description:
-    "Product management, technical, domain, and commercial capabilities.",
+    "Product judgment, agent workflows and engineering practice, connected to real work.",
 };
-
+const evidence = [
+  {
+    title: "Turn ambiguity into a product.",
+    description:
+      "Research, prioritisation and delivery across the people who need to make a product work.",
+    link: "/work/tellerpoint",
+    name: "Tellerpoint",
+  },
+  {
+    title: "Design the workflow around the AI.",
+    description:
+      "Retrieval, intermediate artifacts and reviewable outputs that make a multi-stage process easier to inspect.",
+    link: "/work/onboarding-engine",
+    name: "Onboarding Engine",
+  },
+  {
+    title: "Build beyond the happy path.",
+    description:
+      "Payment integrations, recovery and operational workflows that keep the product useful after launch.",
+    link: "/work/orderflow",
+    name: "Orderflow",
+  },
+];
 export default function SkillsPage() {
   return (
     <div>
-      <section className="border-b border-line">
-        <div className="mx-auto grid max-w-[1280px] grid-cols-1 gap-5 px-5 pt-14 pb-10 md:grid-cols-12 md:items-start md:gap-6 md:px-12 md:pt-24 md:pb-14">
-          <RailHead index="01" label="Capabilities" top />
-          <div className="flex flex-col gap-5 md:col-span-6 md:col-start-3">
-            <h1 className="font-serif text-4xl leading-[1.04] tracking-[-0.018em] md:text-7xl">
-              What I bring.
-            </h1>
-            <p className="max-w-[520px] text-lg leading-relaxed text-ink-2 md:text-xl">
-              Four groups, and the overlap between them is the point. I can sit
-              with engineers, hold the room with execs, and ship the MVP myself
-              if needed.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Four columns */}
-      <section className="mx-auto grid max-w-[1280px] grid-cols-1 gap-10 px-5 pt-12 pb-14 sm:grid-cols-2 md:px-12 md:pt-18 md:pb-20 lg:grid-cols-4 lg:gap-6">
-        {Object.entries(skills).map(([category, items], i) => (
-          <Reveal key={category} delay={i * 90}>
-            <div className="flex flex-col gap-3 border-t-2 border-ink pt-4">
-              <span className="idx">{String(i + 1).padStart(2, "0")}</span>
-              <h2 className="font-serif text-[26px] leading-snug">{category}</h2>
+      <header className="route-heading section-shell">
+        <h1>
+          Judgment.
+          <br />
+          Then <em>execution.</em>
+        </h1>
+        <p>
+          I connect product discovery, technical implementation and the
+          operational work around them. Each capability is more useful when it
+          has somewhere real to show up.
+        </p>
+      </header>
+      <section
+        className="capability-evidence section-shell"
+        aria-label="Capabilities in practice"
+      >
+        {evidence.map((e) => (
+          <article key={e.title}>
+            <h2>{e.title}</h2>
+            <div>
+              <p>{e.description}</p>
+              <Link href={e.link}>
+                See it in {e.name}
+                <ArrowRight size={18} />
+              </Link>
             </div>
-            <ul className="mt-2">
-              {items.map((skill) => (
-                <li
-                  key={skill}
-                  className="border-b border-line py-2.5 text-sm leading-snug text-ink-2"
-                >
-                  {skill}
-                </li>
-              ))}
-            </ul>
-          </Reveal>
+          </article>
         ))}
       </section>
-
-      {/* How I work */}
-      <section className="border-y border-line bg-surface">
-        <div className="mx-auto grid max-w-[1280px] grid-cols-1 gap-6 px-5 py-14 md:grid-cols-12 md:items-start md:gap-6 md:px-12 md:py-18">
-          <RailHead index="02" label="How I work" top />
-          <p className="font-serif text-2xl leading-[1.35] md:col-span-7 md:col-start-3 md:text-[32px]">
-            {howIWork}
-          </p>
-          <div className="flex flex-col gap-1.5 border-l border-line-2 pl-5 md:col-span-2 md:col-start-11">
-            <span className="label">In practice</span>
-            <p className="text-sm leading-relaxed text-ink-3">
-              The PRD and the pull request often land in the same week.
-            </p>
-          </div>
+      <section className="capability-detail section-shell">
+        <h2>The working toolkit.</h2>
+        <div>
+          {Object.entries(skills).map(([category, items]) => (
+            <section key={category}>
+              <h3>{category}</h3>
+              <ul>
+                {items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </section>
+          ))}
         </div>
       </section>
-
-      {/* Tooling ledger */}
-      <section className="mx-auto grid max-w-[1280px] grid-cols-1 gap-6 px-5 pt-12 pb-16 md:grid-cols-12 md:items-start md:gap-6 md:px-12 md:pt-18 md:pb-22">
-        <RailHead index="03" label="Tooling" top />
-        <div className="md:col-span-10 md:col-start-3">
+      <section className="working-method section-shell">
+        <h2>
+          From the conversation
+          <br />
+          to the commit.
+        </h2>
+        <p>{howIWork}</p>
+        <div className="tool-groups">
           {toolGroups.map((group) => (
-            <div
-              key={group.label}
-              className="flex flex-col gap-3 border-b border-line py-5 md:flex-row md:items-center md:gap-8"
-            >
-              <h3 className="font-serif text-2xl md:w-52 md:shrink-0">
-                {group.label}
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {group.tools.map((tool) => (
-                  <span
-                    key={tool}
-                    className="chip h-8 px-3.5 text-[12.5px]"
-                  >
-                    {tool}
-                  </span>
-                ))}
-              </div>
+            <div key={group.label}>
+              <h3>{group.label}</h3>
+              <p>{group.tools.join(" · ")}</p>
             </div>
           ))}
         </div>

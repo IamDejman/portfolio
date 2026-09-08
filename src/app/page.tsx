@@ -15,10 +15,9 @@ export default function HomePage() {
             <br />
             More <em>working.</em>
           </h2>
-          <p>
-            Product judgment. Agent workflows. Systems that run.
-            <br />
-            Three different problems, taken beyond the idea.
+          <p className="selected-work-intro">
+            <span>Product judgment. Agent workflows. Systems that run.</span>
+            <span>Three different problems, taken beyond the idea.</span>
           </p>
         </div>
         <Link

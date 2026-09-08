@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Link from "next/link";
 import { ArrowRight } from "@/components/icons";
 const stages = [
   {
@@ -55,6 +56,7 @@ export default function AssessmentWalkthrough() {
       className="assessment-walkthrough"
       aria-labelledby="walkthrough-title"
     >
+      <p className="walkthrough-case-label">Skilladder AI case study</p>
       <div className="walkthrough-heading">
         <h2 id="walkthrough-title">
           Inside an
@@ -62,9 +64,12 @@ export default function AssessmentWalkthrough() {
           assessment.
         </h2>
         <p>
-          Explore the mechanism behind Skilladder.
+          How Skilladder AI turns assessment answers into evidence.
           <br />
           <span>Illustrative walkthrough · synthetic example</span>
+          <Link className="walkthrough-case-link" href="/work/skilladder">
+            Read the full Skilladder AI case study <ArrowRight size={17} />
+          </Link>
         </p>
       </div>
       <div className="stage-selector" aria-label="Assessment stages">

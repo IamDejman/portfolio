@@ -17,6 +17,7 @@ export default function Sculpture({
   const canvas = useRef<HTMLCanvasElement>(null);
   const selection = useRef(active);
   const pointer = useRef({ x: 0, y: 0 });
+  const drag = useRef<{ id: number; x: number; y: number } | null>(null);
   const stopped = useRef(paused);
   const wake = useRef<() => void>(() => {});
   useEffect(() => {
@@ -82,7 +83,7 @@ export default function Sculpture({
           ];
           const a = 0.7 + ring * 1.08 + turn * 0.32;
           const b = ring * 1.8 + time * 0.09 + turn * 0.55;
-          return rotate(rotate(p, a, b), -0.24 + py * 0.2, px * 0.22);
+          return rotate(rotate(p, a, b), -0.24 + py, px);
         };
         for (let i = 0; i < segments; i++) {
           const u = (i / segments) * Math.PI * 2;
@@ -112,7 +113,7 @@ export default function Sculpture({
         [0, 0.67, 0],
       ];
       const transformed = core.map((p) =>
-        rotate(p, time * 0.12 + turn, time * -0.16),
+        rotate(rotate(p, time * 0.12 + turn, time * -0.16), -0.24 + py, px),
       );
       for (let i = 1; i < 5; i++) {
         const next = i === 4 ? 1 : i + 1;
@@ -164,11 +165,11 @@ export default function Sculpture({
       if (!alive || !visible || document.hidden) return;
       const dt = previous ? Math.min(stamp - previous, 50) : 16;
       previous = stamp;
-      if (!stopped.current && !reduced) time += dt / 1000;
+      if (!stopped.current && !reduced && !drag.current) time += dt / 1000;
       turn +=
         (selection.current - turn) * (stopped.current || reduced ? 1 : 0.075);
-      px += (pointer.current.x - px) * 0.06;
-      py += (pointer.current.y - py) * 0.06;
+      px += (pointer.current.x - px) * (reduced || drag.current ? 1 : 0.18);
+      py += (pointer.current.y - py) * (reduced || drag.current ? 1 : 0.18);
       draw();
       if (!stopped.current && !reduced) frame = requestAnimationFrame(tick);
     };
@@ -228,16 +229,51 @@ export default function Sculpture({
     <canvas
       ref={canvas}
       className="engine-canvas"
-      aria-hidden="true"
-      onPointerMove={(e) => {
-        const r = e.currentTarget.getBoundingClientRect();
-        pointer.current = {
-          x: (e.clientX - r.left) / r.width - 0.5,
-          y: (e.clientY - r.top) / r.height - 0.5,
-        };
+      tabIndex={0}
+      role="img"
+      aria-label="Interactive possibility engine. Drag to rotate, or use arrow keys. Press Home to reset orientation."
+      onPointerDown={(e) => {
+        if (!e.isPrimary || e.button !== 0) return;
+        e.currentTarget.setPointerCapture(e.pointerId);
+        drag.current = { id: e.pointerId, x: e.clientX, y: e.clientY };
+        e.currentTarget.dataset.dragging = "true";
       }}
-      onPointerLeave={() => {
-        pointer.current = { x: 0, y: 0 };
+      onPointerMove={(e) => {
+        const current = drag.current;
+        if (!current || current.id !== e.pointerId) return;
+        const size = Math.max(1, Math.min(e.currentTarget.clientWidth, e.currentTarget.clientHeight));
+        pointer.current.x += ((e.clientX - current.x) / size) * Math.PI * 2;
+        pointer.current.y -= ((e.clientY - current.y) / size) * Math.PI * 2;
+        current.x = e.clientX;
+        current.y = e.clientY;
+        wake.current();
+      }}
+      onPointerUp={(e) => {
+        if (drag.current?.id !== e.pointerId) return;
+        drag.current = null;
+        delete e.currentTarget.dataset.dragging;
+        if (e.currentTarget.hasPointerCapture(e.pointerId)) e.currentTarget.releasePointerCapture(e.pointerId);
+      }}
+      onLostPointerCapture={(e) => {
+        drag.current = null;
+        delete e.currentTarget.dataset.dragging;
+      }}
+      onPointerCancel={(e) => {
+        drag.current = null;
+        delete e.currentTarget.dataset.dragging;
+      }}
+      onKeyDown={(e) => {
+        if (!["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", "Home"].includes(e.key)) return;
+        e.preventDefault();
+        if (e.key === "Home") pointer.current = { x: 0, y: 0 };
+        else {
+          const step = Math.PI / 12;
+          if (e.key === "ArrowLeft") pointer.current.x -= step;
+          if (e.key === "ArrowRight") pointer.current.x += step;
+          if (e.key === "ArrowUp") pointer.current.y += step;
+          if (e.key === "ArrowDown") pointer.current.y -= step;
+        }
+        wake.current();
       }}
     />
   );

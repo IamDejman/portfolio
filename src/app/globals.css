@@ -827,7 +827,7 @@ button:focus-visible {
 }
 .experiment-list > a {
   display: grid;
-  grid-template-columns: 1fr 1.3fr auto 24px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr) 10rem 24px;
   align-items: center;
   gap: 30px;
   padding: 30px 0;
@@ -2499,3 +2499,15 @@ button:focus-visible {
 .assessment-walkthrough { background: #1d221b; color: #f2f3ea; --accent-text: #def749; }
 .sculpture-fallback span { border-color: var(--engine-blue); }
 .world-choice:nth-child(3) .world-mark { background: var(--ink-3); }
+
+.engine-canvas { cursor: grab; touch-action: none; }
+.engine-canvas[data-dragging="true"] { cursor: grabbing; }
+.engine-canvas:focus-visible { outline: 2px solid var(--accent-text); outline-offset: -4px; }
+
+.walkthrough-case-label { color: #def749; font-size: 14px; font-weight: 600; margin-bottom: 24px; }
+.walkthrough-case-link { display: flex; align-items: center; gap: 12px; width: fit-content; color: #def749; font-size: 13px; margin-top: 14px; }
+.walkthrough-case-link svg { flex-shrink: 0; }
+
+.section-intro > .selected-work-intro { max-width: none; flex-shrink: 0; font-size: clamp(10px, 2.8vw, 15px); }
+.selected-work-intro > span { display: block; white-space: nowrap; }
+@media (min-width: 701px) and (max-width: 1000px) { .selected-work .section-intro { flex-direction: column; align-items: flex-start; gap: 30px; } }

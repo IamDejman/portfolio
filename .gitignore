@@ -42,3 +42,7 @@ next-env.d.ts
 
 # Local visual verification artifacts
 /.impeccable/review/
+
+# Browser regression output
+/test-results/
+/playwright-report/

@@ -8,6 +8,7 @@ import AssessmentWalkthrough from "@/components/engine/AssessmentWalkthrough";
 import OnboardingWalkthrough from "@/components/engine/OnboardingWalkthrough";
 import CommerceWalkthrough from "@/components/engine/CommerceWalkthrough";
 import { ArrowRight } from "@/components/icons";
+import CopyEmail from "@/components/CopyEmail";
 type Props = { params: Promise<{ slug: string }> };
 export function generateStaticParams() {
   return caseStudies.map((cs) => ({ slug: cs.slug }));
@@ -67,7 +68,19 @@ export default async function CaseStudyPage({ params }: Props) {
           )}
         </div>
       </header>
-      {slug === "skilladder" && <AssessmentWalkthrough />}
+      {cs.metrics.length > 0 && (
+        <section className="case-metrics section-shell" aria-label="Key figures">
+          <dl>
+            {cs.metrics.map((m) => (
+              <div key={m.label}>
+                <dt>{m.label}</dt>
+                <dd>{m.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      )}
+      {slug === "skilladder" && <AssessmentWalkthrough showCaseLink={false} />}
       {slug === "onboarding-engine" && <OnboardingWalkthrough />}
       {slug === "orderflow" && <CommerceWalkthrough />}
       <div className="case-story section-shell" id="project-story">
@@ -129,10 +142,13 @@ export default async function CaseStudyPage({ params }: Props) {
             <ArrowRight size={35} />
           </Link>
         </div>
-        <a href={`mailto:${siteConfig.email}`}>
-          Talk about the work
-          <ArrowRight size={17} />
-        </a>
+        <p className="case-contact">
+          <a href={`mailto:${siteConfig.email}`}>
+            Talk about the work
+            <ArrowRight size={17} />
+          </a>
+          <CopyEmail />
+        </p>
       </section>
     </article>
   );

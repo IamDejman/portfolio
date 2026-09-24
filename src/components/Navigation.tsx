@@ -1,8 +1,7 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { siteConfig } from "@/data/content";
 import { ArrowRight } from "./icons";
 const links = [
   { label: "Work", href: "/work" },
@@ -14,10 +13,25 @@ export default function Navigation() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [previous, setPrevious] = useState(pathname);
+  const trigger = useRef<HTMLButtonElement>(null);
+  const menu = useRef<HTMLElement>(null);
   if (previous !== pathname) {
     setPrevious(pathname);
     setOpen(false);
   }
+  useEffect(() => {
+    if (!open) return;
+    menu.current?.querySelector("a")?.focus();
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      setOpen(false);
+      trigger.current?.focus();
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [open]);
   return (
     <>
       <a href="#main" className="skip-link">
@@ -38,10 +52,15 @@ export default function Navigation() {
             </Link>
           ))}
         </nav>
-        <a className="nav-cv" href={siteConfig.cv} download>
-          Download CV <ArrowRight size={15} />
-        </a>
+        <Link
+          className="nav-cv"
+          href="/cv"
+          aria-current={pathname === "/cv" ? "page" : undefined}
+        >
+          View CV <ArrowRight size={15} />
+        </Link>
         <button
+          ref={trigger}
           className="menu-trigger"
           type="button"
           aria-expanded={open}
@@ -56,14 +75,7 @@ export default function Navigation() {
           className="mobile-navigation"
           id="mobile-navigation"
           aria-label="Mobile main"
-          onKeyDown={(e) => {
-            if (e.key === "Escape") {
-              setOpen(false);
-              document
-                .querySelector<HTMLButtonElement>(".menu-trigger")
-                ?.focus();
-            }
-          }}
+          ref={menu}
         >
           {links.map((l) => (
             <Link key={l.href} href={l.href} onClick={() => setOpen(false)}>
@@ -71,10 +83,10 @@ export default function Navigation() {
               <ArrowRight />
             </Link>
           ))}
-          <a href={siteConfig.cv} download>
-            Download CV
+          <Link href="/cv" onClick={() => setOpen(false)}>
+            View CV
             <ArrowRight />
-          </a>
+          </Link>
         </nav>
       )}
     </>

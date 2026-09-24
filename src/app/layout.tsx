@@ -82,19 +82,14 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="antialiased">
-        <div
-          hidden
-          dangerouslySetInnerHTML={{
-            __html: `<!--
-THESIS: Possibility Engine makes product mechanisms explorable through a moving structure.
-OWN-WORLD: Ink black, acid yellow, electric blue; Unbounded display, Manrope body, direct links.
-STORY: Discover three projects, inspect a mechanism, read the contribution, reach Ayodeji.
-FIRST VIEWPORT: Large left-aligned lettering and an intersecting ribbon sculpture at right; project selection below; work and contact immediately accessible. Motion pauses and has a static fallback.
-FORM: User-pinned Possibility Engine, code-led implementation of accepted REBUILD-PLAN; seed ef84ddb7 is subordinate to that commitment.
-FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
--->`,
-          }}
-        />
+        {/*
+        THESIS: Possibility Engine makes product mechanisms explorable through a moving structure.
+        OWN-WORLD: Ink black, acid yellow, electric blue; Unbounded display, Manrope body, direct links.
+        STORY: Discover three projects, inspect a mechanism, read the contribution, reach Ayodeji.
+        FIRST VIEWPORT: Large left-aligned lettering and an intersecting ribbon sculpture at right; project selection below; work and contact immediately accessible. Motion pauses and has a static fallback.
+        FORM: User-pinned Possibility Engine, code-led implementation of accepted REBUILD-PLAN; seed ef84ddb7 is subordinate to that commitment.
+        FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
+        */}
 
         <script
           type="application/ld+json"
@@ -107,7 +102,7 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
             <Link href="/about">About</Link>
             <Link href="/skills">Skills</Link>
             <Link href="/contact">Contact</Link>
-            <a href={siteConfig.cv}>Download CV</a>
+            <Link href="/cv">CV</Link>
           </nav>
         </noscript>
         <main id="main" tabIndex={-1} className="min-h-screen">

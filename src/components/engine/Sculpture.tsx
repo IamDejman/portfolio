@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 
 type Vec = [number, number, number];
-type Face = { points: Vec[]; color: number[]; edge?: boolean };
+type Face = { points: Vec[]; color: number[]; depth: number; edge?: boolean };
 
 // A parametric ribbon surface, projected on a bounded 2D canvas. No external
 // renderer, textures, network requests or WebGL dependency are needed.
@@ -36,7 +36,8 @@ export default function Sculpture({
       height = 0,
       frame = 0,
       time = 0,
-      previous = 0;
+      previous = 0,
+      cost = 0;
     let visible = true,
       alive = true;
     let turn = selection.current,
@@ -63,7 +64,7 @@ export default function Sculpture({
         ];
       };
       const faces: Face[] = [];
-      const segments = width < 500 ? 110 : 170;
+      const segments = width < 500 ? 80 : 120;
       const palettes = [
         [222, 247, 73],
         [56, 83, 255],
@@ -85,19 +86,21 @@ export default function Sculpture({
           const b = ring * 1.8 + time * 0.09 + turn * 0.55;
           return rotate(rotate(p, a, b), -0.24 + py, px);
         };
-        for (let i = 0; i < segments; i++) {
+        // Adjacent faces share edges, so each surface point is computed once.
+        const grid: Vec[][] = [];
+        for (let i = 0; i <= segments; i++) {
           const u = (i / segments) * Math.PI * 2;
-          const next = ((i + 1) / segments) * Math.PI * 2;
+          grid.push([0, 1, 2, 3].map((s) => point(u, -1 + (s * 2) / 3)));
+        }
+        for (let i = 0; i < segments; i++) {
+          const here = grid[i];
+          const next = grid[i + 1];
           for (let strip = 0; strip < 3; strip++) {
-            const v = -1 + (strip * 2) / 3;
+            const points = [here[strip], next[strip], next[strip + 1], here[strip + 1]];
             faces.push({
-              points: [
-                point(u, v),
-                point(next, v),
-                point(next, v + 2 / 3),
-                point(u, v + 2 / 3),
-              ],
+              points,
               color: palettes[ring],
+              depth: (points[0][2] + points[1][2] + points[2][2] + points[3][2]) / 4,
               edge: ring === 1 && i % 3 === 0,
             });
           }
@@ -117,20 +120,20 @@ export default function Sculpture({
       );
       for (let i = 1; i < 5; i++) {
         const next = i === 4 ? 1 : i + 1;
+        const top = [transformed[0], transformed[i], transformed[next]];
+        const bottom = [transformed[5], transformed[next], transformed[i]];
         faces.push({
-          points: [transformed[0], transformed[i], transformed[next]],
+          points: top,
           color: [60, 82, 240],
+          depth: (top[0][2] + top[1][2] + top[2][2]) / 3,
         });
         faces.push({
-          points: [transformed[5], transformed[next], transformed[i]],
+          points: bottom,
           color: [160, 179, 255],
+          depth: (bottom[0][2] + bottom[1][2] + bottom[2][2]) / 3,
         });
       }
-      faces.sort(
-        (a, b) =>
-          b.points.reduce((s, p) => s + p[2], 0) / b.points.length -
-          a.points.reduce((s, p) => s + p[2], 0) / a.points.length,
-      );
+      faces.sort((a, b) => b.depth - a.depth);
       for (const face of faces) {
         const [a, b, c] = face.points;
         const ux = b[0] - a[0],
@@ -163,6 +166,25 @@ export default function Sculpture({
     const tick = (stamp: number) => {
       frame = 0;
       if (!alive || !visible || document.hidden) return;
+      const drifting = !stopped.current && !reduced;
+      const settling =
+        drag.current !== null ||
+        Math.abs(selection.current - turn) > 0.001 ||
+        Math.abs(pointer.current.x - px) > 0.001 ||
+        Math.abs(pointer.current.y - py) > 0.001;
+      // The idle drift is slow enough that a lower frame rate looks the same.
+      // It runs at 30fps at most, and slower on devices where a frame is
+      // expensive, so drawing never takes more than about a third of the main
+      // thread. Dragging and selection changes keep the full rate.
+      if (
+        drifting &&
+        !settling &&
+        previous &&
+        stamp - previous < Math.max(30, cost * 3)
+      ) {
+        frame = requestAnimationFrame(tick);
+        return;
+      }
       const dt = previous ? Math.min(stamp - previous, 50) : 16;
       previous = stamp;
       if (!stopped.current && !reduced && !drag.current) time += dt / 1000;
@@ -170,7 +192,9 @@ export default function Sculpture({
         (selection.current - turn) * (stopped.current || reduced ? 1 : 0.075);
       px += (pointer.current.x - px) * (reduced || drag.current ? 1 : 0.18);
       py += (pointer.current.y - py) * (reduced || drag.current ? 1 : 0.18);
+      const started = performance.now();
       draw();
+      cost = cost * 0.8 + (performance.now() - started) * 0.2;
       if (!stopped.current && !reduced) frame = requestAnimationFrame(tick);
     };
     const schedule = () => {

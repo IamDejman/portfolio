@@ -4,6 +4,7 @@ import EngineHero from "@/components/engine/EngineHero";
 import AssessmentWalkthrough from "@/components/engine/AssessmentWalkthrough";
 import { ArrowRight } from "@/components/icons";
 import { siteConfig } from "@/data/content";
+import CopyEmail from "@/components/CopyEmail";
 export default function HomePage() {
   return (
     <div className="possibility-home">
@@ -169,6 +170,7 @@ export default function HomePage() {
         </a>
         <div>
           <span>Ayodeji Eluwande · Berlin</span>
+          <CopyEmail />
           <Link href="/about">
             A little about me <ArrowRight size={17} />
           </Link>

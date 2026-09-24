@@ -155,7 +155,7 @@ No editable text-field component is shipped by these walkthroughs; do not invent
 - Use semantic controls with visible keyboard focus and explicit selected states.
 - Preserve the complete static experience when motion or JavaScript is unavailable.
 - Keep synthetic walkthrough labels adjacent to the demonstration.
-- Retain provenance sidecars with every shipping raster.
+- Retain provenance sidecars with every shipping raster, in `provenance/` (mirroring `public/` paths) so they are not publicly served.
 - Do not reintroduce realistic hero imagery, generic robots, decorative terminals or arbitrary particle fields.
 - Do not imply that an authored walkthrough is a recorded execution or a live payment.
 - Do not use the legacy font variable names as a reason to restore DM Sans or Instrument Serif.

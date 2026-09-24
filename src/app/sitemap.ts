@@ -8,6 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/work",
     "/skills",
     "/contact",
+    "/cv",
     "/privacy",
     ...caseStudies.map((study) => `/work/${study.slug}`),
   ];

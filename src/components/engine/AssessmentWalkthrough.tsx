@@ -48,7 +48,11 @@ const stages = [
       "Build the operational path around the AI, including failure and recovery.",
   },
 ];
-export default function AssessmentWalkthrough() {
+export default function AssessmentWalkthrough({
+  showCaseLink = true,
+}: {
+  showCaseLink?: boolean;
+}) {
   const [active, setActive] = useState(0);
   const step = stages[active];
   return (
@@ -56,7 +60,9 @@ export default function AssessmentWalkthrough() {
       className="assessment-walkthrough"
       aria-labelledby="walkthrough-title"
     >
-      <p className="walkthrough-case-label">Skilladder AI case study</p>
+      {showCaseLink && (
+        <p className="walkthrough-case-label">Skilladder AI case study</p>
+      )}
       <div className="walkthrough-heading">
         <h2 id="walkthrough-title">
           Inside an
@@ -67,9 +73,11 @@ export default function AssessmentWalkthrough() {
           How Skilladder AI turns assessment answers into evidence.
           <br />
           <span>Illustrative walkthrough · synthetic example</span>
-          <Link className="walkthrough-case-link" href="/work/skilladder">
-            Read the full Skilladder AI case study <ArrowRight size={17} />
-          </Link>
+          {showCaseLink && (
+            <Link className="walkthrough-case-link" href="/work/skilladder">
+              Read the full Skilladder AI case study <ArrowRight size={17} />
+            </Link>
+          )}
         </p>
       </div>
       <div className="stage-selector" aria-label="Assessment stages">

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import WorkIndex from "@/components/engine/WorkIndex";
 import { ArrowRight } from "@/components/icons";
+import { caseStudies } from "@/data/content";
 export const metadata: Metadata = {
   title: "Work",
   description:
@@ -77,6 +78,20 @@ export default function WorkPage() {
             <i />
           </div>
         </Link>
+        <div className="work-leads-more">
+          {caseStudies
+            .filter((cs) => ["tellerpoint", "carbin"].includes(cs.slug))
+            .map((cs) => (
+              <Link key={cs.slug} href={`/work/${cs.slug}`}>
+                <h2>{cs.title}</h2>
+                <p>{cs.summary}</p>
+                <span>
+                  Product leadership case study
+                  <ArrowRight size={17} />
+                </span>
+              </Link>
+            ))}
+        </div>
       </section>
       <WorkIndex />
     </div>

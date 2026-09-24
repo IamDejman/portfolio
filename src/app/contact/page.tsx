@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { siteConfig, openTo } from "@/data/content";
 import { ArrowRight } from "@/components/icons";
+import CopyEmail from "@/components/CopyEmail";
 export const metadata: Metadata = {
   title: "Contact",
   description:
@@ -25,9 +26,8 @@ const links = [
   { label: "X", value: "Follow the conversation", href: siteConfig.twitter },
   {
     label: "CV",
-    value: "Download curriculum vitae",
-    href: siteConfig.cv,
-    download: true,
+    value: "View or download the CV",
+    href: "/cv",
   },
 ];
 export default function ContactPage() {
@@ -43,11 +43,13 @@ export default function ContactPage() {
           A role, a collaboration or a problem that needs a fresh pair of eyes.
           I’m open to a good conversation.
         </p>
-        <a href={`mailto:${siteConfig.email}`}>
-          Send me an email
-          <ArrowRight size={25} />
-        </a>
-        <span>Based in Berlin, Germany</span>
+        <div className="contact-actions">
+          <a href={`mailto:${siteConfig.email}`}>
+            Send me an email
+            <ArrowRight size={25} />
+          </a>
+          <CopyEmail />
+        </div>
       </header>
       <section className="contact-content section-shell">
         <div>
@@ -56,11 +58,9 @@ export default function ContactPage() {
             <a
               key={l.label}
               href={l.href}
-              {...(l.download
-                ? { download: true }
-                : l.href.startsWith("http")
-                  ? { target: "_blank", rel: "noopener noreferrer" }
-                  : {})}
+              {...(l.href.startsWith("http")
+                ? { target: "_blank", rel: "noopener noreferrer" }
+                : {})}
             >
               <span>{l.label}</span>
               <span>{l.value}</span>

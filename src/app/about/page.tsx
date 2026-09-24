@@ -6,7 +6,6 @@ import {
   pastRoles,
   education,
   certifications,
-  siteConfig,
 } from "@/data/content";
 import { ArrowRight } from "@/components/icons";
 export const metadata: Metadata = {
@@ -23,11 +22,6 @@ export default function AboutPage() {
           <br />
           <em>behind the build.</em>
         </h1>
-        <p>
-          I’m Ayodeji Eluwande. Berlin is home now. Lagos is where I’m from. The
-          space between a difficult question and a useful product is where I do
-          my best work.
-        </p>
       </header>
       <section className="about-introduction section-shell">
         <div className="about-portrait">
@@ -109,10 +103,10 @@ export default function AboutPage() {
             <br />
             {education.period}
           </p>
-          <a href={siteConfig.cv} download className="action-link">
-            Download my CV
+          <Link href="/cv" className="action-link">
+            View my CV
             <ArrowRight size={18} />
-          </a>
+          </Link>
         </div>
         <div>
           <h3>Continued learning</h3>

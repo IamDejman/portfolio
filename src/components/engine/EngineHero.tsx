@@ -46,15 +46,6 @@ export default function EngineHero() {
           <br />
           <span>beginning.</span>
         </h1>
-        <div className="sculpture-stage">
-          <div className="sculpture-fallback" aria-hidden="true">
-            <span />
-            <span />
-            <span />
-          </div>
-          <Sculpture active={active} paused={false} />
-          <span className="structure-caption">The possibility engine</span>
-        </div>
         <div className="hero-intro">
           <p>
             I’m Ayodeji, an AI product manager and builder in Berlin. I turn
@@ -63,6 +54,15 @@ export default function EngineHero() {
           <a href="#selected-work" className="action-link">
             Explore the work <ArrowRight size={21} />
           </a>
+        </div>
+        <div className="sculpture-stage">
+          <div className="sculpture-fallback" aria-hidden="true">
+            <span />
+            <span />
+            <span />
+          </div>
+          <Sculpture active={active} paused={false} />
+          <span className="structure-caption">The possibility engine</span>
         </div>
       </div>
       <div className="world-controls">

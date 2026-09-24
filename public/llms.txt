@@ -26,7 +26,7 @@ Key facts:
 - [Skills](https://ayodejieluwande.vercel.app/skills): Capabilities linked to project evidence
 - [Contact](https://ayodejieluwande.vercel.app/contact): Email, social links and CV
 - [Privacy](https://ayodejieluwande.vercel.app/privacy): Privacy policy
-- [CV](https://ayodejieluwande.vercel.app/Ayodeji_Eluwande_CV.pdf): Curriculum vitae
+- [CV](https://ayodejieluwande.vercel.app/cv): Curriculum vitae, with the PDF at https://ayodejieluwande.vercel.app/Ayodeji_Eluwande_CV.pdf
 
 ## Contact
 

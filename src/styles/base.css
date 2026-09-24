@@ -1,0 +1,176 @@
+:root {
+  color-scheme: light;
+  --bg: #f7f4ed;
+  --surface: #eeeae1;
+  --wash: #e8edda;
+  --sink: #2d43ee;
+  --ink: #20241f;
+  --ink-2: #4b5148;
+  --ink-3: #62685c;
+  --line: #d6d4c9;
+  --line-2: #999e90;
+  --accent: #def749;
+  --accent-text: #3149ed;
+  --accent-dk: #394e16;
+  --inv: #f7f4ed;
+  --dot: transparent;
+  --shadow: rgba(0, 0, 0, 0.2);
+  --sink-ink: #fff;
+  --sink-ink-2: #e0e4ff;
+  --sink-ink-3: #d0d7ff;
+  --sink-line: #7080ff;
+  --engine-yellow: #def749;
+  --engine-blue: #3853ff;
+  --engine-paper: #eaece1;
+  --engine-ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-wash: var(--wash);
+  --color-sink: var(--sink);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-line: var(--line);
+  --color-line-2: var(--line-2);
+  --color-accent: var(--accent);
+  --color-accent-dk: var(--accent-dk);
+  --color-inv: var(--inv);
+  --color-sink-ink: var(--sink-ink);
+  --color-sink-ink-2: var(--sink-ink-2);
+  --color-sink-ink-3: var(--sink-ink-3);
+  --color-sink-line: var(--sink-line);
+  --font-sans: var(--font-dm-sans);
+  --font-serif: var(--font-instrument-serif);
+  --font-mono: var(--font-jetbrains-mono);
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/*---- primitives ----*/
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  height: 50px;
+  padding: 0 26px;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  transition: opacity 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.btn-primary {
+  background: var(--ink);
+  color: var(--inv);
+}
+
+.btn-primary:hover {
+  opacity: 0.85;
+}
+
+.btn-ghost {
+  border-color: var(--line-2);
+  color: var(--ink);
+  background: transparent;
+}
+
+.btn-ghost:hover {
+  background: var(--surface);
+}
+
+.btn-inv {
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.btn-inv:hover {
+  opacity: 0.88;
+}
+
+.btn-sm {
+  height: 40px;
+  padding: 0 18px;
+  font-size: 14px;
+}
+
+/*---- a11y ----*/
+
+a:focus-visible,
+button:focus-visible {
+  border-radius: 2px;
+  outline: 2px solid var(--accent-text);
+  outline-offset: 6px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 12px;
+  z-index: 100;
+  background: var(--ink);
+  color: var(--inv);
+  padding: 10px 18px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.skip-link:focus {
+  left: 12px;
+}
+
+.nojs-navigation {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 15px 6%;
+  font-size: 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+/*Original product wordmarks, retaining their supplied colors and proportions.*/
+
+.project-logo {
+  display: block;
+  width: 190px;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.world-choice .project-logo {
+  width: 112px;
+  flex-shrink: 1;
+  align-self: center;
+}
+
+.case-brand {
+  margin-bottom: 28px;
+}
+
+@media (max-width: 600px) {
+  .project-logo {
+    width: 158px;
+  }
+  .world-choice .project-logo {
+    width: 92px;
+  }
+}
+
+/*Dark assessment stage provides contrast within the warm paper canvas.*/

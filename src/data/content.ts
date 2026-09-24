@@ -6,61 +6,17 @@ export const siteConfig = {
     "AI product manager and builder in Berlin. Explore assessment systems, agent workflows and commerce platforms, from product decisions to working software.",
   url: "https://ayodejieluwande.vercel.app",
   email: "ayodejieluwande@gmail.com",
-  phone: "+491791556146",
-  availability: "Open to roles · 2026",
   linkedin: "https://linkedin.com/in/ayodejieluwande",
   twitter: "https://x.com/aeluwande",
   github: "https://github.com/IamDejman",
   cv: "/Ayodeji_Eluwande_CV.pdf",
 };
 
-export const navLinks = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Work", href: "/work" },
-  { label: "Skills", href: "/skills" },
-  // { label: "Writing", href: "/writing" },
-  { label: "Contact", href: "/contact" },
-];
-
-export const stats = [
-  { value: "5+", label: "Years in Product" },
-  { value: "8", label: "Products Managed" },
-  { value: "12", label: "Sites & Apps Built" },
-];
-
 export const currentRoles = [
   {
     title: "Lead AI Product Manager - Operations",
     org: "Skilladder AI",
     period: "May 2025 - Present",
-  },
-];
-
-export const proofCards = [
-  {
-    metric: "85%",
-    title: "Faster assessment deployment",
-    description:
-      "Took Skilladder's AI assessment platform from prototype to primary product. Deployment went from weeks to 24 hours, with 32 total enterprise clients, including 6 recurring, and an 85,000+ candidate national cohort.",
-    href: "/work/skilladder",
-    cta: "Read the case study",
-  },
-  {
-    metric: "12",
-    title: "Live products, built end to end",
-    description:
-      "Platforms, WhatsApp commerce, and client sites, taken from PRD to production code with Next.js, React, Kotlin, and AI-assisted development.",
-    href: "/work",
-    cta: "See the builds",
-  },
-  {
-    metric: "#1",
-    title: "Tech Cabal's 25 Startups to Watch",
-    description:
-      "Drove product strategy for Carbin Africa, an automotive marketplace that reached the top of Tech Cabal's 2025 list.",
-    href: "/work",
-    cta: "See managed products",
   },
 ];
 
@@ -185,22 +141,6 @@ export type BuiltProject = {
 
 export const builtProjects: BuiltProject[] = [
   {
-    title: "Hotel California",
-    url: "https://github.com/IamDejman/hotel-california",
-    description:
-      "A browser-agent experiment with a bounded Claude tool loop, pattern logging, scoring and replay infrastructure. The source is available; a completed recorded run is not presented here.",
-    tech: ["TypeScript", "Claude", "Browser automation"],
-    highlight: "Prototype · source available",
-  },
-  {
-    title: "Osun Decides",
-    url: "https://osundecides.vercel.app",
-    description:
-      "Election-information tooling that connects source records, arithmetic validation, uncertainty flags and append-only corrections. A project about making evidence and its limitations visible.",
-    tech: ["Python", "Data validation", "Web publishing"],
-    highlight: "Evidence engineering",
-  },
-  {
     title: "Skilladder Assessment Platform",
     image: "/work/skilladder.jpg",
     flagship: true,
@@ -212,29 +152,43 @@ export const builtProjects: BuiltProject[] = [
     highlight: "85,000+ candidate cohort",
   },
   {
-    title: "Autopapers NG",
-    description:
-      "WhatsApp-native vehicle paper renewal. Drivers check document status by plate number, pay, and get renewals processed, with automated reminders and thermal-printer work orders for operators. Built on a shared WhatsApp Flow commerce engine.",
-    tech: ["Kotlin", "Spring Boot", "WhatsApp Flow API", "Paystack"],
-    highlight: "Live on WhatsApp",
-  },
-  {
-    title: "Vendflow",
-    description:
-      "WhatsApp-native electricity vending. Customers buy prepaid power and settle postpaid bills directly in chat through integrated bill-pay rails, with instant token delivery. Shares the WhatsApp Flow engine behind Autopapers.",
-    tech: ["Kotlin", "Spring Boot", "WhatsApp Flow API", "Paystack"],
-    highlight: "Live bill payments",
-  },
-  {
     title: "Orderflow",
     image: "/work/orderflow.jpg",
     flagship: true,
     caseStudy: "orderflow",
     url: "https://app.tryorderflow.com",
     description:
-      "Conversational food ordering and table booking over WhatsApp. Menu browsing, item customization, checkout, and kitchen receipt printing, all inside a single WhatsApp Flow with a Next.js operator dashboard.",
+      "Conversational commerce on WhatsApp: food ordering and table booking, event ticketing, electricity vending and vehicle paper renewal, all on one shared engine. Payments, settlement, a printer and scanner fleet, and a Next.js merchant dashboard.",
     tech: ["Kotlin", "Spring Boot", "Next.js", "WhatsApp Flow API"],
-    highlight: "Order & book in chat",
+    highlight: "3 verticals in production",
+  },
+  {
+    title: "GRWTEE",
+    image: "/work/grwtee.jpg",
+    flagship: true,
+    url: "https://grwtee.com",
+    description:
+      "Personal styling iOS app with a digital wardrobe, AI virtual try-on, lookbooks, and an outfit calendar. Expo and React Native client, Next.js API on Vercel, Supabase auth and storage with row level security, shipped through TestFlight.",
+    tech: ["React Native", "Expo", "Next.js", "Supabase"],
+    highlight: "AI styling app on iOS",
+  },
+  {
+    title: "Banyan Claims",
+    image: "/work/banyan-claims.jpg",
+    url: "https://banyanclaims.com",
+    description:
+      "Public website and customer claims portal for a claims support consultancy, built end to end. Typed API contract, strict Content Security Policy, accessibility fixes, and a full V2 design revision.",
+    tech: ["Next.js", "Tailwind CSS", "Vercel"],
+    highlight: "Client platform",
+  },
+  {
+    title: "Harvesters Workers System",
+    url: "https://attendance.hiccgbagada.com",
+    image: "/work/hicc-attendance.jpg",
+    description:
+      "Workforce platform for a large church organization. Profiles, departments, role-based access with Row Level Security, a bulk SMS and email engine with dual gateways and cost estimation, training with automated certificates, and event registration at scale.",
+    tech: ["React", "Supabase", "TanStack Query", "SendGrid"],
+    highlight: "Multi-role admin platform",
   },
   {
     title: "CVERSE",
@@ -246,13 +200,29 @@ export const builtProjects: BuiltProject[] = [
     highlight: "Cohort-based LMS",
   },
   {
-    title: "Harvesters Workers System",
-    url: "https://attendance.hiccgbagada.com",
-    image: "/work/hicc-attendance.jpg",
+    title: "Vrena Law",
+    image: "/work/vrena-law.jpg",
+    url: "https://vrenalaw.com",
     description:
-      "Workforce platform for a large church organization. Profiles, departments, role-based access with Row Level Security, a bulk SMS and email engine with dual gateways and cost estimation, training with automated certificates, and event registration at scale.",
-    tech: ["React", "Supabase", "TanStack Query", "SendGrid"],
-    highlight: "Multi-role admin platform",
+      "Professional legal services website for a Nigerian law firm. Modern design with animated sections, service showcases, and consultation booking interface.",
+    tech: ["Next.js", "Tailwind CSS", "Vercel"],
+    highlight: "Live client project",
+  },
+  {
+    title: "Football Ladder",
+    url: "https://footballadder.com/",
+    description:
+      "Football career simulation with a generated world, club finances and deterministic actors. Run a club from the boardroom and build a career through the wider football system. The AWS-hosted public site offers early access.",
+    tech: ["TypeScript", "PostgreSQL", "Node.js", "AWS"],
+    highlight: "Football career simulation",
+  },
+  {
+    title: "Osun Decides",
+    url: "https://osundecides.vercel.app",
+    description:
+      "Election-information tooling that connects source records, arithmetic validation, uncertainty flags and append-only corrections. A project about making evidence and its limitations visible.",
+    tech: ["Python", "Data validation", "Web publishing"],
+    highlight: "Evidence engineering",
   },
   {
     title: "Message Logistics",
@@ -269,40 +239,12 @@ export const builtProjects: BuiltProject[] = [
     highlight: "In development",
   },
   {
-    title: "Vrena Law",
-    image: "/work/vrena-law.jpg",
-    url: "https://vrenalaw.com",
+    title: "Hotel California",
+    url: "https://github.com/IamDejman/hotel-california",
     description:
-      "Professional legal services website for a Nigerian law firm. Modern design with animated sections, service showcases, and consultation booking interface.",
-    tech: ["Next.js", "Tailwind CSS", "Vercel"],
-    highlight: "Live client project",
-  },
-  {
-    title: "Banyan Claims",
-    image: "/work/banyan-claims.jpg",
-    url: "https://banyanclaims.com",
-    description:
-      "Public website and customer claims portal for a claims support consultancy, built end to end. Typed API contract, strict Content Security Policy, accessibility fixes, and a full V2 design revision.",
-    tech: ["Next.js", "Tailwind CSS", "Vercel"],
-    highlight: "Client platform",
-  },
-  {
-    title: "GRWTEE",
-    image: "/work/grwtee.jpg",
-    flagship: true,
-    url: "https://grwtee.com",
-    description:
-      "Personal styling iOS app with a digital wardrobe, AI virtual try-on, lookbooks, and an outfit calendar. Expo and React Native client, Next.js API on Vercel, Supabase auth and storage with row level security, shipped through TestFlight.",
-    tech: ["React Native", "Expo", "Next.js", "Supabase"],
-    highlight: "AI styling app on iOS",
-  },
-  {
-    title: "Football Ladder",
-    url: "https://footballadder.com/",
-    description:
-      "Football career simulation with a generated world, club finances and deterministic actors. Run a club from the boardroom and build a career through the wider football system. The AWS-hosted public site offers early access.",
-    tech: ["TypeScript", "PostgreSQL", "Node.js", "AWS"],
-    highlight: "Football career simulation",
+      "A browser-agent experiment with a bounded Claude tool loop, pattern logging, scoring and replay infrastructure. The source is available; a completed recorded run is not presented here.",
+    tech: ["TypeScript", "Claude", "Browser automation"],
+    highlight: "Prototype · source available",
   },
 ];
 
@@ -566,33 +508,6 @@ export const education = {
 
 export const howIWork =
   "My week splits between product work and building. I run sprints in Linear, conduct user research, and keep stakeholders aligned on what ships next. When something needs to exist quickly, I build it myself with Next.js, React, and Tailwind CSS, working alongside AI tools like Cursor, Claude Code, Codex, and Gemini. I'm the PM who can sit with engineers, hold the room with execs, and ship the MVP myself if needed.";
-
-export const blogPosts = [
-  {
-    title: "Translating Chaos Into Structure",
-    tag: "Product Thinking",
-    excerpt:
-      "How I approach complex, high-stakes product situations - and why the first draft of clarity is always messy.",
-    status: "Coming Soon",
-    slug: "translating-chaos-into-structure",
-  },
-  {
-    title: "Building for Agent Networks in Nigeria",
-    tag: "Fintech",
-    excerpt:
-      "Lessons from deploying agency banking platforms where infrastructure is scarce and trust is everything.",
-    status: "Coming Soon",
-    slug: "building-for-agent-networks",
-  },
-  {
-    title: "Why I Built an Assessment Engine from Scratch",
-    tag: "Building",
-    excerpt:
-      "The Skilladder story - from Google Sheets to a multi-tenant AI platform, and what I learned along the way.",
-    status: "Coming Soon",
-    slug: "assessment-engine-from-scratch",
-  },
-];
 
 export const openTo = [
   "Full-time Product Management, AI Operations, Forward Deployed & AI Engineering, or Product Engineer roles",

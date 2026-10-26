@@ -111,6 +111,7 @@ export default function RootLayout({
             <Link href="/work">Work</Link>
             <Link href="/about">About</Link>
             <Link href="/skills">Skills</Link>
+            <Link href="/notes">Notes</Link>
             <Link href="/contact">Contact</Link>
             <Link href="/cv" data-track="cv">
               CV

@@ -1726,6 +1726,230 @@ result. A pending payment stops at the core, which keeps pinging.*/
   }
 }
 
+/*---- under the hood ----*/
+
+.system-map {
+  background: var(--surface);
+}
+
+.system-map .section-intro > p {
+  max-width: 420px;
+}
+
+/*Steps hang from a rail like stations on a line; a signal runs along it
+once as the map arrives.*/
+.system-track {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(var(--steps, 5), minmax(0, 1fr));
+  gap: 30px;
+  padding-top: 38px;
+}
+
+.system-track::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--ink);
+  transform-origin: left;
+}
+
+.system-track::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent-text);
+  opacity: 0;
+}
+
+.system-track > li {
+  position: relative;
+}
+
+.system-track > li::before {
+  content: "";
+  position: absolute;
+  top: -38.5px;
+  left: 0;
+  width: 13px;
+  height: 13px;
+  border: 1px solid var(--ink);
+  border-radius: 50%;
+  background: var(--surface);
+}
+
+.system-track > li:first-child::before {
+  background: var(--engine-yellow);
+}
+
+.system-track > li > span {
+  font-size: 12px;
+  color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+}
+
+.system-track h3 {
+  margin: 10px 0 12px;
+  font-size: 21px;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.system-track p {
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--ink-2);
+}
+
+.system-foundation {
+  --rule-color: var(--line-2);
+  max-width: 90ch;
+  margin-top: 56px;
+  padding-top: 22px;
+  border-top: 1px solid var(--rule-color);
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--ink-2);
+}
+
+.system-foundation strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.system-decisions-title {
+  margin: 80px 0 26px;
+  font-size: 25px;
+  letter-spacing: -0.02em;
+}
+
+.system-decisions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 8%;
+}
+
+.system-decisions > article {
+  --rule-color: var(--line-2);
+  padding: 26px 0 32px;
+  border-top: 1px solid var(--rule-color);
+}
+
+.system-decisions h4 {
+  margin-bottom: 10px;
+  font-size: 19px;
+  letter-spacing: -0.015em;
+}
+
+.system-decisions p {
+  max-width: 60ch;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--ink-2);
+}
+
+@keyframes motion-rail {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+@keyframes motion-run {
+  0% {
+    left: 0;
+    opacity: 0;
+  }
+  12%,
+  88% {
+    opacity: 1;
+  }
+  100% {
+    left: calc(100% - 7px);
+    opacity: 0;
+  }
+}
+
+.system-track.is-armed:not(.is-revealed) > li {
+  opacity: 0;
+}
+
+.system-track.is-armed:not(.is-revealed)::before {
+  transform: scaleX(0);
+}
+
+:root[data-motion="on"] .system-track.is-revealed::before {
+  animation: motion-rail 1.4s var(--engine-ease) both;
+}
+
+:root[data-motion="on"] .system-track.is-revealed::after {
+  animation: motion-run 1.8s var(--engine-ease-in-out) 0.35s both;
+}
+
+:root[data-motion="on"] .system-track.is-revealed > li {
+  animation: motion-rise 0.8s var(--engine-ease) both;
+  animation-delay: calc(0.2s + var(--step, 0) * 0.17s);
+}
+
+@media (max-width: 1000px) {
+  .system-track {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 0 0 0 34px;
+  }
+  .system-track::before {
+    top: 0;
+    bottom: 0;
+    left: 6px;
+    right: auto;
+    width: 1px;
+    height: auto;
+    transform-origin: top;
+  }
+  .system-track::after {
+    display: none;
+  }
+  .system-track > li::before {
+    top: 4px;
+    left: -34px;
+  }
+  .system-track.is-armed:not(.is-revealed)::before {
+    transform: scaleY(0);
+  }
+  :root[data-motion="on"] .system-track.is-revealed::before {
+    animation-name: motion-rail-down;
+  }
+}
+
+@keyframes motion-rail-down {
+  from {
+    transform: scaleY(0);
+  }
+}
+
+@media (max-width: 700px) {
+  .system-track h3 {
+    font-size: 19px;
+  }
+  .system-track p,
+  .system-decisions p {
+    font-size: 14px;
+  }
+  .system-decisions-title {
+    margin-top: 56px;
+    font-size: 22px;
+  }
+  .system-decisions {
+    grid-template-columns: 1fr;
+  }
+}
+
 /*---- case study figures ----*/
 
 .case-metrics {

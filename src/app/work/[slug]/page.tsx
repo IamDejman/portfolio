@@ -7,6 +7,7 @@ import { caseStudies, builtProjects, siteConfig } from "@/data/content";
 import AssessmentWalkthrough from "@/components/engine/AssessmentWalkthrough";
 import OnboardingWalkthrough from "@/components/engine/OnboardingWalkthrough";
 import CommerceWalkthrough from "@/components/engine/CommerceWalkthrough";
+import SystemMap from "@/components/engine/SystemMap";
 import { ArrowRight } from "@/components/icons";
 import CopyEmail from "@/components/CopyEmail";
 import Split from "@/components/motion/Split";
@@ -134,6 +135,7 @@ export default async function CaseStudyPage({ params }: Props) {
           )}
         </div>
       </div>
+      {cs.system && <SystemMap system={cs.system} />}
       {image && (
         <figure className="product-capture section-shell" data-reveal="image">
           <Image

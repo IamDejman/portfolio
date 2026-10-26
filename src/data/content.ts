@@ -255,6 +255,15 @@ export const builtProjects: BuiltProject[] = [
   },
 ];
 
+// The engineering view of a case study. Every line restates something the
+// case study or CV already establishes; it adds no new claims.
+export type System = {
+  summary: string;
+  steps: { name: string; detail: string }[];
+  foundation: string;
+  decisions: { title: string; body: string }[];
+};
+
 export type CaseStudy = {
   slug: string;
   title: string;
@@ -265,6 +274,7 @@ export type CaseStudy = {
   url?: string;
   metrics: { value: string; label: string }[];
   sections: { heading: string; paragraphs: string[] }[];
+  system?: System;
 };
 
 export const caseStudies: CaseStudy[] = [
@@ -342,6 +352,57 @@ export const caseStudies: CaseStudy[] = [
         ],
       },
     ],
+    system: {
+      summary:
+        "How a candidate's answer becomes a result an employer can use. The AI grades, a reviewer can always overrule it, and delivery is built not to drop results.",
+      steps: [
+        {
+          name: "Take the assessment",
+          detail:
+            "A test-taking flow with proctoring and anti-fraud telemetry, read-aloud questions and extended time enforced on the server.",
+        },
+        {
+          name: "Bring in context",
+          detail:
+            "The question, the rubric and source material retrieved from proprietary data, so the grader judges against defined criteria.",
+        },
+        {
+          name: "Grade with AI",
+          detail:
+            "Rubric-linked scores with a rationale that can be checked against the answer. The 3MTT programme ran three synchronized grading engines.",
+        },
+        {
+          name: "Keep a person in the loop",
+          detail:
+            "Every result carries a confidence score, and a reviewer can override any grade with one click.",
+        },
+        {
+          name: "Deliver",
+          detail:
+            "A client API with more than 60 endpoints and webhooks, reports with byte-exact legacy parity, and email sent from durable queues.",
+        },
+      ],
+      foundation:
+        "Monitoring across 128 backend services with automatic error classification and an admin triage dashboard, with the platform behind Cloudflare.",
+      decisions: [
+        {
+          title: "Earn trust before automating",
+          body: "AI grading ran in shadow for two weeks before it graded on its own. Confidence scores and one-click override keep a person in control, and grading turnaround fell from days to hours.",
+        },
+        {
+          title: "Make delivery durable",
+          body: "Sending email message by message was fragile, so I replaced it with database-backed queues and workers. Results no longer depend on a single send succeeding.",
+        },
+        {
+          title: "Treat fairness as a feature",
+          body: "Read-aloud assessments with Nigerian accent voices, extended time enforced on the server rather than in the browser, and a mobile fix that restored fair retakes for 1,300+ affected candidates.",
+        },
+        {
+          title: "Design the API with its users",
+          body: "I shaped the assessment API around triggering assessments, retrieving results and webhooks, built the first endpoints, and iterated on them with two customer design partners.",
+        },
+      ],
+    },
   },
   {
     slug: "orderflow",
@@ -379,6 +440,57 @@ export const caseStudies: CaseStudy[] = [
         ],
       },
     ],
+    system: {
+      summary:
+        "One shared core runs several businesses on WhatsApp, with payments, settlement and hardware as part of the same system.",
+      steps: [
+        {
+          name: "Customer on WhatsApp",
+          detail:
+            "Orders, tickets, electricity and vehicle paper renewals, through the Meta Cloud API and WhatsApp Flows.",
+        },
+        {
+          name: "Shared core",
+          detail:
+            "A Kotlin and Spring Boot backend routes each request to its business workflow, with catalogues synced to Meta, loyalty tiers and a tax engine.",
+        },
+        {
+          name: "Payments",
+          detail:
+            "Rubies and Squad behind one provider interface, with dedicated virtual accounts and instant bank transfer reconciliation.",
+        },
+        {
+          name: "Ledger and settlement",
+          detail:
+            "Settlement calculated from ledger entries, grouped by day cycle, with audit trails and a capped processing fee.",
+        },
+        {
+          name: "Fulfilment",
+          detail:
+            "Receipt printers and QR door scanners over MQTT with HTTP fallback, station-based routing and stale-job resweeps.",
+        },
+      ],
+      foundation:
+        "A Next.js merchant dashboard with a 12-step guided onboarding, role-based access shared by front end and back end that fails closed, TOTP challenges for admins, and branches that deploy develop to staging and main to production.",
+      decisions: [
+        {
+          title: "One payment path for every business",
+          body: "Providers plug in behind clean interfaces, so food orders, tickets and vending all share one payment layer.",
+        },
+        {
+          title: "Settle from the ledger",
+          body: "Payouts are calculated from ledger entries and kept with audit trails, so each one can be traced to the transactions behind it.",
+        },
+        {
+          title: "Pending is not paid",
+          body: "A missing provider confirmation is not a completed transaction. The order stays pending until the payment is reconciled, and nothing is fulfilled before then.",
+        },
+        {
+          title: "Fail closed",
+          body: "Access control is shared by the dashboard and the API and denies by default. Queries are scoped to the tenant, every webhook signature is verified, vending has amount gates, and secrets never appear in API responses.",
+        },
+      ],
+    },
   },
   {
     slug: "carbin",

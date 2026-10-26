@@ -73,24 +73,35 @@ export default function MotionRoot() {
     });
     const whole = new IntersectionObserver(reveal, { threshold: 1 });
 
-    document
-      .querySelectorAll<HTMLElement>("[data-reveal]:not(.is-revealed)")
-      .forEach((element) => {
-        const painted =
-          !navigated &&
-          !element.classList.contains("is-armed") &&
-          element.getBoundingClientRect().top < innerHeight;
-        if (painted) return;
-        element.classList.add("is-armed");
-        if (element.dataset.reveal?.split(" ").includes("stagger")) {
-          Array.from(element.children).forEach((child, i) =>
-            (child as HTMLElement).style.setProperty("--reveal-i", String(i)),
-          );
-        }
-        pending.add(element);
-        early.observe(element);
-        whole.observe(element);
-      });
+    const scanned = new WeakSet<Element>();
+    const arm = (fresh: boolean) =>
+      document
+        .querySelectorAll<HTMLElement>("[data-reveal]:not(.is-revealed)")
+        .forEach((element) => {
+          if (scanned.has(element)) return;
+          scanned.add(element);
+          const painted =
+            !fresh &&
+            !element.classList.contains("is-armed") &&
+            element.getBoundingClientRect().top < innerHeight;
+          if (painted) return;
+          element.classList.add("is-armed");
+          if (element.dataset.reveal?.split(" ").includes("stagger")) {
+            Array.from(element.children).forEach((child, i) =>
+              (child as HTMLElement).style.setProperty("--reveal-i", String(i)),
+            );
+          }
+          pending.add(element);
+          early.observe(element);
+          whole.observe(element);
+        });
+    arm(navigated);
+    // Content that renders later, such as the live grader once it knows it
+    // can run, announces itself before it paints, so all of it is armed.
+    const late = () => {
+      if (motionOn()) arm(true);
+    };
+    document.addEventListener("motion:content", late);
 
     // Pausing motion shows everything still waiting to be revealed.
     const stop = onMotionChange(() => {
@@ -102,6 +113,7 @@ export default function MotionRoot() {
     });
     return () => {
       stop();
+      document.removeEventListener("motion:content", late);
       early.disconnect();
       whole.disconnect();
     };

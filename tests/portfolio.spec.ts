@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 
-const routes = ['/', '/work', '/about', '/skills', '/contact', '/privacy', '/work/skilladder', '/work/orderflow', '/work/onboarding-engine', '/work/carbin', '/work/tellerpoint'];
+const routes = ['/', '/work', '/about', '/skills', '/notes', '/contact', '/privacy', '/work/skilladder', '/work/orderflow', '/work/onboarding-engine', '/work/carbin', '/work/tellerpoint', '/notes/letting-ai-grade-carefully', '/notes/pending-is-not-paid', '/notes/reliability-nobody-asks-for'];
 for (const route of routes) {
   test(`${route} fits the viewport`, async ({ page }) => {
     const errors: string[] = [];

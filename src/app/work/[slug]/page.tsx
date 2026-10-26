@@ -110,10 +110,10 @@ export default async function CaseStudyPage({ params }: Props) {
             <div className="confirmed-outcome">
               <h3>From a platform to a business.</h3>
               <p>
-                32 enterprise clients in total, including six recurring clients.
+                32+ enterprise clients, including six recurring clients.
               </p>
               <span>
-                Business outcomes confirmed by Ayodeji, September 2026.
+                Business outcomes confirmed by Ayodeji, October 2026.
               </span>
             </div>
           )}

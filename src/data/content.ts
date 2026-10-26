@@ -39,7 +39,7 @@ export const pastRoles = [
   {
     title: "Product Manager",
     org: "Tellerpoint",
-    period: "May 2024 - Apr 2026",
+    period: "May 2024 - Feb 2026",
   },
   {
     title: "Product Manager",
@@ -330,7 +330,7 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: "The outcome",
         paragraphs: [
-          "The platform became the company's primary product. Deployment time dropped by 85% against the prototype process. It has served 32 enterprise clients in total, including 6 recurring clients, with banks and multinationals requiring byte-exact legacy report parity. Its largest single engagement was a national talent programme that assessed a cohort of more than 85,000 candidates. New assessment product lines (Route and Skill Index) shipped under my lead, from scoring bands and retake sittings to the pricing model behind them.",
+          "The platform became the company's primary product. Deployment time dropped by 85% against the prototype process. It has served 32+ enterprise clients, including 6 recurring clients, with banks and multinationals requiring byte-exact legacy report parity. Its largest single engagement was a national talent programme that assessed a cohort of more than 85,000 candidates. New assessment product lines (Route and Skill Index) shipped under my lead, from scoring bands and retake sittings to the pricing model behind them.",
           "Beyond the product itself, I manage OKR setting across the product organisation, aligning a cross-functional team around measurable quarterly outcomes.",
         ],
       },
@@ -411,7 +411,7 @@ export const caseStudies: CaseStudy[] = [
     title: "Tellerpoint Collections & Mini",
     org: "Tellerpoint",
     role: "Product Manager",
-    period: "May 2024 - Apr 2026",
+    period: "May 2024 - Feb 2026",
     summary:
       "Full product lifecycle for agency banking tools that let financial institutions serve underserved communities.",
     metrics: [

@@ -53,8 +53,8 @@ export default function AboutPage() {
           <p>
             I also build. At Skilladder AI, I lead product strategy and
             operations and work hands-on on the assessment platform. The
-            platform has served 32 enterprise clients in total, including six
-            recurring clients.
+            platform has served 32+ enterprise clients, including six recurring
+            clients.
           </p>
           <p>
             AI tools have changed how much of an idea I can carry through

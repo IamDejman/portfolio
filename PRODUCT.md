@@ -26,8 +26,8 @@ Visitors may have seconds to scan or several minutes to inspect a project. Work,
 
 - Existing Next.js, React, TypeScript and Tailwind application, with Home, Work, project detail, About, Skills, Contact and Privacy routes.
 - Existing public identity, contact details, CV and project URLs are in `src/data/content.ts`.
-- User confirmed Skilladder started May 2025 and Tellerpoint ended April 2026.
-- User confirmed Skilladder has 32 total enterprise clients, including six recurring clients. These are scoped, user-confirmed business outcomes rather than independently audited metrics.
+- User confirmed Skilladder started May 2025 and Tellerpoint ended February 2026 (updated 26 October 2026 to match the CV).
+- User confirmed Skilladder has served 32+ enterprise clients, including six recurring clients (updated 26 October 2026 to match the CV). These are scoped, user-confirmed business outcomes rather than independently audited metrics.
 - GitHub and LinkedIn read access are available. Raw research and private source samples are outside this public repository.
 - Source-verified implementation, user-confirmed outcomes, recorded demonstrations and prototypes must remain distinguishable.
 - Existing numerical claims beyond the facts explicitly confirmed above require their own evidence before being amplified.

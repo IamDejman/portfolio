@@ -43,6 +43,13 @@ export default function Sculpture({
     let turn = selection.current,
       px = 0,
       py = 0;
+    // The ribbons unfold from a thin, tight ring over the first frames and
+    // spread apart as the page scrolls past the hero. Neither runs with
+    // reduced or paused motion.
+    let born = 0,
+      unfold = 1,
+      spread = 0,
+      lift = 0;
     const rotate = ([x, y, z]: Vec, a: number, b: number): Vec => {
       const yy = y * Math.cos(a) - z * Math.sin(a);
       const zz = y * Math.sin(a) + z * Math.cos(a);
@@ -70,20 +77,23 @@ export default function Sculpture({
         [56, 83, 255],
         [212, 224, 234],
       ];
+      const grow = 0.04 + 0.96 * unfold;
       for (let ring = 0; ring < 3; ring++) {
         const point = (u: number, v: number): Vec => {
-          const twist = u * (ring === 0 ? 1.5 : 1) + time * 0.17;
+          const twist = u * (ring === 0 ? 1.5 : 1) + time * 0.17 + spread * 1.2;
           const radius =
-            1.6 + ring * 0.07 + 0.16 * Math.cos(u * 3 + time * 0.22);
-          const band = ring === 2 ? 0.12 : 0.34;
+            (1.6 + ring * 0.07 + 0.16 * Math.cos(u * 3 + time * 0.22)) *
+              (0.6 + 0.4 * unfold) +
+            (ring - 1) * spread * 0.45;
+          const band = (ring === 2 ? 0.12 : 0.34) * grow;
           const r = radius + v * band * Math.cos(twist);
           const p: Vec = [
             r * Math.cos(u),
             r * Math.sin(u),
             v * band * Math.sin(twist) + 0.25 * Math.sin(u * 2),
           ];
-          const a = 0.7 + ring * 1.08 + turn * 0.32;
-          const b = ring * 1.8 + time * 0.09 + turn * 0.55;
+          const a = 0.7 + ring * 1.08 + turn * 0.32 + (ring - 1) * spread * 0.6;
+          const b = ring * 1.8 + time * 0.09 + turn * 0.55 + (1 - unfold) * 1.8;
           return rotate(rotate(p, a, b), -0.24 + py, px);
         };
         // Adjacent faces share edges, so each surface point is computed once.
@@ -115,8 +125,13 @@ export default function Sculpture({
         [0, 0, -0.62],
         [0, 0.67, 0],
       ];
-      const transformed = core.map((p) =>
-        rotate(rotate(p, time * 0.12 + turn, time * -0.16), -0.24 + py, px),
+      const size = 0.15 + 0.85 * unfold;
+      const transformed = core.map(([x, y, z]) =>
+        rotate(
+          rotate([x * size, y * size, z * size], time * 0.12 + turn, time * -0.16),
+          -0.24 + py,
+          px,
+        ),
       );
       for (let i = 1; i < 5; i++) {
         const next = i === 4 ? 1 : i + 1;
@@ -166,12 +181,18 @@ export default function Sculpture({
     const tick = (stamp: number) => {
       frame = 0;
       if (!alive || !visible || document.hidden) return;
-      const drifting = !stopped.current && !reduced;
+      const still = stopped.current || reduced;
+      born ||= stamp;
+      unfold = still ? 1 : 1 - Math.pow(1 - Math.min(1, (stamp - born) / 2200), 3);
+      const goal = still ? 0 : lift;
+      const drifting = !still;
       const settling =
         drag.current !== null ||
         Math.abs(selection.current - turn) > 0.001 ||
         Math.abs(pointer.current.x - px) > 0.001 ||
-        Math.abs(pointer.current.y - py) > 0.001;
+        Math.abs(pointer.current.y - py) > 0.001 ||
+        unfold < 1 ||
+        Math.abs(goal - spread) > 0.001;
       // The idle drift is slow enough that a lower frame rate looks the same.
       // It runs at 30fps at most, and slower on devices where a frame is
       // expensive, so drawing never takes more than about a third of the main
@@ -192,6 +213,7 @@ export default function Sculpture({
         (selection.current - turn) * (stopped.current || reduced ? 1 : 0.075);
       px += (pointer.current.x - px) * (reduced || drag.current ? 1 : 0.18);
       py += (pointer.current.y - py) * (reduced || drag.current ? 1 : 0.18);
+      spread += (goal - spread) * (still ? 1 : 0.1);
       const started = performance.now();
       draw();
       cost = cost * 0.8 + (performance.now() - started) * 0.2;
@@ -218,6 +240,11 @@ export default function Sculpture({
       reduced = media.matches;
       schedule();
     };
+    // 0 at the top of the page, 1 once it has scrolled 1.2 sculpture heights.
+    const scrolled = () => {
+      lift = Math.min(1, scrollY / Math.max(1, height * 1.2));
+      if (!stopped.current && !reduced) schedule();
+    };
     const visibility = () => {
       if (document.hidden) {
         cancelAnimationFrame(frame);
@@ -237,8 +264,10 @@ export default function Sculpture({
     resizer.observe(element);
     media.addEventListener("change", motion);
     document.addEventListener("visibilitychange", visibility);
+    addEventListener("scroll", scrolled, { passive: true });
     wake.current = schedule;
     resize();
+    scrolled();
     return () => {
       alive = false;
       cancelAnimationFrame(frame);
@@ -246,6 +275,7 @@ export default function Sculpture({
       resizer.disconnect();
       media.removeEventListener("change", motion);
       document.removeEventListener("visibilitychange", visibility);
+      removeEventListener("scroll", scrolled);
     };
   }, []);
 

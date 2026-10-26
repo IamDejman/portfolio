@@ -5,6 +5,9 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Manrope, Unbounded, JetBrains_Mono } from "next/font/google";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import MotionRoot from "@/components/motion/MotionRoot";
+import PageTransition from "@/components/motion/PageTransition";
+import { motionScript } from "@/components/motion/script";
 import { siteConfig } from "@/data/content";
 import "./globals.css";
 
@@ -66,7 +69,7 @@ export default function RootLayout({
     "@type": "Person",
     name: siteConfig.fullName,
     url: siteConfig.url,
-    jobTitle: "AI Product Manager",
+    jobTitle: "AI Product Engineer",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Berlin",
@@ -79,8 +82,14 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${dmSans.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable}`}
+      // Lets Next.js jump to the top of a new page instead of smooth-scrolling
+      // there; anchor links on a page still scroll smoothly.
+      data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: motionScript }} />
+      </head>
       <body className="antialiased">
         {/*
         THESIS: Possibility Engine makes product mechanisms explorable through a moving structure.
@@ -106,9 +115,10 @@ export default function RootLayout({
           </nav>
         </noscript>
         <main id="main" tabIndex={-1} className="min-h-screen">
-          {children}
+          <PageTransition>{children}</PageTransition>
         </main>
         <Footer />
+        <MotionRoot />
         {process.env.VERCEL === "1" && (
           <>
             <Analytics />

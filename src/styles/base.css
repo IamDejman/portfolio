@@ -23,6 +23,11 @@
   --engine-blue: #3853ff;
   --engine-paper: #eaece1;
   --engine-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --engine-ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+  --engine-ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --motion-enter: 1.1s;
+  --motion-reveal: 1s;
+  --motion-stagger: 90ms;
 }
 
 @theme inline {

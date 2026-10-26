@@ -5,6 +5,9 @@ import { useState } from "react";
 import Link from "next/link";
 import Sculpture from "./Sculpture";
 import { ArrowRight } from "@/components/icons";
+import Split from "@/components/motion/Split";
+import { enter } from "@/components/motion/order";
+import { useMotionState } from "@/components/motion/state";
 
 const worlds = [
   {
@@ -35,43 +38,49 @@ const worlds = [
 
 export default function EngineHero() {
   const [active, setActive] = useState(0);
+  // The description only animates once a visitor picks a project.
+  const [picked, setPicked] = useState(false);
+  const motion = useMotionState();
   const world = worlds[active];
   return (
     <section className="engine-hero" aria-labelledby="hero-heading">
       <div className="hero-composition">
-        <h1 id="hero-heading">
+        <Split as="h1" id="hero-heading" enter>
           Ideas are
           <br />
           only the
           <br />
-          <span>beginning.</span>
-        </h1>
-        <div className="hero-intro">
+          <em>beginning.</em>
+        </Split>
+        <div className="hero-intro" data-enter style={enter(5)}>
           <p>
-            I’m Ayodeji, an AI product manager and builder in Berlin. I turn
-            ambiguous problems into working AI products.
+            I’m Ayodeji, an AI product engineer in Berlin. I write the PRD and
+            ship the code.
           </p>
           <a href="#selected-work" className="action-link">
             Explore the work <ArrowRight size={21} />
           </a>
         </div>
-        <div className="sculpture-stage">
+        <div className="sculpture-stage" data-enter="fade" style={enter(1)}>
           <div className="sculpture-fallback" aria-hidden="true">
             <span />
             <span />
             <span />
           </div>
-          <Sculpture active={active} paused={false} />
+          <Sculpture active={active} paused={motion === "off"} />
           <span className="structure-caption">The possibility engine</span>
         </div>
       </div>
-      <div className="world-controls">
+      <div className="world-controls" data-enter style={enter(6)}>
         <div className="world-picker" aria-label="Explore a project">
           {worlds.map((item, i) => (
             <button
               type="button"
               key={item.name}
-              onClick={() => setActive(i)}
+              onClick={() => {
+                setActive(i);
+                setPicked(true);
+              }}
               aria-pressed={active === i}
               className={
                 active === i ? "world-choice is-active" : "world-choice"
@@ -83,7 +92,7 @@ export default function EngineHero() {
           ))}
         </div>
         <div className="world-description" aria-live="polite">
-          <p>
+          <p key={active} className={picked ? "world-line" : undefined}>
             <strong>{world.idea}</strong> {world.description}
           </p>
           <Link href={world.href} aria-label={`Explore ${world.name}`}>

@@ -9,6 +9,9 @@ import OnboardingWalkthrough from "@/components/engine/OnboardingWalkthrough";
 import CommerceWalkthrough from "@/components/engine/CommerceWalkthrough";
 import { ArrowRight } from "@/components/icons";
 import CopyEmail from "@/components/CopyEmail";
+import Split from "@/components/motion/Split";
+import CountUp from "@/components/motion/CountUp";
+import { enter } from "@/components/motion/order";
 type Props = { params: Promise<{ slug: string }> };
 export function generateStaticParams() {
   return caseStudies.map((cs) => ({ slug: cs.slug }));
@@ -29,16 +32,19 @@ export default async function CaseStudyPage({ params }: Props) {
     ];
   return (
     <article className={`case-study case-${slug}`}>
+      <div className="reading-progress" aria-hidden="true" />
       <div className="case-back section-shell">
-        <Link href="/work">
+        <Link href="/work" data-enter style={enter(0)}>
           <ArrowRight size={16} />
           All work
         </Link>
       </div>
       <header className="case-heading section-shell">
-        {(slug === "skilladder" || slug === "orderflow") && <div className="case-brand"><ProjectLogo project={slug} /></div>}
-        <h1>{cs.title}</h1>
-        <div className="case-introduction">
+        {(slug === "skilladder" || slug === "orderflow") && <div className="case-brand"><ProjectLogo project={slug} travel="to" /></div>}
+        <Split as="h1" enter>
+          {cs.title}
+        </Split>
+        <div className="case-introduction" data-enter style={enter(4)}>
           <p>{cs.summary}</p>
           <dl>
             <div>
@@ -55,7 +61,7 @@ export default async function CaseStudyPage({ params }: Props) {
             </div>
           </dl>
         </div>
-        <div className="case-actions">
+        <div className="case-actions" data-enter style={enter(5)}>
           <a href="#project-story" className="action-link">
             Read the story
             <ArrowRight size={18} />
@@ -71,10 +77,12 @@ export default async function CaseStudyPage({ params }: Props) {
       {cs.metrics.length > 0 && (
         <section className="case-metrics section-shell" aria-label="Key figures">
           <dl>
-            {cs.metrics.map((m) => (
-              <div key={m.label}>
+            {cs.metrics.map((m, i) => (
+              <div key={m.label} data-enter style={enter(6 + i)}>
                 <dt>{m.label}</dt>
-                <dd>{m.value}</dd>
+                <dd>
+                  <CountUp value={m.value} />
+                </dd>
               </div>
             ))}
           </dl>
@@ -84,7 +92,7 @@ export default async function CaseStudyPage({ params }: Props) {
       {slug === "onboarding-engine" && <OnboardingWalkthrough />}
       {slug === "orderflow" && <CommerceWalkthrough />}
       <div className="case-story section-shell" id="project-story">
-        <nav aria-label="Case study sections">
+        <nav aria-label="Case study sections" data-reveal="stagger">
           {cs.sections.map((section) => (
             <a
               key={section.heading}
@@ -99,6 +107,7 @@ export default async function CaseStudyPage({ params }: Props) {
             <section
               key={section.heading}
               id={section.heading.toLowerCase().replace(/\s+/g, "-")}
+              data-reveal="rise"
             >
               <h2>{section.heading}</h2>
               {section.paragraphs.map((p) => (
@@ -107,20 +116,20 @@ export default async function CaseStudyPage({ params }: Props) {
             </section>
           ))}
           {slug === "skilladder" && (
-            <div className="confirmed-outcome">
+            <div className="confirmed-outcome" data-reveal="wipe">
               <h3>From a platform to a business.</h3>
               <p>
-                32 enterprise clients in total, including six recurring clients.
+                32+ enterprise clients, including six recurring clients.
               </p>
               <span>
-                Business outcomes confirmed by Ayodeji, September 2026.
+                Business outcomes confirmed by Ayodeji, October 2026.
               </span>
             </div>
           )}
         </div>
       </div>
       {image && (
-        <figure className="product-capture section-shell">
+        <figure className="product-capture section-shell" data-reveal="image">
           <Image
             src={image}
             alt={`${cs.title} product interface`}
@@ -135,14 +144,14 @@ export default async function CaseStudyPage({ params }: Props) {
         </figure>
       )}
       <section className="case-next section-shell">
-        <div>
+        <div data-reveal="rise">
           <p>Keep exploring</p>
           <Link href={`/work/${next.slug}`}>
             {next.title}
             <ArrowRight size={35} />
           </Link>
         </div>
-        <p className="case-contact">
+        <p className="case-contact" data-reveal="rise">
           <a href={`mailto:${siteConfig.email}`}>
             Talk about the work
             <ArrowRight size={17} />

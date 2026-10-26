@@ -1,6 +1,7 @@
 "use client";
-import { useState } from "react";
+import { useState, type CSSProperties } from "react";
 import { ArrowRight } from "@/components/icons";
+import Split from "@/components/motion/Split";
 const stages = [
   {
     name: "Explorer",
@@ -50,19 +51,22 @@ const stages = [
 ];
 export default function OnboardingWalkthrough() {
   const [active, setActive] = useState(0);
+  // Each artifact streams in again once a visitor starts choosing stages.
+  const [played, setPlayed] = useState(false);
   const stage = stages[active];
   return (
     <section
       className="agent-walkthrough section-shell"
       aria-labelledby="agent-title"
+      data-played={played || undefined}
     >
       <div className="section-intro">
-        <h2 id="agent-title">
+        <Split id="agent-title">
           Open the
           <br />
           intermediate work.
-        </h2>
-        <p>
+        </Split>
+        <p data-reveal="rise">
           Three stages. Three inspectable artifacts.
           <br />
           <span className="example-note">
@@ -70,13 +74,20 @@ export default function OnboardingWalkthrough() {
           </span>
         </p>
       </div>
-      <div className="agent-stage-buttons" aria-label="Agent stages">
+      <div
+        className="agent-stage-buttons"
+        aria-label="Agent stages"
+        data-reveal="rise"
+      >
         {stages.map((s, i) => (
           <button
             key={s.name}
             type="button"
             aria-pressed={i === active}
-            onClick={() => setActive(i)}
+            onClick={() => {
+              setActive(i);
+              setPlayed(true);
+            }}
           >
             <span>{s.name}</span>
             <small>{s.artifact}</small>
@@ -84,25 +95,27 @@ export default function OnboardingWalkthrough() {
           </button>
         ))}
       </div>
-      <div className="agent-stage-view" aria-live="polite">
-        <div>
+      <div className="agent-stage-view" aria-live="polite" data-reveal="flow">
+        <div key={`explanation-${active}`}>
           <h3>{stage.title}</h3>
           <p>{stage.description}</p>
           <p className="mechanism-decision">{stage.decision}</p>
         </div>
-        <article className="source-artifact">
+        <article className="source-artifact" key={`artifact-${active}`}>
           <header>
             <span>{stage.artifact}</span>
             <span>Atlas / fictional team</span>
           </header>
           <ol>
-            {stage.lines.map((line) => (
-              <li key={line}>{line}</li>
+            {stage.lines.map((line, i) => (
+              <li key={line} style={{ "--line": i } as CSSProperties}>
+                {line}
+              </li>
             ))}
           </ol>
         </article>
       </div>
-      <details className="source-details">
+      <details className="source-details" data-reveal="rise">
         <summary>View the synthetic source material</summary>
         <div>
           <p>

@@ -1,9 +1,9 @@
 export const siteConfig = {
   name: "Ayodeji",
   fullName: "Ayodeji Eluwande",
-  title: "Ayodeji Eluwande - AI Product Manager",
+  title: "Ayodeji Eluwande - AI Product Engineer",
   description:
-    "AI product manager and builder in Berlin. Explore assessment systems, agent workflows and commerce platforms, from product decisions to working software.",
+    "AI product engineer in Berlin. Explore assessment systems, agent workflows and commerce platforms, from product decisions to working software.",
   url: "https://ayodejieluwande.vercel.app",
   email: "ayodejieluwande@gmail.com",
   linkedin: "https://linkedin.com/in/ayodejieluwande",
@@ -39,7 +39,7 @@ export const pastRoles = [
   {
     title: "Product Manager",
     org: "Tellerpoint",
-    period: "May 2024 - Apr 2026",
+    period: "May 2024 - Feb 2026",
   },
   {
     title: "Product Manager",
@@ -330,7 +330,7 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: "The outcome",
         paragraphs: [
-          "The platform became the company's primary product. Deployment time dropped by 85% against the prototype process. It has served 32 enterprise clients in total, including 6 recurring clients, with banks and multinationals requiring byte-exact legacy report parity. Its largest single engagement was a national talent programme that assessed a cohort of more than 85,000 candidates. New assessment product lines (Route and Skill Index) shipped under my lead, from scoring bands and retake sittings to the pricing model behind them.",
+          "The platform became the company's primary product. Deployment time dropped by 85% against the prototype process. It has served 32+ enterprise clients, including 6 recurring clients, with banks and multinationals requiring byte-exact legacy report parity. Its largest single engagement was a national talent programme that assessed a cohort of more than 85,000 candidates. New assessment product lines (Route and Skill Index) shipped under my lead, from scoring bands and retake sittings to the pricing model behind them.",
           "Beyond the product itself, I manage OKR setting across the product organisation, aligning a cross-functional team around measurable quarterly outcomes.",
         ],
       },
@@ -347,7 +347,7 @@ export const caseStudies: CaseStudy[] = [
     url: "https://app.tryorderflow.com",
     metrics: [
       { value: "3", label: "Business verticals in production" },
-      { value: "4", label: "Payment providers integrated" },
+      { value: "2", label: "Payment providers integrated" },
       { value: "<5 mo", label: "First commit to production traffic" },
       { value: "1", label: "Engineer, end to end" },
     ],
@@ -361,7 +361,7 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: "Payments and money",
         paragraphs: [
-          "A pluggable payment layer behind clean provider interfaces runs real money in production. Four Nigerian providers (Rubies, Squad, Tellerpoint, Paga) with dedicated virtual accounts and instant bank transfer reconciliation, plus a ledger derived settlement engine with day cycle grouping, audit trails, and a capped processing fee model. Live incidents, including a Flyway out of order migration outage, ended in post mortems and permanent guardrails.",
+          "A pluggable payment layer behind clean provider interfaces runs real money in production. Two Nigerian providers (Rubies and Squad) with dedicated virtual accounts and instant bank transfer reconciliation, plus a ledger derived settlement engine with day cycle grouping, audit trails, and a capped processing fee model. Database migrations are delivered without downtime.",
         ],
       },
       {
@@ -411,7 +411,7 @@ export const caseStudies: CaseStudy[] = [
     title: "Tellerpoint Collections & Mini",
     org: "Tellerpoint",
     role: "Product Manager",
-    period: "May 2024 - Apr 2026",
+    period: "May 2024 - Feb 2026",
     summary:
       "Full product lifecycle for agency banking tools that let financial institutions serve underserved communities.",
     metrics: [
@@ -507,10 +507,10 @@ export const education = {
 };
 
 export const howIWork =
-  "My week splits between product work and building. I run sprints in Linear, conduct user research, and keep stakeholders aligned on what ships next. When something needs to exist quickly, I build it myself with Next.js, React, and Tailwind CSS, working alongside AI tools like Cursor, Claude Code, Codex, and Gemini. I'm the PM who can sit with engineers, hold the room with execs, and ship the MVP myself if needed.";
+  "My week splits between product work and building. I run sprints in Linear, conduct user research, and keep stakeholders aligned on what ships next. Then I build it myself with Next.js, React, and Tailwind CSS, working alongside AI tools like Cursor, Claude Code, Codex, and Gemini. I'm the engineer who can sit with users, hold the room with execs, and ship the product end to end.";
 
 export const openTo = [
-  "Full-time Product Management, AI Operations, Forward Deployed & AI Engineering, or Product Engineer roles",
+  "Full-time AI Product Engineer roles",
   "Freelance projects",
   "Consulting & fractional PM engagements",
   "Speaking & mentoring",

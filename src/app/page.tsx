@@ -5,18 +5,19 @@ import AssessmentWalkthrough from "@/components/engine/AssessmentWalkthrough";
 import { ArrowRight } from "@/components/icons";
 import { siteConfig } from "@/data/content";
 import CopyEmail from "@/components/CopyEmail";
+import Split from "@/components/motion/Split";
 export default function HomePage() {
   return (
     <div className="possibility-home">
       <EngineHero />
       <section id="selected-work" className="selected-work section-shell">
         <div className="section-intro">
-          <h2>
+          <Split>
             Less theory.
             <br />
             More <em>working.</em>
-          </h2>
-          <p className="selected-work-intro">
+          </Split>
+          <p className="selected-work-intro" data-reveal="rise">
             <span>Product judgment. Agent workflows. Systems that run.</span>
             <span>Three different problems, taken beyond the idea.</span>
           </p>
@@ -24,12 +25,13 @@ export default function HomePage() {
         <Link
           href="/work/skilladder"
           className="featured-project project-yellow"
+          data-reveal="wipe"
         >
           <div className="project-heading">
-            <h3><ProjectLogo project="skilladder" dark /></h3>
+            <h3><ProjectLogo project="skilladder" dark travel="from" /></h3>
             <ArrowRight size={38} />
           </div>
-          <div className="project-body">
+          <div className="project-body" data-reveal="rise">
             <p>
               Make skills
               <br />
@@ -43,7 +45,7 @@ export default function HomePage() {
               <span>Product leadership & hands-on development</span>
             </div>
           </div>
-          <div className="project-foot">
+          <div className="project-foot" data-reveal="rule">
             <span>Assessments / AI / Operations</span>
             <span>Explore the system</span>
           </div>
@@ -52,9 +54,10 @@ export default function HomePage() {
           <Link
             href="/work/orderflow"
             className="featured-project project-blue"
+            data-reveal="wipe"
           >
             <div className="project-heading">
-              <h3><ProjectLogo project="orderflow" dark={false} /></h3>
+              <h3><ProjectLogo project="orderflow" dark={false} travel="from" /></h3>
               <ArrowRight size={30} />
             </div>
             <div className="branch-art" aria-hidden="true">
@@ -80,6 +83,7 @@ export default function HomePage() {
           <Link
             href="/work/onboarding-engine"
             className="featured-project project-white"
+            data-reveal="wipe"
           >
             <div className="project-heading">
               <h3>Onboarding Engine</h3>
@@ -108,12 +112,12 @@ export default function HomePage() {
       <AssessmentWalkthrough />
       <section className="experiments section-shell">
         <div className="section-intro">
-          <h2>
+          <Split>
             Curiosity has
             <br />
             side effects.
-          </h2>
-          <p>
+          </Split>
+          <p data-reveal="rise">
             Other worlds I’m building.
             <br />
             Different questions. The same impulse to make.
@@ -124,6 +128,7 @@ export default function HomePage() {
             href="https://footballadder.com/"
             target="_blank"
             rel="noopener noreferrer"
+            data-reveal="rise rule"
           >
             <h3>Football Ladder</h3>
             <p>A football career, from the boardroom to the world game.</p>
@@ -134,6 +139,7 @@ export default function HomePage() {
             href="https://osundecides.vercel.app"
             target="_blank"
             rel="noopener noreferrer"
+            data-reveal="rise rule"
           >
             <h3>Osun Decides</h3>
             <p>Source records, validation and public election information.</p>
@@ -144,6 +150,7 @@ export default function HomePage() {
             href="https://github.com/IamDejman/hotel-california"
             target="_blank"
             rel="noopener noreferrer"
+            data-reveal="rise rule"
           >
             <h3>Hotel California</h3>
             <p>
@@ -152,7 +159,7 @@ export default function HomePage() {
             <span>Prototype source</span>
             <ArrowRight />
           </a>
-          <Link href="/work">
+          <Link href="/work" data-reveal="rise rule">
             <h3>The wider collection</h3>
             <p>Client work, product leadership and more experiments.</p>
             <span>Explore all work</span>
@@ -161,14 +168,14 @@ export default function HomePage() {
         </div>
       </section>
       <section className="home-close section-shell">
-        <p>Have a problem worth building for?</p>
-        <a href={`mailto:${siteConfig.email}`}>
+        <p data-reveal="rise">Have a problem worth building for?</p>
+        <Split as="a" href={`mailto:${siteConfig.email}`}>
           Let’s make
           <br />
           it <em>happen.</em>
           <ArrowRight size={64} />
-        </a>
-        <div>
+        </Split>
+        <div data-reveal="rise">
           <span>Ayodeji Eluwande · Berlin</span>
           <CopyEmail />
           <Link href="/about">

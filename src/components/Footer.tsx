@@ -1,4 +1,5 @@
 import Link from "next/link";
+import MotionToggle from "@/components/motion/MotionToggle";
 import { siteConfig } from "@/data/content";
 export default function Footer() {
   return (
@@ -17,6 +18,7 @@ export default function Footer() {
           X
         </a>
         <Link href="/privacy">Privacy</Link>
+        <MotionToggle />
       </div>
       <span>© {new Date().getFullYear()}</span>
     </footer>

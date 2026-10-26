@@ -21,7 +21,7 @@ Do not convert the repository count into a headline. The 63 repositories include
 | Scene | What the visitor learns | Evidence | Interaction |
 |---|---|---|---|
 | Opening structure | Ayodeji works across AI and real operational systems | Three named project anchors | Pointer/touch response; scroll unfolds the structure; select to inspect |
-| Skilladder | Can build and evolve a substantial AI product | Rubric grading, retrieval, evaluation runner, source-linked decisions; 32 total clients/six recurring as user-confirmed outcomes | An answer passes through context, grading, review and delivery |
+| Skilladder | Can build and evolve a substantial AI product | Rubric grading, retrieval, evaluation runner, source-linked decisions; 32+ clients/six recurring as user-confirmed outcomes | An answer passes through context, grading, review and delivery |
 | Orderflow | Can turn a reusable core into several business workflows | Shared Kotlin platform, payments, recovery and multiple verticals | A single input branches into order, ticket or renewal workflows |
 | Onboarding Engine | Can orchestrate agents around an actual job | Explorer → Synthesizer → Writer, scratchpad, outline, document, access-aware retrieval | Documents converge into a guide; open each intermediate artifact |
 | Experimental collection | Explores unusual problems with technical rigor | Hotel California, Osun, Football Ladder, selected supporting integrations | Smaller distinct exhibits with explicit prototype/replay labels |
@@ -52,7 +52,7 @@ Pause offscreen work and when the tab is hidden. Touch interaction must not depe
 ## Content preparation
 
 1. Curate one sanitized example for each flagship. Attach the implementation reference, exact contribution and a clear evidence label.
-2. Keep Skilladder's client totals scoped: 32 total enterprise clients, including six recurring. Start May 2025; Tellerpoint end April 2026.
+2. Keep Skilladder's client totals scoped: 32+ enterprise clients, including six recurring. Start May 2025; Tellerpoint end February 2026.
 3. Use the Onboarding Engine's included synthetic corpus. Demonstrate imports as imports; do not imply direct Slack/Notion/GitHub connectors that are not built.
 4. For Hotel California, capture an actual fictional-gym run before showing replay controls and a resulting score. A reconstruction must say it is a reconstruction.
 5. For Osun, show source-to-record validation with an illustrative record. Do not claim full autonomous transcription or independently verified election accuracy.

@@ -1,0 +1,359 @@
+/*Motion system. Every animation here runs only under html[data-motion="on"],
+which the head script sets when the visitor allows motion and has not paused
+it. Without that attribute (no JavaScript, reduced motion, paused) the page
+renders in its final, static state. Component-specific motion lives beside
+the component's other rules in home.css and pages.css.*/
+
+/*---- split display type ----*/
+
+/*Each word clips its own rise. The padding keeps ascenders and descenders
+inside the mask; the matching negative margin leaves the line box unchanged.*/
+.word {
+  display: inline-block;
+  overflow: hidden;
+  padding: 0.12em 0.05em 0.18em;
+  margin: -0.12em -0.05em -0.18em;
+}
+
+.word > span {
+  display: inline-block;
+}
+
+/*---- keyframes ----*/
+
+@keyframes motion-word {
+  from {
+    transform: translateY(calc(100% + 0.35em));
+  }
+}
+
+@keyframes motion-rise {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+}
+
+@keyframes motion-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes motion-wipe {
+  from {
+    clip-path: inset(100% 0 0 0);
+  }
+}
+
+/*Card and mechanism art assembles from a small, turned state.*/
+@keyframes motion-turn-in {
+  from {
+    rotate: -110deg;
+    scale: 0.4;
+    opacity: 0;
+  }
+}
+
+@keyframes motion-pop {
+  from {
+    scale: 0.4;
+    opacity: 0;
+  }
+}
+
+@keyframes motion-page-out {
+  to {
+    opacity: 0;
+    transform: translateY(-36px);
+  }
+}
+
+@keyframes motion-page-in {
+  from {
+    opacity: 0;
+    transform: translateY(56px);
+  }
+}
+
+@keyframes motion-progress {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes motion-drift {
+  to {
+    transform: translateY(-70px);
+    opacity: 0.35;
+  }
+}
+
+/*---- entrance: content on screen when a page opens ----*/
+
+:root[data-motion="on"] [data-split="enter"] .word > span {
+  animation: motion-word var(--motion-enter) var(--engine-ease) both;
+  animation-delay: calc(var(--enter-at, 0.05s) + var(--w, 0) * 75ms);
+}
+
+:root[data-motion="on"] [data-enter] {
+  animation: motion-rise var(--motion-enter) var(--engine-ease) both;
+  animation-delay: calc(0.15s + var(--enter, 0) * 110ms);
+}
+
+:root[data-motion="on"] [data-enter="fade"] {
+  animation-name: motion-fade;
+  animation-duration: 1.4s;
+}
+
+:root[data-motion="on"] [data-enter="wipe"] {
+  animation-name: motion-wipe;
+  animation-duration: 1.4s;
+}
+
+/*---- reveal: content that scrolls into view ----*/
+
+/*MotionRoot adds .is-armed before content can be seen and .is-revealed once
+it scrolls into view, with --reveal-delay staggering what arrives together.*/
+
+[data-reveal~="rise"].is-armed,
+[data-reveal~="stagger"].is-armed > * {
+  opacity: 0;
+  transform: translateY(34px);
+}
+
+/*Revealed content keeps short color transitions for its own hover states,
+since this transition list replaces the element's own.*/
+[data-reveal~="rise"].is-revealed,
+[data-reveal~="stagger"].is-revealed > * {
+  --reveal-at: var(--reveal-delay, 0ms);
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 0.9s var(--engine-ease) var(--reveal-at),
+    transform var(--motion-reveal) var(--engine-ease) var(--reveal-at),
+    color 0.3s,
+    background-color 0.3s,
+    border-color 0.3s;
+}
+
+[data-reveal~="stagger"].is-revealed > * {
+  --reveal-at: calc(
+    var(--reveal-delay, 0ms) + min(var(--reveal-i, 0), 8) * var(--motion-stagger)
+  );
+}
+
+[data-reveal~="fade"].is-armed {
+  opacity: 0;
+}
+
+[data-reveal~="fade"].is-revealed {
+  opacity: 1;
+  transition: opacity 1.3s var(--engine-ease) var(--reveal-delay, 0ms);
+}
+
+[data-reveal~="words"].is-armed .word > span {
+  transform: translateY(calc(100% + 0.35em));
+}
+
+[data-reveal~="words"].is-revealed .word > span {
+  transform: none;
+  transition: transform 1.1s var(--engine-ease);
+  transition-delay: calc(var(--reveal-delay, 0ms) + var(--w, 0) * 65ms);
+}
+
+/*Panels open upward from their bottom edge. The final inset extends past
+the box so focus outlines are not clipped.*/
+[data-reveal~="wipe"].is-armed {
+  clip-path: inset(100% 0 0 0);
+}
+
+[data-reveal~="wipe"].is-revealed {
+  clip-path: inset(-16px);
+  transition: clip-path 1.3s var(--engine-ease) var(--reveal-delay, 0ms);
+}
+
+[data-reveal~="image"].is-armed img {
+  clip-path: inset(100% 0 0 0);
+  transform: translateY(48px);
+}
+
+[data-reveal~="image"].is-revealed img {
+  clip-path: inset(0);
+  transform: none;
+  transition:
+    clip-path 1.4s var(--engine-ease),
+    transform 1.4s var(--engine-ease);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+/*Rules draw from the left. The element's own border is hidden while armed
+and redrawn by ::after in the same --rule-color the component uses.*/
+[data-reveal~="rule"].is-armed,
+[data-reveal~="rule-bottom"].is-armed {
+  position: relative;
+}
+
+[data-reveal~="rule"].is-armed {
+  border-top-color: transparent;
+}
+
+[data-reveal~="rule-bottom"].is-armed {
+  border-bottom-color: transparent;
+}
+
+[data-reveal~="rule"].is-armed::after,
+[data-reveal~="rule-bottom"].is-armed::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--rule-color, var(--line));
+  transform: scaleX(0);
+  transform-origin: left;
+  pointer-events: none;
+}
+
+[data-reveal~="rule"].is-armed::after {
+  top: -1px;
+}
+
+[data-reveal~="rule-bottom"].is-armed::after {
+  bottom: -1px;
+}
+
+[data-reveal~="rule"].is-revealed::after,
+[data-reveal~="rule-bottom"].is-revealed::after {
+  transform: none;
+  transition: transform 1.5s var(--engine-ease) var(--reveal-delay, 0ms);
+}
+
+/*---- page transitions ----*/
+
+/*The header and page background swap instantly; the page content and any
+travelling logo carry the transition (see motion/PageTransition). The old
+page is nearly gone before the new one arrives, and the transition is kept
+short because the page cannot be clicked while it runs; each page's own
+entrance continues afterwards.*/
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+:root[data-motion="on"]::view-transition-old(*.page-exit) {
+  animation: motion-page-out 0.26s ease-out both;
+}
+
+:root[data-motion="on"]::view-transition-new(*.page-enter) {
+  animation: motion-page-in 0.56s var(--engine-ease) 0.12s both;
+}
+
+/*A travelling logo covers most of its path while the old page leaves, so it
+is in place before the new title rises. The departing copy holds until the
+arriving one has loaded, then they cross, so the mark never blinks out in
+flight; Orderflow also changes from its white card version to its dark page
+version.*/
+:root[data-motion="on"]::view-transition-group(brand-skilladder),
+:root[data-motion="on"]::view-transition-group(brand-orderflow) {
+  animation-duration: 0.75s;
+  animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+:root[data-motion="on"]::view-transition-old(brand-skilladder),
+:root[data-motion="on"]::view-transition-old(brand-orderflow) {
+  animation: motion-hold-out 0.75s linear both;
+}
+
+:root[data-motion="on"]::view-transition-new(brand-skilladder),
+:root[data-motion="on"]::view-transition-new(brand-orderflow) {
+  animation: motion-hold-in 0.75s linear both;
+}
+
+@keyframes motion-hold-out {
+  0%,
+  55% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes motion-hold-in {
+  0%,
+  45% {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+:root:not([data-motion="on"])::view-transition-group(*),
+:root:not([data-motion="on"])::view-transition-old(*),
+:root:not([data-motion="on"])::view-transition-new(*) {
+  animation: none !important;
+}
+
+/*---- scroll-linked motion ----*/
+
+/*Reading progress on case studies. It only moves when the visitor scrolls,
+so it is kept for every motion setting where the browser supports it.*/
+.reading-progress {
+  display: none;
+}
+
+@supports (animation-timeline: scroll()) {
+  .reading-progress {
+    display: block;
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 60;
+    height: 3px;
+    background: var(--accent-text);
+    transform: scaleX(0);
+    transform-origin: left;
+    pointer-events: none;
+    animation: motion-progress linear both;
+    animation-timeline: scroll(root);
+  }
+
+  /*The hero headline drifts up as the sculpture spreads behind it.*/
+  :root[data-motion="on"] .hero-composition h1 {
+    animation: motion-drift linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 640px;
+  }
+}
+
+/*---- motion control ----*/
+
+.motion-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 6px 0;
+}
+
+.motion-toggle::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+}
+
+:root[data-motion="on"] .motion-toggle::before {
+  background: var(--accent-text);
+  border-color: var(--accent-text);
+}
+
+.motion-toggle:hover {
+  color: var(--accent-text);
+}
+
+:root[data-motion="reduced"] .motion-toggle {
+  display: none;
+}

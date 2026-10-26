@@ -1,7 +1,8 @@
 "use client";
-import { useState } from "react";
+import { useState, type CSSProperties } from "react";
 import Link from "next/link";
 import { ArrowRight } from "@/components/icons";
+import Split from "@/components/motion/Split";
 const stages = [
   {
     name: "Context",
@@ -54,22 +55,29 @@ export default function AssessmentWalkthrough({
   showCaseLink?: boolean;
 }) {
   const [active, setActive] = useState(0);
+  // Each stage replays its flow once a visitor starts choosing stages.
+  const [played, setPlayed] = useState(false);
   const step = stages[active];
+  const choose = (stage: number) => {
+    setActive(stage);
+    setPlayed(true);
+  };
   return (
     <section
       className="assessment-walkthrough"
       aria-labelledby="walkthrough-title"
+      data-played={played || undefined}
     >
       {showCaseLink && (
         <p className="walkthrough-case-label">Skilladder AI case study</p>
       )}
       <div className="walkthrough-heading">
-        <h2 id="walkthrough-title">
+        <Split id="walkthrough-title">
           Inside an
           <br />
           assessment.
-        </h2>
-        <p>
+        </Split>
+        <p data-reveal="rise">
           How Skilladder AI turns assessment answers into evidence.
           <br />
           <span>Illustrative walkthrough · synthetic example</span>
@@ -80,27 +88,36 @@ export default function AssessmentWalkthrough({
           )}
         </p>
       </div>
-      <div className="stage-selector" aria-label="Assessment stages">
+      <div
+        className="stage-selector"
+        aria-label="Assessment stages"
+        data-reveal="rule-bottom"
+      >
         {stages.map((s, i) => (
           <button
             key={s.name}
             type="button"
             aria-pressed={i === active}
-            onClick={() => setActive(i)}
+            onClick={() => choose(i)}
           >
             <span>{i + 1}</span>
             {s.name}
             {i < 3 && <ArrowRight size={17} />}
           </button>
         ))}
+        <span
+          className="stage-indicator"
+          aria-hidden="true"
+          style={{ "--stage": active } as CSSProperties}
+        />
       </div>
-      <div className="stage-content" aria-live="polite">
-        <div className="stage-explanation">
+      <div className="stage-content" aria-live="polite" data-reveal="flow">
+        <div className="stage-explanation" key={`explanation-${active}`}>
           <h3>{step.title}</h3>
           <p>{step.description}</p>
           <p className="stage-decision">{step.decision}</p>
         </div>
-        <div className="stage-artifact">
+        <div className="stage-artifact" key={`artifact-${active}`}>
           <div className="artifact-input">
             <span>Example input</span>
             <p>{step.input}</p>
@@ -126,14 +143,11 @@ export default function AssessmentWalkthrough({
           </div>
         </div>
       </div>
-      <div className="walkthrough-bottom">
+      <div className="walkthrough-bottom" data-reveal="rise">
         <p>
           A model of the workflow, not a live grading run or a candidate record.
         </p>
-        <button
-          type="button"
-          onClick={() => setActive((active + 1) % stages.length)}
-        >
+        <button type="button" onClick={() => choose((active + 1) % stages.length)}>
           {active === 3 ? "Back to context" : "Next stage"}
           <ArrowRight size={17} />
         </button>

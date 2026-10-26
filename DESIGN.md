@@ -129,25 +129,37 @@ Controls, screenshots and small containers have nearly square corners, typically
 
 ### Shared navigation and footer
 
-The Unbounded wordmark anchors the header. Work, About, Skills and Contact links sit beside a CV download; active desktop routes turn yellow. Mobile Menu/Close exposes ordinary links in document flow, closes on route changes and supports Escape with focus restoration. The skip link and no-JavaScript navigation preserve direct access. The footer repeats the name, social links, Privacy and year with a top rule.
+The Unbounded wordmark anchors the header. Work, About, Skills and Contact links sit beside a CV download; an underline sweeps under the hovered and active desktop route. Mobile Menu/Close exposes ordinary links in document flow, opens downward with its links rising in order, closes on route changes and supports Escape with focus restoration. The skip link and no-JavaScript navigation preserve direct access. The footer repeats the name, social links, Privacy, the Pause motion control and year with a top rule.
 
 ### Actions and filters
 
-Primary legacy buttons use chalk on ink-black inverse text; ghost buttons use a visible rule and surface fill on hover. The signature action is a yellow underlined text link whose arrow moves 6px over 0.45 seconds using the engine easing. Global link/button focus uses a 2px yellow outline with 6px offset. The work filters are All work, Built and Product leadership; their selected state uses yellow fill and `aria-pressed`, with a live explanatory sentence. They filter the wider collection, not the featured work above it.
+Primary legacy buttons use chalk on ink-black inverse text; ghost buttons use a visible rule and surface fill on hover. The signature action is a yellow underlined text link: on hover a blue rule sweeps across the yellow one and the arrow moves 6px over 0.45 seconds using the engine easing. Yellow button actions fill with ink from below on hover. Experiment and contact rows fill with yellow from the left; work-index rows draw a blue rule along their top edge. Global link/button focus uses a 2px yellow outline with 6px offset. The work filters are All work, Built and Product leadership; their selected state uses yellow fill and `aria-pressed`, with a live explanatory sentence. They filter the wider collection, not the featured work above it.
 
 ### Project surfaces
 
-Featured work uses large colored regions and authored mechanism fragments. The wider collection uses ruled rows with name, contribution, description and action, collapsing into one column on mobile. Evidence labels remain visible at every breakpoint. Case-study pages pair a clear introduction and role metadata with readable sections, optional product captures and a next-project link.
+Featured work uses large colored regions and authored mechanism fragments. Featured panels open upward as they scroll into view, their art assembles (the Orderflow orbit turns into place; the Onboarding stages light up Explore to Write twice, and again while hovered), and on hover the arrow turns to point up-right while the statement shifts. The wider collection uses ruled rows with name, contribution, description and action, collapsing into one column on mobile. Evidence labels remain visible at every breakpoint. Case-study pages pair a clear introduction and role metadata with readable sections, optional product captures and a next-project link.
 
 ### Procedural sculpture
 
-The sculpture is a Canvas 2D parametric ribbon renderer, not a generated image, video, WebGL scene or external texture. Project selectors alter its orientation and update a semantic description and direct project link. Pointer movement produces bounded rotation. Pause/Resume stops continuous animation; reduced motion renders a static state while keeping selection operable. IntersectionObserver and document visibility suspend offscreen/hidden work. ResizeObserver adapts the drawing, pixel ratio is capped at 1.75, and narrow canvas widths use fewer segments. CSS ellipses and semantic HTML remain when the canvas is unavailable. The canvas is hidden from assistive technology because its meaning is supplied by adjacent text and controls.
+The sculpture is a Canvas 2D parametric ribbon renderer, not a generated image, video, WebGL scene or external texture. Its ribbons unfold from a thin, tight ring over the first two seconds and spread apart as the page scrolls past the hero. Project selectors alter its orientation, draw a rule under the selected project and update a semantic description and direct project link. Pointer movement produces bounded rotation. The footer's Pause motion control stops continuous animation; reduced motion renders a static state while keeping selection operable. IntersectionObserver and document visibility suspend offscreen/hidden work. ResizeObserver adapts the drawing, pixel ratio is capped at 1.75, and narrow canvas widths use fewer segments. CSS ellipses and semantic HTML remain when the canvas is unavailable. The canvas is hidden from assistive technology because its meaning is supplied by adjacent text and controls.
 
 ### Mechanism walkthroughs
 
-Skilladder exposes context, grading, review and delivery with step controls and a next-stage action; its adjacent label is “Illustrative walkthrough · synthetic example”. Commerce switches food orders, tickets and utilities, plus a delayed-payment state, in a blue input/core/output diagram; explanatory copy makes clear that this is an illustration and sends no real payment. Onboarding uses a paper scene with Explorer, Synthesizer and Writer buttons, an intermediate artifact and native source disclosure; its label is “Authored synthetic example · not a recorded agent run”. Source imports and planned connectors remain distinct.
+Skilladder exposes context, grading, review and delivery with step controls and a next-stage action; its adjacent label is “Illustrative walkthrough · synthetic example”. An indicator slides between stages, and each stage plays its flow: the explanation rises, the example input arrives, a signal runs down the connector and the output fills in. Commerce switches food orders, tickets and utilities, plus a delayed-payment state, in a blue input/core/output diagram; a signal carries each request from the customer through the shared core to the business result, and a delayed payment stops at the core, which pings while the result stays dashed and dimmed. Explanatory copy makes clear that this is an illustration and sends no real payment. Onboarding uses a paper scene with Explorer, Synthesizer and Writer buttons that fill from the left, an intermediate artifact that streams in a line at a time, and native source disclosure; its label is “Authored synthetic example · not a recorded agent run”. Source imports and planned connectors remain distinct. Each flow plays when its stage first scrolls into view and again for every stage a visitor chooses; none advances on its own.
 
-No editable text-field component is shipped by these walkthroughs; do not invent one in the component catalog. Global reveal classes are overridden to remain visible without transition. Reduced-motion styles remove smooth scrolling and nonessential CSS animation/transition.
+No editable text-field component is shipped by these walkthroughs; do not invent one in the component catalog.
+
+## Motion
+
+Motion makes the possibility engine feel built in front of the visitor: type rises into place, rules draw, panels open and mechanisms run. It is choreography around the content, never a gate in front of it.
+
+- **States.** A head script sets `html[data-motion]` before the first paint: `on`, `off` when the visitor paused motion with the footer control (remembered in local storage), or `reduced` when the operating system asks for less motion. Every animation in `src/styles/motion.css` and the component stylesheets runs only under `on`. Without JavaScript the attribute is absent and every page renders in its final state.
+- **Entrance.** Content on screen when a page opens uses CSS-only entrances (`data-enter`, ordered with `--enter`), so nothing waits for hydration. Display headings split into masked words that rise in sequence (`components/motion/Split`); the heading keeps its plain-text accessible name.
+- **Reveal.** Content further down (`data-reveal`: rise, words, wipe, rule, rule-bottom, image, stagger, flow) is hidden only once `MotionRoot` can reveal it again, and anything already painted on first load is left alone. Content arriving together reveals top to bottom; content inside a revealing panel follows it in. Case study figures count up while their entrance still hides them.
+- **Page transitions.** Every route change is a short view transition: the old page lifts away, the new one rises in, and a clicked project's logo travels into its case study. The page cannot be clicked during a transition, so it stays under 0.7 seconds; browser Back is instant.
+- **Scroll-linked.** The hero headline drifts up as the sculpture spreads, and case studies show a reading-progress rule. Both follow the scroll position rather than time and never hold the page.
+- **Easing.** `--engine-ease` (expo out) for arrivals, `--engine-ease-in` for exits, `--engine-ease-in-out` for signals. Hover motion runs 0.45–0.7 seconds and is limited to devices that hover.
+- **Restraint.** Decorative loops are finite or tied to hover; the only continuous motion is the sculpture drift, which the Pause motion control stops. No scroll hijacking, pinned sequences or autoplaying walkthroughs.
 
 ## Do's and Don'ts
 
@@ -161,6 +173,8 @@ No editable text-field component is shipped by these walkthroughs; do not invent
 - Do not use the legacy font variable names as a reason to restore DM Sans or Instrument Serif.
 - Do not hide experiment evidence labels on smaller screens.
 - Do not add forced tours, scroll hijacking or navigation that depends on the sculpture.
+- Do not hide content in markup or CSS by default for an animation; let `MotionRoot` arm it, or use a `data-enter` entrance, so it stays visible without JavaScript or motion.
+- Do not add looping decoration that runs longer than five seconds without user input; it must stop on its own or follow hover.
 
 ## Warm paper update
 

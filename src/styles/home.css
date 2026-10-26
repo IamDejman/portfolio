@@ -75,7 +75,27 @@ a {
 }
 
 .desktop-navigation a {
+  position: relative;
   padding: 10px 0;
+}
+
+.desktop-navigation a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 4px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s var(--engine-ease);
+}
+
+.desktop-navigation a:hover::after,
+.desktop-navigation a[aria-current]::after {
+  transform: none;
+  transform-origin: left;
 }
 
 .desktop-navigation a:hover,
@@ -100,6 +120,22 @@ a {
 .menu-trigger,
 .mobile-navigation {
   display: none;
+}
+
+/*The mobile menu opens downward and its links rise in order.*/
+@keyframes motion-menu {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+}
+
+:root[data-motion="on"] .mobile-navigation {
+  animation: motion-menu 0.55s var(--engine-ease) both;
+}
+
+:root[data-motion="on"] .mobile-navigation a {
+  animation: motion-rise 0.7s var(--engine-ease) both;
+  animation-delay: calc(0.08s + var(--k, 0) * 55ms);
 }
 
 .site-footer {
@@ -166,7 +202,8 @@ a {
   max-width: 100%;
 }
 
-.hero-composition h1 > span {
+.hero-composition h1 em {
+  font-style: normal;
   color: var(--accent-text);
 }
 
@@ -245,6 +282,7 @@ a {
 }
 
 .action-link {
+  position: relative;
   display: inline-flex;
   align-items: center;
   gap: 35px;
@@ -255,14 +293,36 @@ a {
   font-size: 15px;
 }
 
+/*A blue rule sweeps over the yellow one on hover.*/
+.action-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  background: var(--accent-text);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.6s var(--engine-ease);
+}
+
+.action-link:hover::after {
+  transform: none;
+  transform-origin: left;
+}
+
 .action-link svg,
 .featured-project > .project-heading > svg {
   transition: transform 0.45s var(--engine-ease);
 }
 
-.action-link:hover svg,
-.featured-project:hover > .project-heading > svg {
+.action-link:hover svg {
   transform: translateX(6px);
+}
+
+.featured-project:hover > .project-heading > svg {
+  transform: translate(4px, -4px) rotate(-45deg);
 }
 
 .world-controls {
@@ -276,6 +336,7 @@ a {
 }
 
 .world-choice {
+  position: relative;
   flex: 1;
   text-align: left;
   display: flex;
@@ -297,6 +358,28 @@ a {
 .world-choice.is-active {
   border-color: var(--line-2);
   color: var(--ink);
+}
+
+/*The selected project draws a rule along its lower edge.*/
+.world-choice::after {
+  content: "";
+  position: absolute;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  height: 2px;
+  background: var(--accent-text);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.7s var(--engine-ease);
+}
+
+.world-choice.is-active::after {
+  transform: none;
+}
+
+:root[data-motion="on"] .world-line {
+  animation: motion-rise 0.8s var(--engine-ease) both;
 }
 
 .world-mark {
@@ -452,7 +535,8 @@ a {
 }
 
 .project-foot {
-  border-top: 1px solid currentColor;
+  --rule-color: currentColor;
+  border-top: 1px solid var(--rule-color);
   padding-top: 18px;
   display: flex;
   justify-content: space-between;
@@ -465,6 +549,18 @@ a {
   grid-template-columns: 1fr 1fr;
   gap: 22px;
   margin-top: 22px;
+}
+
+.project-body > p,
+.project-statement {
+  transition: transform 0.7s var(--engine-ease);
+}
+
+@media (hover: hover) {
+  .featured-project:hover .project-body > p,
+  .featured-project:hover .project-statement {
+    transform: translateX(12px);
+  }
 }
 
 .project-statement {
@@ -548,6 +644,52 @@ a {
   transform: translateY(0);
 }
 
+.agent-art span:nth-child(2) {
+  --k: 1;
+}
+
+.agent-art span:nth-child(3) {
+  --k: 2;
+}
+
+/*Card art assembles as its panel opens. The Onboarding stages light up in
+order twice, Explore to Write, and again for as long as the card is hovered.*/
+@keyframes motion-relay {
+  20%,
+  45% {
+    background: #182414;
+    border-color: #182414;
+    color: var(--engine-paper);
+  }
+  70%,
+  100% {
+    background: var(--engine-paper);
+    border-color: #737e6c;
+    color: #1a2018;
+  }
+}
+
+:root[data-motion="on"] .featured-project.is-revealed .branch-art {
+  animation: motion-turn-in 1.9s var(--engine-ease) backwards;
+  animation-delay: calc(var(--reveal-delay, 0ms) + 0.35s);
+}
+
+:root[data-motion="on"] .featured-project.is-revealed .agent-art span {
+  animation:
+    motion-pop 0.9s var(--engine-ease) backwards,
+    motion-relay 1.5s var(--engine-ease-in-out) 2;
+  animation-delay:
+    calc(var(--reveal-delay, 0ms) + 0.4s + var(--k, 0) * 0.12s),
+    calc(var(--reveal-delay, 0ms) + 1.3s + var(--k, 0) * 0.5s);
+}
+
+@media (hover: hover) {
+  :root[data-motion="on"] .featured-project:hover .agent-art span {
+    animation: motion-relay 1.5s var(--engine-ease-in-out) infinite;
+    animation-delay: calc(var(--k, 0) * 0.5s);
+  }
+}
+
 .assessment-walkthrough {
   padding: 90px max(5%, calc((100% - 1440px) / 2));
   background: #1d221b;
@@ -602,14 +744,17 @@ a {
   color: #aeb8a5;
 }
 
+/*Equal columns let the indicator slide by whole stage widths.*/
 .stage-selector {
-  display: flex;
-  border-bottom: 1px solid #58634f;
+  --rule-color: #58634f;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-bottom: 1px solid var(--rule-color);
 }
 
 .stage-selector button {
   padding: 20px 16px;
-  flex: 1;
   display: flex;
   align-items: center;
   gap: 14px;
@@ -621,7 +766,19 @@ a {
 
 .stage-selector button[aria-pressed="true"] {
   color: var(--accent-text);
-  border-bottom-color: var(--accent-text);
+}
+
+.stage-indicator {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  z-index: 1;
+  width: 25%;
+  height: 3px;
+  background: var(--accent-text);
+  transform: translateX(calc(var(--stage, 0) * 100%)) scaleX(1);
+  transform-origin: left;
+  transition: transform 0.7s var(--engine-ease);
 }
 
 .stage-selector button > span {
@@ -697,10 +854,115 @@ a {
 }
 
 .artifact-connector {
+  position: relative;
   height: 47px;
   display: grid;
   place-items: center;
   color: #a6b794;
+}
+
+.artifact-connector path {
+  stroke-dasharray: 60;
+}
+
+/*A signal carries the input down to the output.*/
+.artifact-connector::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 50%;
+  width: 7px;
+  height: 7px;
+  margin-left: -3.5px;
+  border-radius: 50%;
+  background: var(--engine-yellow);
+  opacity: 0;
+}
+
+/*Stage flow: the explanation rises, the example input arrives, the signal
+runs down the connector and the output fills in. It plays when the stage
+first scrolls into view and again for every stage a visitor chooses.*/
+@keyframes motion-draw {
+  from {
+    stroke-dashoffset: 60;
+  }
+}
+
+@keyframes motion-signal {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  20%,
+  75% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(38px);
+    opacity: 0;
+  }
+}
+
+@keyframes motion-wipe-down {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+}
+
+.stage-content.is-armed:not(.is-revealed)
+  :is(.stage-explanation > *, .artifact-input, .artifact-output) {
+  opacity: 0;
+}
+
+/*The indicator grows in with the selector's rule.*/
+.stage-selector.is-armed:not(.is-revealed) .stage-indicator {
+  transform: translateX(calc(var(--stage, 0) * 100%)) scaleX(0);
+}
+
+:root[data-motion="on"]
+  :is(.stage-content.is-revealed, [data-played] .stage-content)
+  .stage-explanation
+  > * {
+  animation: motion-rise 0.8s var(--engine-ease) both;
+}
+
+:root[data-motion="on"]
+  :is(.stage-content.is-revealed, [data-played] .stage-content)
+  .stage-explanation
+  > :nth-child(2) {
+  animation-delay: 0.08s;
+}
+
+:root[data-motion="on"]
+  :is(.stage-content.is-revealed, [data-played] .stage-content)
+  .stage-explanation
+  > :nth-child(3) {
+  animation-delay: 0.16s;
+}
+
+:root[data-motion="on"]
+  :is(.stage-content.is-revealed, [data-played] .stage-content)
+  .artifact-input {
+  animation: motion-rise 0.7s var(--engine-ease) 0.1s both;
+}
+
+:root[data-motion="on"]
+  :is(.stage-content.is-revealed, [data-played] .stage-content)
+  .artifact-connector
+  path {
+  animation: motion-draw 0.45s ease-out 0.4s both;
+}
+
+:root[data-motion="on"]
+  :is(.stage-content.is-revealed, [data-played] .stage-content)
+  .artifact-connector::after {
+  animation: motion-signal 0.75s var(--engine-ease-in-out) 0.45s both;
+}
+
+:root[data-motion="on"]
+  :is(.stage-content.is-revealed, [data-played] .stage-content)
+  .artifact-output {
+  animation: motion-wipe-down 0.9s var(--engine-ease) 0.85s both;
 }
 
 .walkthrough-bottom {
@@ -727,13 +989,46 @@ a {
 }
 
 .experiment-list > a {
+  --rule-color: var(--line);
+  position: relative;
+  isolation: isolate;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr) 10rem 24px;
   align-items: center;
   gap: 30px;
   padding: 30px 0;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--rule-color);
   transition: color 0.2s;
+}
+
+/*Rows fill with yellow from the left on hover and empty to the right.*/
+.experiment-list > a::before {
+  content: "";
+  position: absolute;
+  inset: 0 -18px;
+  z-index: -1;
+  background: var(--engine-yellow);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.6s var(--engine-ease);
+}
+
+.experiment-list h3,
+.experiment-list svg {
+  transition: transform 0.6s var(--engine-ease);
+}
+
+@media (hover: hover) {
+  .experiment-list > a:hover::before {
+    transform: none;
+    transform-origin: left;
+  }
+  .experiment-list > a:hover h3 {
+    transform: translateX(14px);
+  }
+  .experiment-list > a:hover svg {
+    transform: translateX(-10px);
+  }
 }
 
 .experiment-list > a:last-child {
@@ -784,17 +1079,24 @@ a {
 .home-close > a em {
   color: var(--accent-text);
   font-style: normal;
+  background: linear-gradient(var(--engine-yellow), var(--engine-yellow))
+    no-repeat 0 88% / 0 0.2em;
+  transition: background-size 0.9s var(--engine-ease);
 }
 
 .home-close > a > svg {
   position: absolute;
   right: 0;
   bottom: 16px;
-  transition: transform 0.4s;
+  transition: transform 0.6s var(--engine-ease);
+}
+
+.home-close > a:hover em {
+  background-size: 100% 0.2em;
 }
 
 .home-close > a:hover > svg {
-  transform: translate(8px, -8px);
+  transform: translate(8px, -8px) rotate(-45deg);
 }
 
 .home-close > div {
@@ -1145,7 +1447,8 @@ a {
   }
   .site-footer div {
     order: 3;
-    gap: 25px;
+    flex-wrap: wrap;
+    gap: 8px 25px;
     width: 100%;
   }
   .site-footer > span {

@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowRight } from "./icons";
@@ -77,13 +77,22 @@ export default function Navigation() {
           aria-label="Mobile main"
           ref={menu}
         >
-          {links.map((l) => (
-            <Link key={l.href} href={l.href} onClick={() => setOpen(false)}>
+          {links.map((l, i) => (
+            <Link
+              key={l.href}
+              href={l.href}
+              onClick={() => setOpen(false)}
+              style={{ "--k": i } as CSSProperties}
+            >
               {l.label}
               <ArrowRight />
             </Link>
           ))}
-          <Link href="/cv" onClick={() => setOpen(false)}>
+          <Link
+            href="/cv"
+            onClick={() => setOpen(false)}
+            style={{ "--k": links.length } as CSSProperties}
+          >
             View CV
             <ArrowRight />
           </Link>

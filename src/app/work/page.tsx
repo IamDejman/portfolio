@@ -4,6 +4,8 @@ import Link from "next/link";
 import WorkIndex from "@/components/engine/WorkIndex";
 import { ArrowRight } from "@/components/icons";
 import { caseStudies } from "@/data/content";
+import Split from "@/components/motion/Split";
+import { enter } from "@/components/motion/order";
 export const metadata: Metadata = {
   title: "Work",
   description:
@@ -13,12 +15,12 @@ export default function WorkPage() {
   return (
     <div>
       <header className="route-heading section-shell">
-        <h1>
+        <Split as="h1" enter>
           Ideas,
           <br />
           <em>made real.</em>
-        </h1>
-        <p>
+        </Split>
+        <p data-enter style={enter(3)}>
           Sometimes the work is a product strategy. Sometimes it’s the system
           itself. Here’s what happens when I connect the two.
         </p>
@@ -27,9 +29,14 @@ export default function WorkPage() {
         className="work-leads section-shell"
         aria-label="Featured case studies"
       >
-        <Link href="/work/skilladder" className="work-lead lead-assess">
+        <Link
+          href="/work/skilladder"
+          className="work-lead lead-assess"
+          data-enter="wipe"
+          style={enter(4)}
+        >
           <div>
-            <h2><ProjectLogo project="skilladder" dark /></h2>
+            <h2><ProjectLogo project="skilladder" dark travel="from" /></h2>
             <p>From answers to useful evidence.</p>
           </div>
           <span>
@@ -44,9 +51,13 @@ export default function WorkPage() {
             <i />
           </div>
         </Link>
-        <Link href="/work/orderflow" className="work-lead lead-commerce">
+        <Link
+          href="/work/orderflow"
+          className="work-lead lead-commerce"
+          data-reveal="wipe"
+        >
           <div>
-            <h2><ProjectLogo project="orderflow" dark={false} /></h2>
+            <h2><ProjectLogo project="orderflow" dark={false} travel="from" /></h2>
             <p>One platform. Several business workflows.</p>
           </div>
           <span>
@@ -61,7 +72,11 @@ export default function WorkPage() {
             <i />
           </div>
         </Link>
-        <Link href="/work/onboarding-engine" className="work-lead lead-agents">
+        <Link
+          href="/work/onboarding-engine"
+          className="work-lead lead-agents"
+          data-reveal="wipe"
+        >
           <div>
             <h2>Onboarding Engine</h2>
             <p>Explore. Synthesize. Write. Inspect.</p>
@@ -78,7 +93,7 @@ export default function WorkPage() {
             <i />
           </div>
         </Link>
-        <div className="work-leads-more">
+        <div className="work-leads-more" data-reveal="stagger">
           {caseStudies
             .filter((cs) => ["tellerpoint", "carbin"].includes(cs.slug))
             .map((cs) => (

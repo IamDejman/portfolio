@@ -1,12 +1,15 @@
 "use client";
-import { useState } from "react";
+import { useState, type CSSProperties } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { builtProjects, projects } from "@/data/content";
 import { ArrowRight } from "@/components/icons";
+import Split from "@/components/motion/Split";
 const categories = ["All work", "Built", "Product leadership"] as const;
 export default function WorkIndex() {
   const [filter, setFilter] = useState<(typeof categories)[number]>("All work");
+  // Rows only replay once a visitor changes the filter.
+  const [filtered, setFiltered] = useState(false);
   const builds = filter !== "Product leadership";
   const managed = filter !== "Built";
   return (
@@ -15,14 +18,17 @@ export default function WorkIndex() {
       aria-labelledby="index-heading"
     >
       <div className="index-heading">
-        <h2 id="index-heading">The wider collection.</h2>
-        <div className="index-filters" aria-label="Filter work">
+        <Split id="index-heading">The wider collection.</Split>
+        <div className="index-filters" aria-label="Filter work" data-reveal="rise">
           {categories.map((c) => (
             <button
               type="button"
               key={c}
               aria-pressed={filter === c}
-              onClick={() => setFilter(c)}
+              onClick={() => {
+                setFilter(c);
+                setFiltered(true);
+              }}
             >
               {c}
             </button>
@@ -36,13 +42,21 @@ export default function WorkIndex() {
             ? "Platforms, client work and independent experiments."
             : "Product strategy, discovery and delivery across teams."}
       </p>
-      <div className="work-index-list">
+      <div
+        className="work-index-list"
+        key={filter}
+        data-filtered={filtered || undefined}
+      >
         {builds &&
           builtProjects
             // Skilladder also appears under product leadership; list it once.
             .filter((p) => !(managed && p.caseStudy === "skilladder"))
-            .map((p) => (
-              <article key={p.title}>
+            .map((p, i) => (
+              <article
+                key={p.title}
+                data-reveal="rise rule"
+                style={{ "--row": i } as CSSProperties}
+              >
                 <div className="index-project-name">
                   <h3>{p.title}</h3>
                   <span>{p.highlight}</span>
@@ -80,8 +94,12 @@ export default function WorkIndex() {
               </article>
             ))}
         {managed &&
-          projects.map((p) => (
-            <article key={p.title}>
+          projects.map((p, i) => (
+            <article
+              key={p.title}
+              data-reveal="rise rule"
+              style={{ "--row": i } as CSSProperties}
+            >
               <div className="index-project-name">
                 <h3>{p.title}</h3>
                 <span>

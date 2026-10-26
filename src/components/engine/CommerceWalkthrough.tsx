@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { ArrowRight } from "@/components/icons";
+import Split from "@/components/motion/Split";
 const verticals = [
   {
     name: "Food order",
@@ -24,19 +25,24 @@ const verticals = [
 export default function CommerceWalkthrough() {
   const [vertical, setVertical] = useState(0);
   const [delayed, setDelayed] = useState(false);
+  // The request replays through the platform once a visitor changes it.
+  const [played, setPlayed] = useState(false);
   const current = verticals[vertical];
+  // Keys restart the flow animation whenever the request changes.
+  const run = `${vertical}-${delayed}`;
   return (
     <section
       className="commerce-walkthrough section-shell"
       aria-labelledby="commerce-title"
+      data-played={played || undefined}
     >
       <div className="section-intro">
-        <h2 id="commerce-title">
+        <Split id="commerce-title">
           Change the business.
           <br />
           Keep the core.
-        </h2>
-        <p>
+        </Split>
+        <p data-reveal="rise">
           Explore a simplified platform model.
           <br />
           <span className="example-note">
@@ -44,14 +50,17 @@ export default function CommerceWalkthrough() {
           </span>
         </p>
       </div>
-      <div className="commerce-controls">
+      <div className="commerce-controls" data-reveal="rise">
         <div aria-label="Business workflow">
           {verticals.map((v, i) => (
             <button
               type="button"
               key={v.name}
               aria-pressed={vertical === i}
-              onClick={() => setVertical(i)}
+              onClick={() => {
+                setVertical(i);
+                setPlayed(true);
+              }}
             >
               {v.name}
             </button>
@@ -61,20 +70,30 @@ export default function CommerceWalkthrough() {
           type="button"
           className="delay-control"
           aria-pressed={delayed}
-          onClick={() => setDelayed(!delayed)}
+          onClick={() => {
+            setDelayed(!delayed);
+            setPlayed(true);
+          }}
         >
           <span aria-hidden="true" />
           {delayed ? "Payment delayed" : "Payment confirmed"}
         </button>
       </div>
-      <div className="commerce-path" aria-live="polite">
-        <div>
+      <div
+        className="commerce-path"
+        aria-live="polite"
+        data-reveal="flow"
+        data-state={delayed ? "pending" : "confirmed"}
+      >
+        <div key={`request-${run}`}>
           <span>Customer request</span>
           <h3>{current.name}</h3>
           <p>{current.request}</p>
         </div>
-        <ArrowRight size={28} />
-        <div className="commerce-core">
+        <span className="commerce-link" key={`in-${run}`} aria-hidden="true">
+          <ArrowRight size={28} />
+        </span>
+        <div className="commerce-core" key={`core-${run}`}>
           <span>Shared platform</span>
           <h3>{delayed ? "Wait. Reconcile." : "Verify. Route."}</h3>
           <p>
@@ -83,8 +102,10 @@ export default function CommerceWalkthrough() {
               : "Verify the payment, maintain the transaction state and route the confirmed request to its business workflow."}
           </p>
         </div>
-        <ArrowRight size={28} />
-        <div>
+        <span className="commerce-link" key={`out-${run}`} aria-hidden="true">
+          <ArrowRight size={28} />
+        </span>
+        <div className="commerce-result" key={`result-${run}`}>
           <span>Business result</span>
           <h3>{delayed ? "Still pending." : "Ready to fulfil."}</h3>
           <p>
@@ -94,8 +115,8 @@ export default function CommerceWalkthrough() {
           </p>
         </div>
       </div>
-      <div className="commerce-principle">
-        <p>{current.why}</p>
+      <div className="commerce-principle" data-reveal="rise rule">
+        <p key={vertical}>{current.why}</p>
         <p>
           Provider integrations, settlement and recovery sit beneath several
           customer experiences. This diagram illustrates that architecture; it

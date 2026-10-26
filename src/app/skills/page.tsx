@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { skills, toolGroups, howIWork } from "@/data/content";
 import { ArrowRight } from "@/components/icons";
+import Split from "@/components/motion/Split";
+import { enter } from "@/components/motion/order";
 export const metadata: Metadata = {
   title: "Skills",
   description:
@@ -34,12 +36,12 @@ export default function SkillsPage() {
   return (
     <div>
       <header className="route-heading section-shell">
-        <h1>
+        <Split as="h1" enter>
           Judgment.
           <br />
           Then <em>execution.</em>
-        </h1>
-        <p>
+        </Split>
+        <p data-enter style={enter(3)}>
           I connect product discovery, technical implementation and the
           operational work around them. Each capability is more useful when it
           has somewhere real to show up.
@@ -50,7 +52,7 @@ export default function SkillsPage() {
         aria-label="Capabilities in practice"
       >
         {evidence.map((e) => (
-          <article key={e.title}>
+          <article key={e.title} data-reveal="rise rule">
             <h2>{e.title}</h2>
             <div>
               <p>{e.description}</p>
@@ -63,12 +65,12 @@ export default function SkillsPage() {
         ))}
       </section>
       <section className="capability-detail section-shell">
-        <h2>The working toolkit.</h2>
+        <Split>The working toolkit.</Split>
         <div>
           {Object.entries(skills).map(([category, items]) => (
             <section key={category}>
-              <h3>{category}</h3>
-              <ul>
+              <h3 data-reveal="rise rule-bottom">{category}</h3>
+              <ul data-reveal="stagger">
                 {items.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
@@ -78,13 +80,13 @@ export default function SkillsPage() {
         </div>
       </section>
       <section className="working-method section-shell">
-        <h2>
+        <Split>
           From the conversation
           <br />
           to the commit.
-        </h2>
-        <p>{howIWork}</p>
-        <div className="tool-groups">
+        </Split>
+        <p data-reveal="rise">{howIWork}</p>
+        <div className="tool-groups" data-reveal="rule stagger">
           {toolGroups.map((group) => (
             <div key={group.label}>
               <h3>{group.label}</h3>

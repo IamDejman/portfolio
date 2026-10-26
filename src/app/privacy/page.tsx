@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Split from "@/components/motion/Split";
+import { enter } from "@/components/motion/order";
 
 export const metadata: Metadata = {
   title: "Privacy",
@@ -11,14 +13,22 @@ export default function PrivacyPage() {
     <div>
       <section className="border-b border-line">
         <div className="mx-auto grid max-w-[1280px] grid-cols-1 gap-5 px-5 pt-14 pb-10 md:grid-cols-12 md:items-start md:gap-6 md:px-12 md:pt-24 md:pb-14">
-          <h1 className="font-serif text-4xl leading-[1.06] tracking-[-0.018em] md:col-span-8 md:col-start-3 md:text-6xl">
+          <Split
+            as="h1"
+            className="font-serif text-4xl leading-[1.06] tracking-[-0.018em] md:col-span-8 md:col-start-3 md:text-6xl"
+            enter
+          >
             Privacy policy.
-          </h1>
+          </Split>
         </div>
       </section>
 
       <section className="mx-auto grid max-w-[1280px] grid-cols-1 gap-12 px-5 pt-12 pb-16 md:grid-cols-12 md:items-start md:gap-6 md:px-12 md:pt-18 md:pb-22">
-        <div className="flex flex-col gap-5 text-[17px] leading-[1.75] text-ink-2 md:col-span-7 md:col-start-3">
+        <div
+          className="flex flex-col gap-5 text-[17px] leading-[1.75] text-ink-2 md:col-span-7 md:col-start-3"
+          data-enter
+          style={enter(3)}
+        >
           <p>
             This site is the personal portfolio of Ayodeji Eluwande. It is a
             static website. It does not have user accounts and does not ask you

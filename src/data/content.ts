@@ -347,7 +347,7 @@ export const caseStudies: CaseStudy[] = [
     url: "https://app.tryorderflow.com",
     metrics: [
       { value: "3", label: "Business verticals in production" },
-      { value: "4", label: "Payment providers integrated" },
+      { value: "2", label: "Payment providers integrated" },
       { value: "<5 mo", label: "First commit to production traffic" },
       { value: "1", label: "Engineer, end to end" },
     ],
@@ -361,7 +361,7 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: "Payments and money",
         paragraphs: [
-          "A pluggable payment layer behind clean provider interfaces runs real money in production. Four Nigerian providers (Rubies, Squad, Tellerpoint, Paga) with dedicated virtual accounts and instant bank transfer reconciliation, plus a ledger derived settlement engine with day cycle grouping, audit trails, and a capped processing fee model. Live incidents, including a Flyway out of order migration outage, ended in post mortems and permanent guardrails.",
+          "A pluggable payment layer behind clean provider interfaces runs real money in production. Two Nigerian providers (Rubies and Squad) with dedicated virtual accounts and instant bank transfer reconciliation, plus a ledger derived settlement engine with day cycle grouping, audit trails, and a capped processing fee model. Database migrations are delivered without downtime.",
         ],
       },
       {

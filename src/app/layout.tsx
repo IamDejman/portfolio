@@ -66,7 +66,7 @@ export default function RootLayout({
     "@type": "Person",
     name: siteConfig.fullName,
     url: siteConfig.url,
-    jobTitle: "AI Product Manager",
+    jobTitle: "AI Product Engineer",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Berlin",

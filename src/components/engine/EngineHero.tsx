@@ -48,8 +48,8 @@ export default function EngineHero() {
         </h1>
         <div className="hero-intro">
           <p>
-            I’m Ayodeji, an AI product manager and builder in Berlin. I turn
-            ambiguous problems into working AI products.
+            I’m Ayodeji, an AI product engineer in Berlin. I write the PRD and
+            ship the code.
           </p>
           <a href="#selected-work" className="action-link">
             Explore the work <ArrowRight size={21} />

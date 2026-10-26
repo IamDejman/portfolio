@@ -5,7 +5,7 @@ import { siteConfig } from "@/data/content";
 export const metadata: Metadata = {
   title: "CV",
   description:
-    "The CV of Ayodeji Eluwande, AI product manager and builder in Berlin. Preview it here or download the PDF.",
+    "The CV of Ayodeji Eluwande, AI product engineer in Berlin. Preview it here or download the PDF.",
 };
 export default function CvPage() {
   return (

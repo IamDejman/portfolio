@@ -1,9 +1,9 @@
 export const siteConfig = {
   name: "Ayodeji",
   fullName: "Ayodeji Eluwande",
-  title: "Ayodeji Eluwande - AI Product Manager",
+  title: "Ayodeji Eluwande - AI Product Engineer",
   description:
-    "AI product manager and builder in Berlin. Explore assessment systems, agent workflows and commerce platforms, from product decisions to working software.",
+    "AI product engineer in Berlin. Explore assessment systems, agent workflows and commerce platforms, from product decisions to working software.",
   url: "https://ayodejieluwande.vercel.app",
   email: "ayodejieluwande@gmail.com",
   linkedin: "https://linkedin.com/in/ayodejieluwande",
@@ -507,10 +507,10 @@ export const education = {
 };
 
 export const howIWork =
-  "My week splits between product work and building. I run sprints in Linear, conduct user research, and keep stakeholders aligned on what ships next. When something needs to exist quickly, I build it myself with Next.js, React, and Tailwind CSS, working alongside AI tools like Cursor, Claude Code, Codex, and Gemini. I'm the PM who can sit with engineers, hold the room with execs, and ship the MVP myself if needed.";
+  "My week splits between product work and building. I run sprints in Linear, conduct user research, and keep stakeholders aligned on what ships next. Then I build it myself with Next.js, React, and Tailwind CSS, working alongside AI tools like Cursor, Claude Code, Codex, and Gemini. I'm the engineer who can sit with users, hold the room with execs, and ship the product end to end.";
 
 export const openTo = [
-  "Full-time Product Management, AI Operations, Forward Deployed & AI Engineering, or Product Engineer roles",
+  "Full-time AI Product Engineer roles",
   "Freelance projects",
   "Consulting & fractional PM engagements",
   "Speaking & mentoring",

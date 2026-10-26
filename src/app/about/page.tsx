@@ -11,7 +11,7 @@ import { ArrowRight } from "@/components/icons";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Ayodeji Eluwande: AI product manager and builder. From Lagos to Berlin, from product discovery to working software.",
+    "Ayodeji Eluwande: AI product engineer. From Lagos to Berlin, from product discovery to working software.",
 };
 export default function AboutPage() {
   return (

@@ -128,6 +128,8 @@ export default function HomePage() {
             href="https://footballadder.com/"
             target="_blank"
             rel="noopener noreferrer"
+            data-track="visit-project"
+            data-track-label="Football Ladder"
             data-reveal="rise rule"
           >
             <h3>Football Ladder</h3>
@@ -139,6 +141,8 @@ export default function HomePage() {
             href="https://osundecides.vercel.app"
             target="_blank"
             rel="noopener noreferrer"
+            data-track="visit-project"
+            data-track-label="Osun Decides"
             data-reveal="rise rule"
           >
             <h3>Osun Decides</h3>
@@ -150,6 +154,8 @@ export default function HomePage() {
             href="https://github.com/IamDejman/hotel-california"
             target="_blank"
             rel="noopener noreferrer"
+            data-track="visit-project"
+            data-track-label="Hotel California"
             data-reveal="rise rule"
           >
             <h3>Hotel California</h3>
@@ -169,7 +175,7 @@ export default function HomePage() {
       </section>
       <section className="home-close section-shell">
         <p data-reveal="rise">Have a problem worth building for?</p>
-        <Split as="a" href={`mailto:${siteConfig.email}`}>
+        <Split as="a" href={`mailto:${siteConfig.email}`} data-track="email">
           Let’s make
           <br />
           it <em>happen.</em>
@@ -178,6 +184,11 @@ export default function HomePage() {
         <div data-reveal="rise">
           <span>Ayodeji Eluwande · Berlin</span>
           <CopyEmail />
+          {siteConfig.booking && (
+            <a href={siteConfig.booking} data-track="booking">
+              Book 20 minutes <ArrowRight size={17} />
+            </a>
+          )}
           <Link href="/about">
             A little about me <ArrowRight size={17} />
           </Link>

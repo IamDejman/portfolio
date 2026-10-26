@@ -1262,6 +1262,29 @@ result. A pending payment stops at the core, which keeps pinging.*/
   }
 }
 
+.contact-place {
+  display: block;
+  margin-top: 8px;
+  font-size: 15px;
+  color: var(--ink-3);
+}
+
+/*The booking action is an outline version of the email action.*/
+.contact-actions > a.contact-booking {
+  gap: 28px;
+  padding: 17px 24px;
+  background: transparent;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+}
+
+.contact-authorization {
+  margin-top: 20px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--ink-2);
+}
+
 .contact-content {
   display: grid;
   grid-template-columns: 2fr 1fr;

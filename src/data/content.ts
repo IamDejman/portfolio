@@ -10,6 +10,13 @@ export const siteConfig = {
   twitter: "https://x.com/aeluwande",
   github: "https://github.com/IamDejman",
   cv: "/Ayodeji_Eluwande_CV.pdf",
+  timezone: "Central European Time",
+  // A scheduling page (for example Cal.com) for a 20-minute call. The
+  // booking actions stay hidden while this is empty.
+  booking: "",
+  // Right-to-work status for roles in Germany and the EU, shown under Open
+  // to on Contact when set.
+  workAuthorization: "",
 };
 
 export const currentRoles = [

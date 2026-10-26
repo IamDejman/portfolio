@@ -84,6 +84,8 @@ export default function WorkIndex() {
                       href={p.url}
                       target="_blank"
                       rel="noopener noreferrer"
+                      data-track="visit-project"
+                      data-track-label={p.title}
                       aria-label={`Visit ${p.title}`}
                     >
                       Visit

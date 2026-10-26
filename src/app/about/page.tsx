@@ -118,7 +118,12 @@ export default function AboutPage() {
             <br />
             {education.period}
           </p>
-          <Link href="/cv" className="action-link" data-reveal="rise">
+          <Link
+            href="/cv"
+            className="action-link"
+            data-reveal="rise"
+            data-track="cv"
+          >
             View my CV
             <ArrowRight size={18} />
           </Link>

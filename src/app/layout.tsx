@@ -7,6 +7,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import MotionRoot from "@/components/motion/MotionRoot";
 import PageTransition from "@/components/motion/PageTransition";
+import IntentEvents from "@/components/IntentEvents";
 import { motionScript } from "@/components/motion/script";
 import { siteConfig } from "@/data/content";
 import "./globals.css";
@@ -111,7 +112,9 @@ export default function RootLayout({
             <Link href="/about">About</Link>
             <Link href="/skills">Skills</Link>
             <Link href="/contact">Contact</Link>
-            <Link href="/cv">CV</Link>
+            <Link href="/cv" data-track="cv">
+              CV
+            </Link>
           </nav>
         </noscript>
         <main id="main" tabIndex={-1} className="min-h-screen">
@@ -119,6 +122,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <MotionRoot />
+        <IntentEvents />
         {process.env.VERCEL === "1" && (
           <>
             <Analytics />

@@ -67,7 +67,13 @@ export default async function CaseStudyPage({ params }: Props) {
             <ArrowRight size={18} />
           </a>
           {cs.url && (
-            <a href={cs.url} target="_blank" rel="noopener noreferrer">
+            <a
+              href={cs.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-track="visit-project"
+              data-track-label={cs.title}
+            >
               Visit the platform
               <ArrowRight size={17} />
             </a>
@@ -152,7 +158,7 @@ export default async function CaseStudyPage({ params }: Props) {
           </Link>
         </div>
         <p className="case-contact" data-reveal="rise">
-          <a href={`mailto:${siteConfig.email}`}>
+          <a href={`mailto:${siteConfig.email}`} data-track="email">
             Talk about the work
             <ArrowRight size={17} />
           </a>

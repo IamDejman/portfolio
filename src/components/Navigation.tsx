@@ -55,6 +55,7 @@ export default function Navigation() {
         <Link
           className="nav-cv"
           href="/cv"
+          data-track="cv"
           aria-current={pathname === "/cv" ? "page" : undefined}
         >
           View CV <ArrowRight size={15} />
@@ -90,6 +91,7 @@ export default function Navigation() {
           ))}
           <Link
             href="/cv"
+            data-track="cv"
             onClick={() => setOpen(false)}
             style={{ "--k": links.length } as CSSProperties}
           >

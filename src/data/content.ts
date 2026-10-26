@@ -22,16 +22,16 @@ export const currentRoles = [
 
 export const toolGroups = [
   {
-    label: "Product ops",
-    tools: ["Linear", "Figma", "Miro", "Postman", "SQL"],
-  },
-  {
     label: "AI build",
-    tools: ["Cursor", "Claude Code", "Codex", "Gemini"],
+    tools: ["Claude Code", "Cursor", "Codex", "Gemini"],
   },
   {
     label: "Ship & run",
-    tools: ["Next.js", "Supabase", "Vercel", "Railway", "AWS"],
+    tools: ["Next.js", "Spring Boot", "Supabase", "Vercel", "Railway", "AWS"],
+  },
+  {
+    label: "Product ops",
+    tools: ["Linear", "Figma", "Miro", "Postman", "SQL"],
   },
 ];
 
@@ -441,38 +441,36 @@ export const caseStudies: CaseStudy[] = [
   },
 ];
 
+// Mirrors the CV's technical and product skills groups.
 export const skills = {
-  "Product Management": [
-    "Product Strategy & Roadmapping",
-    "Product Vision & Planning",
-    "Agile Methodologies",
-    "Stakeholder Management",
-    "UX Research & Discovery",
-    "Product Lifecycle Management",
+  Development: [
+    "TypeScript",
+    "React and Next.js",
+    "Node.js",
+    "Kotlin and Spring Boot",
+    "Python",
+    "SQL",
   ],
-  "Building & Engineering": [
-    "Next.js / React",
-    "Tailwind CSS",
-    "PostgreSQL / Prisma",
-    "AI-Assisted Development (Cursor, Claude Code, Codex, Gemini)",
-    "Vercel Deployment",
-    "Prompt Engineering & Prototyping",
+  "Data and integrations": [
+    "PostgreSQL",
+    "Supabase",
+    "MySQL",
+    "REST APIs and webhooks",
+    "MQTT",
   ],
-  Domain: [
-    "Fintech & Agency Banking",
-    "EdTech & Assessments",
-    "Waste Management & CleanTech",
-    "HealthTech",
-    "Logistics & Delivery",
-    "Automotive Marketplaces",
+  "Applied AI": [
+    "Retrieval-augmented generation",
+    "Vector databases",
+    "AI grading",
+    "Human review",
+    "Claude Code, Codex and Cursor",
   ],
-  Commercial: [
-    "Go-to-Market Strategy",
-    "Client Engagement",
-    "Project Management",
-    "Training & Enablement",
-    "Data-driven Decision Making",
-    "Prioritisation",
+  "Product delivery": [
+    "Customer discovery",
+    "API design",
+    "Enterprise implementation",
+    "Accessibility",
+    "Linear, Figma and Postman",
   ],
 };
 
@@ -507,7 +505,7 @@ export const education = {
 };
 
 export const howIWork =
-  "My week splits between product work and building. I run sprints in Linear, conduct user research, and keep stakeholders aligned on what ships next. Then I build it myself with Next.js, React, and Tailwind CSS, working alongside AI tools like Cursor, Claude Code, Codex, and Gemini. I'm the engineer who can sit with users, hold the room with execs, and ship the product end to end.";
+  "My week splits between product work and building. I run sprints in Linear, conduct user research, and keep stakeholders aligned on what ships next. Then I build it myself, with TypeScript and Next.js on the front end and Kotlin, Node.js or Python behind it, working alongside AI tools like Claude Code, Cursor, Codex, and Gemini. I'm the engineer who can sit with users, hold the room with execs, and ship the product end to end.";
 
 export const openTo = [
   "Full-time AI Product Engineer roles",

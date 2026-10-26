@@ -6,6 +6,7 @@ import {
   pastRoles,
   education,
   certifications,
+  testimonials,
 } from "@/data/content";
 import { ArrowRight } from "@/components/icons";
 import Split from "@/components/motion/Split";
@@ -88,6 +89,31 @@ export default function AboutPage() {
           </Link>
         </div>
       </section>
+      {testimonials.length > 0 && (
+        <section
+          className="testimonials section-shell"
+          aria-labelledby="testimonials-title"
+        >
+          <Split id="testimonials-title">
+            In their
+            <br />
+            words.
+          </Split>
+          <div>
+            {testimonials.map((t) => (
+              <figure key={t.name} data-reveal="rise rule">
+                <blockquote>
+                  <p>{t.quote}</p>
+                </blockquote>
+                <figcaption>
+                  <strong>{t.name}</strong>
+                  <span>{t.role}</span>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+      )}
       <section className="experience-section section-shell">
         <Split>
           Where I’ve

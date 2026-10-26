@@ -593,6 +593,10 @@ export const skills = {
   ],
 };
 
+// Recommendations, quoted with permission. The About section that shows
+// them stays hidden while this is empty.
+export const testimonials: { quote: string; name: string; role: string }[] = [];
+
 export const certifications = [
   {
     name: "Product Academy Series 2023",

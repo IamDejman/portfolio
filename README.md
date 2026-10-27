@@ -33,9 +33,15 @@ npx playwright install chromium
 npm run test:e2e
 ```
 
-The browser suite starts the production build on port 3100. It checks desktop, tablet, and narrow-phone layouts, project-column alignment, navigation and filters, case-study links, and sculpture dragging/keyboard controls with reduced motion enabled. `tests/motion.spec.ts` turns motion on to check that scrolled content is never left hidden, that a project card's logo travels into its case study and that the pause control persists, and checks the reduced-motion and no-JavaScript states. Build first after source changes. Avoid running `next build` while serving that same build directory.
+The browser suite starts the production build on port 3100. It checks desktop, tablet, and narrow-phone layouts, project-column alignment, navigation and filters, case-study links, and sculpture dragging/keyboard controls with reduced motion enabled. `tests/motion.spec.ts` turns motion on to check that scrolled content is never left hidden, that a project card's logo travels into its case study and that the pause control persists, and checks the reduced-motion and no-JavaScript states. `tests/accessibility.spec.ts` runs axe (WCAG 2.2 A and AA, plus best practices) on every route, the open menu and a graded result. `tests/performance.spec.ts` holds key routes to the "good" lab thresholds for Largest Contentful Paint (2.5 s) and Cumulative Layout Shift (0.1) with motion on. `tests/grader.spec.ts` covers the grading demo against a mocked API, so no test calls the model. Build first after source changes. Avoid running `next build` while serving that same build directory.
 
 Failures retain Playwright traces under `test-results/`. GitHub Actions runs lint, build, and browser checks on pull requests and pushes to `main`, and uploads failure artifacts. Test output is ignored by Git.
+
+## Live grading demo
+
+The Skilladder case study includes a live grading demo. `src/app/api/grade/route.ts` sends the visitor's answer to Claude through the Anthropic SDK with the question and rubric in `src/data/grader.ts`, and returns per-criterion scores, the quote behind each score, a confidence level and a review flag. Nothing is stored.
+
+The section only appears when `ANTHROPIC_API_KEY` is set. Locally, put it in `.env.local` (Git ignores `.env*` files). On Vercel, add it under Project Settings → Environment Variables and redeploy. Set a monthly spend limit on the Anthropic workspace that owns the key: the route's per-visitor rate limit is held in memory, so it is best effort and resets when an instance restarts. The model is set in `MODEL` at the top of the route.
 
 ## Deployment
 

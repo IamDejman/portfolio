@@ -19,7 +19,7 @@ export default function WorkIndex() {
     >
       <div className="index-heading">
         <Split id="index-heading">The wider collection.</Split>
-        <div className="index-filters" aria-label="Filter work" data-reveal="rise">
+        <div className="index-filters" role="group" aria-label="Filter work" data-reveal="rise">
           {categories.map((c) => (
             <button
               type="button"

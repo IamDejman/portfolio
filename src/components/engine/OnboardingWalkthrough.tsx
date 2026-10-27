@@ -76,6 +76,7 @@ export default function OnboardingWalkthrough() {
       </div>
       <div
         className="agent-stage-buttons"
+        role="group"
         aria-label="Agent stages"
         data-reveal="rise"
       >

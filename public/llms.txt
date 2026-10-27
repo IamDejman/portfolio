@@ -18,12 +18,19 @@ Key facts:
 - [Football Ladder](https://footballadder.com/): AWS-hosted early-access website for a football career simulation.
 - [Hotel California](https://github.com/IamDejman/hotel-california): Browser-agent prototype source. The portfolio does not present a completed recorded run or a leaderboard score.
 
+## Notes
+
+- [Letting AI grade, carefully](https://ayodejieluwande.vercel.app/notes/letting-ai-grade-carefully): How AI grading at Skilladder earned its place through rubrics, two weeks of shadow testing, confidence scores and one-click override.
+- [Pending is not paid](https://ayodejieluwande.vercel.app/notes/pending-is-not-paid): Orderflow's payment layer, with one interface for every provider and settlement from the ledger.
+- [The reliability work nobody asks for](https://ayodejieluwande.vercel.app/notes/reliability-nobody-asks-for): Durable queues, monitoring across 128 services and fair access at national scale.
+
 ## Pages
 
 - [Home](https://ayodejieluwande.vercel.app/): Interactive project discovery and selected work
 - [About](https://ayodejieluwande.vercel.app/about): Background, experience, education and certifications
 - [Work](https://ayodejieluwande.vercel.app/work): Builds and product leadership contributions
 - [Skills](https://ayodejieluwande.vercel.app/skills): Capabilities linked to project evidence
+- [Notes](https://ayodejieluwande.vercel.app/notes): Short technical notes from real projects
 - [Contact](https://ayodejieluwande.vercel.app/contact): Email, social links and CV
 - [Privacy](https://ayodejieluwande.vercel.app/privacy): Privacy policy
 - [CV](https://ayodejieluwande.vercel.app/cv): Curriculum vitae, with the PDF at https://ayodejieluwande.vercel.app/Ayodeji_Eluwande_CV.pdf

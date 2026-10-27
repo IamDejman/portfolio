@@ -72,7 +72,7 @@ export default function EngineHero() {
         </div>
       </div>
       <div className="world-controls" data-enter style={enter(6)}>
-        <div className="world-picker" aria-label="Explore a project">
+        <div className="world-picker" role="group" aria-label="Explore a project">
           {worlds.map((item, i) => (
             <button
               type="button"

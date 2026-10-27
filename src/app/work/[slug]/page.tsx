@@ -7,6 +7,8 @@ import { caseStudies, builtProjects, siteConfig } from "@/data/content";
 import AssessmentWalkthrough from "@/components/engine/AssessmentWalkthrough";
 import OnboardingWalkthrough from "@/components/engine/OnboardingWalkthrough";
 import CommerceWalkthrough from "@/components/engine/CommerceWalkthrough";
+import SystemMap from "@/components/engine/SystemMap";
+import LiveGrader from "@/components/engine/LiveGrader";
 import { ArrowRight } from "@/components/icons";
 import CopyEmail from "@/components/CopyEmail";
 import Split from "@/components/motion/Split";
@@ -67,7 +69,13 @@ export default async function CaseStudyPage({ params }: Props) {
             <ArrowRight size={18} />
           </a>
           {cs.url && (
-            <a href={cs.url} target="_blank" rel="noopener noreferrer">
+            <a
+              href={cs.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-track="visit-project"
+              data-track-label={cs.title}
+            >
               Visit the platform
               <ArrowRight size={17} />
             </a>
@@ -88,7 +96,12 @@ export default async function CaseStudyPage({ params }: Props) {
           </dl>
         </section>
       )}
-      {slug === "skilladder" && <AssessmentWalkthrough showCaseLink={false} />}
+      {slug === "skilladder" && (
+        <>
+          <AssessmentWalkthrough showCaseLink={false} />
+          <LiveGrader />
+        </>
+      )}
       {slug === "onboarding-engine" && <OnboardingWalkthrough />}
       {slug === "orderflow" && <CommerceWalkthrough />}
       <div className="case-story section-shell" id="project-story">
@@ -128,6 +141,7 @@ export default async function CaseStudyPage({ params }: Props) {
           )}
         </div>
       </div>
+      {cs.system && <SystemMap system={cs.system} />}
       {image && (
         <figure className="product-capture section-shell" data-reveal="image">
           <Image
@@ -152,7 +166,7 @@ export default async function CaseStudyPage({ params }: Props) {
           </Link>
         </div>
         <p className="case-contact" data-reveal="rise">
-          <a href={`mailto:${siteConfig.email}`}>
+          <a href={`mailto:${siteConfig.email}`} data-track="email">
             Talk about the work
             <ArrowRight size={17} />
           </a>

@@ -11,11 +11,18 @@ export const metadata: Metadata = {
 };
 const evidence = [
   {
-    title: "Turn ambiguity into a product.",
+    title: "Ship AI people can trust.",
     description:
-      "Research, prioritisation and delivery across the people who need to make a product work.",
-    link: "/work/tellerpoint",
-    name: "Tellerpoint",
+      "AI grading rolled out through shadow testing, confidence scores and one-click human override, cutting grading turnaround from days to hours.",
+    link: "/work/skilladder",
+    name: "Skilladder",
+  },
+  {
+    title: "Build beyond the happy path.",
+    description:
+      "Payment integrations, recovery and operational workflows that keep the product useful after launch.",
+    link: "/work/orderflow",
+    name: "Orderflow",
   },
   {
     title: "Design the workflow around the AI.",
@@ -25,11 +32,11 @@ const evidence = [
     name: "Onboarding Engine",
   },
   {
-    title: "Build beyond the happy path.",
+    title: "Turn ambiguity into a product.",
     description:
-      "Payment integrations, recovery and operational workflows that keep the product useful after launch.",
-    link: "/work/orderflow",
-    name: "Orderflow",
+      "Research, prioritisation and delivery across the people who need to make a product work.",
+    link: "/work/tellerpoint",
+    name: "Tellerpoint",
   },
 ];
 export default function SkillsPage() {

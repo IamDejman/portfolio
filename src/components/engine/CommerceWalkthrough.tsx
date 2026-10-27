@@ -51,7 +51,7 @@ export default function CommerceWalkthrough() {
         </p>
       </div>
       <div className="commerce-controls" data-reveal="rise">
-        <div aria-label="Business workflow">
+        <div role="group" aria-label="Business workflow">
           {verticals.map((v, i) => (
             <button
               type="button"

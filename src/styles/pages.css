@@ -994,6 +994,60 @@ result. A pending payment stops at the core, which keeps pinging.*/
   max-width: 65ch;
 }
 
+.testimonials {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 10%;
+  padding-top: 40px;
+}
+
+.testimonials > h2 {
+  font-family: var(--font-instrument-serif);
+  font-size: clamp(27px, 3vw, 42px);
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+}
+
+.testimonials figure {
+  --rule-color: var(--line);
+  padding: 30px 0 34px;
+  border-top: 1px solid var(--rule-color);
+}
+
+.testimonials blockquote p {
+  position: relative;
+  font-size: 19px;
+  line-height: 1.75;
+  color: var(--ink);
+  max-width: 62ch;
+}
+
+/*A blue quotation mark hangs in the margin.*/
+.testimonials blockquote p::before {
+  content: "\201C";
+  position: absolute;
+  left: -0.7em;
+  top: -0.12em;
+  font-family: var(--font-instrument-serif);
+  font-size: 1.9em;
+  line-height: 1;
+  color: var(--accent-text);
+}
+
+.testimonials figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  margin-top: 18px;
+  font-size: 13px;
+  color: var(--ink-3);
+}
+
+.testimonials figcaption strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
 .experience-section {
   background: var(--surface);
   max-width: none;
@@ -1260,6 +1314,29 @@ result. A pending payment stops at the core, which keeps pinging.*/
   .cv-actions > a:first-child:hover svg {
     transform: translateX(6px);
   }
+}
+
+.contact-place {
+  display: block;
+  margin-top: 8px;
+  font-size: 15px;
+  color: var(--ink-3);
+}
+
+/*The booking action is an outline version of the email action.*/
+.contact-actions > a.contact-booking {
+  gap: 28px;
+  padding: 17px 24px;
+  background: transparent;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+}
+
+.contact-authorization {
+  margin-top: 20px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--ink-2);
 }
 
 .contact-content {
@@ -1630,10 +1707,14 @@ result. A pending payment stops at the core, which keeps pinging.*/
   .about-prose > p {
     font-size: 15px;
   }
+  .testimonials,
   .experience-section,
   .background-section {
     grid-template-columns: 1fr;
     gap: 40px;
+  }
+  .testimonials blockquote p {
+    font-size: 16px;
   }
   .experience-section article {
     grid-template-columns: 1fr;
@@ -1700,6 +1781,917 @@ result. A pending payment stops at the core, which keeps pinging.*/
   }
   .contact-content h2 {
     font-size: 25px;
+  }
+}
+
+/*---- notes ----*/
+
+.notes-list {
+  padding-top: 0;
+}
+
+.notes-list > a {
+  --rule-color: var(--line);
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.4fr) 11rem 24px;
+  align-items: center;
+  gap: 30px;
+  padding: 34px 0;
+  border-top: 1px solid var(--rule-color);
+}
+
+.notes-list > a:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.notes-list h2 {
+  font-family: var(--font-instrument-serif);
+  font-size: clamp(22px, 2.2vw, 30px);
+  line-height: 1.25;
+  letter-spacing: -0.035em;
+  transition: transform 0.6s var(--engine-ease);
+}
+
+.notes-list p {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--ink-2);
+}
+
+.notes-list span {
+  font-size: 12px;
+  color: var(--ink-3);
+}
+
+.notes-list svg {
+  transition: transform 0.6s var(--engine-ease);
+}
+
+/*Notes fill with yellow from the left on hover, like the home list.*/
+.notes-list > a::before {
+  content: "";
+  position: absolute;
+  inset: 0 -18px;
+  z-index: -1;
+  background: var(--engine-yellow);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.6s var(--engine-ease);
+}
+
+@media (hover: hover) {
+  .notes-list > a:hover::before {
+    transform: none;
+    transform-origin: left;
+  }
+  .notes-list > a:hover h2 {
+    transform: translateX(14px);
+  }
+  .notes-list > a:hover svg {
+    transform: translateX(-10px);
+  }
+}
+
+.note-summary {
+  max-width: 60ch;
+  margin-top: 30px;
+  font-size: 19px;
+  line-height: 1.8;
+  color: var(--ink-2);
+}
+
+.note-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 26px;
+  margin-top: 26px;
+  font-size: 13px;
+  color: var(--ink-3);
+}
+
+.note-meta a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--accent-text);
+}
+
+.note-body {
+  padding-top: 0;
+}
+
+@media (max-width: 1000px) {
+  .notes-list > a {
+    grid-template-columns: minmax(0, 1fr) 24px;
+    gap: 12px;
+  }
+  .notes-list > a > :not(h2, svg) {
+    grid-column: 1;
+  }
+  .notes-list svg {
+    grid-column: 2;
+    grid-row: 1 / 4;
+  }
+}
+
+@media (max-width: 700px) {
+  .notes-list > a {
+    padding: 26px 0;
+  }
+  .note-summary {
+    font-size: 16px;
+  }
+}
+
+/*---- live grader ----*/
+
+.live-grader {
+  background: var(--wash);
+}
+
+.live-grader .section-intro > p {
+  max-width: 440px;
+}
+
+.live-grader .section-intro > p > span {
+  display: block;
+  margin-top: 12px;
+  font-size: 12px;
+  color: var(--ink-3);
+}
+
+.grader-body {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: 7%;
+  align-items: start;
+}
+
+.grader-brief {
+  --rule-color: var(--ink);
+  padding-top: 22px;
+  border-top: 1px solid var(--rule-color);
+}
+
+.grader-label {
+  font-size: 12px;
+  color: var(--ink-3);
+}
+
+.grader-question {
+  margin: 12px 0 34px;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: -0.02em;
+}
+
+.grader-criteria-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 12px;
+  counter-reset: criterion;
+}
+
+.grader-criteria-list li {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--ink-2);
+  counter-increment: criterion;
+}
+
+.grader-criteria-list li::before {
+  content: counter(criterion, decimal-leading-zero);
+  padding-top: 3px;
+  font-size: 12px;
+  color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+}
+
+.grader-criteria-list strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.grader-rubric {
+  margin-top: 26px;
+  border-top: 1px solid var(--line-2);
+}
+
+.grader-rubric summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+
+.grader-rubric summary::-webkit-details-marker {
+  display: none;
+}
+
+.grader-rubric summary::after {
+  content: "+";
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1;
+  transition: rotate 0.3s var(--engine-ease);
+}
+
+.grader-rubric[open] summary::after {
+  rotate: 45deg;
+}
+
+.grader-rubric summary:focus-visible {
+  outline: 2px solid var(--accent-text);
+  outline-offset: 4px;
+}
+
+.grader-rubric dl > div {
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+}
+
+.grader-rubric dt {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/*Levels count from 0, as the scores do.*/
+.grader-rubric ol {
+  display: grid;
+  gap: 4px;
+  margin-top: 8px;
+  counter-reset: level -1;
+}
+
+.grader-rubric li {
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr);
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--ink-2);
+  counter-increment: level;
+}
+
+.grader-rubric li::before {
+  content: counter(level);
+  color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+}
+
+.grader-form {
+  position: relative;
+}
+
+.grader-field {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 10px;
+  font-size: 12px;
+  color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+}
+
+.grader-field label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.grader-form textarea {
+  display: block;
+  width: 100%;
+  min-height: 230px;
+  padding: 18px 20px;
+  border: 1px solid var(--ink);
+  border-radius: 4px;
+  background: var(--bg);
+  color: var(--ink);
+  font: inherit;
+  font-size: 16px;
+  line-height: 1.7;
+  resize: vertical;
+}
+
+.grader-form textarea::placeholder {
+  color: var(--ink-3);
+}
+
+.grader-form textarea:focus-visible {
+  outline: 2px solid var(--accent-text);
+  outline-offset: 3px;
+}
+
+.grader-samples {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.grader-samples button {
+  min-height: 36px;
+  padding: 6px 15px;
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+  font-size: 13px;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.grader-samples button:hover {
+  border-color: var(--ink);
+  background: var(--engine-yellow);
+}
+
+.grader-submit {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 26px;
+}
+
+.grader-submit .btn {
+  flex-shrink: 0;
+}
+
+.grader-submit .btn:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+.grader-submit p {
+  max-width: 46ch;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--ink-3);
+}
+
+.grader-submit a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/*While a run is out, a signal travels along a rail under the form.*/
+.grader-progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -22px;
+  height: 2px;
+  overflow: hidden;
+  background: var(--line);
+}
+
+.grader-progress::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 30%;
+  background: var(--accent-text);
+}
+
+@keyframes motion-scan {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(340%);
+  }
+}
+
+:root[data-motion="on"] .grader-progress::after {
+  animation: motion-scan 1.3s var(--engine-ease-in-out) infinite;
+}
+
+.grader-result {
+  margin-top: 64px;
+}
+
+.grader-status {
+  font-size: 15px;
+  color: var(--ink-2);
+}
+
+.grader-error {
+  max-width: 70ch;
+  padding: 16px 20px;
+  border-left: 3px solid var(--accent-text);
+  background: var(--bg);
+  font-size: 15px;
+}
+
+.grader-outcome {
+  scroll-margin-top: 100px;
+}
+
+.grader-summary {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+  padding-bottom: 26px;
+  border-bottom: 1px solid var(--ink);
+}
+
+.grader-total {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+
+.grader-total strong {
+  font-family: var(--font-instrument-serif);
+  font-size: clamp(56px, 7vw, 96px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+.grader-total span {
+  font-size: 14px;
+  color: var(--ink-2);
+}
+
+.grader-summary dl {
+  display: flex;
+  gap: 40px;
+}
+
+.grader-summary dt {
+  font-size: 12px;
+  color: var(--ink-3);
+}
+
+.grader-summary dd {
+  margin-top: 4px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.grader-summary dd[data-level] {
+  text-transform: capitalize;
+}
+
+.grader-summary dd[data-level="low"] {
+  color: var(--accent-text);
+}
+
+.grader-flag {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 6px 14px;
+  margin-top: 24px;
+  padding: 18px 22px;
+  background: var(--engine-yellow);
+  color: #192111;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.grader-flag ul {
+  display: grid;
+  gap: 4px;
+}
+
+.grader-criteria {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 5%;
+}
+
+.grader-criteria > li {
+  padding: 30px 0 8px;
+}
+
+.grader-criteria h3 {
+  font-size: 19px;
+  letter-spacing: -0.015em;
+}
+
+/*The score is a row of radio buttons, so a reviewer can change it in one
+click; levels up to the score are filled.*/
+.grader-score {
+  display: flex;
+  gap: 6px;
+  margin: 14px 0 20px;
+  padding: 0;
+  border: 0;
+}
+
+.grader-score label {
+  position: relative;
+  cursor: pointer;
+}
+
+.grader-score input {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.grader-score span {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--ink);
+  border-radius: 3px;
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.grader-score label[data-filled] span {
+  background: var(--engine-yellow);
+}
+
+.grader-score input:checked + span {
+  background: var(--ink);
+  color: var(--inv);
+}
+
+.grader-score label:hover span {
+  border-color: var(--accent-text);
+}
+
+.grader-score input:focus-visible + span {
+  outline: 2px solid var(--accent-text);
+  outline-offset: 3px;
+}
+
+.grader-criteria blockquote {
+  padding-left: 16px;
+  border-left: 2px solid var(--ink);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.grader-criteria blockquote > p {
+  display: inline;
+}
+
+/*A quote found in the answer is marked as if with a highlighter.*/
+.grader-criteria blockquote[data-found] > p {
+  background-image: linear-gradient(transparent 55%, var(--engine-yellow) 55%);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.grader-criteria blockquote > span {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent-text);
+}
+
+.grader-no-evidence {
+  font-size: 14px;
+  color: var(--ink-3);
+}
+
+.grader-explanation {
+  margin-top: 14px;
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--ink-2);
+}
+
+.grader-criteria li > button {
+  margin-top: 12px;
+  padding: 6px 0;
+  font-size: 13px;
+  color: var(--accent-text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.grader-overall {
+  max-width: 90ch;
+  margin-top: 30px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line-2);
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--ink-2);
+}
+
+.grader-overall strong {
+  color: var(--ink);
+}
+
+.grader-override {
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--ink-3);
+}
+
+/*A result arrives in reading order: the total, then each criterion with
+its score filling in and its quote being marked.*/
+@keyframes motion-sweep {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+}
+
+@keyframes motion-highlight {
+  from {
+    background-size: 0% 100%;
+  }
+}
+
+:root[data-motion="on"] :is(.grader-summary, .grader-flag) {
+  animation: motion-rise 0.8s var(--engine-ease) both;
+}
+
+:root[data-motion="on"] .grader-criteria > li {
+  animation: motion-rise 0.8s var(--engine-ease) both;
+  animation-delay: calc(0.15s + var(--i, 0) * 0.12s);
+}
+
+:root[data-motion="on"] .grader-score {
+  animation: motion-sweep 0.7s var(--engine-ease) both;
+  animation-delay: calc(0.45s + var(--i, 0) * 0.12s);
+}
+
+:root[data-motion="on"] .grader-criteria blockquote[data-found] > p {
+  animation: motion-highlight 0.9s var(--engine-ease) both;
+  animation-delay: calc(0.75s + var(--i, 0) * 0.12s);
+}
+
+:root[data-motion="on"] :is(.grader-status, .grader-error) {
+  animation: motion-fade 0.4s ease both;
+}
+
+@media (max-width: 1000px) {
+  .grader-body {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 50px;
+  }
+  .grader-criteria {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .grader-criteria > li + li {
+    border-top: 1px solid var(--line-2);
+  }
+}
+
+@media (max-width: 700px) {
+  .grader-question {
+    font-size: 20px;
+  }
+  .grader-submit,
+  .grader-summary {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .grader-summary dl {
+    flex-wrap: wrap;
+    gap: 16px 28px;
+  }
+  .grader-flag {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/*---- under the hood ----*/
+
+.system-map {
+  background: var(--surface);
+}
+
+.system-map .section-intro > p {
+  max-width: 420px;
+}
+
+/*Steps hang from a rail like stations on a line; a signal runs along it
+once as the map arrives.*/
+.system-track {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(var(--steps, 5), minmax(0, 1fr));
+  gap: 30px;
+  padding-top: 38px;
+}
+
+.system-track::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--ink);
+  transform-origin: left;
+}
+
+.system-track::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent-text);
+  opacity: 0;
+}
+
+.system-track > li {
+  position: relative;
+}
+
+.system-track > li::before {
+  content: "";
+  position: absolute;
+  top: -38.5px;
+  left: 0;
+  width: 13px;
+  height: 13px;
+  border: 1px solid var(--ink);
+  border-radius: 50%;
+  background: var(--surface);
+}
+
+.system-track > li:first-child::before {
+  background: var(--engine-yellow);
+}
+
+.system-track > li > span {
+  font-size: 12px;
+  color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+}
+
+.system-track h3 {
+  margin: 10px 0 12px;
+  font-size: 21px;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.system-track p {
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--ink-2);
+}
+
+.system-foundation {
+  --rule-color: var(--line-2);
+  max-width: 90ch;
+  margin-top: 56px;
+  padding-top: 22px;
+  border-top: 1px solid var(--rule-color);
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--ink-2);
+}
+
+.system-foundation strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.system-decisions-title {
+  margin: 80px 0 26px;
+  font-size: 25px;
+  letter-spacing: -0.02em;
+}
+
+.system-decisions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 8%;
+}
+
+.system-decisions > article {
+  --rule-color: var(--line-2);
+  padding: 26px 0 32px;
+  border-top: 1px solid var(--rule-color);
+}
+
+.system-decisions h4 {
+  margin-bottom: 10px;
+  font-size: 19px;
+  letter-spacing: -0.015em;
+}
+
+.system-decisions p {
+  max-width: 60ch;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--ink-2);
+}
+
+@keyframes motion-rail {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+@keyframes motion-run {
+  0% {
+    left: 0;
+    opacity: 0;
+  }
+  12%,
+  88% {
+    opacity: 1;
+  }
+  100% {
+    left: calc(100% - 7px);
+    opacity: 0;
+  }
+}
+
+.system-track.is-armed:not(.is-revealed) > li {
+  opacity: 0;
+}
+
+.system-track.is-armed:not(.is-revealed)::before {
+  transform: scaleX(0);
+}
+
+:root[data-motion="on"] .system-track.is-revealed::before {
+  animation: motion-rail 1.4s var(--engine-ease) both;
+}
+
+:root[data-motion="on"] .system-track.is-revealed::after {
+  animation: motion-run 1.8s var(--engine-ease-in-out) 0.35s both;
+}
+
+:root[data-motion="on"] .system-track.is-revealed > li {
+  animation: motion-rise 0.8s var(--engine-ease) both;
+  animation-delay: calc(0.2s + var(--step, 0) * 0.17s);
+}
+
+@media (max-width: 1000px) {
+  .system-track {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 0 0 0 34px;
+  }
+  .system-track::before {
+    top: 0;
+    bottom: 0;
+    left: 6px;
+    right: auto;
+    width: 1px;
+    height: auto;
+    transform-origin: top;
+  }
+  .system-track::after {
+    display: none;
+  }
+  .system-track > li::before {
+    top: 4px;
+    left: -34px;
+  }
+  .system-track.is-armed:not(.is-revealed)::before {
+    transform: scaleY(0);
+  }
+  :root[data-motion="on"] .system-track.is-revealed::before {
+    animation-name: motion-rail-down;
+  }
+}
+
+@keyframes motion-rail-down {
+  from {
+    transform: scaleY(0);
+  }
+}
+
+@media (max-width: 700px) {
+  .system-track h3 {
+    font-size: 19px;
+  }
+  .system-track p,
+  .system-decisions p {
+    font-size: 14px;
+  }
+  .system-decisions-title {
+    margin-top: 56px;
+    font-size: 22px;
+  }
+  .system-decisions {
+    grid-template-columns: 1fr;
   }
 }
 

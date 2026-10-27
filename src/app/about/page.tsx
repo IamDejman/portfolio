@@ -6,6 +6,7 @@ import {
   pastRoles,
   education,
   certifications,
+  testimonials,
 } from "@/data/content";
 import { ArrowRight } from "@/components/icons";
 import Split from "@/components/motion/Split";
@@ -47,31 +48,35 @@ export default function AboutPage() {
             <br />I ship the code.
           </Split>
           <p data-enter style={enter(6)}>
-            My work starts with the unglamorous middle: user interviews,
-            roadmaps, sprint planning and getting a room of stakeholders to
-            agree on what should ship next.
+            I build AI products from the first conversation to production. At
+            Skilladder AI, I lead product and I am the primary engineer on the
+            assessment platform, from AI grading and retrieval to the client API
+            and the operations around them. It has served 32+ enterprise
+            clients, including six recurring clients.
           </p>
           <p data-enter style={enter(7)}>
-            At Tellerpoint, I owned the product role without writing code,
-            helping deliver technology for financial institutions, including
-            UnionDirect, Union Bank of Nigeria’s agency banking platform.
+            On my own, I built Orderflow, a WhatsApp commerce platform with live
+            payments, ledger-based settlement and a fleet of receipt printers
+            and scanners. It went from first commit to daily production traffic
+            in under five months.
           </p>
           <p data-enter style={enter(8)}>
-            I also build. At Skilladder AI, I lead product strategy and
-            operations and work hands-on on the assessment platform. The
-            platform has served 32+ enterprise clients, including six recurring
-            clients.
+            Product is where I started, and it is still part of every week.
+            User interviews, roadmaps, sprint planning and getting a room of
+            stakeholders to agree on what ships next. At Tellerpoint, I owned
+            product delivery for UnionDirect, Union Bank of Nigeria’s agency
+            banking platform, without writing code.
           </p>
           <p data-enter style={enter(9)}>
-            AI tools have changed how much of an idea I can carry through
-            myself. I work with Cursor, Claude Code, Codex and Gemini, alongside
-            the engineering decisions that make a product useful after its first
-            demo.
+            That mix is the point. I can decide what is worth building and then
+            build it, working with Claude Code, Cursor, Codex and Gemini
+            alongside the engineering decisions that keep a product useful after
+            its first demo.
           </p>
           <p data-enter style={enter(10)}>
-            Outside that work, my builds span WhatsApp commerce, learning,
-            logistics, legal services, fashion and community operations.
-            Different contexts keep the questions interesting.
+            Outside that work, my builds span learning, logistics, legal
+            services, fashion and community operations. Different contexts keep
+            the questions interesting.
           </p>
           <Link
             href="/work"
@@ -84,6 +89,31 @@ export default function AboutPage() {
           </Link>
         </div>
       </section>
+      {testimonials.length > 0 && (
+        <section
+          className="testimonials section-shell"
+          aria-labelledby="testimonials-title"
+        >
+          <Split id="testimonials-title">
+            In their
+            <br />
+            words.
+          </Split>
+          <div>
+            {testimonials.map((t) => (
+              <figure key={t.name} data-reveal="rise rule">
+                <blockquote>
+                  <p>{t.quote}</p>
+                </blockquote>
+                <figcaption>
+                  <strong>{t.name}</strong>
+                  <span>{t.role}</span>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+      )}
       <section className="experience-section section-shell">
         <Split>
           Where I’ve
@@ -114,7 +144,12 @@ export default function AboutPage() {
             <br />
             {education.period}
           </p>
-          <Link href="/cv" className="action-link" data-reveal="rise">
+          <Link
+            href="/cv"
+            className="action-link"
+            data-reveal="rise"
+            data-track="cv"
+          >
             View my CV
             <ArrowRight size={18} />
           </Link>

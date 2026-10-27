@@ -19,11 +19,20 @@ export default function CvPage() {
           <em>vitae.</em>
         </Split>
         <div className="cv-actions" data-enter style={enter(3)}>
-          <a href={siteConfig.cv} download="Ayodeji_Eluwande_CV.pdf">
+          <a
+            href={siteConfig.cv}
+            download="Ayodeji_Eluwande_CV.pdf"
+            data-track="cv-download"
+          >
             Download PDF
             <ArrowRight size={22} />
           </a>
-          <a href={siteConfig.cv} target="_blank" rel="noopener noreferrer">
+          <a
+            href={siteConfig.cv}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-track="cv-open"
+          >
             Open in a new tab
           </a>
         </div>

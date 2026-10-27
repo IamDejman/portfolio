@@ -30,6 +30,14 @@ test.describe('with motion', () => {
     }
   });
 
+  test('content that renders after the page still reveals', async ({ page }) => {
+    await page.route('**/api/grade', (route) => route.fulfill({ json: { available: true } }));
+    await page.goto('/work/skilladder');
+    await expect(page.locator('.live-grader .is-armed').first()).toBeAttached();
+    await scrollThrough(page);
+    await expect.poll(() => page.locator('.is-armed:not(.is-revealed)').count()).toBe(0);
+  });
+
   test('a project card carries its logo into the case study', async ({ page }) => {
     await page.addInitScript(() => {
       window.transitionLayers = [];

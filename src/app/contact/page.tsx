@@ -14,22 +14,31 @@ const links = [
     label: "Email",
     value: siteConfig.email,
     href: `mailto:${siteConfig.email}`,
+    track: "email",
   },
   {
     label: "LinkedIn",
     value: "Connect on LinkedIn",
     href: siteConfig.linkedin,
+    track: "social",
   },
   {
     label: "GitHub",
     value: "Explore the repositories",
     href: siteConfig.github,
+    track: "social",
   },
-  { label: "X", value: "Follow the conversation", href: siteConfig.twitter },
+  {
+    label: "X",
+    value: "Follow the conversation",
+    href: siteConfig.twitter,
+    track: "social",
+  },
   {
     label: "CV",
     value: "View or download the CV",
     href: "/cv",
+    track: "cv",
   },
 ];
 export default function ContactPage() {
@@ -44,12 +53,25 @@ export default function ContactPage() {
         <p data-enter style={enter(3)}>
           A role, a collaboration or a problem that needs a fresh pair of eyes.
           I’m open to a good conversation.
+          <span className="contact-place">
+            Based in Berlin, on {siteConfig.timezone}.
+          </span>
         </p>
         <div className="contact-actions" data-enter style={enter(4)}>
-          <a href={`mailto:${siteConfig.email}`}>
+          <a href={`mailto:${siteConfig.email}`} data-track="email">
             Send me an email
             <ArrowRight size={25} />
           </a>
+          {siteConfig.booking && (
+            <a
+              href={siteConfig.booking}
+              className="contact-booking"
+              data-track="booking"
+            >
+              Book 20 minutes
+              <ArrowRight size={21} />
+            </a>
+          )}
           <CopyEmail />
         </div>
       </header>
@@ -64,6 +86,8 @@ export default function ContactPage() {
                 ? { target: "_blank", rel: "noopener noreferrer" }
                 : {})}
               data-reveal="rise rule-bottom"
+              data-track={l.track}
+              data-track-label={l.label}
             >
               <span>{l.label}</span>
               <span>{l.value}</span>
@@ -78,6 +102,11 @@ export default function ContactPage() {
               <li key={item}>{item}</li>
             ))}
           </ul>
+          {siteConfig.workAuthorization && (
+            <p className="contact-authorization">
+              {siteConfig.workAuthorization}
+            </p>
+          )}
         </aside>
       </section>
     </div>

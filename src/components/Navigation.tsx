@@ -7,6 +7,7 @@ const links = [
   { label: "Work", href: "/work" },
   { label: "About", href: "/about" },
   { label: "Skills", href: "/skills" },
+  { label: "Notes", href: "/notes" },
   { label: "Contact", href: "/contact" },
 ];
 export default function Navigation() {
@@ -55,6 +56,7 @@ export default function Navigation() {
         <Link
           className="nav-cv"
           href="/cv"
+          data-track="cv"
           aria-current={pathname === "/cv" ? "page" : undefined}
         >
           View CV <ArrowRight size={15} />
@@ -90,6 +92,7 @@ export default function Navigation() {
           ))}
           <Link
             href="/cv"
+            data-track="cv"
             onClick={() => setOpen(false)}
             style={{ "--k": links.length } as CSSProperties}
           >

@@ -90,6 +90,7 @@ export default function AssessmentWalkthrough({
       </div>
       <div
         className="stage-selector"
+        role="group"
         aria-label="Assessment stages"
         data-reveal="rule-bottom"
       >

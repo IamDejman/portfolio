@@ -8,13 +8,13 @@ export default function Footer() {
         Ayodeji Eluwande
       </Link>
       <div>
-        <a href={siteConfig.linkedin} target="_blank" rel="noopener noreferrer">
+        <a href={siteConfig.linkedin} target="_blank" rel="noopener noreferrer" data-track="social" data-track-label="LinkedIn">
           LinkedIn
         </a>
-        <a href={siteConfig.github} target="_blank" rel="noopener noreferrer">
+        <a href={siteConfig.github} target="_blank" rel="noopener noreferrer" data-track="social" data-track-label="GitHub">
           GitHub
         </a>
-        <a href={siteConfig.twitter} target="_blank" rel="noopener noreferrer">
+        <a href={siteConfig.twitter} target="_blank" rel="noopener noreferrer" data-track="social" data-track-label="X">
           X
         </a>
         <Link href="/privacy">Privacy</Link>

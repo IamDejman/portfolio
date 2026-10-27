@@ -54,7 +54,7 @@
   border-radius: 3px;
 }
 
-.work-lead h2 {
+.work-lead h3 {
   font-family: var(--font-instrument-serif);
   font-size: clamp(27px, 3vw, 45px);
   letter-spacing: -0.035em;
@@ -152,25 +152,6 @@
   letter-spacing: -0.03em;
 }
 
-.index-filters {
-  display: flex;
-  gap: 5px;
-  flex-wrap: wrap;
-}
-
-.index-filters button {
-  font-size: 12px;
-  padding: 10px 16px;
-  border: 1px solid var(--line);
-  border-radius: 3px;
-}
-
-.index-filters button[aria-pressed="true"] {
-  background: var(--engine-yellow);
-  color: #182014;
-  border-color: var(--accent-text);
-}
-
 .index-note {
   font-size: 13px;
   color: var(--ink-3);
@@ -207,12 +188,6 @@
     transform: none;
     transform-origin: left;
   }
-}
-
-/*Changing the filter replays the list from the top.*/
-:root[data-motion="on"] .work-index-list[data-filtered] > article {
-  animation: motion-rise 0.7s var(--engine-ease) both;
-  animation-delay: calc(min(var(--row, 0), 8) * 60ms);
 }
 
 .index-project-name h3 {
@@ -409,22 +384,87 @@
   font-size: 12px;
 }
 
-.product-capture {
-  padding-top: 0;
-  padding-bottom: 70px;
-  max-width: 1280px;
+/*Each part of a case study carries its number, so the shared order reads
+the same from one study to the next.*/
+.case-prose h2 > span {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 12px;
+  letter-spacing: 0;
+  color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
 }
 
-.product-capture img {
+.case-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.case-stack li {
+  padding: 7px 15px;
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+  font-size: 14px;
+}
+
+/*The hard bug or tradeoff hangs from a blue rule that draws down as the
+part arrives.*/
+.case-challenge {
+  position: relative;
+  padding: 4px 0 4px 26px;
+}
+
+.case-challenge::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 3px;
+  background: var(--accent-text);
+  transform-origin: top;
+}
+
+.case-challenge h3 {
+  font-size: 23px;
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+}
+
+.is-armed:not(.is-revealed) .case-challenge::before {
+  transform: scaleY(0);
+}
+
+.is-revealed .case-challenge::before {
+  transition: transform 1.2s var(--engine-ease)
+    calc(var(--reveal-delay, 0ms) + 0.3s);
+}
+
+.case-capture img,
+.case-recording {
+  display: block;
   width: 100%;
   height: auto;
+  border: 1px solid var(--line);
   border-radius: 3px;
 }
 
-.product-capture figcaption {
-  font-size: 12px;
-  color: var(--ink-3);
-  margin-top: 20px;
+.case-prose .case-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 35px;
+  margin-top: 22px;
+}
+
+.case-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 0;
+  font-size: 14px;
+  color: var(--accent-text);
 }
 
 .case-next {
@@ -1493,7 +1533,7 @@ result. A pending payment stops at the core, which keeps pinging.*/
     padding: 27px;
     min-height: 240px;
   }
-  .work-lead h2 {
+  .work-lead h3 {
     font-size: 27px;
     max-width: 260px;
   }
@@ -1513,10 +1553,6 @@ result. A pending payment stops at the core, which keeps pinging.*/
   }
   .index-heading h2 {
     font-size: 27px;
-  }
-  .index-filters button {
-    padding: 10px 12px;
-    font-size: 12px;
   }
   .work-index-list > article {
     grid-template-columns: 1fr;
@@ -1594,9 +1630,14 @@ result. A pending payment stops at the core, which keeps pinging.*/
   .confirmed-outcome p {
     font-size: 17px;
   }
-  .product-capture {
-    padding-top: 0;
-    padding-bottom: 45px;
+  .case-challenge {
+    padding-left: 18px;
+  }
+  .case-challenge h3 {
+    font-size: 20px;
+  }
+  .case-stack li {
+    font-size: 13px;
   }
   .case-next > div > a {
     font-size: 25px;
@@ -2731,6 +2772,138 @@ once as the map arrives.*/
   color: var(--ink-2);
 }
 
+/*---- work page groups ----*/
+
+.work-group-title {
+  margin-bottom: 18px;
+  font-size: 32px;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.work-products {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.work-products > article {
+  --rule-color: var(--ink);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 22px;
+  border-top: 1px solid var(--rule-color);
+}
+
+.work-products img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 8px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+}
+
+.work-products h3 {
+  font-size: 22px;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+
+.work-products span {
+  font-size: 12px;
+  color: var(--ink-3);
+}
+
+.work-products p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--ink-2);
+}
+
+.work-products span:last-of-type {
+  margin-top: auto;
+  padding-top: 6px;
+}
+
+.work-products a {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  width: fit-content;
+  padding: 6px 0;
+  font-size: 13px;
+  color: var(--accent-text);
+}
+
+.work-products a svg {
+  transition: transform 0.5s var(--engine-ease);
+}
+
+.work-products a:hover svg {
+  transform: translateX(6px);
+}
+
+.work-studies,
+.earlier-roles {
+  padding-top: 90px;
+  padding-bottom: 0;
+}
+
+.earlier-roles ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 6%;
+  margin-top: 14px;
+}
+
+.earlier-roles li {
+  --rule-color: var(--line-2);
+  padding: 22px 0 28px;
+  border-top: 1px solid var(--rule-color);
+}
+
+.earlier-roles h3 {
+  font-size: 19px;
+  letter-spacing: -0.015em;
+}
+
+.earlier-roles li > span {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--ink-3);
+}
+
+.earlier-roles p {
+  max-width: 60ch;
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--ink-2);
+}
+
+@media (max-width: 1000px) {
+  .work-products {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+  }
+  .earlier-roles ul {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .work-group-title {
+    font-size: 27px;
+  }
+  .work-studies,
+  .earlier-roles {
+    padding-top: 65px;
+  }
+}
+
 /*---- secondary case studies and index thumbnails ----*/
 
 .work-leads-more {
@@ -2753,7 +2926,7 @@ once as the map arrives.*/
   background: var(--surface);
 }
 
-.work-leads-more h2 {
+.work-leads-more h3 {
   font-family: var(--font-instrument-serif);
   font-size: clamp(22px, 2vw, 28px);
   letter-spacing: -0.035em;
@@ -2798,8 +2971,13 @@ once as the map arrives.*/
     padding-bottom: 50px;
   }
   .case-metrics dl {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 24px 18px;
+  }
+  /*Figures such as "~109,000" scale with the screen so two still fit side
+  by side on the narrowest phones.*/
+  .case-metrics dd {
+    font-size: clamp(22px, 7.2vw, 30px);
   }
   .work-leads-more {
     grid-template-columns: 1fr;

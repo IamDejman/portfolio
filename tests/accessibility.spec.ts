@@ -1,7 +1,7 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Page } from '@playwright/test';
 
-const routes = ['/', '/work', '/about', '/skills', '/notes', '/contact', '/privacy', '/cv', '/work/skilladder', '/work/orderflow', '/work/onboarding-engine', '/work/carbin', '/work/tellerpoint', '/notes/letting-ai-grade-carefully', '/notes/pending-is-not-paid', '/notes/reliability-nobody-asks-for', '/not-a-page'];
+const routes = ['/', '/work', '/about', '/skills', '/notes', '/contact', '/privacy', '/cv', '/work/skilladder', '/work/orderflow', '/work/onboarding-engine', '/work/tellerpoint', '/notes/letting-ai-grade-carefully', '/notes/pending-is-not-paid', '/notes/reliability-nobody-asks-for', '/not-a-page'];
 
 // WCAG 2.2 A and AA, plus axe's best practices. Pages are checked in their
 // final state: the default project reduces motion, so nothing is mid-reveal.

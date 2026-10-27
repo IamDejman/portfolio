@@ -16,7 +16,7 @@ Demonstrate advanced AI tooling practice through inspectable work and a distinct
 
 ## Positioning
 
-An AI product engineer whose work spans agent orchestration, assessments, business workflows, operational systems and customer-facing products. Ayodeji chose this title on 26 October 2026; employment titles such as Lead AI Product Manager - Operations stay as held. Describe specific contributions; repository access or ownership alone does not establish sole authorship.
+An AI product engineer whose work spans agent orchestration, assessments, business workflows, operational systems and customer-facing products. Ayodeji chose this title on 26 October 2026; employment titles such as Lead AI Product Manager, Operations stay exactly as held, matching the CV. Describe specific contributions; repository access or ownership alone does not establish sole authorship.
 
 ## Operating Context
 

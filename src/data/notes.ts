@@ -45,6 +45,12 @@ export const notes: Note[] = [
         ],
       },
       {
+        heading: "The right model for the job",
+        paragraphs: [
+          "Later, grading moved from Claude Sonnet to Claude Haiku, which cut its cost from about $30 to $8 a week. The confidence scores and the one-click override stayed in place, so a person can still catch a grade that looks wrong.",
+        ],
+      },
+      {
         heading: "Evaluation keeps going",
         paragraphs: [
           "A small evaluation baseline is a starting point, not proof of universal accuracy. Rubrics change, questions change and candidates answer in ways nobody planned for, so evaluation stays part of the product work instead of a box ticked at launch.",
@@ -57,7 +63,7 @@ export const notes: Note[] = [
     slug: "pending-is-not-paid",
     title: "Pending is not paid",
     summary:
-      "Building Orderflow's payment layer. One interface for every provider, settlement from the ledger and a hard line between pending and paid.",
+      "Building Orderflow's payment layer. One interface for every provider, settlement from the ledger, and hard lines between pending and paid, and between unknown and failed.",
     published: "2026-10-26",
     related: { label: "Orderflow case study", href: "/work/orderflow" },
     sections: [
@@ -80,6 +86,18 @@ export const notes: Note[] = [
         ],
       },
       {
+        heading: "Unknown is not failed",
+        paragraphs: [
+          "Payouts get the same rule in the other direction. A payout status checker follows each payout and never marks an unknown payout as failed. An unknown payout stays open until the provider confirms what happened, because one marked failed by mistake could be paid twice.",
+        ],
+      },
+      {
+        heading: "Trust the signature",
+        paragraphs: [
+          "One bug came down to one word. A payment Rubies had confirmed did not register as successful, because one side of the integration said “SUCCESS” and the other said “Successful”. I fixed the match, then added HMAC signature verification, so a webhook only changes an order when its signature shows it came from Rubies.",
+        ],
+      },
+      {
         heading: "Settle from the ledger",
         paragraphs: [
           "Settlement is calculated from ledger entries, grouped by day cycle, with audit trails and a capped processing fee. When a merchant asks why a payout is what it is, the answer is the list of entries behind it.",
@@ -98,19 +116,19 @@ export const notes: Note[] = [
     slug: "reliability-nobody-asks-for",
     title: "The reliability work nobody asks for",
     summary:
-      "Keeping Skilladder dependable for a cohort of more than 85,000 candidates. Durable queues, monitoring across 128 services and a careful move behind Cloudflare.",
+      "Keeping Skilladder dependable through Nigeria's 3MTT programme and beyond. Durable queues, monitoring across 128 services and a careful move behind Cloudflare.",
     published: "2026-10-26",
     related: { label: "Skilladder case study", href: "/work/skilladder" },
     sections: [
       {
         paragraphs: [
-          "When Skilladder's assessment platform took on a national talent programme, with a cohort of more than 85,000 candidates, the work that mattered most was the work nobody asks for in a demo.",
+          "When Skilladder's assessment platform took on Nigeria's 3MTT programme, the work that mattered most was the work nobody asks for in a demo. The platform has now handled about 109,000 completed attempts from roughly 48,000 candidates.",
         ],
       },
       {
         heading: "Queues, not hope",
         paragraphs: [
-          "Results and notifications used to go out email by email, and that was fragile. I replaced it with durable, database-backed queues and workers, so delivery no longer depends on a single send succeeding.",
+          "During 3MTT, results and notifications went out one email at a time, and some never arrived. I rebuilt sending as a durable, database-backed queue with workers, so a failed send is retried instead of lost, and delivery no longer depends on a single attempt.",
         ],
       },
       {
@@ -128,7 +146,7 @@ export const notes: Note[] = [
       {
         heading: "Fairness is reliability too",
         paragraphs: [
-          "A platform is not dependable if it fails particular candidates. A mobile fix restored fair retakes for 1,300+ affected candidates, read-aloud assessments use Nigerian accent voices, and extended time accommodations are enforced on the server so they hold on any device.",
+          "A platform is not dependable if it fails particular candidates. When candidates were dropping off, an accessibility rebuild shipped in three days improved screen-reader support, keyboard navigation and use on low-end Android phones, and completion improved. A mobile fix restored fair retakes for 1,300+ affected candidates, read-aloud assessments use Nigerian accent voices, and extended time accommodations are enforced on the server so they hold on any device.",
           "None of this shows up in a screenshot. All of it shows up when a national cohort relies on the platform.",
         ],
       },

@@ -1,9 +1,15 @@
 import ProjectLogo from "@/components/ProjectLogo";
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { caseStudies, builtProjects, siteConfig } from "@/data/content";
+import {
+  caseStudies,
+  builtProjects,
+  siteConfig,
+  type CaseStudy,
+} from "@/data/content";
 import AssessmentWalkthrough from "@/components/engine/AssessmentWalkthrough";
 import OnboardingWalkthrough from "@/components/engine/OnboardingWalkthrough";
 import CommerceWalkthrough from "@/components/engine/CommerceWalkthrough";
@@ -23,11 +29,125 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const cs = caseStudies.find((c) => c.slug === slug);
   return cs ? { title: `${cs.title} Case Study`, description: cs.summary } : {};
 }
+
+type Part = { id: string; heading: string; body: ReactNode };
+
+// Every case study tells its story in the same order. A part is left out
+// only when there is nothing true to put in it.
+function story(cs: CaseStudy, image?: string): Part[] {
+  const paragraphs = (list: string[]) =>
+    list.map((p) => <p key={p.slice(0, 40)}>{p}</p>);
+  const parts: (Part | false | undefined)[] = [
+    { id: "problem", heading: "The problem", body: paragraphs(cs.problem) },
+    {
+      id: "built",
+      heading: cs.builtHeading ?? "What I built",
+      body: paragraphs(cs.built),
+    },
+    cs.stack && {
+      id: "stack",
+      heading: "The stack",
+      body: (
+        <ul className="case-stack">
+          {cs.stack.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+      ),
+    },
+    cs.challenge && {
+      id: cs.challenge.kind === "bug" ? "hard-bug" : "tradeoff",
+      heading: cs.challenge.kind === "bug" ? "The hard bug" : "The tradeoff",
+      body: (
+        <div className="case-challenge">
+          <h3>{cs.challenge.title}</h3>
+          {paragraphs(cs.challenge.paragraphs)}
+        </div>
+      ),
+    },
+    {
+      id: "result",
+      heading: "The result",
+      body: (
+        <>
+          {paragraphs(cs.result)}
+          {cs.slug === "skilladder" && (
+            <div className="confirmed-outcome">
+              <h3>From a platform to a business.</h3>
+              <p>32+ enterprise clients, including six recurring clients.</p>
+              <span>Business outcomes confirmed by Ayodeji, October 2026.</span>
+            </div>
+          )}
+        </>
+      ),
+    },
+    Boolean(cs.recording || image || cs.repo || cs.url) && {
+      id: "see-it",
+      heading: "See it",
+      body: (
+        <>
+          {cs.recording ? (
+            <video
+              className="case-recording"
+              src={cs.recording}
+              controls
+              muted
+              playsInline
+              preload="metadata"
+              aria-label={`Screen recording of ${cs.title}`}
+            />
+          ) : (
+            image && (
+              <figure className="case-capture">
+                <Image
+                  src={image}
+                  alt={`${cs.title} product interface`}
+                  width={1600}
+                  height={1000}
+                  sizes="(max-width: 1000px) 90vw, 650px"
+                />
+              </figure>
+            )
+          )}
+          <p className="case-links">
+            {cs.url && (
+              <a
+                href={cs.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-track="visit-project"
+                data-track-label={cs.title}
+              >
+                Visit the platform
+                <ArrowRight size={17} />
+              </a>
+            )}
+            {cs.repo && (
+              <a
+                href={cs.repo}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-track="visit-repo"
+                data-track-label={cs.title}
+              >
+                Read the source
+                <ArrowRight size={17} />
+              </a>
+            )}
+          </p>
+        </>
+      ),
+    },
+  ];
+  return parts.filter((part): part is Part => Boolean(part));
+}
+
 export default async function CaseStudyPage({ params }: Props) {
   const { slug } = await params;
   const cs = caseStudies.find((c) => c.slug === slug);
   if (!cs) notFound();
   const image = builtProjects.find((p) => p.caseStudy === slug)?.image;
+  const parts = story(cs, image);
   const next =
     caseStudies[
       (caseStudies.findIndex((c) => c.slug === slug) + 1) % caseStudies.length
@@ -96,6 +216,27 @@ export default async function CaseStudyPage({ params }: Props) {
           </dl>
         </section>
       )}
+      <div className="case-story section-shell" id="project-story">
+        <nav aria-label="Case study sections" data-reveal="stagger">
+          {parts.map((part) => (
+            <a key={part.id} href={`#${part.id}`}>
+              {part.heading}
+            </a>
+          ))}
+        </nav>
+        <div className="case-prose">
+          {parts.map((part, i) => (
+            <section key={part.id} id={part.id} data-reveal="rise">
+              <h2>
+                <span aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+                {part.heading}
+              </h2>
+              {part.body}
+            </section>
+          ))}
+        </div>
+      </div>
+      {cs.system && <SystemMap system={cs.system} />}
       {slug === "skilladder" && (
         <>
           <AssessmentWalkthrough showCaseLink={false} />
@@ -104,59 +245,6 @@ export default async function CaseStudyPage({ params }: Props) {
       )}
       {slug === "onboarding-engine" && <OnboardingWalkthrough />}
       {slug === "orderflow" && <CommerceWalkthrough />}
-      <div className="case-story section-shell" id="project-story">
-        <nav aria-label="Case study sections" data-reveal="stagger">
-          {cs.sections.map((section) => (
-            <a
-              key={section.heading}
-              href={`#${section.heading.toLowerCase().replace(/\s+/g, "-")}`}
-            >
-              {section.heading}
-            </a>
-          ))}
-        </nav>
-        <div className="case-prose">
-          {cs.sections.map((section) => (
-            <section
-              key={section.heading}
-              id={section.heading.toLowerCase().replace(/\s+/g, "-")}
-              data-reveal="rise"
-            >
-              <h2>{section.heading}</h2>
-              {section.paragraphs.map((p) => (
-                <p key={p.slice(0, 40)}>{p}</p>
-              ))}
-            </section>
-          ))}
-          {slug === "skilladder" && (
-            <div className="confirmed-outcome" data-reveal="wipe">
-              <h3>From a platform to a business.</h3>
-              <p>
-                32+ enterprise clients, including six recurring clients.
-              </p>
-              <span>
-                Business outcomes confirmed by Ayodeji, October 2026.
-              </span>
-            </div>
-          )}
-        </div>
-      </div>
-      {cs.system && <SystemMap system={cs.system} />}
-      {image && (
-        <figure className="product-capture section-shell" data-reveal="image">
-          <Image
-            src={image}
-            alt={`${cs.title} product interface`}
-            width={1600}
-            height={1000}
-            sizes="(max-width: 1280px) 90vw, 1152px"
-          />
-          <figcaption>
-            A view of the product interface. The interactive examples above are
-            explanatory illustrations.
-          </figcaption>
-        </figure>
-      )}
       <section className="case-next section-shell">
         <div data-reveal="rise">
           <p>Keep exploring</p>

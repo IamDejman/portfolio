@@ -21,7 +21,7 @@ export const siteConfig = {
 
 export const currentRoles = [
   {
-    title: "Lead AI Product Manager - Operations",
+    title: "Lead AI Product Manager, Operations",
     org: "Skilladder AI",
     period: "May 2025 - Present",
   },
@@ -49,7 +49,7 @@ export const pastRoles = [
     period: "May 2024 - Feb 2026",
   },
   {
-    title: "Product Manager",
+    title: "Product Manager, Consultancy",
     org: "Devlabs Africa Limited",
     period: "May 2024 - May 2025",
   },
@@ -59,79 +59,44 @@ export const pastRoles = [
     period: "Sep 2022 - May 2024",
   },
   {
-    title: "Associate Product Manager",
+    title: "Associate Product Manager, Training Programme",
     org: "Treford",
     period: "May 2022 - Jul 2022",
   },
 ];
 
-export type Project = {
-  title: string;
-  client: string;
-  role: string;
-  description: string;
-  tags: string[];
-  highlight: string;
-  caseStudy?: string;
-};
-
-export const projects: Project[] = [
+// Product roles before the builds, one line each on the Work page.
+export const earlierRoles = [
   {
-    title: "Skilladder AI",
-    client: "Skilladder AI",
-    role: "Lead AI Product Manager - Operations",
-    description:
-      "Skilladder runs verified skills assessments for hiring across Africa. I took the assessment platform from prototype to primary product, cutting deployment time by 85%, while leading product strategy from planning to retrospective with AI tools including Cursor, Claude Code, and Codex.",
-    tags: ["HRTech", "AI", "Assessment", "Hiring"],
-    highlight: "Cut deployment time by 85%",
-    caseStudy: "skilladder",
+    name: "Carbin Africa",
+    role: "Product Manager, Consultancy",
+    org: "Devlabs Africa",
+    period: "May 2024 - May 2025",
+    summary:
+      "Product strategy for an automotive marketplace's dealer inventory workflows. Carbin was named #1 on Tech Cabal's 25 Startups to Watch in 2025.",
   },
   {
-    title: "Tellerpoint Collections & Mini",
-    client: "Tellerpoint",
+    name: "GPS",
+    role: "Product Manager, Consultancy",
+    org: "Devlabs Africa",
+    period: "May 2024 - May 2025",
+    summary: "Real-time tracking and automated dispatch for its delivery platform.",
+  },
+  {
+    name: "Switch Recycling",
     role: "Product Manager",
-    description:
-      "Led product strategy and development lifecycle of Collection's Mobile and Web App, plus the Tellerpoint Mini. Conducted extensive user interviews that improved product features and implemented agile practices through weekly syncs and scrum rituals.",
-    tags: ["Fintech", "Agency Banking", "Mobile", "Agile"],
-    highlight: "End-to-end product lifecycle",
-    caseStudy: "tellerpoint",
+    org: "Switch Recycling",
+    period: "Sep 2022 - May 2024",
+    summary:
+      "Raised user engagement by 15% with improvements to the waste collection Request feature.",
   },
   {
-    title: "Carbin Africa",
-    client: "Devlabs Africa",
-    role: "Product Manager",
-    description:
-      'Drove product strategy and roadmap for Carbin Africa, an automotive marketplace platform. Optimised dealer inventory management and increased platform adoption, helping achieve #1 on Tech Cabal\'s "25 Startups to Watch in 2025".',
-    tags: ["Automotive", "Marketplace", "Strategy", "Growth"],
-    highlight: "#1 on Tech Cabal's 25 to Watch",
-    caseStudy: "carbin",
-  },
-  {
-    title: "GPS Delivery Platform",
-    client: "Devlabs Africa",
-    role: "Product Manager",
-    description:
-      "Delivered GPS's integrated delivery ecosystem with real-time tracking and automated dispatch features.",
-    tags: ["Logistics", "Delivery", "Real-time", "Automation"],
-    highlight: "Real-time tracking & dispatch",
-  },
-  {
-    title: "Switch Recycling",
-    client: "Switch Recycling",
-    role: "Product Manager",
-    description:
-      "Boosted user engagement by 15% through UX enhancements to the Request feature. Partnered with cross-functional teams to deliver a waste management app through analysed user data and market trends. Created training materials that improved adoption and reduced support queries.",
-    tags: ["WasteTech", "Mobile App", "UX", "Fintech"],
-    highlight: "15% user engagement boost",
-  },
-  {
-    title: "BetaCare",
-    client: "Treford",
-    role: "Associate Product Manager",
-    description:
-      "Pitched and developed BetaCare, an electronic health record product selected as the top solution for its scalability and viability in reducing administrative overhead for healthcare providers. Developed comprehensive product strategy including user personas, business models, and product roadmap.",
-    tags: ["HealthTech", "EHR", "Strategy", "Prototyping"],
-    highlight: "Selected as top solution",
+    name: "BetaCare",
+    role: "Associate Product Manager, Training Programme",
+    org: "Treford",
+    period: "May 2022 - Jul 2022",
+    summary:
+      "An electronic health record concept, prototype and roadmap, selected as the programme's top solution.",
   },
 ];
 
@@ -140,7 +105,8 @@ export type BuiltProject = {
   url?: string;
   caseStudy?: string;
   image?: string;
-  flagship?: boolean;
+  // The products I built myself, shown first on the Work page.
+  featured?: boolean;
   description: string;
   tech: string[];
   highlight: string;
@@ -150,38 +116,39 @@ export const builtProjects: BuiltProject[] = [
   {
     title: "Skilladder Assessment Platform",
     image: "/work/skilladder.jpg",
-    flagship: true,
+    featured: true,
     caseStudy: "skilladder",
     url: "https://assessments.skilladder.ai",
     description:
-      "Multi-tenant skills assessment platform with a creator studio, proctoring and anti-fraud telemetry, a job board, and employer talent matching. Built a durable email pipeline and a 60+ endpoint client API, deployed for a national talent cohort of 85,000+ candidates.",
+      "Multi-tenant AI assessment platform with a creator studio, AI grading, proctoring and anti-fraud telemetry, a job board and employer talent matching. About 109,000 completed attempts from roughly 48,000 candidates.",
     tech: ["React", "Vite", "Supabase", "Railway"],
-    highlight: "85,000+ candidate cohort",
+    highlight: "Primary engineer",
   },
   {
     title: "Orderflow",
     image: "/work/orderflow.jpg",
-    flagship: true,
+    featured: true,
     caseStudy: "orderflow",
     url: "https://app.tryorderflow.com",
     description:
       "Conversational commerce on WhatsApp: food ordering and table booking, event ticketing, electricity vending and vehicle paper renewal, all on one shared engine. Payments, settlement, a printer and scanner fleet, and a Next.js merchant dashboard.",
     tech: ["Kotlin", "Spring Boot", "Next.js", "WhatsApp Flow API"],
-    highlight: "3 verticals in production",
+    highlight: "Sole engineer, Kotlin and Spring Boot",
   },
   {
     title: "GRWTEE",
     image: "/work/grwtee.jpg",
-    flagship: true,
+    featured: true,
     url: "https://grwtee.com",
     description:
       "Personal styling iOS app with a digital wardrobe, AI virtual try-on, lookbooks, and an outfit calendar. Expo and React Native client, Next.js API on Vercel, Supabase auth and storage with row level security, shipped through TestFlight.",
     tech: ["React Native", "Expo", "Next.js", "Supabase"],
-    highlight: "AI styling app on iOS",
+    highlight: "iOS app on TestFlight",
   },
   {
     title: "Banyan Claims",
     image: "/work/banyan-claims.jpg",
+    featured: true,
     url: "https://banyanclaims.com",
     description:
       "Public website and customer claims portal for a claims support consultancy, built end to end. Typed API contract, strict Content Security Policy, accessibility fixes, and a full V2 design revision.",
@@ -192,6 +159,7 @@ export const builtProjects: BuiltProject[] = [
     title: "Harvesters Workers System",
     url: "https://attendance.hiccgbagada.com",
     image: "/work/hicc-attendance.jpg",
+    featured: true,
     description:
       "Workforce platform for a large church organization. Profiles, departments, role-based access with Row Level Security, a bulk SMS and email engine with dual gateways and cost estimation, training with automated certificates, and event registration at scale.",
     tech: ["React", "Supabase", "TanStack Query", "SendGrid"],
@@ -264,6 +232,9 @@ export type System = {
   decisions: { title: string; body: string }[];
 };
 
+// Every case study tells its story in the same order: the problem, what was
+// built, the stack, one hard bug or tradeoff, the result, and where to see
+// it working. The case study page renders these fields in that order.
 export type CaseStudy = {
   slug: string;
   title: string;
@@ -273,84 +244,56 @@ export type CaseStudy = {
   summary: string;
   url?: string;
   metrics: { value: string; label: string }[];
-  sections: { heading: string; paragraphs: string[] }[];
+  problem: string[];
+  built: string[];
+  // A product role delivers what a team builds.
+  builtHeading?: string;
+  stack?: string[];
+  challenge?: { kind: "bug" | "tradeoff"; title: string; paragraphs: string[] };
+  result: string[];
+  repo?: string;
+  recording?: string;
   system?: System;
 };
 
 export const caseStudies: CaseStudy[] = [
   {
-    slug: "onboarding-engine",
-    title: "Onboarding Engine",
-    org: "Independent build",
-    role: "Product design and development",
-    period: "Prototype",
-    summary:
-      "An inspectable agent workflow that turns source material into an onboarding guide, with retrieval, intermediate artifacts and sensitivity filtering.",
-    metrics: [
-      { value: "3", label: "Agent stages" },
-      { value: "Hybrid", label: "Keyword and embedding retrieval" },
-    ],
-    sections: [
-      {
-        heading: "The problem",
-        paragraphs: [
-          "An onboarding guide needs to connect scattered knowledge into a useful path for a new teammate. Generating a polished document is only part of the task: the workflow should also make it possible to inspect what was found and how the guide took shape.",
-        ],
-      },
-      {
-        heading: "The mechanism",
-        paragraphs: [
-          "The Explorer, Synthesizer and Writer stages divide discovery, structure and document creation. Intermediate artifacts include a scratchpad, an outline and a final document, so the process can be inspected before treating the output as complete.",
-          "Retrieval combines BM25 keyword matching with embeddings. Sensitivity filtering helps control what material enters the workflow. The included synthetic corpus supports demonstrations without exposing private workplace documents.",
-        ],
-      },
-      {
-        heading: "What this demonstrates",
-        paragraphs: [
-          "The project is an example of agent orchestration around a defined job, including the intermediate state that makes a multi-stage workflow easier to understand and debug.",
-          "Direct Slack, Notion and GitHub connectors remain planned work. The existing workflow uses imported material; this case study does not present those future connectors as completed integrations.",
-        ],
-      },
-    ],
-  },
-  {
     slug: "skilladder",
     title: "Skilladder Assessment Platform",
     org: "Skilladder AI",
-    role: "Lead AI Product Manager - Operations",
+    role: "Lead AI Product Manager, Operations",
     period: "May 2025 - Present",
     summary:
-      "From a spreadsheet workflow to a multi-tenant assessment platform serving a national talent cohort of 85,000+ candidates.",
+      "From a spreadsheet workflow to an AI assessment platform with about 109,000 completed attempts from roughly 48,000 candidates. I lead product and am its primary engineer.",
     url: "https://assessments.skilladder.ai",
     metrics: [
-      { value: "85,000+", label: "Candidates assessed" },
-      { value: "128", label: "Backend services built & monitored" },
+      { value: "~109,000", label: "Completed attempts" },
+      { value: "~48,000", label: "Candidates" },
+      { value: "128", label: "Backend services monitored" },
       { value: "85%", label: "Faster deployment" },
-      { value: "6", label: "Recurring enterprise clients" },
     ],
-    sections: [
-      {
-        heading: "The starting point",
-        paragraphs: [
-          "Skilladder runs skills assessments for hiring across Africa. When I joined, the assessment workflow lived in spreadsheets and manual coordination. Every engagement needed hands-on setup, results took real effort to compile, and nothing about the process could absorb a national cohort.",
-        ],
-      },
-      {
-        heading: "What I built",
-        paragraphs: [
-          "A multi-tenant assessment platform with a creator studio, AI scoring, proctoring with anti-fraud telemetry, and participant management. Around the core sit a job board, employer talent matching, and a client API with more than 60 endpoints. For the 3MTT x NJFP government program I built the full delivery pipeline, covering the test taking flow, proctoring, three synchronized grading engines, and job matching at national scale.",
-          "Reliability work came with it. I replaced fragile per message email sending with durable database-backed queues and workers, designed an in-house monitoring stack wrapping all 128 backend services with automatic error classification and an admin triage dashboard, and moved the platform behind Cloudflare without disrupting email deliverability.",
-          "Fairness shipped as a feature. Read aloud assessments with Nigerian accent voices, server enforced extended time accommodations, and a mobile fix that restored fair retakes for 1,300+ affected candidates.",
-          "I owned the full lifecycle. Research, requirements, and design, then hands on development with Cursor, Claude Code, and Codex, iterating with clients in production.",
-        ],
-      },
-      {
-        heading: "The outcome",
-        paragraphs: [
-          "The platform became the company's primary product. Deployment time dropped by 85% against the prototype process. It has served 32+ enterprise clients, including 6 recurring clients, with banks and multinationals requiring byte-exact legacy report parity. Its largest single engagement was a national talent programme that assessed a cohort of more than 85,000 candidates. New assessment product lines (Route and Skill Index) shipped under my lead, from scoring bands and retake sittings to the pricing model behind them.",
-          "Beyond the product itself, I manage OKR setting across the product organisation, aligning a cross-functional team around measurable quarterly outcomes.",
-        ],
-      },
+    problem: [
+      "Skilladder runs skills assessments for hiring across Africa. When I joined, assessments ran on spreadsheets and manual coordination. Every engagement needed hands-on setup, results took real effort to compile, and nothing about the process could absorb a national programme.",
+    ],
+    built: [
+      "A multi-tenant assessment platform, with me as its primary engineer. It covers a creator studio, AI assessment generation, grading of open-ended answers with retrieval over proprietary data, and proctoring with anti-fraud telemetry. For Nigeria's 3MTT programme I built the full delivery pipeline: the test-taking flow, proctoring, three synchronized grading engines and job matching.",
+      "Around that core sit a job board that imports jobs from PDFs, with a person reviewing each import, employer talent matching, and a client API with more than 60 endpoints and webhooks, shaped with two customer design partners.",
+      "When candidates were dropping off, I investigated and shipped an accessibility rebuild in three days, improving screen-reader support, keyboard navigation and use on low-end Android phones. Read-aloud questions with Nigerian accent voices and extended time enforced on the server sit alongside it.",
+      "Underneath, monitoring wraps all 128 backend services with automatic error classification and an admin triage dashboard, and the platform moved behind Cloudflare without disrupting email deliverability.",
+    ],
+    stack: ["React", "Vite", "Supabase", "Railway", "Cloudflare", "Claude Haiku"],
+    challenge: {
+      kind: "bug",
+      title: "Email lost during 3MTT",
+      paragraphs: [
+        "During Nigeria's 3MTT programme, results and notifications went out one email at a time, and some never arrived. At national scale, a send that fails once and is forgotten is a candidate who never hears back.",
+        "I rebuilt sending as a durable queue. Each email is written to the database first and sent by workers from there, so a failed send is retried instead of lost, and delivery no longer depends on a single attempt.",
+      ],
+    },
+    result: [
+      "The platform became the company's primary product. It has served 32+ enterprise clients, including Cowrywise, ALX, Honeywell Group and Kuda, and six of them are recurring clients. Across the platform there have been about 109,000 completed attempts from roughly 48,000 candidates.",
+      "Deployment time fell by 85% against the prototype process. AI grading, rolled out through two weeks of shadow testing with confidence scores and one-click human override, cut grading turnaround from days to hours, and moving it from Claude Sonnet to Claude Haiku cut its cost from about $30 to $8 a week.",
+      "After the accessibility rebuild, completion improved and a client recovered candidates it had lost.",
     ],
     system: {
       summary:
@@ -379,7 +322,7 @@ export const caseStudies: CaseStudy[] = [
         {
           name: "Deliver",
           detail:
-            "A client API with more than 60 endpoints and webhooks, reports with byte-exact legacy parity, and email sent from durable queues.",
+            "A client API with more than 60 endpoints and webhooks, reports with byte-exact legacy parity, and email sent from a durable queue.",
         },
       ],
       foundation:
@@ -390,8 +333,8 @@ export const caseStudies: CaseStudy[] = [
           body: "AI grading ran in shadow for two weeks before it graded on its own. Confidence scores and one-click override keep a person in control, and grading turnaround fell from days to hours.",
         },
         {
-          title: "Make delivery durable",
-          body: "Sending email message by message was fragile, so I replaced it with database-backed queues and workers. Results no longer depend on a single send succeeding.",
+          title: "Pay for the model the task needs",
+          body: "Grading moved from Claude Sonnet to Claude Haiku, cutting its cost from about $30 to $8 a week. Confidence scores and one-click override stayed in place, so a person can still catch a grade that looks wrong.",
         },
         {
           title: "Treat fairness as a feature",
@@ -411,7 +354,7 @@ export const caseStudies: CaseStudy[] = [
     role: "Founder-engineer",
     period: "Apr 2026 - Present",
     summary:
-      "A production commerce platform on WhatsApp covering payments, settlement, a hardware fleet, a merchant dashboard, and infrastructure. Built solo, from first commit to daily production traffic in under five months.",
+      "Conversational commerce on WhatsApp, with live payments, settlement and a hardware fleet. I am the sole engineer, on Kotlin and Spring Boot, and it went from first commit to daily production traffic in under five months.",
     url: "https://app.tryorderflow.com",
     metrics: [
       { value: "3", label: "Business verticals in production" },
@@ -419,26 +362,34 @@ export const caseStudies: CaseStudy[] = [
       { value: "<5 mo", label: "First commit to production traffic" },
       { value: "1", label: "Engineer, end to end" },
     ],
-    sections: [
-      {
-        heading: "The platform",
-        paragraphs: [
-          "Orderflow is conversational commerce on the Meta Cloud API and WhatsApp Flows, running three verticals in production. Food and retail ordering with catalogues synced to Meta, in chat checkout, loyalty tiers, and a tax engine. Event ticketing with pass images and QR door check in on hardware scanners with signed, audited codes. Prepaid electricity vending and vehicle papers renewal with NIN and BVN identity verification.",
-        ],
-      },
-      {
-        heading: "Payments and money",
-        paragraphs: [
-          "A pluggable payment layer behind clean provider interfaces runs real money in production. Two Nigerian providers (Rubies and Squad) with dedicated virtual accounts and instant bank transfer reconciliation, plus a ledger derived settlement engine with day cycle grouping, audit trails, and a capped processing fee model. Database migrations are delivered without downtime.",
-        ],
-      },
-      {
-        heading: "Hardware and operations",
-        paragraphs: [
-          "A production fleet of thermal receipt printers and QR scanners runs over MQTT with HTTP fallback. Station based routing, stale job resweeps, and custom receipt rendering to thermal bitmaps. Merchants operate through a Next.js dashboard with a 12 step guided onboarding, fail closed RBAC shared between frontend and backend, and TOTP device challenges for admin access.",
-          "Security is the default. Tenant scoped queries everywhere, signature verification on every webhook, amount gates on vending, and secrets that never appear in API responses. Develop auto deploys staging, main auto deploys production, and every change is verified before it moves.",
-        ],
-      },
+    problem: [
+      "Several businesses on one engine: food ordering and table booking, event ticketing, prepaid electricity and vehicle paper renewal, all sold and paid for inside WhatsApp, with real money moving every day. The hard part of a system like that is not taking a payment. It is knowing, at every moment, what state the money is in.",
+    ],
+    built: [
+      "A commerce platform on the Meta Cloud API and WhatsApp Flows, which I build and run as the sole engineer. Food and retail ordering with catalogues synced to Meta, in-chat checkout, loyalty tiers and a tax engine. Event ticketing with pass images and QR check-in at the door on hardware scanners, using signed, audited codes. Prepaid electricity vending and vehicle paper renewal with NIN and BVN identity verification.",
+      "Payments run through Rubies and Squad behind one provider interface, with dedicated virtual accounts and instant bank-transfer reconciliation. Settlement is calculated from ledger entries, grouped by day cycle, with audit trails and a capped processing fee, and a payout status checker never marks an unknown payout as failed.",
+      "Receipt printers and QR scanners run over MQTT with HTTP fallback, station-based routing and stale-job resweeps. Merchants work in a Next.js dashboard with a 12-step guided onboarding, role-based access that fails closed on both front end and back end, and TOTP challenges for admins.",
+    ],
+    stack: [
+      "Kotlin",
+      "Spring Boot",
+      "Next.js",
+      "Meta Cloud API",
+      "WhatsApp Flows",
+      "MQTT",
+      "Rubies",
+      "Squad",
+    ],
+    challenge: {
+      kind: "bug",
+      title: "One word in a webhook",
+      paragraphs: [
+        "A payment Rubies had confirmed did not register as successful. The cause was a single word: one side of the integration said “SUCCESS” and the other said “Successful”.",
+        "I fixed the match, then added HMAC signature verification, so a webhook only changes an order when its signature shows it came from Rubies.",
+      ],
+    },
+    result: [
+      "Three verticals in production, built by one engineer from first commit to daily production traffic in under five months. Real money moves through Rubies and Squad every day, every payout can be traced to the ledger entries behind it, and database migrations ship without downtime.",
     ],
     system: {
       summary:
@@ -457,7 +408,7 @@ export const caseStudies: CaseStudy[] = [
         {
           name: "Payments",
           detail:
-            "Rubies and Squad behind one provider interface, with dedicated virtual accounts and instant bank transfer reconciliation.",
+            "Rubies and Squad behind one provider interface, with dedicated virtual accounts, instant bank transfer reconciliation and signed webhooks.",
         },
         {
           name: "Ledger and settlement",
@@ -482,80 +433,75 @@ export const caseStudies: CaseStudy[] = [
           body: "Payouts are calculated from ledger entries and kept with audit trails, so each one can be traced to the transactions behind it.",
         },
         {
-          title: "Pending is not paid",
-          body: "A missing provider confirmation is not a completed transaction. The order stays pending until the payment is reconciled, and nothing is fulfilled before then.",
+          title: "Never guess the state of money",
+          body: "An order stays pending until its payment is reconciled, and the payout status checker never marks an unknown payout as failed. An unknown payout stays open until the provider confirms what happened, because one marked failed by mistake could be paid twice.",
         },
         {
           title: "Fail closed",
-          body: "Access control is shared by the dashboard and the API and denies by default. Queries are scoped to the tenant, every webhook signature is verified, vending has amount gates, and secrets never appear in API responses.",
+          body: "Access control is shared by the dashboard and the API and denies by default. Queries are scoped to the tenant, every webhook carries an HMAC signature that is verified, vending has amount gates, and secrets never appear in API responses.",
         },
       ],
     },
   },
   {
-    slug: "carbin",
-    title: "Carbin Africa",
-    org: "Devlabs Africa",
-    role: "Product Manager",
-    period: "May 2024 - May 2025",
+    slug: "onboarding-engine",
+    title: "Onboarding Engine",
+    org: "Independent build",
+    role: "Product design and development",
+    period: "Prototype",
     summary:
-      "Product strategy and roadmap for an automotive marketplace, from dealer inventory pain to #1 on Tech Cabal's 25 Startups to Watch in 2025.",
+      "An inspectable agent workflow that turns source material into an onboarding guide, with retrieval, intermediate artifacts and sensitivity filtering.",
     metrics: [
-      { value: "#1", label: "Tech Cabal's 25 Startups to Watch 2025" },
-      { value: "2-sided", label: "Dealer and buyer marketplace" },
+      { value: "3", label: "Agent stages" },
+      { value: "Hybrid", label: "Keyword and embedding retrieval" },
     ],
-    sections: [
-      {
-        heading: "The starting point",
-        paragraphs: [
-          "Carbin Africa is an automotive marketplace connecting car dealers with buyers. The core problem was on the supply side. Dealer inventory was fragmented and stale, which eroded buyer trust and repeat usage. As the consultancy PM, I owned product strategy and the roadmap.",
-        ],
-      },
-      {
-        heading: "Key decisions",
-        paragraphs: [
-          "We prioritised dealer inventory management before demand side growth, because a marketplace with unreliable listings loses both sides. I drove the inventory workflow redesign so dealers could keep listings accurate with minimal effort, and sequenced adoption work around that foundation.",
-        ],
-      },
-      {
-        heading: "The outcome",
-        paragraphs: [
-          "Platform adoption grew on both sides of the marketplace, and Carbin Africa was named #1 on Tech Cabal's 25 Startups to Watch in 2025.",
-        ],
-      },
+    problem: [
+      "An onboarding guide needs to connect scattered knowledge into a useful path for a new teammate. Generating a polished document is only part of the task: the workflow should also make it possible to inspect what was found and how the guide took shape.",
+    ],
+    built: [
+      "An agent workflow in three stages. Explorer, Synthesizer and Writer divide discovery, structure and document creation, and each leaves an intermediate artifact (a scratchpad, an outline and the final document), so the process can be inspected before the output is treated as complete.",
+      "Retrieval combines BM25 keyword matching with embeddings, and sensitivity filtering controls what material enters the workflow.",
+    ],
+    challenge: {
+      kind: "tradeoff",
+      title: "Imported material before live connectors",
+      paragraphs: [
+        "The workflow runs on imported material and an included synthetic corpus rather than live connectors, so it can be demonstrated without exposing private workplace documents. Direct Slack, Notion and GitHub connectors remain planned work, and this case study does not present them as built.",
+      ],
+    },
+    result: [
+      "A working prototype of agent orchestration around a defined job, with the intermediate state that makes a multi-stage workflow easier to understand and debug.",
     ],
   },
   {
     slug: "tellerpoint",
-    title: "Tellerpoint Collections & Mini",
+    title: "Tellerpoint",
     org: "Tellerpoint",
     role: "Product Manager",
     period: "May 2024 - Feb 2026",
     summary:
-      "Full product lifecycle for agency banking tools that let financial institutions serve underserved communities.",
+      "Product delivery for UnionDirect, Union Bank of Nigeria's agency banking platform, alongside Tellerpoint's Collections apps for revenue collection and Tellerpoint Mini.",
     metrics: [
+      { value: "16", label: "Security findings closed with Union Bank" },
       { value: "2", label: "Products shipped end to end" },
-      { value: "Weekly", label: "Sprint and research cadence" },
     ],
-    sections: [
-      {
-        heading: "The starting point",
-        paragraphs: [
-          "Tellerpoint is an agency banking platform. It gives financial institutions the rails to deliver services in communities banks do not reach. I owned the Collections Mobile and Web Apps and later delivered Tellerpoint Mini end to end.",
-        ],
-      },
-      {
-        heading: "How I worked",
-        paragraphs: [
-          "I ran the full lifecycle. Strategy, roadmap, and delivery through agile sprints with weekly syncs. Extensive user interviews with agents and institutions fed directly into prioritised feature work, and cross-functional coordination kept engineering, operations, and partner institutions aligned.",
-        ],
-      },
-      {
-        heading: "The outcome",
-        paragraphs: [
-          "Collections shipped as both mobile and web apps, Tellerpoint Mini went from concept to delivery under my ownership, and the interview-driven roadmap measurably improved feature adoption across the agent network.",
-        ],
-      },
+    problem: [
+      "Agency banking lets a bank serve customers through agents, in places its branches do not reach. UnionDirect is Union Bank of Nigeria's agency banking platform, spanning agent mobile apps, a terminal app and an admin dashboard. The work had to meet a bank's security and compliance bar without stalling the roadmap.",
+    ],
+    builtHeading: "What I delivered",
+    built: [
+      "I managed product delivery for UnionDirect across its agent mobile apps, terminal app and admin dashboard, without writing the code myself. I also owned the Collections mobile and web apps, which handle revenue collection, and took Tellerpoint Mini from concept to delivery.",
+      "I ran the lifecycle through weekly syncs and sprint rituals. Interviews with agents and institutions fed straight into prioritised feature work, and I coordinated PCI DSS attestation documentation and NDPA compliance work alongside delivery.",
+    ],
+    challenge: {
+      kind: "tradeoff",
+      title: "Security fixes against a quarterly plan",
+      paragraphs: [
+        "Sixteen vulnerability findings had to be triaged and closed with Union Bank's information security team, without derailing the delivery planned for the quarter. I partnered with that team to close all sixteen while the quarter's delivery stayed on track.",
+      ],
+    },
+    result: [
+      "All sixteen findings were closed with quarterly delivery on track. Collections shipped as both mobile and web apps, Tellerpoint Mini went from concept to delivery, and the interview-driven roadmap measurably improved feature adoption across the agent network.",
     ],
   },
 ];

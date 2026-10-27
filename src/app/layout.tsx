@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Manrope, Unbounded, JetBrains_Mono } from "next/font/google";
+import { Manrope, Unbounded } from "next/font/google";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import MotionRoot from "@/components/motion/MotionRoot";
@@ -22,13 +22,6 @@ const instrumentSerif = Unbounded({
   variable: "--font-instrument-serif",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  display: "swap",
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono",
-  subsets: ["latin"],
-  weight: ["400", "500"],
   display: "swap",
 });
 
@@ -82,7 +75,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${dmSans.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable}`}
+      className={`${dmSans.variable} ${instrumentSerif.variable}`}
       // Lets Next.js jump to the top of a new page instead of smooth-scrolling
       // there; anchor links on a page still scroll smoothly.
       data-scroll-behavior="smooth"

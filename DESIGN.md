@@ -103,7 +103,7 @@ The palette moves between ink-black reading space, acid-yellow emphasis and comm
 
 ## Typography
 
-Unbounded supplies the broad, architectural display voice. Manrope carries body copy, controls, metadata and navigation. JetBrains Mono is loaded as a supporting legacy utility, not the defining display or label voice.
+Unbounded supplies the broad, architectural display voice. Manrope carries body copy, controls, metadata and navigation.
 
 The CSS variables `--font-dm-sans` and `--font-instrument-serif` are legacy aliases for **Manrope** and **Unbounded**, respectively. `--font-sans` and `--font-serif` inherit those mappings. The names do not identify the fonts rendered by this build.
 

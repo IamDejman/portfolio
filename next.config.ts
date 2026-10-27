@@ -12,6 +12,16 @@ const nextConfig: NextConfig = {
     // leave broken images; serve originals in dev, optimize in production.
     unoptimized: process.env.NODE_ENV === "development",
   },
+  async redirects() {
+    return [
+      // Carbin's case study folded into the Work page's earlier product roles.
+      {
+        source: "/work/carbin",
+        destination: "/work#earlier-roles",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

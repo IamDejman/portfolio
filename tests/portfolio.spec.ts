@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 
-const routes = ['/', '/work', '/about', '/skills', '/notes', '/contact', '/privacy', '/work/skilladder', '/work/orderflow', '/work/onboarding-engine', '/work/carbin', '/work/tellerpoint', '/notes/letting-ai-grade-carefully', '/notes/pending-is-not-paid', '/notes/reliability-nobody-asks-for'];
+const routes = ['/', '/work', '/about', '/skills', '/notes', '/contact', '/privacy', '/work/skilladder', '/work/orderflow', '/work/onboarding-engine', '/work/tellerpoint', '/notes/letting-ai-grade-carefully', '/notes/pending-is-not-paid', '/notes/reliability-nobody-asks-for'];
 for (const route of routes) {
   test(`${route} fits the viewport`, async ({ page }) => {
     const errors: string[] = [];
@@ -23,7 +23,7 @@ test('project descriptions share a column and case study navigation works', asyn
   await expect(page).toHaveURL(/\/work\/skilladder$/);
 });
 
-test('navigation and filters remain usable', async ({ page }) => {
+test('navigation reaches a Work page that leads with built products', async ({ page }) => {
   await page.goto('/');
   const menu = page.getByRole('button', { name: 'Menu', exact: true });
   if (await menu.isVisible()) {
@@ -34,10 +34,39 @@ test('navigation and filters remain usable', async ({ page }) => {
     await page.getByRole('navigation', { name: 'Main', exact: true }).getByRole('link', { name: 'Work', exact: true }).click();
   }
   await expect(page).toHaveURL(/\/work$/);
-  await page.getByRole('button', { name: 'Product leadership', exact: true }).click();
-  await expect(page.locator('.work-index-list').getByRole('heading', { name: 'Hotel California' })).toHaveCount(0);
-  await page.getByRole('button', { name: 'Built', exact: true }).click();
+  const groups = await page.locator('main h2').allTextContents();
+  expect(groups.map((g) => g.replace(/\s+/g, ' ').trim())).toEqual([
+    'Products I built.',
+    'More case studies.',
+    'Earlier product roles.',
+    'Other builds and experiments.',
+  ]);
+  // The first two products are named by their logos, so check accessible names.
+  const built = page.getByRole('region', { name: 'Products I built.' }).getByRole('heading', { level: 3 });
+  const products = ['Skilladder', 'Orderflow', 'GRWTEE', 'Banyan Claims', 'Harvesters Workers System'];
+  await expect(built).toHaveCount(products.length);
+  for (const [i, name] of products.entries()) await expect(built.nth(i)).toHaveAccessibleName(name);
+  await expect(page.getByRole('region', { name: 'Earlier product roles.' }).getByRole('heading', { level: 3 })).toHaveText(['Carbin Africa', 'GPS', 'Switch Recycling', 'BetaCare']);
   await expect(page.locator('.work-index-list').getByRole('heading', { name: 'Hotel California' })).toBeVisible();
+});
+
+test('every case study tells its story in the same order', async ({ page }) => {
+  const order = ['The problem', /^What I (built|delivered)$/, 'The stack', /^The (hard bug|tradeoff)$/, 'The result', 'See it'];
+  for (const slug of ['skilladder', 'orderflow', 'onboarding-engine', 'tellerpoint']) {
+    await page.goto(`/work/${slug}`);
+    const headings = (await page.locator('.case-prose > section > h2').allTextContents()).map((h) => h.replace(/^\d+/, ''));
+    // Parts may be left out, but those present keep the shared order.
+    const positions = headings.map((h) => order.findIndex((o) => (typeof o === 'string' ? o === h : o.test(h))));
+    expect(positions, `${slug}: ${headings.join(', ')}`).not.toContain(-1);
+    expect(positions, `${slug}: ${headings.join(', ')}`).toEqual([...positions].sort((a, b) => a - b));
+    expect(headings.slice(0, 2)).toEqual(['The problem', expect.stringMatching(/^What I/)]);
+  }
+});
+
+test('the folded Carbin case study redirects to earlier product roles', async ({ page }) => {
+  await page.goto('/work/carbin');
+  await expect(page).toHaveURL(/\/work#earlier-roles$/);
+  await expect(page.getByRole('heading', { name: 'Carbin Africa' })).toBeVisible();
 });
 
 test('sculpture rotates on drag and stays still with reduced motion', async ({ page }) => {

@@ -2,10 +2,11 @@
 import { useEffect, useRef } from "react";
 import { motionOn } from "./state";
 
-/* Counts a figure such as "85,000+", "85%" or "<5 mo" up from zero as it
+/* Counts a figure such as "~109,000", "85%" or "<5 mo" up from zero as it
    comes into view. The final value is rendered on the server and kept for
-   assistive technology; counting only starts while the figure is still
-   hidden by its entrance or reveal, so a visible number never jumps. */
+   assistive technology, which hears a leading "~" as "about"; counting only
+   starts while the figure is still hidden by its entrance or reveal, so a
+   visible number never jumps. */
 export default function CountUp({ value }: { value: string }) {
   const display = useRef<HTMLSpanElement>(null);
 
@@ -43,7 +44,7 @@ export default function CountUp({ value }: { value: string }) {
 
   return (
     <>
-      <span className="sr-only">{value}</span>
+      <span className="sr-only">{value.replace(/^~/, "about ")}</span>
       <span aria-hidden="true" ref={display}>
         {value}
       </span>

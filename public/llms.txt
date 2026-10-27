@@ -4,31 +4,38 @@
 
 Key facts:
 
-- Lead AI Product Manager - Operations at Skilladder AI, since May 2025. The assessment platform has served 32+ enterprise clients, including six recurring clients (confirmed by Ayodeji, October 2026).
-- Previously Product Manager at Tellerpoint (May 2024 - February 2026), Devlabs Africa and Switch Recycling.
+- Lead AI Product Manager, Operations at Skilladder AI, since May 2025, and primary engineer on its AI assessment platform. The platform has handled about 109,000 completed attempts from roughly 48,000 candidates and served 32+ enterprise clients, including six recurring clients (confirmed by Ayodeji, October 2026).
+- Sole engineer on Orderflow, a WhatsApp commerce platform on Kotlin and Spring Boot.
+- Previously Product Manager at Tellerpoint (May 2024 - February 2026), delivering UnionDirect, Union Bank of Nigeria's agency banking platform, alongside the Collections apps for revenue collection. Before that, Product Manager, Consultancy at Devlabs Africa and Product Manager at Switch Recycling.
 - Work spans assessment systems, WhatsApp commerce, agent orchestration, client platforms and independent experiments. Product leadership contributions are distinguished from hands-on builds.
 - AI development tools include Cursor, Claude Code, Codex and Gemini.
 - Education: Bachelor of Laws, Lagos State University.
 
 ## Selected work
 
-- [Skilladder](https://ayodejieluwande.vercel.app/work/skilladder): Assessment design, rubric-based grading, review and delivery. Includes a labelled synthetic walkthrough.
-- [Orderflow](https://ayodejieluwande.vercel.app/work/orderflow): Shared commerce infrastructure across business workflows. Includes an illustrative payment-state diagram; no live payment is made.
+Each case study follows the same order: the problem, what was built, the stack, one hard bug or tradeoff, the result, and where to see it.
+
+- [Skilladder](https://ayodejieluwande.vercel.app/work/skilladder): Engineering case study of the AI assessment platform. The hard bug: email lost during Nigeria's 3MTT programme, rebuilt as a durable queue. Includes a labelled synthetic walkthrough.
+- [Orderflow](https://ayodejieluwande.vercel.app/work/orderflow): Engineering case study of WhatsApp commerce with live payments and ledger settlement. The hard bug: a Rubies webhook status mismatch, followed by HMAC signature verification. Includes an illustrative payment-state diagram; no live payment is made.
+- [GRWTEE](https://grwtee.com): AI styling app for iOS, shipped through TestFlight.
+- [Banyan Claims](https://banyanclaims.com): Public website and customer claims portal for a claims support consultancy.
+- [Harvesters Workers System](https://attendance.hiccgbagada.com): Workforce platform with role-based access, messaging, training certificates and event registration.
 - [Onboarding Engine](https://ayodejieluwande.vercel.app/work/onboarding-engine): Explorer, Synthesizer and Writer stages, with inspectable synthetic artifacts. Direct Slack, Notion and GitHub connectors remain planned.
+- [Tellerpoint](https://ayodejieluwande.vercel.app/work/tellerpoint): Product delivery for UnionDirect and the Collections apps, including 16 security findings closed with Union Bank's information security team.
 - [Football Ladder](https://footballadder.com/): AWS-hosted early-access website for a football career simulation.
 - [Hotel California](https://github.com/IamDejman/hotel-california): Browser-agent prototype source. The portfolio does not present a completed recorded run or a leaderboard score.
 
 ## Notes
 
 - [Letting AI grade, carefully](https://ayodejieluwande.vercel.app/notes/letting-ai-grade-carefully): How AI grading at Skilladder earned its place through rubrics, two weeks of shadow testing, confidence scores and one-click override.
-- [Pending is not paid](https://ayodejieluwande.vercel.app/notes/pending-is-not-paid): Orderflow's payment layer, with one interface for every provider and settlement from the ledger.
+- [Pending is not paid](https://ayodejieluwande.vercel.app/notes/pending-is-not-paid): Orderflow's payment layer, with one interface for every provider, settlement from the ledger, unknown payouts never marked failed, and signed webhooks.
 - [The reliability work nobody asks for](https://ayodejieluwande.vercel.app/notes/reliability-nobody-asks-for): Durable queues, monitoring across 128 services and fair access at national scale.
 
 ## Pages
 
 - [Home](https://ayodejieluwande.vercel.app/): Interactive project discovery and selected work
 - [About](https://ayodejieluwande.vercel.app/about): Background, experience, education and certifications
-- [Work](https://ayodejieluwande.vercel.app/work): Builds and product leadership contributions
+- [Work](https://ayodejieluwande.vercel.app/work): Products built first, then case studies, earlier product roles and other builds
 - [Skills](https://ayodejieluwande.vercel.app/skills): Capabilities linked to project evidence
 - [Notes](https://ayodejieluwande.vercel.app/notes): Short technical notes from real projects
 - [Contact](https://ayodejieluwande.vercel.app/contact): Email, social links and CV

@@ -21,7 +21,7 @@ export const siteConfig = {
 
 export const currentRoles = [
   {
-    title: "Lead AI Product Manager, Operations",
+    title: "AI Product Engineer",
     org: "Skilladder AI",
     period: "May 2025 - Present",
   },
@@ -261,7 +261,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "skilladder",
     title: "Skilladder Assessment Platform",
     org: "Skilladder AI",
-    role: "Lead AI Product Manager, Operations",
+    role: "AI Product Engineer",
     period: "May 2025 - Present",
     summary:
       "From a spreadsheet workflow to an AI assessment platform with about 109,000 completed attempts from roughly 48,000 candidates. I lead product and am its primary engineer.",

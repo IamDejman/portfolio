@@ -16,7 +16,7 @@ Demonstrate advanced AI tooling practice through inspectable work and a distinct
 
 ## Positioning
 
-An AI product engineer whose work spans agent orchestration, assessments, business workflows, operational systems and customer-facing products. Ayodeji chose this title on 26 October 2026; employment titles such as Lead AI Product Manager, Operations stay exactly as held, matching the CV. Describe specific contributions; repository access or ownership alone does not establish sole authorship.
+An AI product engineer whose work spans agent orchestration, assessments, business workflows, operational systems and customer-facing products. Ayodeji chose this title on 26 October 2026, and on 3 November 2026 chose to show his Skilladder AI role as AI Product Engineer, matching the CV. Never say Skilladder gave him that title or promoted him to it. Other employment titles stay exactly as held. Describe specific contributions; repository access or ownership alone does not establish sole authorship.
 
 ## Operating Context
 
@@ -26,7 +26,9 @@ Visitors may have seconds to scan or several minutes to inspect a project. Work,
 
 - Existing Next.js, React, TypeScript and Tailwind application, with Home, Work, project detail, About, Skills, Contact and Privacy routes.
 - Existing public identity, contact details, CV and project URLs are in `src/data/content.ts`.
-- User confirmed Skilladder started May 2025 and Tellerpoint ended February 2026 (updated 26 October 2026 to match the CV).
+- User confirmed Skilladder started May 2025. Tellerpoint ended March 2026, matching the CV (Ayodeji's decision on 3 November 2026, replacing the February 2026 date recorded on 26 October).
+- When Ayodeji joined Skilladder it had a proof of concept and had run a 3MTT pilot, with the product itself at the idea stage. He led it from proof of concept to production.
+- Orderflow is a Tellerpoint project Ayodeji consults on as sole engineer since April 2026, at production-pilot scale. Never call it his own company or an independent build, and never state volumes (his decision, 3 November 2026).
 - User confirmed Skilladder has served 32+ enterprise clients, including six recurring clients (updated 26 October 2026 to match the CV). These are scoped, user-confirmed business outcomes rather than independently audited metrics.
 - GitHub and LinkedIn read access are available. Raw research and private source samples are outside this public repository.
 - Source-verified implementation, user-confirmed outcomes, recorded demonstrations and prototypes must remain distinguishable.

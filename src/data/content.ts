@@ -21,7 +21,7 @@ export const siteConfig = {
 
 export const currentRoles = [
   {
-    title: "Lead AI Product Manager, Operations",
+    title: "AI Product Engineer",
     org: "Skilladder AI",
     period: "May 2025 - Present",
   },
@@ -46,7 +46,7 @@ export const pastRoles = [
   {
     title: "Product Manager",
     org: "Tellerpoint",
-    period: "May 2024 - Feb 2026",
+    period: "May 2024 - Mar 2026",
   },
   {
     title: "Product Manager, Consultancy",
@@ -261,10 +261,10 @@ export const caseStudies: CaseStudy[] = [
     slug: "skilladder",
     title: "Skilladder Assessment Platform",
     org: "Skilladder AI",
-    role: "Lead AI Product Manager, Operations",
+    role: "AI Product Engineer",
     period: "May 2025 - Present",
     summary:
-      "From a spreadsheet workflow to an AI assessment platform with about 109,000 completed attempts from roughly 48,000 candidates. I lead product and am its primary engineer.",
+      "From a proof of concept to a production AI assessment platform with about 109,000 completed attempts from roughly 48,000 candidates. I lead product and am its primary engineer.",
     url: "https://assessments.skilladder.ai",
     metrics: [
       { value: "~109,000", label: "Completed attempts" },
@@ -273,7 +273,7 @@ export const caseStudies: CaseStudy[] = [
       { value: "85%", label: "Faster deployment" },
     ],
     problem: [
-      "Skilladder runs skills assessments for hiring across Africa. When I joined, assessments ran on spreadsheets and manual coordination. Every engagement needed hands-on setup, results took real effort to compile, and nothing about the process could absorb a national programme.",
+      "Skilladder runs skills assessments for hiring across Africa. When I joined, it had a proof of concept and had run a pilot for Nigeria's 3MTT programme, but the product itself was still at the idea stage. Every engagement needed hands-on setup, results took real effort to compile, and nothing about the process could absorb a national programme.",
     ],
     built: [
       "A multi-tenant assessment platform, with me as its primary engineer. It covers a creator studio, AI assessment generation, grading of open-ended answers with retrieval over proprietary data, and proctoring with anti-fraud telemetry. For Nigeria's 3MTT programme I built the full delivery pipeline: the test-taking flow, proctoring, three synchronized grading engines and job matching.",
@@ -338,7 +338,7 @@ export const caseStudies: CaseStudy[] = [
         },
         {
           title: "Treat fairness as a feature",
-          body: "Read-aloud assessments with Nigerian accent voices, extended time enforced on the server rather than in the browser, and a mobile fix that restored fair retakes for 1,300+ affected candidates.",
+          body: "Read-aloud assessments with Nigerian accent voices, and extended time enforced on the server rather than in the browser.",
         },
         {
           title: "Design the API with its users",
@@ -350,20 +350,20 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "orderflow",
     title: "Orderflow",
-    org: "Independent build",
-    role: "Founder-engineer",
+    org: "Tellerpoint consulting",
+    role: "Sole engineer",
     period: "Apr 2026 - Present",
     summary:
-      "Conversational commerce on WhatsApp, with live payments, settlement and a hardware fleet. I am the sole engineer, on Kotlin and Spring Boot, and it went from first commit to daily production traffic in under five months.",
+      "Conversational commerce on WhatsApp, with live payments, settlement and a hardware fleet. I am the sole engineer, on Kotlin and Spring Boot, and it went from first commit to a production pilot in under five months.",
     url: "https://app.tryorderflow.com",
     metrics: [
       { value: "3", label: "Business verticals in production" },
       { value: "2", label: "Payment providers integrated" },
-      { value: "<5 mo", label: "First commit to production traffic" },
+      { value: "<5 mo", label: "First commit to production pilot" },
       { value: "1", label: "Engineer, end to end" },
     ],
     problem: [
-      "Several businesses on one engine: food ordering and table booking, event ticketing, prepaid electricity and vehicle paper renewal, all sold and paid for inside WhatsApp, with real money moving every day. The hard part of a system like that is not taking a payment. It is knowing, at every moment, what state the money is in.",
+      "Several businesses on one engine: food ordering and table booking, event ticketing, prepaid electricity and vehicle paper renewal, all sold and paid for inside WhatsApp, with real money moving in a production pilot. The hard part of a system like that is not taking a payment. It is knowing, at every moment, what state the money is in.",
     ],
     built: [
       "A commerce platform on the Meta Cloud API and WhatsApp Flows, which I build and run as the sole engineer. Food and retail ordering with catalogues synced to Meta, in-chat checkout, loyalty tiers and a tax engine. Event ticketing with pass images and QR check-in at the door on hardware scanners, using signed, audited codes. Prepaid electricity vending and vehicle paper renewal with NIN and BVN identity verification.",
@@ -389,7 +389,7 @@ export const caseStudies: CaseStudy[] = [
       ],
     },
     result: [
-      "Three verticals in production, built by one engineer from first commit to daily production traffic in under five months. Real money moves through Rubies and Squad every day, every payout can be traced to the ledger entries behind it, and database migrations ship without downtime.",
+      "Three verticals in a production pilot, built by one engineer in under five months from the first commit. Real money moves through Rubies and Squad, every payout can be traced to the ledger entries behind it, and database migrations ship without downtime.",
     ],
     system: {
       summary:
@@ -478,7 +478,7 @@ export const caseStudies: CaseStudy[] = [
     title: "Tellerpoint",
     org: "Tellerpoint",
     role: "Product Manager",
-    period: "May 2024 - Feb 2026",
+    period: "May 2024 - Mar 2026",
     summary:
       "Product delivery for UnionDirect, Union Bank of Nigeria's agency banking platform, alongside Tellerpoint's Collections apps for revenue collection and Tellerpoint Mini.",
     metrics: [

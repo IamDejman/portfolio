@@ -69,7 +69,7 @@ export const notes: Note[] = [
     sections: [
       {
         paragraphs: [
-          "Orderflow runs food orders, event tickets and utility payments through one shared engine on WhatsApp, and real money moves through it every day. The difficult part of the payment layer was not taking a payment. It was knowing, at every moment, what state the money was actually in.",
+          "Orderflow runs food orders, event tickets and utility payments through one shared engine on WhatsApp, and real money moves through it in a production pilot. The difficult part of the payment layer was not taking a payment. It was knowing, at every moment, what state the money was actually in.",
         ],
       },
       {
@@ -146,7 +146,7 @@ export const notes: Note[] = [
       {
         heading: "Fairness is reliability too",
         paragraphs: [
-          "A platform is not dependable if it fails particular candidates. When candidates were dropping off, an accessibility rebuild shipped in three days improved screen-reader support, keyboard navigation and use on low-end Android phones, and completion improved. A mobile fix restored fair retakes for 1,300+ affected candidates, read-aloud assessments use Nigerian accent voices, and extended time accommodations are enforced on the server so they hold on any device.",
+          "A platform is not dependable if it fails particular candidates. When candidates were dropping off, an accessibility rebuild shipped in three days improved screen-reader support, keyboard navigation and use on low-end Android phones, and completion improved. Read-aloud assessments use Nigerian accent voices, and extended time accommodations are enforced on the server so they hold on any device.",
           "None of this shows up in a screenshot. All of it shows up when a national cohort relies on the platform.",
         ],
       },

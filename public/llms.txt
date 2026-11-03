@@ -5,8 +5,8 @@
 Key facts:
 
 - AI Product Engineer at Skilladder AI, since May 2025, and primary engineer on its AI assessment platform. The platform has handled about 109,000 completed attempts from roughly 48,000 candidates and served 32+ enterprise clients, including six recurring clients (confirmed by Ayodeji, October 2026).
-- Sole engineer on Orderflow, a WhatsApp commerce platform on Kotlin and Spring Boot.
-- Previously Product Manager at Tellerpoint (May 2024 - February 2026), delivering UnionDirect, Union Bank of Nigeria's agency banking platform, alongside the Collections apps for revenue collection. Before that, Product Manager, Consultancy at Devlabs Africa and Product Manager at Switch Recycling.
+- Sole engineer on Orderflow, a WhatsApp commerce platform on Kotlin and Spring Boot, consulting for Tellerpoint since April 2026.
+- Previously Product Manager at Tellerpoint (May 2024 - March 2026), delivering UnionDirect, Union Bank of Nigeria's agency banking platform, alongside the Collections apps for revenue collection. Before that, Product Manager, Consultancy at Devlabs Africa and Product Manager at Switch Recycling.
 - Work spans assessment systems, WhatsApp commerce, agent orchestration, client platforms and independent experiments. Product leadership contributions are distinguished from hands-on builds.
 - AI development tools include Cursor, Claude Code, Codex and Gemini.
 - Education: Bachelor of Laws, Lagos State University.

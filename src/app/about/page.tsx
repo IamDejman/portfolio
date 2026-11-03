@@ -55,10 +55,10 @@ export default function AboutPage() {
             clients, including six recurring clients.
           </p>
           <p data-enter style={enter(7)}>
-            On my own, I built Orderflow, a WhatsApp commerce platform with live
-            payments, ledger-based settlement and a fleet of receipt printers
-            and scanners. It went from first commit to daily production traffic
-            in under five months.
+            As a consultant for Tellerpoint, I am the sole engineer on Orderflow,
+            a WhatsApp commerce platform with live payments, ledger-based
+            settlement and a fleet of receipt printers and scanners. It went
+            from first commit to a production pilot in under five months.
           </p>
           <p data-enter style={enter(8)}>
             Product is where I started, and it is still part of every week.

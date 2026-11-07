@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Manrope, Unbounded } from "next/font/google";
+import localFont from "next/font/local";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import MotionRoot from "@/components/motion/MotionRoot";
@@ -12,16 +12,19 @@ import { motionScript } from "@/components/motion/script";
 import { siteConfig } from "@/data/content";
 import "./globals.css";
 
-const dmSans = Manrope({
+// Self-hosted latin variable fonts (from Fontsource, OFL) so builds never
+// fetch from Google Fonts.
+const dmSans = localFont({
+  src: "../fonts/manrope-latin-wght.woff2",
   variable: "--font-dm-sans",
-  subsets: ["latin"],
+  weight: "200 800",
   display: "swap",
 });
 
-const instrumentSerif = Unbounded({
+const instrumentSerif = localFont({
+  src: "../fonts/unbounded-latin-wght.woff2",
   variable: "--font-instrument-serif",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: "200 900",
   display: "swap",
 });
 

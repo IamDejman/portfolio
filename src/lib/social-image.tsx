@@ -1,19 +1,12 @@
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import { ImageResponse } from "next/og";
 
 export async function socialImage(title: string, subtitle: string) {
-  const text = `${title}${subtitle}Ayodeji Eluwandeayodejieluwande.vercel.app`;
-  const css = await (
-    await fetch(
-      `https://fonts.googleapis.com/css2?family=Unbounded:wght@500&text=${encodeURIComponent(text)}`,
-    )
-  ).text();
-  const resource = css.match(
-    /src: url\((.+?)\) format\('(opentype|truetype)'\)/,
+  // Static WOFF because the image renderer cannot read WOFF2 or variable fonts.
+  const data = await readFile(
+    join(process.cwd(), "src/fonts/unbounded-latin-500.woff"),
   );
-  if (!resource) throw new Error("Could not resolve social image font");
-  const response = await fetch(resource[1]);
-  if (!response.ok) throw new Error("Could not load social image font");
-  const data = await response.arrayBuffer();
   return new ImageResponse(
     <div
       style={{
